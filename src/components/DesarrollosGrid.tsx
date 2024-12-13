@@ -66,10 +66,10 @@ const SectionGridFeaturePlaces: FC<SectionGridFeaturePlacesProps> = ({
 
   return (
     <div className="nc-SectionGridFeaturePlaces relative">
-      <div className="mb-4">
+      {/*<div className="mb-4">
         <h2 className="text-2xl font-semibold">{heading}</h2>
         <p className="text-gray-500">{subHeading}</p>
-      </div>
+      </div>*/}
       {renderTabs()}
       <div
         className={`grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ${gridClass}`}
@@ -77,7 +77,7 @@ const SectionGridFeaturePlaces: FC<SectionGridFeaturePlacesProps> = ({
         {filteredListings.map((stay) => renderCard(stay))}
       </div>
       <div className="flex mt-16 justify-center items-center">
-        <ButtonPrimary loading>Muestrame más.</ButtonPrimary>
+        {/*<ButtonPrimary loading>Muestrame más.</ButtonPrimary>*/}
       </div>
     </div>
   );
