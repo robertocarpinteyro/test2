@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC, Fragment, useState } from "react";
+import React, { FC, Fragment, useState, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { ArrowRightIcon, Squares2X2Icon } from "@heroicons/react/24/outline";
 import CommentListing from "@/components/CommentListing";
@@ -26,6 +26,54 @@ export interface ListingStayDetailPageProps {}
 
 const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
   //
+ 
+  {/*useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Limpiar cookies relacionadas
+      document.cookie.split(";").forEach((cookie) => {
+        const eqPos = cookie.indexOf("=");
+        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+      });
+
+      // Limpieza de localStorage y sessionStorage
+      localStorage.clear();
+      sessionStorage.clear();
+
+      // Capturar query string desde el cliente
+      const urlParams = new URLSearchParams(window.location.search);
+      const selectedOption = urlParams.get("option") || "niddia"; // Valor predeterminado
+
+      console.log("optionVariable", selectedOption);
+
+      // Configurar MindStudioSettings con el valor capturado
+      (window as any).MindStudioSettings = {
+        publicToken: "pkd281a1076c773e9bd767063d6d923a5d",
+        appId: "52b9bb60-13d4-45f2-93a0-bedc2ec9f07e",
+        targetId: "mindstudio-frame",
+        debugging: true,
+        options: {
+          autoFocus: true,
+          disableThreads: false,
+          minimizeThreadPanel: true,
+          launchVariables: {
+            option: selectedOption, // Pasa el valor de la query string
+          },
+        },
+      };
+
+      // Insertar el script del embeding
+      const script = document.createElement("script");
+      script.src = "https://api.mindstudio.ai/v1/embed.js";
+      script.async = false;
+      document.body.appendChild(script);
+
+      // Limpieza del script al desmontar el componente
+      return () => {
+        document.body.removeChild(script);
+      };
+    }
+  }, []); // No necesita dependencia, ya que `window.location` es global*/}
 
   let [isOpenModalAmenities, setIsOpenModalAmenities] = useState(false);
 
@@ -49,26 +97,26 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
       <div className="listingSection__wrap !space-y-6">
         {/* 1 */}
         <div className="flex justify-between items-center">
-          <Badge name="Wooden house" />
+          <Badge name="Departamentos de lujo" />
           <LikeSaveBtns />
         </div>
 
         {/* 2 */}
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
-          Beach House in Collingwood
+          Sky View
         </h2>
 
         {/* 3 */}
         <div className="flex items-center space-x-4">
-          <StartRating />
+          {/* <StartRating /> */}
           <span>·</span>
           <span>
             <i className="las la-map-marker-alt"></i>
-            <span className="ml-1"> Tokyo, Jappan</span>
+            <span className="ml-1"> Bosque Real</span>
           </span>
         </div>
 
-        {/* 4 */}
+        {/* 4 
         <div className="flex items-center">
           <Avatar hasChecked sizeClass="h-10 w-10" radius="rounded-full" />
           <span className="ml-2.5 text-neutral-500 dark:text-neutral-400">
@@ -77,12 +125,12 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
               Kevin Francis
             </span>
           </span>
-        </div>
+        </div>*/}
 
         {/* 5 */}
         <div className="w-full border-b border-neutral-100 dark:border-neutral-700" />
 
-        {/* 6 */}
+        {/* 6 
         <div className="flex items-center justify-between xl:justify-start space-x-8 xl:space-x-12 text-sm text-neutral-700 dark:text-neutral-300">
           <div className="flex items-center space-x-3 ">
             <i className=" las la-user text-2xl "></i>
@@ -108,7 +156,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
               2 <span className="hidden sm:inline-block">bedrooms</span>
             </span>
           </div>
-        </div>
+        </div>*/}
       </div>
     );
   };
@@ -116,25 +164,15 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
   const renderSection2 = () => {
     return (
       <div className="listingSection__wrap">
-        <h2 className="text-2xl font-semibold">Stay information</h2>
+        <h2 className="text-2xl font-semibold">Información</h2>
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         <div className="text-neutral-6000 dark:text-neutral-300">
           <span>
-            Providing lake views, The Symphony 9 Tam Coc in Ninh Binh provides
-            accommodation, an outdoor swimming pool, a bar, a shared lounge, a
-            garden and barbecue facilities. Complimentary WiFi is provided.
-          </span>
-          <br />
-          <br />
-          <span>
-            There is a private bathroom with bidet in all units, along with a
-            hairdryer and free toiletries.
-          </span>
-          <br /> <br />
-          <span>
-            The Symphony 9 Tam Coc offers a terrace. Both a bicycle rental
-            service and a car rental service are available at the accommodation,
-            while cycling can be enjoyed nearby.
+            Sky View redefine la vida en la ciudad al combinar la tranquilidad
+            con la modernidad. Este desarrollo residencial destaca por su
+            arquitectura contemporánea, pensada para ofrecer lujo, seguridad y
+            confort. Las impresionantes terrazas proporcionan vistas
+            extraordinarias al campo de golf y un panorama urbano espectacular.
           </span>
         </div>
       </div>
@@ -145,9 +183,9 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
     return (
       <div className="listingSection__wrap">
         <div>
-          <h2 className="text-2xl font-semibold">Amenities </h2>
+          <h2 className="text-2xl font-semibold">Amenidades </h2>
           <span className="block mt-2 text-neutral-500 dark:text-neutral-400">
-            {` About the property's amenities and services`}
+            {``}
           </span>
         </div>
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
@@ -161,13 +199,13 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           ))}
         </div>
 
-        {/* ----- */}
+        {/* ----- 
         <div className="w-14 border-b border-neutral-200"></div>
         <div>
           <ButtonSecondary onClick={openModalAmenities}>
             View more 20 amenities
           </ButtonSecondary>
-        </div>
+        </div>*/}
         {renderMotalAmenities()}
       </div>
     );
@@ -217,7 +255,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
                       className="text-lg font-medium leading-6 text-gray-900"
                       id="headlessui-dialog-title-70"
                     >
-                      Amenities
+                      Amenidades
                     </h3>
                     <span className="absolute left-3 top-3">
                       <ButtonClose onClick={closeModalAmenities} />
@@ -247,16 +285,17 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
 
   const renderSection4 = () => {
     return (
-      <div className="listingSection__wrap">
-        {/* HEADING */}
+      <div className="">
+        {/* HEADING listingSection__wrap
+          <div className="listingSection__wrap">
         <div>
           <h2 className="text-2xl font-semibold">Room Rates </h2>
           <span className="block mt-2 text-neutral-500 dark:text-neutral-400">
             Prices may increase on weekends or holidays
           </span>
         </div>
-        <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
-        {/* CONTENT */}
+        <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>*/}
+        {/* CONTENT 
         <div className="flow-root">
           <div className="text-sm sm:text-base text-neutral-6000 dark:text-neutral-300 -mb-4">
             <div className="p-4 bg-neutral-100 dark:bg-neutral-800 flex justify-between items-center space-x-4 rounded-lg">
@@ -284,7 +323,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
               <span>90 nights</span>
             </div>
           </div>
-        </div>
+        </div>*/}
       </div>
     );
   };
@@ -382,7 +421,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         {/* == */}
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         <div>
-          <ButtonSecondary href="/author">See host profile</ButtonSecondary>
+       
         </div>
       </div>
     );
@@ -433,9 +472,9 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
       <div className="listingSection__wrap">
         {/* HEADING */}
         <div>
-          <h2 className="text-2xl font-semibold">Location</h2>
+          <h2 className="text-2xl font-semibold">Úbicación</h2>
           <span className="block mt-2 text-neutral-500 dark:text-neutral-400">
-            San Diego, CA, United States of America (SAN-San Diego Intl.)
+            Bosque Real, Bosque Real, 52770 Naucalpan de Juárez, Méx.
           </span>
         </div>
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
@@ -449,13 +488,34 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAGVJfZMAKYfZ71nzL_v5i3LjTTWnCYwTY&q=Eiffel+Tower,Paris+France"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15050.221244418499!2d-99.2837492!3d19.4316105!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d20403fd02c0cd%3A0x7df6f5d84efc671e!2sSky%20View%20By%20Grupo%20Bosque%20Real!5e0!3m2!1ses!2smx!4v1733717378034!5m2!1ses!2smx"
             ></iframe>
           </div>
         </div>
       </div>
     );
   };
+{/*}  const niddia = () => {
+    return (
+      <div id="niddia-section" className="listingSection__wrap">
+        <iframe
+          className="h-full w-full rounded-lg bg-gray-100 dark:bg-neutral-800"
+          id="mindstudio-frame"
+          referrerPolicy="origin"
+          style={{
+            width: "100%",
+            height: "85vh",
+            border: "none",
+            borderRadius: "8px",
+            outline: "none",
+            backgroundColor: "gray",
+          }}
+          title="Niddia"
+          frameBorder="0"
+        ></iframe>
+      </div>
+    );
+  };*/}
 
   const renderSection8 = () => {
     return (
@@ -517,40 +577,41 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         {/* PRICE */}
         <div className="flex justify-between">
           <span className="text-3xl font-semibold">
-            $119
+            Desde <br />
+            $19,920,000
             <span className="ml-1 text-base font-normal text-neutral-500 dark:text-neutral-400">
-              /night
+              mxn
             </span>
           </span>
-          <StartRating />
         </div>
 
-        {/* FORM */}
+        {/* FORM 
         <form className="flex flex-col border border-neutral-200 dark:border-neutral-700 rounded-3xl ">
           <StayDatesRangeInput className="flex-1 z-[11]" />
           <div className="w-full border-b border-neutral-200 dark:border-neutral-700"></div>
           <GuestsInput className="flex-1" />
-        </form>
+        </form>*/}
 
         {/* SUM */}
         <div className="flex flex-col space-y-4">
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-            <span>$119 x 3 night</span>
-            <span>$357</span>
+            <span>Superficie total 332.96m² </span>
           </div>
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-            <span>Service charge</span>
-            <span>$0</span>
+            <span>Fecha de entrega</span>
+            <span>Marzo 2025 + 6 meses de gracia.</span>
           </div>
-          <div className="border-b border-neutral-200 dark:border-neutral-700"></div>
+          {/* <div className="border-b border-neutral-200 dark:border-neutral-700"></div>*/}
           <div className="flex justify-between font-semibold">
-            <span>Total</span>
-            <span>$199</span>
+            {/* <span>Total</span>
+            <span>$199</span>*/}
           </div>
         </div>
 
         {/* SUBMIT */}
-        <ButtonPrimary href={"/checkout"}>Reserve</ButtonPrimary>
+        <ButtonPrimary>
+          Niddia Resolverá tus dudas.
+        </ButtonPrimary>
       </div>
     );
   };
@@ -604,7 +665,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           >
             <Squares2X2Icon className="w-5 h-5" />
             <span className="ml-2 text-neutral-800 text-sm font-medium">
-              Show all photos
+              Ver todas las fotos
             </span>
           </button>
         </div>
@@ -618,14 +679,12 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           {renderSection2()}
           {renderSection3()}
           {renderSection4()}
-          <SectionDateRange />
-          {renderSection5()}
-          {renderSection6()}
           {renderSection7()}
-          {renderSection8()}
+       
+          {/*<SectionDateRange />*/}
         </div>
 
-        {/* SIDEBAR */}
+        {/*SIDEBAR */}
         <div className="hidden lg:block flex-grow mt-14 lg:mt-0">
           <div className="sticky top-28">{renderSidebar()}</div>
         </div>
