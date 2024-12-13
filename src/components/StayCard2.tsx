@@ -38,6 +38,7 @@ const StayCard2: FC<StayCard2Props> = ({
   } = data;
 
   const renderSliderGallery = () => {
+    
     return (
       <div className="relative w-full">
         <GallerySlider

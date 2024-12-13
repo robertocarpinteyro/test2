@@ -35,6 +35,7 @@ const SectionGridFeaturePlaces: FC<SectionGridFeaturePlacesProps> = ({
 
   // Maneja la actualización de la URL al hacer clic en un tab
   const handleTabClick = (tab: string) => {
+    
     router.push(`/?option=${tab}`); // Actualiza la URL con el nuevo query string
   };
 
