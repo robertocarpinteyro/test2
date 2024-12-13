@@ -26,8 +26,9 @@ export interface ListingStayDetailPageProps {}
 
 const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
   //
- 
-  {/*useEffect(() => {
+
+  {
+    /*useEffect(() => {
     if (typeof window !== "undefined") {
       // Limpiar cookies relacionadas
       document.cookie.split(";").forEach((cookie) => {
@@ -73,7 +74,8 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         document.body.removeChild(script);
       };
     }
-  }, []); // No necesita dependencia, ya que `window.location` es global*/}
+  }, []); // No necesita dependencia, ya que `window.location` es global*/
+  }
 
   let [isOpenModalAmenities, setIsOpenModalAmenities] = useState(false);
 
@@ -102,9 +104,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         </div>
 
         {/* 2 */}
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
-          Blue
-        </h2>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">Blue</h2>
 
         {/* 3 */}
         <div className="flex items-center space-x-4">
@@ -168,8 +168,11 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         <div className="text-neutral-6000 dark:text-neutral-300">
           <span>
-          Descubre Blue by Bosque Real, una magnífica torre de 30 niveles compuesta por 120 departamentos diseñados bajo altos estándares de confort y seguridad. 
-          Rodeada de exuberantes jardines, ofrece impresionantes vistas hacia el campo de golf y panorámicas a Interlomas y Bosques de las Lomas.
+            Descubre Blue by Bosque Real, una magnífica torre de 30 niveles
+            compuesta por 120 departamentos diseñados bajo altos estándares de
+            confort y seguridad. Rodeada de exuberantes jardines, ofrece
+            impresionantes vistas hacia el campo de golf y panorámicas a
+            Interlomas y Bosques de las Lomas.
           </span>
         </div>
       </div>
@@ -417,9 +420,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
 
         {/* == */}
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
-        <div>
-       
-        </div>
+        <div></div>
       </div>
     );
   };
@@ -492,7 +493,8 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
       </div>
     );
   };
-{/*}  const niddia = () => {
+  {
+    /*}  const niddia = () => {
     return (
       <div id="niddia-section" className="listingSection__wrap">
         <iframe
@@ -512,7 +514,8 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         ></iframe>
       </div>
     );
-  };*/}
+  };*/
+  }
 
   const renderSection8 = () => {
     return (
@@ -606,9 +609,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         </div>
 
         {/* SUBMIT */}
-        <ButtonPrimary>
-          Niddia Resolverá tus dudas.
-        </ButtonPrimary>
+        <ButtonPrimary>Niddia Resolverá tus dudas.</ButtonPrimary>
       </div>
     );
   };
@@ -616,8 +617,8 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
   return (
     <div className="nc-ListingStayDetailPage">
       {/*  HEADER */}
-      <header className="rounded-md sm:rounded-xl">
-        <div className="relative grid grid-cols-3 sm:grid-cols-4 gap-1 sm:gap-2">
+      <header className="rounded-md sm:rounded-xl relative">
+        <div className="grid grid-cols-3 sm:grid-cols-4 gap-1 sm:gap-2">
           <div
             className="col-span-2 row-span-3 sm:row-span-2 relative rounded-md sm:rounded-xl overflow-hidden cursor-pointer"
             onClick={handleOpenModalImageGallery}
@@ -643,7 +644,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
                   fill
                   className="object-cover rounded-md sm:rounded-xl "
                   src={item || ""}
-                  alt=""
+                  alt="Imagen adicional"
                   sizes="400px"
                 />
               </div>
@@ -655,9 +656,13 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
               />
             </div>
           ))}
+        </div>
 
+        {/* Botones alineados */}
+        <div className="absolute bottom-3 left-3 flex gap-3 z-10">
+          {/* Botón Ver todas las fotos */}
           <button
-            className="absolute hidden md:flex md:items-center md:justify-center left-3 bottom-3 px-4 py-2 rounded-xl bg-neutral-100 text-neutral-500 hover:bg-neutral-200 z-10"
+            className="flex items-center px-4 py-2 rounded-xl bg-neutral-100 text-neutral-500 hover:bg-neutral-200"
             onClick={handleOpenModalImageGallery}
           >
             <Squares2X2Icon className="w-5 h-5" />
@@ -665,6 +670,18 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
               Ver todas las fotos
             </span>
           </button>
+
+          {/* Botón Visita el recorrido virtual */}
+          <a
+            href="https://blue-brown-six.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center px-4 py-2 rounded-xl bg-neutral-100 text-neutral-500 hover:bg-neutral-200"
+          >
+            <span className="text-neutral-800 text-sm font-medium">
+              Visita el recorrido virtual
+            </span>
+          </a>
         </div>
       </header>
 
@@ -674,10 +691,9 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="w-full lg:w-3/5 xl:w-2/3 space-y-8 lg:space-y-10 lg:pr-10">
           {renderSection1()}
           {renderSection2()}
-          {renderSection3()}
           {renderSection4()}
           {renderSection7()}
-          <Niddia/>
+          <Niddia />
           {/*<SectionDateRange />*/}
         </div>
 
