@@ -13,11 +13,31 @@ const MobileFooterSticky = () => {
   const [endDate, setEndDate] = useState<Date | null>(new Date("2023/02/23"));
    const getImageGalleryListing = () => {
       if (thisPathname?.includes("/listing-stay-detail")) {
-        desarrollo.price = "1000";
+        desarrollo.price = "$19,920,000";
         return desarrollo.price;
       }
       if (thisPathname?.includes("/casa-ambar")) {
-        desarrollo.price = "$19,920,000";
+        desarrollo.price = "$15,000,000";
+        return desarrollo.price;
+      }
+      if (thisPathname?.includes("/ivy")) {
+        desarrollo.price = "$15,000,000";
+        return desarrollo.price;
+      }
+      if (thisPathname?.includes("/ciento-ochenta")) {
+        desarrollo.price = "$15,000,000";
+        return desarrollo.price;
+      }
+      if (thisPathname?.includes("/blue")) {
+        desarrollo.price = "$9,676,311.58";
+        return desarrollo.price;
+      }
+      if (thisPathname?.includes("/nativ")) {
+        desarrollo.price = "$15,000,000";
+        return desarrollo.price;
+      }
+      if (thisPathname?.includes("/nox")) {
+        desarrollo.price = "$15,000,000";
         return desarrollo.price;
       }
   

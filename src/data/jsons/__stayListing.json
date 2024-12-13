@@ -60,19 +60,19 @@
   },
 
   {
-    "id": "id2",
+    "id": "id3",
     "tag": "departamentos",
     "authorId": 10,
     "date": "May 20, 2021",
-    "href": "/listing-stay-detail",
+    "href": "/blue",
     "listingCategoryId": 17,
-    "title": "Ciento Ochenta",
-    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730333999/2._Fachada_Sur_Elevada_akykfe.jpg",
+    "title": "Blue",
+    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730564742/Captura_de_pantalla_2024-11-02_a_la_s_10.21.58_a.m._toal3n.png",
     "galleryImgs": [
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730552860/Captura_de_pantalla_2024-11-02_a_la_s_7.06.17_a.m._g3zxtw.png",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730552857/Captura_de_pantalla_2024-11-02_a_la_s_7.06.28_a.m._fbvuou.png",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730234645/DSC00333_jdjuva.jpg",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730234642/DSC00243_wd4upj.jpg"
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730564740/Captura_de_pantalla_2024-11-02_a_la_s_10.23.18_a.m._u3ek6x.png",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730244674/Oasis_shoot-89_zbric4.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730244673/Oasis_shoot-85_jndncd.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730244672/Oasis_shoot-90_ycnyqu.jpg"
     ],
     "commentCount": 70,
     "viewCount": 602,
@@ -80,7 +80,7 @@
     "address": "Bosque Real",
     "reviewStart": 4.8,
     "reviewCount": 28,
-    "price": "$12,500,001.02 mxn",
+    "price": "$9,676,311.58 mxn",
     "maxGuests": 6,
     "bedrooms": 10,
     "bathrooms": 3,

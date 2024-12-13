@@ -34,7 +34,7 @@ const DetailtLayout = ({ children }: { children: ReactNode }) => {
       return ListingGalleryImage;
     }
     
-    if (thisPathname?.includes("/listing-car-detail")) {
+    if (thisPathname?.includes("/blue")) {
       return listingCarImageGallery;
     }
     if (thisPathname?.includes("/listing-experiences-detail")) {
