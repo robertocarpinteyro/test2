@@ -47,8 +47,8 @@ const SectionHero2: FC<SectionHero2Props> = ({ className = "", children }) => {
               children
             ) : (
               <div className="relative bg-primary-500 w-full max-w-xs sm:max-w-sm md:max-w-md p-4 sm:p-6 lg:p-8 rounded-lg">
-                <h2 className="text-white font-semibold text-center text-sm sm:text-lg md:text-xl lg:text-2xl leading-snug">
-                  <span className="block sm:inline">¿Sueñas con tu hogar</span>
+                <h2 className="text-black font-semibold text-center text-sm sm:text-lg md:text-xl lg:text-2xl leading-snug">
+                  <span className="block sm:inline">¿Sueñas con tu hogar </span>
                   <span className="block sm:inline">perfecto?</span>
                 </h2>
               </div>
