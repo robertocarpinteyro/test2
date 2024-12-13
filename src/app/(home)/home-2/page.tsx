@@ -32,7 +32,7 @@ import rightImgPng from "@/images/our-features-2.png";
 
 import SectionGridFeatureProperty from "../SectionGridFeatureProperty";
 import SectionDowloadApp from "../SectionDowloadApp";
-import SectionHero2 from "@/app/(server-components)/SectionHero2";
+
 import Image from "next/image";
 
 const DEMO_CATS_2: TaxonomyType[] = [
@@ -105,7 +105,7 @@ function PageHome2() {
   return (
     <main className="nc-PageHome2 relative overflow-hidden">
       <div className="container relative space-y-24 mb-24 lg:space-y-28 lg:mb-28">
-        <SectionHero2 className="" />
+      
 
         <div className="ncSectionLogos grid grid-cols-3 lg:grid-cols-5 gap-5 sm:gap-16">
           <div className="flex items-end justify-center">

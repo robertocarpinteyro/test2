@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useState, Suspense, FC } from "react";
 import imagePng from "@/images/hero-right-3.png";
 import Image from "next/image";
