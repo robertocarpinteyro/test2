@@ -2,8 +2,6 @@
 import React, { useEffect, useState, Suspense } from "react";
 export function Niddia() {
   useEffect(() => {
-    
-   
       // Limpiar cookies relacionadas
       document.cookie.split(";").forEach((cookie) => {
         const eqPos = cookie.indexOf("=");

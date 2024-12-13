@@ -21,11 +21,11 @@ const MobileFooterSticky = () => {
         return desarrollo.price;
       }
       if (thisPathname?.includes("/ivy")) {
-        desarrollo.price = "$15,000,000";
+        desarrollo.price = "$12,500,001.02";
         return desarrollo.price;
       }
       if (thisPathname?.includes("/ciento-ochenta")) {
-        desarrollo.price = "$15,000,000";
+        desarrollo.price = "$14,021,169.55";
         return desarrollo.price;
       }
       if (thisPathname?.includes("/blue")) {
