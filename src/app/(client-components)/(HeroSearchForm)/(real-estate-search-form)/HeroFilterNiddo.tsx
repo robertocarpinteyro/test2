@@ -1,4 +1,4 @@
-{/*"use client";
+"use client";
 
 import React, { FC, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
@@ -99,4 +99,4 @@ const HeroFilter: FC<HeroRealEstateSearchFormProps> = ({
   );
 };
 
-export default HeroFilter;*/}
+export default HeroFilter;

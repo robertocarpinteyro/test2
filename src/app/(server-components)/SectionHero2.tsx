@@ -1,9 +1,8 @@
-"use client"
+"use client";
 import React, { useEffect, useState, Suspense, FC } from "react";
 import imagePng from "@/images/hero-right-3.png";
 import Image from "next/image";
-import HeroRealEstateSearchForm from "../(client-components)/(HeroSearchForm)/(real-estate-search-form)/HeroRealEstateSearchForm";
-
+import HeroFilter from "../(client-components)/(HeroSearchForm)/(real-estate-search-form)/HeroFilterNiddo";
 export interface SectionHero2Props {
   className?: string;
   children?: React.ReactNode;
@@ -25,12 +24,12 @@ export type CurrentSlideData = {
 };
 
 const SectionHero2: FC<SectionHero2Props> = ({ className = "", children }) => {
-const [data, setData] = useState<Data[]>(sliderData.slice(1));
-const [transitionData, setTransitionData] = useState<Data>(sliderData[0]);
-const [currentSlideData, setCurrentSlideData] = useState<CurrentSlideData>({
-  data: initData,
-  index: 0,
-});
+  const [data, setData] = useState<Data[]>(sliderData.slice(1));
+  const [transitionData, setTransitionData] = useState<Data>(sliderData[0]);
+  const [currentSlideData, setCurrentSlideData] = useState<CurrentSlideData>({
+    data: initData,
+    index: 0,
+  });
   return (
     <div className={`nc-SectionHero2 relative ${className}`}>
       <div className="absolute inset-y-0 w-5/6 xl:w-3/4 right-0 flex-grow">
@@ -50,7 +49,14 @@ const [currentSlideData, setCurrentSlideData] = useState<CurrentSlideData>({
           </div>
         </div>
         <div className="hidden lg:block lg:mt-20 w-full">
-          <HeroRealEstateSearchForm />
+          <HeroFilter
+            currentSlideData={currentSlideData}
+            data={data}
+            transitionData={transitionData}
+            handleTransitionData={setTransitionData}
+            handleCurrentSlideData={setCurrentSlideData}
+            sliderData={sliderData}
+          />
         </div>
       </div>
     </div>
