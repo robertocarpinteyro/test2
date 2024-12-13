@@ -6,7 +6,7 @@ import { TaxonomyType } from "@/data/types";
 import SectionSliderNewCategories from "@/components/SectionSliderNewCategories";
 import SectionOurFeatures from "@/components/SectionOurFeatures";
 import BackgroundSection from "@/components/BackgroundSection";
-import SectionGridFeaturePlaces from "@/components/SectionGridFeaturePlaces";
+import SectionGridFeaturePlaces from "@/components/DesarrollosGrid";
 import SectionHowItWork from "@/components/SectionHowItWork";
 import SectionSubscribe2 from "@/components/SectionSubscribe2";
 import SectionGridAuthorBox from "@/components/SectionGridAuthorBox";
@@ -158,9 +158,6 @@ function PageHome() {
         <SectionHero2 className="pt-10 lg:pt-16 lg:pb-16" />
 
         {/* SECTION 1 */}
-        <SectionSliderNewCategories categories={DEMO_CATS} />
-
-        <SectionOurFeatures />
 
         <SectionGridFeaturePlaces cardType="card2" />
 
