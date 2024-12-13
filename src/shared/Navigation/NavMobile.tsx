@@ -12,7 +12,7 @@ import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import SwitchDarkMode from "@/shared/SwitchDarkMode";
 import Link from "next/link";
 import LangDropdown from "@/app/(client-components)/(Header)/LangDropdown";
-
+import Image from "next/image";
 export interface NavMobileProps {
   data?: NavItemType[];
   onClickClose?: () => void;
@@ -106,11 +106,18 @@ const NavMobile: React.FC<NavMobileProps> = ({
   return (
     <div className="overflow-y-auto w-full h-screen py-2 transition transform shadow-lg ring-1 dark:ring-neutral-700 bg-white dark:bg-neutral-900 divide-y-2 divide-neutral-100 dark:divide-neutral-800">
       <div className="py-6 px-5">
-        <Logo />
+        <Image
+          className="filter-none dark:filter invert"
+          src="https://res.cloudinary.com/dwrtldhxd/image/upload/v1733722950/logoblack_rdtpxs.png"
+          alt="Logo"
+          width={200} // Ajusta el ancho de la imagen
+          height={100} // Ajusta la altura de la imagen
+        />
         <div className="flex flex-col mt-5 text-neutral-700 dark:text-neutral-300 text-sm">
           <span>
-            Discover the most outstanding articles on all topics of life. Write
-            your stories and share them
+            Utilizo tecnología avanzada y mi profundo conocimiento sobre el
+            mercado inmobiliario para ayudarte a encontrar la propiedad
+            perfecta.
           </span>
 
           <div className="flex justify-between items-center mt-4">
@@ -118,29 +125,24 @@ const NavMobile: React.FC<NavMobileProps> = ({
             <span className="block">
               <SwitchDarkMode className="bg-neutral-100 dark:bg-neutral-800" />
             </span>
-          </div>
+          </div> 
         </div>
         <span className="absolute right-2 top-2 p-1">
           <ButtonClose onClick={onClickClose} />
         </span>
       </div>
-      <ul className="flex flex-col py-6 px-2 space-y-1">
+      {/*<ul className="flex flex-col py-6 px-2 space-y-1">
         {data.map(_renderItem)}
-      </ul>
+      </ul>*/}
       <div className="flex items-center justify-between py-6 px-5">
         <a
           className="inline-block"
-          href="https://themeforest.net/item/chisfis-online-booking-nextjs-template/43399526"
+          href="/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <ButtonPrimary>Get Template</ButtonPrimary>
+          <ButtonPrimary>Platica con Niddia</ButtonPrimary>
         </a>
-
-        <LangDropdown
-          className="flex"
-          panelClassName="z-10 w-screen max-w-[280px] px-4 mb-3 right-3 bottom-full sm:px-0"
-        />
       </div>
     </div>
   );
