@@ -41,14 +41,17 @@ const SectionHero2: FC<SectionHero2Props> = ({ className = "", children }) => {
       </div>
       <div className="relative py-14 lg:py-20">
         <div className="relative inline-flex">
-          <div className="w-screen right-20 md:right-52 inset-y-0 absolute bg-primary-500"></div>
-          <div className="relative max-w-3xl inline-flex flex-shrink-0 flex-col items-start py-16 sm:py-20 lg:py-24 space-y-8 sm:space-y-10 text-white">
+          {/* <div className="w-screen right-20 md:right-52 inset-y-0 absolute bg-primary-500 "></div> */}
+          <div className="relative max-w-3xl inline-flex flex-shrink-0 flex-col items-start py-16 sm:py-20 lg:py-24 space-y-8 sm:space-y-10 text-black">
             {children ? (
               children
             ) : (
-              <h2 className="font-semibold text-4xl md:text-5xl xl:text-7xl !leading-[110%]">
-                Find Your Best <br /> Smart Real Estate
-              </h2>
+              <div className="relative bg-primary-500 w-full max-w-xs sm:max-w-sm md:max-w-md p-4 sm:p-6 lg:p-8 rounded-lg">
+                <h2 className="text-white font-semibold text-center text-sm sm:text-lg md:text-xl lg:text-2xl leading-snug">
+                  <span className="block sm:inline">¿Sueñas con tu hogar</span>
+                  <span className="block sm:inline">perfecto?</span>
+                </h2>
+              </div>
             )}
           </div>
         </div>
