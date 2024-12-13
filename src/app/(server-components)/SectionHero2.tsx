@@ -24,15 +24,12 @@ export type CurrentSlideData = {
 };
 
 const SectionHero2: FC<SectionHero2Props> = ({ className = "", children }) => {
-  const [data, setData] = React.useState<Data[]>(sliderData.slice(1));
-  const [transitionData, setTransitionData] = React.useState<Data>(
-    sliderData[0]
-  );
-  const [currentSlideData, setCurrentSlideData] =
-    React.useState<CurrentSlideData>({
-      data: initData,
-      index: 0,
-    });
+const [data, setData] = useState<Data[]>(sliderData.slice(1));
+const [transitionData, setTransitionData] = useState<Data>(sliderData[0]);
+const [currentSlideData, setCurrentSlideData] = useState<CurrentSlideData>({
+  data: initData,
+  index: 0,
+});
   return (
     <div className={`nc-SectionHero2 relative ${className}`}>
       <div className="absolute inset-y-0 w-5/6 xl:w-3/4 right-0 flex-grow">
