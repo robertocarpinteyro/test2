@@ -7,7 +7,7 @@ import "@/styles/index.scss";
 import "rc-slider/assets/index.css";
 import Footer from "@/components/Footer";
 import FooterNav from "@/components/FooterNav";
-
+import MainNav2 from "./(client-components)/(Header)/MainNav2";
 const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
@@ -24,8 +24,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={poppins.className}>
       <body className="bg-white text-base dark:bg-neutral-900 text-neutral-900 dark:text-neutral-200">
-        <ClientCommons />
-        <SiteHeader />
+       
+        <MainNav2 />
         {children}
         <FooterNav />
         <Footer />
