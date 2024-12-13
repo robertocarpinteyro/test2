@@ -1,8 +1,8 @@
-{/*import React from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { CurrentSlideData, Data } from "@/app/(server-components)/SectionHero2";
 import Image from "next/image";
-import { Player } from "@lottiefiles/react-lottie-player";
+
 
 type Props = {
   transitionData: Data;
@@ -44,12 +44,7 @@ function BgStatus({ transitionData, currentSlideData }: Props) {
             className="object-contain"
           />
           <div className="absolute inset-0 flex justify-center items-center">
-            <Player
-              autoplay
-              loop
-              src="/img/lottie/globos.json"
-              style={{ width: "100%", height: "100%" }}
-            />
+           
           </div>
         </div>
       </div>
@@ -57,4 +52,4 @@ function BgStatus({ transitionData, currentSlideData }: Props) {
   );
 }
 
-export default BgStatus;*/}
+export default BgStatus;
