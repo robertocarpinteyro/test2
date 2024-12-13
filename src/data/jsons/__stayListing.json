@@ -90,17 +90,19 @@
   },
   
   {
-    "id": "id3",
-    "tag": "oficinas",
+    "id": "id4",
+    "tag": "departamentos",
     "authorId": 10,
     "date": "May 20, 2021",
-    "href": "/listing-stay-detail",
+    "href": "/ciento-ochenta",
     "listingCategoryId": 17,
-    "title": "Torre Designo",
-    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/v1733729599/Torre_Designo_6_ya6xrz.jpg",
+    "title": "Ciento Ochenta",
+    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730560916/Captura_de_pantalla_2024-11-02_a_la_s_9.19.53_a.m._yuq9kf.png",
     "galleryImgs": [
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1733729598/Torre_Designo_9_mxglbl.jpg",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1733729597/Torre_Designo_3_cbkybt.jpg"
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730560914/Captura_de_pantalla_2024-11-02_a_la_s_9.21.39_a.m._jaoxxx.png",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730335290/Living_room_19_ajxp3n.png",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730335287/Living_room_17_ailj5q.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730335289/Living_room_7_adj3tq.jpg"
 
     ],
     "commentCount": 70,
@@ -109,7 +111,7 @@
     "address": "Bosque Real",
     "reviewStart": 4.8,
     "reviewCount": 28,
-    "price": "$5,178,218.34 mxn",
+    "price": "$14,021,169.55 mxn",
     "maxGuests": 6,
     "bedrooms": 10,
     "bathrooms": 3,

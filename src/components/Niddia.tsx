@@ -3,7 +3,7 @@ import React, { useEffect, useState, Suspense } from "react";
 export function Niddia() {
   useEffect(() => {
     
-    if (typeof window !== "undefined") {
+   
       // Limpiar cookies relacionadas
       document.cookie.split(";").forEach((cookie) => {
         const eqPos = cookie.indexOf("=");
@@ -47,7 +47,7 @@ export function Niddia() {
       return () => {
         document.body.removeChild(script);
       };
-    }
+    
   }, []); // No necesita dependencia, ya que `window.location` es global
 
  
