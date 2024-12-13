@@ -13,6 +13,7 @@ import { imageGallery as ListingGalleryBlue } from "./blue/constant";
 import { imageGallery as ListingGalleryCientoOchenta } from "./ciento-ochenta/constant";
 import { imageGallery as ListingGalleryIvy } from "./ivy/constant";
 import { imageGallery as ListingGalleryNox } from "./nox/constant";
+import { imageGallery as ListingGalleryNativ } from "./nativ/constant";
 import { imageGallery as listingCarImageGallery } from "./listing-car-detail/constant";
 import { imageGallery as listingExperienceImageGallery } from "./listing-experiences-detail/constant";
 import { Route } from "next";
@@ -49,6 +50,9 @@ const DetailtLayout = ({ children }: { children: ReactNode }) => {
     }
     if (thisPathname?.includes("/nox")) {
       return ListingGalleryNox;
+    }
+    if (thisPathname?.includes("/nativ")) {
+      return ListingGalleryNativ;
     }
     
 

@@ -33,7 +33,7 @@ const MobileFooterSticky = () => {
         return desarrollo.price;
       }
       if (thisPathname?.includes("/nativ")) {
-        desarrollo.price = "$15,000,000";
+        desarrollo.price = "$7,980,000.00";
         return desarrollo.price;
       }
       if (thisPathname?.includes("/nox")) {

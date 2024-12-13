@@ -104,7 +104,9 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         </div>
 
         {/* 2 */}
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">Nox</h2>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
+          Nativ
+        </h2>
 
         {/* 3 */}
         <div className="flex items-center space-x-4">
@@ -168,12 +170,12 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         <div className="text-neutral-6000 dark:text-neutral-300">
           <span>
-            Nox es un desarrollo exclusivo en Bosque Real, que destaca por su
-            diseño contemporáneo y sofisticado. Cuenta con espacios amplios y
-            bien iluminados, ideales para disfrutar de la comodidad y el estilo
-            moderno. Entre sus amenidades, encontrarás gimnasio, áreas de
-            relajación y espacios verdes, perfectos para un estilo de vida
-            equilibrado.
+            Nativ es un desarrollo de lujo en Bosque Real, que ofrece un diseño
+            arquitectónico moderno y elegante. Las unidades están equipadas con
+            acabados de alta calidad y amplias áreas interiores que proporcionan
+            una experiencia de vida excepcional. Además, Nativ cuenta con
+            amenidades como un exclusivo lobby, áreas de descanso y espacios
+            verdes, promoviendo un ambiente cómodo y relajante.
           </span>
         </div>
       </div>
@@ -487,7 +489,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.554771326521!2d-99.28233240000002!3d19.431633799999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d205000bea6853%3A0x1f3bb9ffdbcbed99!2sNOX%20Bosque%20Real!5e0!3m2!1ses!2smx!4v1734078692418!5m2!1ses!2smx"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.585739640705!2d-99.2906297247857!3d19.43029698184867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d205005f1f8f85%3A0xdf7f9df957e0c66d!2sTorre%20Nativ%20I%20by%20Grupo%20Bosque%20Real!5e0!3m2!1ses!2smx!4v1734079009454!5m2!1ses!2smx"
             ></iframe>
           </div>
         </div>
@@ -579,7 +581,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="flex justify-between">
           <span className="text-3xl font-semibold">
             Desde <br />
-            $9,927,450.00
+            $7,980,000.00
             <span className="ml-1 text-base font-normal text-neutral-500 dark:text-neutral-400">
               mxn
             </span>
@@ -596,7 +598,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         {/* SUM */}
         <div className="flex flex-col space-y-4">
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-            <span>Superficie total 152.73m² </span>
+            <span>Superficie total 114.65m² </span>
           </div>
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
             <span>Fecha de entrega</span>
@@ -674,7 +676,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
 
           {/* Botón Visita el recorrido virtual */}
           <a
-            href="https://jxnglobal.com/vr/gbr/propiedades/nativ_765a5b52/"
+            href="https://storage.net-fs.com/hosting/7171698/34/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center px-4 py-2 rounded-xl bg-neutral-100 text-neutral-500 hover:bg-neutral-200"
