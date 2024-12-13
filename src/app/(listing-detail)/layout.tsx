@@ -8,9 +8,11 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { ReactNode } from "react";
 import MobileFooterSticky from "./(components)/MobileFooterSticky";
 import { imageGallery as listingStayImageGallery } from "./listing-stay-detail/constant";
+import {imageGallery as ListingGalleryImage} from "./casa-ambar/constant";
 import { imageGallery as listingCarImageGallery } from "./listing-car-detail/constant";
 import { imageGallery as listingExperienceImageGallery } from "./listing-experiences-detail/constant";
 import { Route } from "next";
+import { imageGallery } from "./casa-ambar/constant";
 
 const DetailtLayout = ({ children }: { children: ReactNode }) => {
   const router = useRouter();
@@ -28,6 +30,10 @@ const DetailtLayout = ({ children }: { children: ReactNode }) => {
     if (thisPathname?.includes("/listing-stay-detail")) {
       return listingStayImageGallery;
     }
+    if (thisPathname?.includes("/casa-ambar")) {
+      return ListingGalleryImage;
+    }
+    
     if (thisPathname?.includes("/listing-car-detail")) {
       return listingCarImageGallery;
     }
