@@ -21,7 +21,7 @@ import StayDatesRangeInput from "./StayDatesRangeInput";
 import GuestsInput from "./GuestsInput";
 import SectionDateRange from "../SectionDateRange";
 import { Route } from "next";
-
+import { Niddia } from "@/components/Niddia";
 export interface ListingStayDetailPageProps {}
 
 const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
@@ -677,7 +677,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           {renderSection3()}
           {renderSection4()}
           {renderSection7()}
-       
+          <Niddia/>
           {/*<SectionDateRange />*/}
         </div>
 

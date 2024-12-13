@@ -2,11 +2,10 @@ import { ListingGalleryImage } from "@/components/listing-image-gallery/utils/ty
 
 export const PHOTOS: string[] = [
 
-  "https://res.cloudinary.com/dwrtldhxd/image/upload/v1733728169/IMG-20240401-WA0005_kzd1zo.jpg",
-  "https://res.cloudinary.com/dwrtldhxd/image/upload/v1733728100/IMG-20240401-WA0006_vnjxcv.jpg",
-  "https://res.cloudinary.com/dwrtldhxd/image/upload/v1733728099/Corte_N2_pvubyr.png",
-  "https://res.cloudinary.com/dwrtldhxd/image/upload/v1733728097/IMG-20240401-WA0004_kuloa5.jpg",
-  "https://res.cloudinary.com/dwrtldhxd/image/upload/v1733728098/Corte_N1_gwl5pt.png",
+  "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730564740/Captura_de_pantalla_2024-11-02_a_la_s_10.23.18_a.m._u3ek6x.png",
+  "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730244674/Oasis_shoot-89_zbric4.jpg",
+  "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730244673/Oasis_shoot-85_jndncd.jpg",
+  "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730244672/Oasis_shoot-90_ycnyqu.jpg"
 ];
 
 export const Amenities_demos = [
