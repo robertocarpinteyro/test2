@@ -104,7 +104,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         </div>
 
         {/* 2 */}
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">Ivy</h2>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">Nox</h2>
 
         {/* 3 */}
         <div className="flex items-center space-x-4">
@@ -168,11 +168,12 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         <div className="text-neutral-6000 dark:text-neutral-300">
           <span>
-            IVY es un desarrollo impresionante en Bosque Real, caracterizado por
-            su diseño moderno y estético. Ofrece amplias áreas interiores con
-            acabados de alta calidad, además de amenidades como gimnasio, zonas
-            verdes y piscina, lo que promueve un estilo de vida activo y
-            confortable.
+            Nox es un desarrollo exclusivo en Bosque Real, que destaca por su
+            diseño contemporáneo y sofisticado. Cuenta con espacios amplios y
+            bien iluminados, ideales para disfrutar de la comodidad y el estilo
+            moderno. Entre sus amenidades, encontrarás gimnasio, áreas de
+            relajación y espacios verdes, perfectos para un estilo de vida
+            equilibrado.
           </span>
         </div>
       </div>
@@ -486,7 +487,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.5746616228103!2d-99.2773847!3d19.4307752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d2054e54c10cf9%3A0xfe8a3d1900a60a61!2sIVY%20by%20Grupo%20Bosque%20Real!5e0!3m2!1ses!2smx!4v1734078180961!5m2!1ses!2smx"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.554771326521!2d-99.28233240000002!3d19.431633799999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d205000bea6853%3A0x1f3bb9ffdbcbed99!2sNOX%20Bosque%20Real!5e0!3m2!1ses!2smx!4v1734078692418!5m2!1ses!2smx"
             ></iframe>
           </div>
         </div>
@@ -578,7 +579,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="flex justify-between">
           <span className="text-3xl font-semibold">
             Desde <br />
-            $12,500,001.02
+            $9,927,450.00
             <span className="ml-1 text-base font-normal text-neutral-500 dark:text-neutral-400">
               mxn
             </span>
@@ -595,7 +596,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         {/* SUM */}
         <div className="flex flex-col space-y-4">
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-            <span>Superficie total 276.17m² </span>
+            <span>Superficie total 152.73m² </span>
           </div>
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
             <span>Fecha de entrega</span>
@@ -672,16 +673,6 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           </button>
 
           {/* Botón Visita el recorrido virtual */}
-          <a
-            href="https://niddoivy-niddo-team.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center px-4 py-2 rounded-xl bg-neutral-100 text-neutral-500 hover:bg-neutral-200"
-          >
-            <span className="text-neutral-800 text-sm font-medium">
-              Visita el recorrido virtual
-            </span>
-          </a>
         </div>
       </header>
 

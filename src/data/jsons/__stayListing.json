@@ -120,18 +120,18 @@
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
   {
-    "id": "id4",
+    "id": "id5",
     "tag": "lotes",
     "authorId": 10,
     "date": "May 20, 2021",
-    "href": "/listing-stay-detail",
+    "href": "/nox",
     "listingCategoryId": 17,
-    "title": "Reserva - Ambar",
-    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/v1733729915/Reserva1_xsjeuy.jpg",
+    "title": "Nox",
+    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730332935/WhatsApp_Image_2022-04-06_at_3.11.23_PM_8_axw26n.jpg",
     "galleryImgs": [
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1733729916/Reserva6_smk7ww.jpg",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1733729915/Reserva_3_gygkrl.jpg",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1733729915/Reserva1_xsjeuy.jpg"
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730332934/PHOTO-2022-04-29-15-42-06_13_oypcyt.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730332935/WhatsApp_Image_2022-04-06_at_3.11.23_PM_10_xg7mdm.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730332935/WhatsApp_Image_2022-04-06_at_3.11.23_PM_2_p6mler.jpg"
 
     ],
     "commentCount": 70,
@@ -140,7 +140,7 @@
     "address": "Bosque Real",
     "reviewStart": 4.8,
     "reviewCount": 28,
-    "price": "$7,650,255.00 mxn",
+    "price": "$9,927,450.00 mxn",
     "maxGuests": 6,
     "bedrooms": 10,
     "bathrooms": 3,

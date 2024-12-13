@@ -37,7 +37,7 @@ const MobileFooterSticky = () => {
         return desarrollo.price;
       }
       if (thisPathname?.includes("/nox")) {
-        desarrollo.price = "$15,000,000";
+        desarrollo.price = "$9,927,450.00";
         return desarrollo.price;
       }
   
