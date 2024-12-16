@@ -112,7 +112,7 @@ export const FloatingNav = ({
           {navItems.map((navItem, idx) => (
             <li key={`nav-link-${idx}`}>
               <Link
-                href={navItem.link as string}
+                href={navItem.link  as Route<string>}
                 className="text-gray-700 hover:text-gray-900 transition-colors"
               >
                 {navItem.name}
