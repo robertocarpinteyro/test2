@@ -16,11 +16,12 @@ const museoModerno = MuseoModerno({
   display: "swap",
   weight: ["300", "400", "500", "600", "700"],
 });
-const navItems = [
+const navItems :  { name: string; link: string }[] = [
   { name: "Inicio", link: "/" },
-  { name: "Acerca de", link: "/" },
-  { name: "Desarrollos", link: "/" },
+  { name: "Acerca de", link: "/about" },
+  { name: "Desarrollos", link: "/developments" },
 ];
+
 
 export default function RootLayout({
   children,

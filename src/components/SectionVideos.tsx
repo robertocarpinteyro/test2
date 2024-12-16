@@ -36,7 +36,6 @@ const VIDEOS_DEMO: VideoType[] = [
     thumbnail:
       "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734314905/Br2_gpcrbf.png",
   },
-
 ];
 
 const SectionVideos: FC<SectionVideosProps> = ({
@@ -116,11 +115,9 @@ const SectionVideos: FC<SectionVideosProps> = ({
 
   return (
     <div className={`nc-SectionVideos ${className}`}>
-      <Heading
-        desc="Check out our hottest videos. View more and share more new
-          perspectives on just about any topic. Everyone’s welcome."
-      >
-        🎬 The Videos
+      <Heading desc="En esta sección, encontrarás información detallada sobre nuestros desarrollos exclusivos, las propiedades destacadas y las últimas innovaciones en el sector inmobiliario. Explora cómo nuestra pasión por la tecnología y el diseño de vanguardia se traduce en experiencias 
+      únicas para nuestros clientes. Sumérgete en el estilo de vida que Niddo ofrece y déjanos ayudarte a encontrar tu hogar ideal.">
+        Descubre un nuevo mundo de oportunidades con Niddo.
       </Heading>
 
       <div className="flex flex-col relative sm:pr-4 sm:py-4 md:pr-6 md:py-6 xl:pr-14 xl:py-14 lg:flex-row">
