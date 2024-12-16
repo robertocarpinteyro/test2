@@ -15,7 +15,7 @@ import ButtonClose from "@/shared/ButtonClose";
 import Input from "@/shared/Input";
 import LikeSaveBtns from "@/components/LikeSaveBtns";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Amenities_demos, PHOTOS } from "./constant";
 import StayDatesRangeInput from "./StayDatesRangeInput";
 import GuestsInput from "./GuestsInput";
@@ -26,7 +26,21 @@ export interface ListingStayDetailPageProps {}
 
 const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
   //
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
+  useEffect(() => {
+    // Verifica si el parámetro "option" ya está presente
+    const option = searchParams.get("option");
+
+    // Si no está presente, agrega "option=blue" al URL
+    if (!option) {
+      const newParams = new URLSearchParams(searchParams.toString());
+      newParams.set("option", "blue");
+      router.replace(`${pathname}?${newParams.toString()}` as unknown as Route<string>);
+    }
+  }, [pathname, searchParams, router]);
   {
     /*useEffect(() => {
     if (typeof window !== "undefined") {
@@ -80,7 +94,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
   let [isOpenModalAmenities, setIsOpenModalAmenities] = useState(false);
 
   const thisPathname = usePathname();
-  const router = useRouter();
+
 
   function closeModalAmenities() {
     setIsOpenModalAmenities(false);
@@ -613,7 +627,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
       </div>
     );
   };
-
+  
   return (
     <div className="nc-ListingStayDetailPage">
       {/*  HEADER */}

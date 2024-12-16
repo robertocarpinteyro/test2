@@ -47,7 +47,7 @@ const SectionGridFeaturePlaces: FC<SectionGridFeaturePlacesProps> = ({
           onClick={() => handleTabClick(tab)}
           className={`px-4 py-2 rounded-lg text-sm sm:text-base ${
             queryTag === tab
-              ? "bg-blue-600 text-white"
+              ? "bg-secondary-500 text-black"
               : "bg-gray-200 text-gray-700 hover:bg-gray-300"
           }`}
         >
