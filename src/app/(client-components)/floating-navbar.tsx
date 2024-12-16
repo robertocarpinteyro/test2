@@ -112,7 +112,7 @@ export const FloatingNav = ({
           {navItems.map((navItem, idx) => (
             <li key={`nav-link-${idx}`}>
               <Link
-                href={navItem.link}
+                href={navItem.link as string}
                 className="text-gray-700 hover:text-gray-900 transition-colors"
               >
                 {navItem.name}
@@ -128,8 +128,7 @@ export const FloatingNav = ({
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
-        <Link
-          href="/chat-with-niddia"
+       <Link href={"/chat-with-niddia" as __next_route_internal_types__.RouteImpl<string>}
           className="px-6 py-2 text-white bg-gradient-to-r from-secondary-400 to-secondary-500 rounded-full shadow-lg hover:shadow-xl transition-all"
         >
           Chatea con Niddia
