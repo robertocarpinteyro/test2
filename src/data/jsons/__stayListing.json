@@ -27,7 +27,6 @@
     "saleOff": null,
     "isAds": false,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
-
   },
   {
     "id": "id2",
@@ -88,7 +87,7 @@
     "isAds": null,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
-  
+
   {
     "id": "id4",
     "tag": "departamentos",
@@ -131,7 +130,6 @@
       "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730332934/PHOTO-2022-04-29-15-42-06_13_oypcyt.jpg",
       "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730332935/WhatsApp_Image_2022-04-06_at_3.11.23_PM_10_xg7mdm.jpg",
       "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730332935/WhatsApp_Image_2022-04-06_at_3.11.23_PM_2_p6mler.jpg"
-
     ],
     "commentCount": 70,
     "viewCount": 602,
@@ -161,7 +159,6 @@
       "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730333561/04_Contrapicada_def_300dpis_bkzykp.jpg",
       "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730333561/Lobby_300dpis_bbsyuu.jpg",
       "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730333559/Cigar_room_300dpis_medo0p.jpg"
-
     ],
     "commentCount": 70,
     "viewCount": 602,
@@ -191,7 +188,6 @@
       "https://res.cloudinary.com/dwrtldhxd/image/upload/v1733729598/Torre_Designo_9_mxglbl.jpg",
       "https://res.cloudinary.com/dwrtldhxd/image/upload/v1733729599/Torre_Designo_6_ya6xrz.jpg",
       "https://res.cloudinary.com/dwrtldhxd/image/upload/v1733729597/Torre_Designo_3_cbkybt.jpg"
-
     ],
     "commentCount": 70,
     "viewCount": 602,
@@ -209,7 +205,7 @@
   },
   {
     "id": "id8",
-    "tag": "oficinas",
+    "tag": "lotes",
     "authorId": 10,
     "date": "May 20, 2021",
     "href": "/elEnsueno",
@@ -217,7 +213,6 @@
     "title": "El Ensueño",
     "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734317953/Casas_Lote_Ensue%C3%B1o_Clusters_Reserva_BR_2Ago24_baja_srqv68.jpg",
     "galleryImgs": [
-
       "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734317953/Casas_Lote_Ensue%C3%B1o_Clusters_Reserva_BR_2Ago24_baja_srqv68.jpg",
       "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734317953/Acceso_lote_Ensue%C3%B1o_Clusters_Reserva_BR_19Jul24_baja_rifpzb.jpg",
       "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734317953/Vista_a%C3%A9rea_1_Lote_Ensue%C3%B1o_Clusters_Reserva_BR_19Ago24_baja_kznqnr.jpg",
@@ -230,6 +225,34 @@
     "reviewStart": 4.8,
     "reviewCount": 28,
     "price": "$6,617,646.00 mxn",
+    "maxGuests": 6,
+    "bedrooms": 10,
+    "bathrooms": 3,
+    "saleOff": null,
+    "isAds": null,
+    "map": { "lat": 55.2094559, "lng": 61.5594641 }
+  },
+  {
+    "id": "id8",
+    "tag": "lotes",
+    "authorId": 10,
+    "date": "May 20, 2021",
+    "href": "/islaArbol",
+    "listingCategoryId": 17,
+    "title": "Isla del Árbol",
+    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734320770/Acceso_1_a_Lote_22_y_25_Clusters_Reserva_BR_19Jul24_def_etittq.png",
+    "galleryImgs": [
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734320769/Rotonda_Lote_22_y_25_Clusters_Reserva_BR_31Jul24_wgbn1a.png",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734320769/Casas_Lote_22_y_25_Clusters_Reserva_BR_31Jul24_kllyf4.png",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734320768/Vista_a%C3%A9rea_1_Lote_22_y_25_Clusters_Reserva_BR_5Ago24_def_w7y5yt.jpg"
+    ],
+    "commentCount": 70,
+    "viewCount": 602,
+    "like": false,
+    "address": "Bosque Real",
+    "reviewStart": 4.8,
+    "reviewCount": 28,
+    "price": "$5,544,000.00 mxn",
     "maxGuests": 6,
     "bedrooms": 10,
     "bathrooms": 3,
@@ -268,5 +291,4 @@
     "isAds": null,
     "map": { "lat": 59.955413, "lng": 30.337844 }
   }
- 
 ]
