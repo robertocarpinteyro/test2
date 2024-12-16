@@ -88,7 +88,7 @@ export const FloatingNav = ({
             {navItems.map((navItem, idx) => (
               <li key={`dropdown-link-${idx}`}>
                 <Link
-                  href={navItem.link}
+                  href={navItem.link  as Route<string>}
                   className="hover:bg-gray-100 rounded-md p-2"
                 >
                   {navItem.name}
