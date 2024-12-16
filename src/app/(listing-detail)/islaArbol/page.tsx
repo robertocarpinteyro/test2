@@ -22,7 +22,10 @@ import GuestsInput from "./GuestsInput";
 import SectionDateRange from "../SectionDateRange";
 import { Route } from "next";
 import { Niddia } from "@/components/Niddia";
+
 export interface ListingStayDetailPageProps {}
+
+
 
 const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
   //
@@ -615,6 +618,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
 
   return (
     <div className="nc-ListingStayDetailPage">
+     
       {/*  HEADER */}
       <header className="rounded-md sm:rounded-xl relative">
         <div className="grid grid-cols-3 sm:grid-cols-4 gap-1 sm:gap-2">
@@ -685,6 +689,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
       </header>
 
       {/* MAIN */}
+
       <main className=" relative z-10 mt-11 flex flex-col lg:flex-row ">
         {/* CONTENT */}
         <div className="w-full lg:w-3/5 xl:w-2/3 space-y-8 lg:space-y-10 lg:pr-10">

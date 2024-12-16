@@ -3,22 +3,18 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { useScroll, useMotionValueEvent } from "framer-motion";
 import Link from "next/link";
-import { Button } from "./moving-border";
+
 import { usePathname } from "next/navigation";
 
 export const FloatingNav = ({
   navItems,
   className,
-  logo,
 }: {
   navItems: {
     name: string;
     link: string;
     icon?: JSX.Element;
   }[];
-  logo: {
-    href: string;
-  };
   className?: string;
 }) => {
   const { scrollYProgress } = useScroll();
@@ -55,13 +51,13 @@ export const FloatingNav = ({
     };
   }, []);
 
-  if (pathname === "/niddia" || pathname === "/niddiaDesarrollos") {
+  {/*if (pathname === "/niddia" || pathname === "/niddiaDesarrollos") {
     return null;
-  }
+  */}
 
   return (
     <div
-      className={`font-museo navbar fixed top-10 inset-x-0 z-50 flex flex-wrap items-center justify-between p-5 w-full lg:max-w-5xl md:max-w-3xl sm:max-w-xl mx-auto transition-all duration-300 ${
+      className={`navbar fixed top-10 inset-x-0 z-50 flex flex-wrap items-center justify-between p-5 w-full lg:max-w-5xl md:max-w-3xl sm:max-w-xl mx-auto transition-all duration-300 ${
         isScrolled
           ? "bg-white/70 backdrop-blur-lg shadow-lg"
           : "bg-white bg-opacity-100"
@@ -101,7 +97,7 @@ export const FloatingNav = ({
           </ul>
         </div>
         <Image
-          src={logo.href}
+          src={"https://res.cloudinary.com/dwrtldhxd/image/upload/v1733722950/logoblack_rdtpxs.png"}
           width={100}
           height={100}
           alt="Niddia Impulsada por inteligencia aritifical"
@@ -117,9 +113,7 @@ export const FloatingNav = ({
           ))}
         </ul>
       </div>
-      <Button>
-        <Link href="https://www.niddo.ai/niddia">Chatea con Niddia</Link>
-      </Button>
+      
     </div>
   );
 };

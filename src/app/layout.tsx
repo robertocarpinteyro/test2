@@ -8,11 +8,17 @@ import "rc-slider/assets/index.css";
 import Footer from "@/components/Footer";
 import FooterNav from "@/components/FooterNav";
 import MainNav2 from "./(client-components)/(Header)/MainNav2";
+import { FloatingNav } from "@/app/(client-components)/floating-navbar";
 const museoModerno = MuseoModerno({
   subsets: ["latin"],
   display: "swap",
   weight: ["300", "400", "500", "600", "700"],
 });
+const navItems = [
+  { name: "Inicio", link: "#inicio", },
+  { name: "Acerca de", link: "#acerca", },
+  { name: "Desarrollos", link: "#desarrollos"},
+];
 
 export default function RootLayout({
   children,
@@ -24,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={museoModerno.className}>
       <body className="bg-white text-base dark:bg-neutral-900 text-neutral-900 dark:text-neutral-200">
-     
+        <FloatingNav navItems={navItems} className=""/>
         <MainNav2 />
         {children}
         <FooterNav />
