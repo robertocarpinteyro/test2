@@ -19,35 +19,24 @@ export interface SectionVideosProps {
 
 const VIDEOS_DEMO: VideoType[] = [
   {
-    id: "Ao7e4iisKMs",
+    id: "https://dl.dropboxusercontent.com/scl/fi/yjbc2zzdyrl23e5mw4n1k/niddiaVideo-1.mp4?rlkey=o81k5sk8mm58k9ipctkjf1su4&st=1kp3uvwc",
     title: "Magical Scotland - 4K Scenic Relaxation Film with Calming Music",
     thumbnail:
-      "https://images.pexels.com/photos/131423/pexels-photo-131423.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734313821/videoNiddia_dkke4c.jpg",
   },
   {
-    id: "a5V6gdu5ih8",
+    id: "https://dl.dropboxusercontent.com/scl/fi/h7447mw3i4cs8shmdzewn/NiddoB.mp4?rlkey=z63zada2rhhv8olidetx56dxb&st=18mc105p&dl=0",
     title: "Magical Scotland - 4K Scenic Relaxation Film with Calming Music",
     thumbnail:
-      "https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734314631/niddo_o9wmys.png",
   },
   {
-    id: "MuB7HHeuNbc",
+    id: "https://dl.dropboxusercontent.com/scl/fi/i5uoz42i0inggq2creaer/NiddoC.mp4?rlkey=e5r1xott12jhyi8s5vjks4ifh&st=jcgcrugj&dl=0",
     title: "Magical Scotland - 4K Scenic Relaxation Film with Calming Music",
     thumbnail:
-      "https://images.pexels.com/photos/1660995/pexels-photo-1660995.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734314905/Br2_gpcrbf.png",
   },
-  {
-    id: "eEaZvEZye84",
-    title: "Magical Scotland - 4K Scenic Relaxation Film with Calming Music",
-    thumbnail:
-      "https://images.pexels.com/photos/4983184/pexels-photo-4983184.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-  },
-  {
-    id: "EuDJZDaSP0Q",
-    title: "Magical Scotland - 4K Scenic Relaxation Film with Calming Music",
-    thumbnail:
-      "https://images.pexels.com/photos/2549018/pexels-photo-2549018.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-  },
+
 ];
 
 const SectionVideos: FC<SectionVideosProps> = ({
@@ -66,7 +55,7 @@ const SectionVideos: FC<SectionVideosProps> = ({
       >
         {isPlay ? (
           <iframe
-            src={`https://www.youtube.com/embed/${video.id}?autoplay=1`}
+            src={video.id}
             title={video.title}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

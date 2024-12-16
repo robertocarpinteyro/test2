@@ -87,7 +87,7 @@ const HeroSearchForm2Mobile = () => {
                         </button>
                       </div>
 
-                      <Tab.List className="pt-12 flex w-full justify-center font-semibold text-sm sm:text-base text-neutral-500 dark:text-neutral-400 space-x-6 sm:space-x-8">
+                      {/*<Tab.List className="pt-12 flex w-full justify-center font-semibold text-sm sm:text-base text-neutral-500 dark:text-neutral-400 space-x-6 sm:space-x-8">
                         {["Stay", "Experiences", "Cars", "Flights"].map(
                           (item, index) => (
                             <Tab key={index} as={Fragment}>
@@ -110,7 +110,7 @@ const HeroSearchForm2Mobile = () => {
                             </Tab>
                           )
                         )}
-                      </Tab.List>
+                      </Tab.List>*/}
                       <div className="flex-1 pt-3 px-1.5 sm:px-4 flex overflow-hidden">
                         <Tab.Panels className="flex-1 overflow-y-auto hiddenScrollbar py-4">
                           <Tab.Panel>

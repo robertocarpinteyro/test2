@@ -103,7 +103,6 @@
       "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730335290/Living_room_19_ajxp3n.png",
       "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730335287/Living_room_17_ailj5q.jpg",
       "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730335289/Living_room_7_adj3tq.jpg"
-
     ],
     "commentCount": 70,
     "viewCount": 602,
@@ -170,7 +169,7 @@
     "address": "Bosque Real",
     "reviewStart": 4.8,
     "reviewCount": 28,
-    "price": "$7,980,000.00mxn",
+    "price": "$7,980,000.00 mxn",
     "maxGuests": 6,
     "bedrooms": 10,
     "bathrooms": 3,
@@ -179,8 +178,65 @@
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
 
+  {
+    "id": "id7",
+    "tag": "oficinas",
+    "authorId": 10,
+    "date": "May 20, 2021",
+    "href": "/designo",
+    "listingCategoryId": 17,
+    "title": "Torre Designo",
+    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/v1733729598/Torre_Designo_9_mxglbl.jpg",
+    "galleryImgs": [
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1733729598/Torre_Designo_9_mxglbl.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1733729599/Torre_Designo_6_ya6xrz.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1733729597/Torre_Designo_3_cbkybt.jpg"
 
+    ],
+    "commentCount": 70,
+    "viewCount": 602,
+    "like": false,
+    "address": "Bosque Real",
+    "reviewStart": 4.8,
+    "reviewCount": 28,
+    "price": "$5,178,218.34 mxn",
+    "maxGuests": 6,
+    "bedrooms": 10,
+    "bathrooms": 3,
+    "saleOff": null,
+    "isAds": null,
+    "map": { "lat": 55.2094559, "lng": 61.5594641 }
+  },
+  {
+    "id": "id8",
+    "tag": "oficinas",
+    "authorId": 10,
+    "date": "May 20, 2021",
+    "href": "/elEnsueno",
+    "listingCategoryId": 17,
+    "title": "El Ensueño",
+    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734317953/Casas_Lote_Ensue%C3%B1o_Clusters_Reserva_BR_2Ago24_baja_srqv68.jpg",
+    "galleryImgs": [
 
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734317953/Casas_Lote_Ensue%C3%B1o_Clusters_Reserva_BR_2Ago24_baja_srqv68.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734317953/Acceso_lote_Ensue%C3%B1o_Clusters_Reserva_BR_19Jul24_baja_rifpzb.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734317953/Vista_a%C3%A9rea_1_Lote_Ensue%C3%B1o_Clusters_Reserva_BR_19Ago24_baja_kznqnr.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734317953/Rotonda_Lote_Ensue%C3%B1o_Clusters_Reserva_BR_2Ago24_baja_axccpu.jpg"
+    ],
+    "commentCount": 70,
+    "viewCount": 602,
+    "like": false,
+    "address": "Bosque Real",
+    "reviewStart": 4.8,
+    "reviewCount": 28,
+    "price": "$6,617,646.00 mxn",
+    "maxGuests": 6,
+    "bedrooms": 10,
+    "bathrooms": 3,
+    "saleOff": null,
+    "isAds": null,
+    "map": { "lat": 55.2094559, "lng": 61.5594641 }
+  },
 
   {
     "id": "a377ce70-0bff-4659-bf4c-d2e811c278f0",

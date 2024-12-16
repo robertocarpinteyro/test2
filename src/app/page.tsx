@@ -161,7 +161,7 @@ function PageHome() {
 
         <SectionGridFeaturePlaces cardType="card2" />
 
-    
+        <SectionVideos />
 
         
 

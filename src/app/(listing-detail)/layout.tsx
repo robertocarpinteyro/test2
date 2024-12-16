@@ -14,6 +14,8 @@ import { imageGallery as ListingGalleryCientoOchenta } from "./ciento-ochenta/co
 import { imageGallery as ListingGalleryIvy } from "./ivy/constant";
 import { imageGallery as ListingGalleryNox } from "./nox/constant";
 import { imageGallery as ListingGalleryNativ } from "./nativ/constant";
+import { imageGallery as ListingGalleryDesigno } from "./designo/constant";
+import { imageGallery as ListingGalleryElEnsueno } from "./elEnsueno/constant";
 import { imageGallery as listingCarImageGallery } from "./listing-car-detail/constant";
 import { imageGallery as listingExperienceImageGallery } from "./listing-experiences-detail/constant";
 import { Route } from "next";
@@ -54,7 +56,13 @@ const DetailtLayout = ({ children }: { children: ReactNode }) => {
     if (thisPathname?.includes("/nativ")) {
       return ListingGalleryNativ;
     }
-    
+    if (thisPathname?.includes("/designo")) {
+      return ListingGalleryDesigno;
+    }
+    if (thisPathname?.includes("/elensueno")) {
+      return ListingGalleryElEnsueno;
+    }
+
 
     return [];
   };

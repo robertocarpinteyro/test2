@@ -35,18 +35,17 @@ const SectionGridFeaturePlaces: FC<SectionGridFeaturePlacesProps> = ({
 
   // Maneja la actualización de la URL al hacer clic en un tab
   const handleTabClick = (tab: string) => {
-    
     router.push(`/?option=${tab}`); // Actualiza la URL con el nuevo query string
   };
 
   // Renderiza los tabs
   const renderTabs = () => (
-    <div className="flex gap-4 mb-8">
+    <div className="flex flex-wrap gap-4 mb-8 justify-center sm:justify-start">
       {TABS.map((tab) => (
         <button
           key={tab}
           onClick={() => handleTabClick(tab)}
-          className={`px-4 py-2 rounded-lg ${
+          className={`px-4 py-2 rounded-lg text-sm sm:text-base ${
             queryTag === tab
               ? "bg-blue-600 text-white"
               : "bg-gray-200 text-gray-700 hover:bg-gray-300"
@@ -65,7 +64,8 @@ const SectionGridFeaturePlaces: FC<SectionGridFeaturePlacesProps> = ({
   };
 
   return (
-    <div className="nc-SectionGridFeaturePlaces relative">
+    
+    <div >
       {/*<div className="mb-4">
         <h2 className="text-2xl font-semibold">{heading}</h2>
         <p className="text-gray-500">{subHeading}</p>
@@ -76,7 +76,7 @@ const SectionGridFeaturePlaces: FC<SectionGridFeaturePlacesProps> = ({
       >
         {filteredListings.map((stay) => renderCard(stay))}
       </div>
-      <div className="flex mt-16 justify-center items-center">
+      <div className="flex justify-center items-center">
         {/*<ButtonPrimary loading>Muestrame más.</ButtonPrimary>*/}
       </div>
     </div>

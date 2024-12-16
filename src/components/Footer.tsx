@@ -92,6 +92,7 @@ const Footer: React.FC = () => {
           <div className="grid grid-cols-4 gap-5 col-span-2 md:col-span-4 lg:md:col-span-1 lg:flex lg:flex-col">
             <div className="col-span-2 md:col-span-1">
             <Image
+              className="dark:invert"
               src="https://res.cloudinary.com/dwrtldhxd/image/upload/v1733722950/logoblack_rdtpxs.png"
               alt="Logo"
               width={200} // Ajusta el ancho de la imagen

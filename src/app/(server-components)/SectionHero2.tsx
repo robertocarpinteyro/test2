@@ -46,10 +46,10 @@ const SectionHero2: FC<SectionHero2Props> = ({ className = "", children }) => {
             {children ? (
               children
             ) : (
-              <div className="relative bg-primary-500 w-full max-w-xs sm:max-w-sm md:max-w-md p-4 sm:p-6 lg:p-8 rounded-lg">
+              <div className="relative bg-primary-500 w-full max-w-48 sm:max-w-sm md:max-w-md p-4 sm:p-6 lg:p-8 rounded-lg">
                 <h2 className="text-black font-semibold text-center text-sm sm:text-lg md:text-xl lg:text-2xl leading-snug">
-                  <span className="block sm:inline">¿Sueñas con tu hogar </span>
-                  <span className="block sm:inline">perfecto?</span>
+                  <span className="block sm:inline">{currentSlideData.data.description} </span>
+   
                 </h2>
               </div>
             )}
@@ -77,7 +77,7 @@ const sliderData = [
     img: "/img/casaAmbar.jpg",
     title: "Casas",
     description:
-      "En Niddo, te ofrecemos la oportunidad de construir la casa de tus sueños en los lotes residenciales de Bosque Real. Diseña tu hogar a medida, con un estilo único y adaptado a tus necesidades. ",
+      "¿Sueñas con tu hogar ideal? Nosotros lo encontrammos",
     entrega: "Agosto 2025 + 6 meses de gracia.",
     precioMinimo: "$15 mpd",
     precioMaximo: "800",
@@ -87,7 +87,7 @@ const sliderData = [
     img: "/img/skyview.jpg",
     title: "Departamentos",
     description:
-      "Descubre los departamentos en Bosque Real, donde la modernidad y la naturaleza se fusionan. Con opciones amplias y acogedoras, encontrarás espacios diseñados para tu comodidad y estilo de vida.",
+      "¿Sueñas con tu hogar ideal? Nosotros lo encontrammos",
     entrega: "Marzo 2025 + 6 meses de gracia.",
     precioMinimo: "$7,980,000",
     precioMaximo: "800",
@@ -97,7 +97,7 @@ const sliderData = [
     img: "/img/torreDesigno.jpg",
     title: "Oficinas",
     description:
-      "Descubre nuestras oficinas en Bosque Real, un espacio ideal para el crecimiento de tu empresa. Este desarrollo moderno ofrece oficinas con diseño contemporáneo, amplias áreas de trabajo y vistas inigualables, todo en un entorno seguro y rodeado de áreas verdes.",
+      "Descubre nuestras oficinas en Bosque Real, un espacio ideal para el crecimiento de tu empresa.",
     entrega: "",
     precioMinimo: "$5,178,218.34",
     precioMaximo: "800",
@@ -107,12 +107,13 @@ const sliderData = [
     img: "/img/Reserva.jpeg",
     title: "Lotes",
     description:
-      "Cada lote está diseñado con una urbanización de alta calidad y sistemas de seguridad avanzados. En Niddo, te ofrecemos la oportunidad de construir la casa de tus sueños en los exclusivos lotes residenciales",
+      "En Niddo, te ofrecemos la oportunidad de construir la casa de tus sueños.",
     entrega: "",
     precioMinimo: "$4,823,070",
     precioMaximo: "800",
     superficieMinima: "229.67",
   },
+  
 ];
 
 const initData = sliderData[0];

@@ -34,7 +34,7 @@ function BgStatus({ transitionData, currentSlideData }: Props) {
       />
 
 
-      <div className="absolute right-0 top-0 flex items-end justify-end w-56 sm:w-60 md:w-1/2 h-full pr-8">
+      <div className="absolute right-0 top-0 flex items-end justify-end w-56 sm:w-60 md:w-1/2 h-full pr-8 ">
         <div className="relative">
           <Image
             src={"/img/niddiaHero.png"}
