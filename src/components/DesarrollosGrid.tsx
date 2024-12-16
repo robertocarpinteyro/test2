@@ -40,7 +40,8 @@ const SectionGridFeaturePlaces: FC<SectionGridFeaturePlacesProps> = ({
 
   // Renderiza los tabs
   const renderTabs = () => (
-    <div className="flex flex-wrap gap-4 mb-8 justify-center sm:justify-start">
+    
+    <div  className="flex flex-wrap gap-4 mb-8 justify-center sm:justify-start">
       {TABS.map((tab) => (
         <button
           key={tab}
@@ -65,7 +66,7 @@ const SectionGridFeaturePlaces: FC<SectionGridFeaturePlacesProps> = ({
 
   return (
     
-    <div >
+    <div id="desarrollos" >
       {/*<div className="mb-4">
         <h2 className="text-2xl font-semibold">{heading}</h2>
         <p className="text-gray-500">{subHeading}</p>

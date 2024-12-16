@@ -48,7 +48,7 @@ const SectionVideos: FC<SectionVideosProps> = ({
   const renderMainVideo = () => {
     const video: VideoType = videos[currentVideo];
     return (
-      <div
+      <div 
         className="group aspect-w-16 aspect-h-16 sm:aspect-h-9 bg-neutral-800 rounded-3xl overflow-hidden border-4 border-white dark:border-neutral-900 sm:rounded-[50px] sm:border-[10px] will-change-transform"
         title={video.title}
       >
@@ -114,7 +114,7 @@ const SectionVideos: FC<SectionVideosProps> = ({
   };
 
   return (
-    <div className={`nc-SectionVideos ${className}`}>
+    <div id="acercade"  className={`nc-SectionVideos ${className}`}>
       <Heading desc="En esta sección, encontrarás información detallada sobre nuestros desarrollos exclusivos, las propiedades destacadas y las últimas innovaciones en el sector inmobiliario. Explora cómo nuestra pasión por la tecnología y el diseño de vanguardia se traduce en experiencias 
       únicas para nuestros clientes. Sumérgete en el estilo de vida que Niddo ofrece y déjanos ayudarte a encontrar tu hogar ideal.">
         Descubre un nuevo mundo de oportunidades con Niddo.

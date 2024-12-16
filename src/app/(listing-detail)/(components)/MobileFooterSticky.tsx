@@ -10,6 +10,12 @@ const MobileFooterSticky = () => {
   const [startDate, setStartDate] = useState<Date | null>(
     new Date("2023/02/06")
   );
+  const pathname = usePathname();
+  const router = useRouter(); // Inicializa el router
+  const handleOpenModalAndNavigate = () => {
+
+    router.push("/niddia"); // Redirige a la ruta deseada
+  };
   const [endDate, setEndDate] = useState<Date | null>(new Date("2023/02/23"));
    const getImageGalleryListing = () => {
       if (thisPathname?.includes("/listing-stay-detail")) {
@@ -66,7 +72,8 @@ const MobileFooterSticky = () => {
           renderChildren={({ openModal }) => (
             <ButtonPrimary
               sizeClass="px-5 sm:px-7 py-3 !rounded-2xl"
-              onClick={openModal}
+              
+              onClick={handleOpenModalAndNavigate}
             >
               Saber más.
             </ButtonPrimary>

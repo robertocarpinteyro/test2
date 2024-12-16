@@ -32,7 +32,8 @@ const SectionHero2: FC<SectionHero2Props> = ({ className = "", children }) => {
     index: 0,
   });
   return (
-    <div className={`nc-SectionHero2 relative ${className}`}>
+    
+    <div id="inicio" className={`nc-SectionHero2 relative ${className}`}>
       <div className="absolute inset-y-0 w-5/6 xl:w-3/4 right-0 flex-grow">
         <BgStatus
           transitionData={transitionData}
@@ -77,7 +78,7 @@ const sliderData = [
     img: "/img/casaAmbar.jpg",
     title: "Casas",
     description:
-      "¿Sueñas con tu hogar ideal? Nosotros lo encontrammos",
+      "¿Sueñas con tu hogar ideal? Nosotros lo encontramos",
     entrega: "Agosto 2025 + 6 meses de gracia.",
     precioMinimo: "$15 mpd",
     precioMaximo: "800",
@@ -87,7 +88,7 @@ const sliderData = [
     img: "/img/skyview.jpg",
     title: "Departamentos",
     description:
-      "¿Sueñas con tu hogar ideal? Nosotros lo encontrammos",
+      "¿Sueñas con tu hogar ideal? Nosotros lo encontramos",
     entrega: "Marzo 2025 + 6 meses de gracia.",
     precioMinimo: "$7,980,000",
     precioMaximo: "800",
