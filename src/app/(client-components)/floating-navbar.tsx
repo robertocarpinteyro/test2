@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useScroll, useMotionValueEvent, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
+import { Route } from "@/routers/types";
 export const FloatingNav = ({
   navItems,
   className,
@@ -128,7 +128,7 @@ export const FloatingNav = ({
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
-       <Link href={"/chat-with-niddia" as __next_route_internal_types__.RouteImpl<string>}
+       <Link href={"/" as Route<string>}
           className="px-6 py-2 text-white bg-gradient-to-r from-secondary-400 to-secondary-500 rounded-full shadow-lg hover:shadow-xl transition-all"
         >
           Chatea con Niddia

@@ -18,8 +18,8 @@ const museoModerno = MuseoModerno({
 });
 const navItems :  { name: string; link: string }[] = [
   { name: "Inicio", link: "/" },
-  { name: "Acerca de", link: "/about" },
-  { name: "Desarrollos", link: "/developments" },
+  { name: "Acerca de", link: "/" },
+  { name: "Desarrollos", link: "/" },
 ];
 
 
