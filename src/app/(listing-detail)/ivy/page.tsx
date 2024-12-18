@@ -569,7 +569,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           </div>
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
             <span>Fecha de entrega</span>
-            <span>Marzo 2025 + 6 meses de gracia.</span>
+            <span>Entrega inmediata.</span>
           </div>
           {/* <div className="border-b border-neutral-200 dark:border-neutral-700"></div>*/}
           <div className="flex justify-between font-semibold">

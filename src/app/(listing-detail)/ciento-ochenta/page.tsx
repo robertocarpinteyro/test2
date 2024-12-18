@@ -104,15 +104,22 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         </div>
 
         {/* 2 */}
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">Ciento Ochenta</h2>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
+          Ciento Ochenta
+        </h2>
 
         {/* 3 */}
         <div className="flex items-center space-x-4">
           {/* <StartRating /> */}
           <span>·</span>
           <span>
-            <i className="las la-map-marker-alt"></i>
-            <span className="ml-1"> Bosque Real</span>
+            <span className="ml-1"> Desarrollador</span>
+            <Image
+              src="https://res.cloudinary.com/dwrtldhxd/image/upload/v1734498384/BosqueReal_wo13lr.png"
+              alt="Logo"
+              width={200} // Ajusta el ancho de la imagen
+              height={100} // Ajusta la altura de la imagen
+            />
           </span>
         </div>
 
@@ -168,8 +175,12 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         <div className="text-neutral-6000 dark:text-neutral-300">
           <span>
-          Ciento Ochenta es una excelente opción dentro del desarrollo Bosque Real, destacándose por su elegante diseño y arquitectura contemporánea. 
-          Este desarrollo ofrece amplias áreas sociales, acabados de alta calidad y una variedad de amenidades que incluyen gimnasio, áreas verdes, y más, asegurando una experiencia de vida cómoda y moderna.
+            Ciento Ochenta es una excelente opción dentro del desarrollo Bosque
+            Real, destacándose por su elegante diseño y arquitectura
+            contemporánea. Este desarrollo ofrece amplias áreas sociales,
+            acabados de alta calidad y una variedad de amenidades que incluyen
+            gimnasio, áreas verdes, y más, asegurando una experiencia de vida
+            cómoda y moderna.
           </span>
         </div>
       </div>
@@ -596,7 +607,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           </div>
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
             <span>Fecha de entrega</span>
-            <span>Marzo 2025 + 6 meses de gracia.</span>
+            <span>Julio 2026 + 6 meses de gracia.</span>
           </div>
           {/* <div className="border-b border-neutral-200 dark:border-neutral-700"></div>*/}
           <div className="flex justify-between font-semibold">
@@ -669,7 +680,6 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           </button>
 
           {/* Botón Visita el recorrido virtual */}
-        
         </div>
       </header>
 

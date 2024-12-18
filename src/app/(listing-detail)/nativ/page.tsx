@@ -113,8 +113,13 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           {/* <StartRating /> */}
           <span>·</span>
           <span>
-            <i className="las la-map-marker-alt"></i>
-            <span className="ml-1"> Bosque Real</span>
+            <span className="ml-1"> Desarrollador</span>
+            <Image
+              src="https://res.cloudinary.com/dwrtldhxd/image/upload/v1734498384/BosqueReal_wo13lr.png"
+              alt="Logo"
+              width={200} // Ajusta el ancho de la imagen
+              height={100} // Ajusta la altura de la imagen
+            />
           </span>
         </div>
 
@@ -602,7 +607,8 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           </div>
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
             <span>Fecha de entrega</span>
-            <span>Marzo 2025 + 6 meses de gracia.</span>
+            <span>Torre 1: Febrero 2027 + 6 meses de gracia.</span>
+            <span>Torre 2: Marzo 2028 + 6 meses de gracia.</span>
           </div>
           {/* <div className="border-b border-neutral-200 dark:border-neutral-700"></div>*/}
           <div className="flex justify-between font-semibold">

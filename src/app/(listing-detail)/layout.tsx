@@ -7,7 +7,7 @@ import SectionSubscribe2 from "@/components/SectionSubscribe2";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { ReactNode } from "react";
 import MobileFooterSticky from "./(components)/MobileFooterSticky";
-import { imageGallery as listingStayImageGallery } from "./listing-stay-detail/constant";
+import { imageGallery as listingStayImageGallery } from "./skyview/constant";
 import { imageGallery as ListingGalleryImage } from "./casa-ambar/constant";
 import { imageGallery as ListingGalleryBlue } from "./blue/constant";
 import { imageGallery as ListingGalleryCientoOchenta } from "./ciento-ochenta/constant";
