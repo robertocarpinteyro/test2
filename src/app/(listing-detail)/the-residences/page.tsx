@@ -584,7 +584,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="flex justify-between">
           <span className="text-3xl font-semibold">
             Desde <br />
-            $14,021,169.55
+            $45,316,121.22
             <span className="ml-1 text-base font-normal text-neutral-500 dark:text-neutral-400">
               mxn
             </span>

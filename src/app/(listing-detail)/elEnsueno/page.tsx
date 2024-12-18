@@ -113,8 +113,13 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           {/* <StartRating /> */}
           <span>·</span>
           <span>
-            <i className="las la-map-marker-alt"></i>
-            <span className="ml-1"> Bosque Real</span>
+            <span className="ml-1"> Desarrollador</span>
+            <Image
+              src="https://res.cloudinary.com/dwrtldhxd/image/upload/v1734498384/BosqueReal_wo13lr.png"
+              alt="Logo"
+              width={200} // Ajusta el ancho de la imagen
+              height={100} // Ajusta la altura de la imagen
+            />
           </span>
         </div>
 
@@ -577,7 +582,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="flex justify-between">
           <span className="text-3xl font-semibold">
             Desde <br />
-            $5,178,218.34
+            $6,632,640.00
             <span className="ml-1 text-base font-normal text-neutral-500 dark:text-neutral-400">
               mxn
             </span>

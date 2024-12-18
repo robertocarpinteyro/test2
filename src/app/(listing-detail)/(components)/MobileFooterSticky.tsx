@@ -46,6 +46,23 @@ const MobileFooterSticky = () => {
         desarrollo.price = "$9,927,450.00";
         return desarrollo.price;
       }
+      if (thisPathname?.includes("/designo")) {
+        desarrollo.price = "$5,178,218.34";
+        return desarrollo.price;
+      }
+      if (thisPathname?.includes("/elEnsueno")) {
+        desarrollo.price = "$6,632,640.00";
+        return desarrollo.price;
+      }
+      if (thisPathname?.includes("/islaArbol")) {
+        desarrollo.price = "$5,544,000.00";
+        return desarrollo.price;
+      }
+      if (thisPathname?.includes("/the-residences")) {
+        desarrollo.price = "$5,544,000.00";
+        return desarrollo.price;
+      }
+      
       
   
       return [];
