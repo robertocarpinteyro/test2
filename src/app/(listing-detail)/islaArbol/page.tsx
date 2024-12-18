@@ -116,8 +116,13 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           {/* <StartRating /> */}
           <span>·</span>
           <span>
-            <i className="las la-map-marker-alt"></i>
-            <span className="ml-1"> Bosque Real</span>
+          <span className="ml-1"> Desarrollador</span>
+            <Image
+              src="https://res.cloudinary.com/dwrtldhxd/image/upload/v1734498384/BosqueReal_wo13lr.png"
+              alt="Logo"
+              width={200} // Ajusta el ancho de la imagen
+              height={100} // Ajusta la altura de la imagen
+            />
           </span>
         </div>
 

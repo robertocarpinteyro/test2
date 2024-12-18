@@ -26,26 +26,26 @@ export interface ListingStayDetailPageProps {}
 
 const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
   //
-    const router = useRouter();
-    const pathname = usePathname();
-    const searchParams = useSearchParams();
-    const thisPathname = usePathname();
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const thisPathname = usePathname();
 
-    useEffect(() => {
-      // Verifica si el parámetro "option" ya está presente
-      const option = searchParams.get("option");
-  
-      // Si no está presente, agrega "option=blue" al URL
-      if (!option) {
-        const newParams = new URLSearchParams(searchParams.toString());
-        newParams.set("option", "blue");
-        router.replace(`${pathname}?${newParams.toString()}` as unknown as Route<string>);
-      }
-    }, [pathname, searchParams, router]);
+  useEffect(() => {
+    // Verifica si el parámetro "option" ya está presente
+    const option = searchParams.get("option");
+
+    // Si no está presente, agrega "option=blue" al URL
+    if (!option) {
+      const newParams = new URLSearchParams(searchParams.toString());
+      newParams.set("option", "blue");
+      router.replace(
+        `${pathname}?${newParams.toString()}` as unknown as Route<string>
+      );
+    }
+  }, [pathname, searchParams, router]);
 
   let [isOpenModalAmenities, setIsOpenModalAmenities] = useState(false);
-
-
 
   function closeModalAmenities() {
     setIsOpenModalAmenities(false);
@@ -76,8 +76,13 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           {/* <StartRating /> */}
           <span>·</span>
           <span>
-            <i className="las la-map-marker-alt"></i>
-            <span className="ml-1"> Bosque Real</span>
+            <span className="ml-1"> Desarrollador</span>
+            <Image
+              src="https://res.cloudinary.com/dwrtldhxd/image/upload/v1734498384/BosqueReal_wo13lr.png"
+              alt="Logo"
+              width={200} // Ajusta el ancho de la imagen
+              height={100} // Ajusta la altura de la imagen
+            />
           </span>
         </div>
 
