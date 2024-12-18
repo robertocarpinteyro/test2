@@ -62,6 +62,11 @@ const MobileFooterSticky = () => {
         desarrollo.price = "$5,544,000.00";
         return desarrollo.price;
       }
+      if (thisPathname?.includes("/designo-hotel")) {
+        desarrollo.price = "$7,196,657.59";
+        return desarrollo.price;
+      }
+      
       
       
   
