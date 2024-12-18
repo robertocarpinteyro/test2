@@ -46,7 +46,7 @@ const MobileFooterSticky = () => {
         desarrollo.price = "$9,927,450.00";
         return desarrollo.price;
       }
-      if (thisPathname?.includes("/designo")) {
+      if (thisPathname?.includes("/torre-designo")) {
         desarrollo.price = "$5,178,218.34";
         return desarrollo.price;
       }

@@ -14,7 +14,7 @@ import { imageGallery as ListingGalleryCientoOchenta } from "./ciento-ochenta/co
 import { imageGallery as ListingGalleryIvy } from "./ivy/constant";
 import { imageGallery as ListingGalleryNox } from "./nox/constant";
 import { imageGallery as ListingGalleryNativ } from "./nativ/constant";
-import { imageGallery as ListingGalleryDesigno } from "./designo/constant";
+import { imageGallery as ListingGalleryDesigno } from "./torre-designo/constant";
 import { imageGallery as ListingGalleryElEnsueno } from "./elEnsueno/constant";
 import { imageGallery as ListingGalleryIslaArbol } from "./islaArbol/constant";
 import { imageGallery as ListingGalleryTheResidences } from "./the-residences/constant";
@@ -59,7 +59,7 @@ const DetailtLayout = ({ children }: { children: ReactNode }) => {
     if (thisPathname?.includes("/nativ")) {
       return ListingGalleryNativ;
     }
-    if (thisPathname?.includes("/designo")) {
+    if (thisPathname?.includes("/torre-designo")) {
       return ListingGalleryDesigno;
     }
     if (thisPathname?.includes("/elensueno")) {
