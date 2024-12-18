@@ -18,7 +18,7 @@ const MobileFooterSticky = () => {
   };
   const [endDate, setEndDate] = useState<Date | null>(new Date("2023/02/23"));
    const getImageGalleryListing = () => {
-      if (thisPathname?.includes("/listing-stay-detail")) {
+      if (thisPathname?.includes("/skyview")) {
         desarrollo.price = "$19,920,000";
         return desarrollo.price;
       }
@@ -46,6 +46,7 @@ const MobileFooterSticky = () => {
         desarrollo.price = "$9,927,450.00";
         return desarrollo.price;
       }
+      
   
       return [];
     };

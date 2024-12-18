@@ -36,7 +36,7 @@ const DetailtLayout = ({ children }: { children: ReactNode }) => {
   };
 
   const getImageGalleryListing = () => {
-    if (thisPathname?.includes("/listing-stay-detail")) {
+    if (thisPathname?.includes("/skyview")) {
       return listingStayImageGallery;
     }
     if (thisPathname?.includes("/casa-ambar")) {

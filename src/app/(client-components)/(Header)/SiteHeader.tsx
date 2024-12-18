@@ -30,7 +30,7 @@ const PAGES_HIDE_HEADER_BORDER: PathName[] = [
   "/home-3",
   "/listing-car-detail",
   "/listing-experiences-detail",
-  "/listing-stay-detail",
+  "/skyview",
 ];
 
 const SiteHeader = () => {
