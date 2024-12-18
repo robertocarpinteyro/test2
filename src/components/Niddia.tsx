@@ -58,7 +58,7 @@ export function Niddia() {
         referrerPolicy="origin"
         style={{
           width: "100%",
-          height: "85vh",
+          height: "65vh",
           border: "none",
           borderRadius: "8px",
           outline: "none",
