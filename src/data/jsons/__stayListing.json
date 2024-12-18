@@ -24,7 +24,7 @@
     "maxGuests": 6,
     "bedrooms": 10,
     "bathrooms": 3,
-    "saleOff": null,
+    "saleOff": "Departamentos",
     "isAds": false,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
@@ -53,7 +53,7 @@
     "maxGuests": 6,
     "bedrooms": 10,
     "bathrooms": 3,
-    "saleOff": null,
+    "saleOff": "Departamentos",
     "isAds": null,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
@@ -83,7 +83,7 @@
     "maxGuests": 6,
     "bedrooms": 10,
     "bathrooms": 3,
-    "saleOff": null,
+    "saleOff": "Departamentos",
     "isAds": null,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
@@ -113,7 +113,7 @@
     "maxGuests": 6,
     "bedrooms": 10,
     "bathrooms": 3,
-    "saleOff": null,
+    "saleOff": "Departamentos",
     "isAds": null,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
@@ -141,7 +141,7 @@
     "maxGuests": 6,
     "bedrooms": 10,
     "bathrooms": 3,
-    "saleOff": null,
+    "saleOff": "Departamentos",
     "isAds": null,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
@@ -170,7 +170,7 @@
     "maxGuests": 6,
     "bedrooms": 10,
     "bathrooms": 3,
-    "saleOff": null,
+    "saleOff": "Departamentos",
     "isAds": null,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
@@ -199,7 +199,7 @@
     "maxGuests": 6,
     "bedrooms": 10,
     "bathrooms": 3,
-    "saleOff": null,
+    "saleOff": "Oficinas",
     "isAds": null,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
@@ -228,7 +228,7 @@
     "maxGuests": 6,
     "bedrooms": 10,
     "bathrooms": 3,
-    "saleOff": null,
+    "saleOff": "Lotes",
     "isAds": null,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
@@ -256,7 +256,7 @@
     "maxGuests": 6,
     "bedrooms": 10,
     "bathrooms": 3,
-    "saleOff": null,
+    "saleOff": "Lotes",
     "isAds": null,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
@@ -287,7 +287,7 @@
     "maxGuests": 6,
     "bedrooms": 6,
     "bathrooms": 10,
-    "saleOff": null,
+    "saleOff": "Casa",
     "isAds": null,
     "map": { "lat": 59.955413, "lng": 30.337844 }
   }

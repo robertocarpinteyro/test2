@@ -18,7 +18,7 @@ const DEMO_DATA = DEMO_STAY_LISTINGS[0];
 
 const StayCard2: FC<StayCard2Props> = ({
   size = "default",
-  className = "",
+  className = null,
   data = DEMO_DATA,
 }) => {
   const {
@@ -38,7 +38,6 @@ const StayCard2: FC<StayCard2Props> = ({
   } = data;
 
   const renderSliderGallery = () => {
-    
     return (
       <div className="relative w-full">
         <GallerySlider
@@ -49,7 +48,12 @@ const StayCard2: FC<StayCard2Props> = ({
           href={href}
         />
         <BtnLikeIcon isLiked={like} className="absolute right-3 top-3 z-[1]" />
-        {/*{saleOff && <SaleOffBadge className="absolute left-3 top-3" />}*/}
+        {saleOff && (
+          <SaleOffBadge
+            className="absolute left-3 top-3"
+            desc={saleOff || "-10% today"}
+          />
+        )}
       </div>
     );
   };
@@ -98,17 +102,15 @@ const StayCard2: FC<StayCard2Props> = ({
         </div>
         <div className="w-14 border-b border-neutral-100 dark:border-neutral-800"></div>
         <div className="flex justify-between items-center">
-        {size === "default" && (
-              <span className="text-sm text-neutral-500 dark:text-neutral-400 font-normal">
-                Desde
-              </span>
-            )}
+          {size === "default" && (
+            <span className="text-sm text-neutral-500 dark:text-neutral-400 font-normal">
+              Desde
+            </span>
+          )}
           <span className="text-base font-semibold">
             {price}
             {` `}
-           
           </span>
-        
         </div>
       </div>
     );

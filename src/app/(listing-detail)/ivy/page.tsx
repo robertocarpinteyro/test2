@@ -15,7 +15,7 @@ import ButtonClose from "@/shared/ButtonClose";
 import Input from "@/shared/Input";
 import LikeSaveBtns from "@/components/LikeSaveBtns";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Amenities_demos, PHOTOS } from "./constant";
 import StayDatesRangeInput from "./StayDatesRangeInput";
 import GuestsInput from "./GuestsInput";
@@ -26,61 +26,26 @@ export interface ListingStayDetailPageProps {}
 
 const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
   //
+    const router = useRouter();
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+    const thisPathname = usePathname();
 
-  {
-    /*useEffect(() => {
-    if (typeof window !== "undefined") {
-      // Limpiar cookies relacionadas
-      document.cookie.split(";").forEach((cookie) => {
-        const eqPos = cookie.indexOf("=");
-        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-        document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
-      });
-
-      // Limpieza de localStorage y sessionStorage
-      localStorage.clear();
-      sessionStorage.clear();
-
-      // Capturar query string desde el cliente
-      const urlParams = new URLSearchParams(window.location.search);
-      const selectedOption = urlParams.get("option") || "niddia"; // Valor predeterminado
-
-      console.log("optionVariable", selectedOption);
-
-      // Configurar MindStudioSettings con el valor capturado
-      (window as any).MindStudioSettings = {
-        publicToken: "pkd281a1076c773e9bd767063d6d923a5d",
-        appId: "52b9bb60-13d4-45f2-93a0-bedc2ec9f07e",
-        targetId: "mindstudio-frame",
-        debugging: true,
-        options: {
-          autoFocus: true,
-          disableThreads: false,
-          minimizeThreadPanel: true,
-          launchVariables: {
-            option: selectedOption, // Pasa el valor de la query string
-          },
-        },
-      };
-
-      // Insertar el script del embeding
-      const script = document.createElement("script");
-      script.src = "https://api.mindstudio.ai/v1/embed.js";
-      script.async = false;
-      document.body.appendChild(script);
-
-      // Limpieza del script al desmontar el componente
-      return () => {
-        document.body.removeChild(script);
-      };
-    }
-  }, []); // No necesita dependencia, ya que `window.location` es global*/
-  }
+    useEffect(() => {
+      // Verifica si el parámetro "option" ya está presente
+      const option = searchParams.get("option");
+  
+      // Si no está presente, agrega "option=blue" al URL
+      if (!option) {
+        const newParams = new URLSearchParams(searchParams.toString());
+        newParams.set("option", "blue");
+        router.replace(`${pathname}?${newParams.toString()}` as unknown as Route<string>);
+      }
+    }, [pathname, searchParams, router]);
 
   let [isOpenModalAmenities, setIsOpenModalAmenities] = useState(false);
 
-  const thisPathname = usePathname();
-  const router = useRouter();
+
 
   function closeModalAmenities() {
     setIsOpenModalAmenities(false);

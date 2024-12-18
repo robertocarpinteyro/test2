@@ -73,7 +73,7 @@ const MobileFooterSticky = () => {
             <ButtonPrimary
               sizeClass="px-5 sm:px-7 py-3 !rounded-2xl"
               
-              onClick={handleOpenModalAndNavigate}
+              onClick={handleOpenModalAndNavigate }
             >
               Saber más.
             </ButtonPrimary>
