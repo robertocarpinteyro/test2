@@ -105,7 +105,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
 
         {/* 2 */}
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
-          Casa Ambar
+          The Residences by Roche Bobois
         </h2>
 
         {/* 3 */}
@@ -115,7 +115,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           <span>
             <span className="ml-1"> Desarrollador</span>
             <Image
-              src="https://res.cloudinary.com/dwrtldhxd/image/upload/v1734541698/LEANBIMHsm_cvudos.png"
+              src="https://res.cloudinary.com/dwrtldhxd/image/upload/v1734498384/BosqueReal_wo13lr.png"
               alt="Logo"
               width={200} // Ajusta el ancho de la imagen
               height={100} // Ajusta la altura de la imagen
@@ -175,11 +175,10 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         <div className="text-neutral-6000 dark:text-neutral-300">
           <span>
-            Sky View redefine la vida en la ciudad al combinar la tranquilidad
-            con la modernidad. Este desarrollo residencial destaca por su
-            arquitectura contemporánea, pensada para ofrecer lujo, seguridad y
-            confort. Las impresionantes terrazas proporcionan vistas
-            extraordinarias al campo de golf y un panorama urbano espectacular.
+            Roche Bobois, la emblemática marca francesa de diseño de interiores
+            con más de seis décadas de distinguida trayectoria, presenta por
+            primera vez en México su concepto residencial de lujo: THE
+            RESIDENCES BY ROCHE BOBOIS.
           </span>
         </div>
       </div>
@@ -493,7 +492,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15050.221244418499!2d-99.2837492!3d19.4316105!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d20403fd02c0cd%3A0x7df6f5d84efc671e!2sSky%20View%20By%20Grupo%20Bosque%20Real!5e0!3m2!1ses!2smx!4v1733717378034!5m2!1ses!2smx"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.603117223243!2d-99.28897669999999!3d19.429546799999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d205c041c4e651%3A0x5089f201ebabed1b!2sCiento%20Ochenta%20Bosque%20Real!5e0!3m2!1ses!2smx!4v1734076969174!5m2!1ses!2smx"
             ></iframe>
           </div>
         </div>
@@ -585,7 +584,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="flex justify-between">
           <span className="text-3xl font-semibold">
             Desde <br />
-            $19,920,000
+            $14,021,169.55
             <span className="ml-1 text-base font-normal text-neutral-500 dark:text-neutral-400">
               mxn
             </span>
@@ -602,11 +601,11 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         {/* SUM */}
         <div className="flex flex-col space-y-4">
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-            <span>Superficie total 332.96m² </span>
+            <span>Superficie total 496.61m² </span>
           </div>
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
             <span>Fecha de entrega</span>
-            <span>Marzo 2025 + 6 meses de gracia.</span>
+            <span>Diciembre 2026 + 6 meses de gracia.</span>
           </div>
           {/* <div className="border-b border-neutral-200 dark:border-neutral-700"></div>*/}
           <div className="flex justify-between font-semibold">
@@ -624,8 +623,8 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
   return (
     <div className="nc-ListingStayDetailPage">
       {/*  HEADER */}
-      <header className="rounded-md sm:rounded-xl">
-        <div className="relative grid grid-cols-3 sm:grid-cols-4 gap-1 sm:gap-2">
+      <header className="rounded-md sm:rounded-xl relative">
+        <div className="grid grid-cols-3 sm:grid-cols-4 gap-1 sm:gap-2">
           <div
             className="col-span-2 row-span-3 sm:row-span-2 relative rounded-md sm:rounded-xl overflow-hidden cursor-pointer"
             onClick={handleOpenModalImageGallery}
@@ -651,7 +650,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
                   fill
                   className="object-cover rounded-md sm:rounded-xl "
                   src={item || ""}
-                  alt=""
+                  alt="Imagen adicional"
                   sizes="400px"
                 />
               </div>
@@ -663,9 +662,13 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
               />
             </div>
           ))}
+        </div>
 
+        {/* Botones alineados */}
+        <div className="absolute bottom-3 left-3 flex gap-3 z-10">
+          {/* Botón Ver todas las fotos */}
           <button
-            className="absolute hidden md:flex md:items-center md:justify-center left-3 bottom-3 px-4 py-2 rounded-xl bg-neutral-100 text-neutral-500 hover:bg-neutral-200 z-10"
+            className="flex items-center px-4 py-2 rounded-xl bg-neutral-100 text-neutral-500 hover:bg-neutral-200"
             onClick={handleOpenModalImageGallery}
           >
             <Squares2X2Icon className="w-5 h-5" />
@@ -673,6 +676,8 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
               Ver todas las fotos
             </span>
           </button>
+
+          {/* Botón Visita el recorrido virtual */}
         </div>
       </header>
 
@@ -682,10 +687,9 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="w-full lg:w-3/5 xl:w-2/3 space-y-8 lg:space-y-10 lg:pr-10">
           {renderSection1()}
           {renderSection2()}
-
           {renderSection4()}
           {renderSection7()}
-          <Niddia/>
+          <Niddia />
           {/*<SectionDateRange />*/}
         </div>
 

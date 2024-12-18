@@ -17,6 +17,7 @@ import { imageGallery as ListingGalleryNativ } from "./nativ/constant";
 import { imageGallery as ListingGalleryDesigno } from "./designo/constant";
 import { imageGallery as ListingGalleryElEnsueno } from "./elEnsueno/constant";
 import { imageGallery as ListingGalleryIslaArbol } from "./islaArbol/constant";
+import { imageGallery as ListingGalleryTheResidences } from "./the-residences/constant";
 import { imageGallery as listingCarImageGallery } from "./listing-car-detail/constant";
 import { imageGallery as listingExperienceImageGallery } from "./listing-experiences-detail/constant";
 import { Route } from "next";
@@ -65,6 +66,9 @@ const DetailtLayout = ({ children }: { children: ReactNode }) => {
     }
     if (thisPathname?.includes("/islaArbol")) {
       return ListingGalleryIslaArbol;
+    }
+    if (thisPathname?.includes("/the-residences")) {
+      return ListingGalleryTheResidences;
     }
 
 

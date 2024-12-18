@@ -290,5 +290,36 @@
     "saleOff": "Casa",
     "isAds": null,
     "map": { "lat": 59.955413, "lng": 30.337844 }
+  },
+  {
+    "id": "id10",
+    "tag": "departamentos",
+    "authorId": 10,
+    "date": "May 20, 2021",
+    "href": "/the-residences",
+    "listingCategoryId": 17,
+    "title": "The Residences By Roche Bobois",
+    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/v1730557349/Captura_de_pantalla_2024-11-02_a_la_s_8.18.55_a.m._jbkaar.png",
+    "galleryImgs": [
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734542498/RENDER_FACHADA_P%C3%93RTICO_m69t4n.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734542498/RENDER_GYM_ESCALAS_2_gcopb7.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734542498/RENDER_DEPTO_ROCHE_COMEDOR-SALA_iwqo5y.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734542498/RENDER_ALBERCA_ESCALAS_2_dewrho.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734542498/RENDER_AEREO_OPCION_2_rvtmht.jpg"
+
+    ],
+    "commentCount": 70,
+    "viewCount": 602,
+    "like": false,
+    "address": "Bosque Real",
+    "reviewStart": 4.8,
+    "reviewCount": 28,
+    "price": "$42,372,001.76 mxn",
+    "maxGuests": 6,
+    "bedrooms": 10,
+    "bathrooms": 3,
+    "saleOff": "Departamentos",
+    "isAds": null,
+    "map": { "lat": 55.2094559, "lng": 61.5594641 }
   }
 ]
