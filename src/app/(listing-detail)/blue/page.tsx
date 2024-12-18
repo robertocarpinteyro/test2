@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import React, { FC, Fragment, useState, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { ArrowRightIcon, Squares2X2Icon } from "@heroicons/react/24/outline";
@@ -629,7 +629,9 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         </div>
 
         {/* SUBMIT */}
-        <ButtonPrimary >Niddia Resolverá tus dudas.</ButtonPrimary>
+        <ButtonPrimary >
+        <a href="#niddia">Niddia Resolverá tus dudas.</a>
+         </ButtonPrimary>
       </div>
     );
   };

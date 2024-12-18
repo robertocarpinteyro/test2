@@ -579,7 +579,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         </div>
 
         {/* SUBMIT */}
-        <ButtonPrimary>Niddia Resolverá tus dudas.</ButtonPrimary>
+        <ButtonPrimary><a href="#niddia">Niddia Resolverá tus dudas.</a></ButtonPrimary>
       </div>
     );
   };
@@ -663,6 +663,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           {renderSection2()}
           {renderSection4()}
           {renderSection7()}
+          <div id="niddia"></div>
           <Niddia />
           {/*<SectionDateRange />*/}
         </div>
