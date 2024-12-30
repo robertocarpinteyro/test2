@@ -15,7 +15,7 @@ import ButtonClose from "@/shared/ButtonClose";
 import Input from "@/shared/Input";
 import LikeSaveBtns from "@/components/LikeSaveBtns";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Amenities_demos, PHOTOS } from "./constant";
 import StayDatesRangeInput from "./StayDatesRangeInput";
 import GuestsInput from "./GuestsInput";
@@ -24,8 +24,6 @@ import { Route } from "next";
 import { Niddia } from "@/components/Niddia";
 
 export interface ListingStayDetailPageProps {}
-
-
 
 const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
   //
@@ -82,8 +80,24 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
 
   let [isOpenModalAmenities, setIsOpenModalAmenities] = useState(false);
 
+  const pathname = usePathname();
   const thisPathname = usePathname();
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    // Verifica si el parámetro "option" ya está presente
+    const option = searchParams.get("option");
+
+    // Si no está presente, agrega "option=blue" al URL
+    if (!option) {
+      const newParams = new URLSearchParams(searchParams.toString());
+      newParams.set("option", "IslaDelArbol");
+      router.replace(
+        `${pathname}?${newParams.toString()}` as unknown as Route<string>
+      );
+    }
+  }, [pathname, searchParams, router]);
 
   function closeModalAmenities() {
     setIsOpenModalAmenities(false);
@@ -116,7 +130,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           {/* <StartRating /> */}
           <span>·</span>
           <span>
-          <span className="ml-1"> Desarrollador</span>
+            <span className="ml-1"> Desarrollador</span>
             <Image
               src="https://res.cloudinary.com/dwrtldhxd/image/upload/v1734498384/BosqueReal_wo13lr.png"
               alt="Logo"
@@ -178,8 +192,9 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         <div className="text-neutral-6000 dark:text-neutral-300">
           <span>
-            El desarollo residencial más exclusivo de Améica Latina, aquí, cada detalle
-            está diseñado para ofrece una experiencia de vida incomparable.
+            El desarollo residencial más exclusivo de Améica Latina, aquí, cada
+            detalle está diseñado para ofrece una experiencia de vida
+            incomparable.
           </span>
         </div>
       </div>
@@ -616,14 +631,15 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         </div>
 
         {/* SUBMIT */}
-        <ButtonPrimary><a href="#niddia">Niddia Resolverá tus dudas.</a></ButtonPrimary>
+        <ButtonPrimary>
+          <a href="#niddia">Niddia Resolverá tus dudas.</a>
+        </ButtonPrimary>
       </div>
     );
   };
 
   return (
     <div className="nc-ListingStayDetailPage">
-     
       {/*  HEADER */}
       <header className="rounded-md sm:rounded-xl relative">
         <div className="grid grid-cols-3 sm:grid-cols-4 gap-1 sm:gap-2">

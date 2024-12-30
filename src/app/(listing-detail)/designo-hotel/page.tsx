@@ -91,7 +91,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
     // Si no está presente, agrega "option=blue" al URL
     if (!option) {
       const newParams = new URLSearchParams(searchParams.toString());
-      newParams.set("option", "Designo");
+      newParams.set("option", "DesignoHotel");
       router.replace(
         `${pathname}?${newParams.toString()}` as unknown as Route<string>
       );
