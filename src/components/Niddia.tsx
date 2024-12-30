@@ -1,6 +1,13 @@
 "use client";
 import React, { useEffect, useState, Suspense } from "react";
-export function Niddia() {
+
+
+interface NiddiaProps {
+  indexValue?: string; // Prop opcional
+}
+
+export function Niddia({ indexValue }: NiddiaProps) {
+  console.log("Index", indexValue);
   useEffect(() => {
       // Limpiar cookies relacionadas
       document.cookie.split(";").forEach((cookie) => {
@@ -27,10 +34,11 @@ export function Niddia() {
         debugging: true,
         options: {
           autoFocus: true,
-          disableThreads: false,
+          disableThreads: true,
           minimizeThreadPanel: true,
           launchVariables: {
             option: selectedOption,
+            instruction: indexValue,
             
           },
         },

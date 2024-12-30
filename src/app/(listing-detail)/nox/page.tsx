@@ -79,7 +79,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
 
   let [isOpenModalAmenities, setIsOpenModalAmenities] = useState(false);
 
-const pathname = usePathname();
+  const pathname = usePathname();
   const thisPathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -631,7 +631,9 @@ const pathname = usePathname();
         </div>
 
         {/* SUBMIT */}
-        <ButtonPrimary><a href="#niddia">Niddia Resolverá tus dudas.</a></ButtonPrimary>
+        <ButtonPrimary>
+          <a href="#niddia">Niddia Resolverá tus dudas.</a>
+        </ButtonPrimary>
       </div>
     );
   };
@@ -716,7 +718,7 @@ const pathname = usePathname();
           {renderSection4()}
           {renderSection7()}
           <div id="niddia"></div>
-          <Niddia />
+          <Niddia indexValue="departamento" />
           {/*<SectionDateRange />*/}
         </div>
 

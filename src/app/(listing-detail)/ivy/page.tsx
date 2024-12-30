@@ -34,7 +34,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
   useEffect(() => {
     // Verifica si el parámetro "option" ya está presente
     const option = searchParams.get("option");
-
+    const instruction = "departamento";
     // Si no está presente, agrega "option=blue" al URL
     if (!option) {
       const newParams = new URLSearchParams(searchParams.toString());
@@ -664,7 +664,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           {renderSection4()}
           {renderSection7()}
           <div id="niddia"></div>
-          <Niddia />
+          <Niddia indexValue="departamento" />
           {/*<SectionDateRange />*/}
         </div>
 
