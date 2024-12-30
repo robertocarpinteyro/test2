@@ -15,7 +15,7 @@ import ButtonClose from "@/shared/ButtonClose";
 import Input from "@/shared/Input";
 import LikeSaveBtns from "@/components/LikeSaveBtns";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Amenities_demos, PHOTOS } from "./constant";
 import StayDatesRangeInput from "./StayDatesRangeInput";
 import GuestsInput from "./GuestsInput";
@@ -79,9 +79,24 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
 
   let [isOpenModalAmenities, setIsOpenModalAmenities] = useState(false);
 
+  const pathname = usePathname();
   const thisPathname = usePathname();
   const router = useRouter();
+  const searchParams = useSearchParams();
 
+  useEffect(() => {
+    // Verifica si el parámetro "option" ya está presente
+    const option = searchParams.get("option");
+
+    // Si no está presente, agrega "option=blue" al URL
+    if (!option) {
+      const newParams = new URLSearchParams(searchParams.toString());
+      newParams.set("option", "CientoOchenta");
+      router.replace(
+        `${pathname}?${newParams.toString()}` as unknown as Route<string>
+      );
+    }
+  }, [pathname, searchParams, router]);
   function closeModalAmenities() {
     setIsOpenModalAmenities(false);
   }
@@ -617,7 +632,9 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         </div>
 
         {/* SUBMIT */}
-        <ButtonPrimary><a href="#niddia">Niddia Resolverá tus dudas.</a></ButtonPrimary>
+        <ButtonPrimary>
+          <a href="#niddia">Niddia Resolverá tus dudas.</a>
+        </ButtonPrimary>
       </div>
     );
   };

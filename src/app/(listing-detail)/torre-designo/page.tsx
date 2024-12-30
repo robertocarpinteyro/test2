@@ -15,7 +15,7 @@ import ButtonClose from "@/shared/ButtonClose";
 import Input from "@/shared/Input";
 import LikeSaveBtns from "@/components/LikeSaveBtns";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Amenities_demos, PHOTOS } from "./constant";
 import StayDatesRangeInput from "./StayDatesRangeInput";
 import GuestsInput from "./GuestsInput";
@@ -79,8 +79,24 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
 
   let [isOpenModalAmenities, setIsOpenModalAmenities] = useState(false);
 
+  const pathname = usePathname();
   const thisPathname = usePathname();
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    // Verifica si el parámetro "option" ya está presente
+    const option = searchParams.get("option");
+
+    // Si no está presente, agrega "option=blue" al URL
+    if (!option) {
+      const newParams = new URLSearchParams(searchParams.toString());
+      newParams.set("option", "TorreDesigno");
+      router.replace(
+        `${pathname}?${newParams.toString()}` as unknown as Route<string>
+      );
+    }
+  }, [pathname, searchParams, router]);
 
   function closeModalAmenities() {
     setIsOpenModalAmenities(false);
@@ -104,7 +120,9 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         </div>
 
         {/* 2 */}
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">Designo</h2>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
+          Designo
+        </h2>
 
         {/* 3 */}
         <div className="flex items-center space-x-4">
@@ -168,7 +186,8 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         <div className="text-neutral-6000 dark:text-neutral-300">
           <span>
-          Planta con 26 oficinas que van de los 30 m2 a los 73 m2, con un núcleo de servicios y circulaciones compartido
+            Planta con 26 oficinas que van de los 30 m2 a los 73 m2, con un
+            núcleo de servicios y circulaciones compartido
           </span>
         </div>
       </div>
@@ -605,7 +624,9 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         </div>
 
         {/* SUBMIT */}
-        <ButtonPrimary><a href="#niddia">Niddia Resolverá tus dudas.</a></ButtonPrimary>
+        <ButtonPrimary>
+          <a href="#niddia">Niddia Resolverá tus dudas.</a>
+        </ButtonPrimary>
       </div>
     );
   };

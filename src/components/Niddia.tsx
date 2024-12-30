@@ -30,7 +30,8 @@ export function Niddia() {
           disableThreads: false,
           minimizeThreadPanel: true,
           launchVariables: {
-            option: selectedOption, // Pasa el valor de la query string
+            option: selectedOption,
+            
           },
         },
       };

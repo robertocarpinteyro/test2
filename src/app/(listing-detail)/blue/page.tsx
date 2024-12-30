@@ -126,7 +126,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           {/* <StartRating /> */}
           <span>·</span>
           <span>
-            <span className="ml-1"> Desarrollador</span>
+            <span className="ml-1">Desarrollador</span>
             <Image
               src="https://res.cloudinary.com/dwrtldhxd/image/upload/v1734498384/BosqueReal_wo13lr.png"
               alt="Logo"
