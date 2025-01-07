@@ -15,7 +15,7 @@ const NiddiaStandAlone: FC<PageAboutProps> = ({}) => {
           className="filter invert contrast-200 brightness-200"
         />
       </div>
-      <Niddia />
+      <Niddia indexValue="niddia"/>
     </div>
   );
 };
