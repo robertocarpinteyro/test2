@@ -711,7 +711,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           {renderSection4()}
           {renderSection7()}
           <div id="niddia"></div>
-          <Niddia />
+          <Niddia  indexValue="oficinas" />
           {/*<SectionDateRange />*/}
         </div>
 
