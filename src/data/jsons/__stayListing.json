@@ -260,6 +260,34 @@
     "isAds": null,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
+  {
+    "id": "id12",
+    "tag": "lotes",
+    "authorId": 10,
+    "date": "May 20, 2021",
+    "href": "/islaEncino",
+    "listingCategoryId": 17,
+    "title": "Isla Encino",
+    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734320770/Acceso_1_a_Lote_22_y_25_Clusters_Reserva_BR_19Jul24_def_etittq.png",
+    "galleryImgs": [
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734320769/Rotonda_Lote_22_y_25_Clusters_Reserva_BR_31Jul24_wgbn1a.png",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734320769/Casas_Lote_22_y_25_Clusters_Reserva_BR_31Jul24_kllyf4.png",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734320768/Vista_a%C3%A9rea_1_Lote_22_y_25_Clusters_Reserva_BR_5Ago24_def_w7y5yt.jpg"
+    ],
+    "commentCount": 70,
+    "viewCount": 602,
+    "like": false,
+    "address": "Bosque Real",
+    "reviewStart": 4.8,
+    "reviewCount": 28,
+    "price": "$4565673 mxn",
+    "maxGuests": 6,
+    "bedrooms": 10,
+    "bathrooms": 3,
+    "saleOff": "Lotes",
+    "isAds": null,
+    "map": { "lat": 55.2094559, "lng": 61.5594641 }
+  },
 
   {
     "id": "a377ce70-0bff-4659-bf4c-d2e811c278f0",
