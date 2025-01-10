@@ -7,14 +7,6 @@ interface NiddiaProps {
 
 export function Niddia({ indexValue }: NiddiaProps) {
   useEffect(() => {
-    // Limpiar cookies, localStorage y sessionStorage
-    document.cookie.split(";").forEach((cookie) => {
-      const name = cookie.split("=")[0].trim();
-      document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
-    });
-    localStorage.clear();
-    sessionStorage.clear();
-
     // Configurar las opciones de MindStudio
     const urlParams = new URLSearchParams(window.location.search);
     const selectedOption = urlParams.get("option") || "niddia"; // Valor predeterminado
