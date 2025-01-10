@@ -115,7 +115,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
       <div className="listingSection__wrap !space-y-6">
         {/* 1 */}
         <div className="flex justify-between items-center">
-          <Badge name="Oficinas de lujo" />
+          <Badge name="Lotes Residenciales" />
           <LikeSaveBtns />
         </div>
 
@@ -716,7 +716,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           {renderSection4()}
           {renderSection7()}
           <div id="niddia"></div>
-            <Niddia indexValue="lote" />
+            <Niddia indexValue="lote"/>
           {/*<SectionDateRange />*/}
         </div>
 
