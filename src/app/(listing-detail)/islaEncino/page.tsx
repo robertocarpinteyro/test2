@@ -121,7 +121,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
 
         {/* 2 */}
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
-          Ensueño
+          Isla Encino
         </h2>
 
         {/* 3 */}
@@ -191,8 +191,8 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         <div className="text-neutral-6000 dark:text-neutral-300">
           <span>
-            Espectacular privada con hermosas vistas a la cañada, donde la
-            naturaleza juega en armonía con cada uno de los lotes residenciales
+          Isla del Encino es una comunidad residencial exclusiva ubicada dentro del prestigioso desarrollo de Bosque Real en Huixquilucan, 
+          Estado de México. Este conjunto ofrece solo 20 lotes residenciales, creando un ambiente íntimo y seguro para sus residentes. 
           </span>
         </div>
       </div>
@@ -506,7 +506,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15050.850519392008!2d-99.29151503585392!3d19.424818552018348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d206afcbeeb94f%3A0xadd2494484aa49aa!2sBosque%20Real%2C%2052774%20Naucalpan%20de%20Ju%C3%A1rez%2C%20M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1734318841212!5m2!1ses-419!2smx"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1926559.73749565!2d-101.72683044374996!3d19.42052779999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d207d69ed946e1%3A0xfdcddfaa15837b7!2sGrupo%20Bosque%20Real!5e0!3m2!1ses-419!2smx!4v1736499608891!5m2!1ses-419!2smx"
             ></iframe>
           </div>
         </div>
@@ -598,7 +598,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="flex justify-between">
           <span className="text-3xl font-semibold">
             Desde <br />
-            $6,632,640.00
+            $4,565,673.00 mxn
             <span className="ml-1 text-base font-normal text-neutral-500 dark:text-neutral-400">
               mxn
             </span>
@@ -693,7 +693,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
             </span>
           </button>
 
-          {/* Botón Visita el recorrido virtual */}
+          {/* Botón Visita el recorrido virtual 
           <a
             href="https://jxnglobal.com/vr/gbr/propiedades/nativ_765a5b52/"
             target="_blank"
@@ -703,7 +703,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
             <span className="text-neutral-800 text-sm font-medium">
               Visita el recorrido virtual
             </span>
-          </a>
+          </a>*/}
         </div>
       </header>
 
