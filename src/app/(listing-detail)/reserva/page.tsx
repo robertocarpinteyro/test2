@@ -91,7 +91,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
     // Si no está presente, agrega "option=blue" al URL
     if (!option) {
       const newParams = new URLSearchParams(searchParams.toString());
-      newParams.set("option", "IslaEncino");
+      newParams.set("option", "LaReserva");
       router.replace(
         `${pathname}?${newParams.toString()}` as unknown as Route<string>
       );
@@ -191,8 +191,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         <div className="text-neutral-6000 dark:text-neutral-300">
           <span>
-          Isla del Encino es una comunidad residencial exclusiva ubicada dentro del prestigioso desarrollo de Bosque Real en Huixquilucan, 
-          Estado de México. Este conjunto ofrece solo 20 lotes residenciales, creando un ambiente íntimo y seguro para sus residentes. 
+          Reserva Bosque Real es un desarrollo residencial de primer nivel que ofrece lotes unifamiliares en un entorno natural y seguro, ideal para construir la casa de tus sueños.
           </span>
         </div>
       </div>
@@ -598,7 +597,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="flex justify-between">
           <span className="text-3xl font-semibold">
             Desde <br />
-            $4,565,673.00 mxn
+            $6,300,000.00 mxn
             <span className="ml-1 text-base font-normal text-neutral-500 dark:text-neutral-400">
               mxn
             </span>
@@ -615,11 +614,11 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         {/* SUM */}
         <div className="flex flex-col space-y-4">
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-            <span>Superficie total 241.57 m² </span>
+            <span>Superficie total 300 m² </span>
           </div>
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
             <span>Fecha de entrega</span>
-            <span>Junio 2026 más 6 meses de gracia.</span>
+            <span>Entrega Inmediata.</span>
           </div>
           {/* <div className="border-b border-neutral-200 dark:border-neutral-700"></div>*/}
           <div className="flex justify-between font-semibold">

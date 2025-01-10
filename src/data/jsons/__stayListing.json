@@ -290,6 +290,37 @@
   },
 
   {
+    "id": "id12",
+    "tag": "lotes",
+    "authorId": 10,
+    "date": "May 20, 2021",
+    "href": "/reserva",
+    "listingCategoryId": 17,
+    "title": "La Reserva",
+    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/v1736497567/Vista_a%C3%A9rea_1_Lote_11_Clusters_REserva_BR_12Ago24_a_def_ep9agc.jpg",
+    "galleryImgs": [
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1736500310/BR_RESERVA_VISTA_CALLE_1_qhdpdb.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1736500309/RESERVA_VISTA_CALLE_2_rpe6er.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1736500308/Reserva_3_onzetj.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1736500308/Reserva1_mlrvtg.jpg"
+    ],
+    "commentCount": 70,
+    "viewCount": 602,
+    "like": false,
+    "address": "Bosque Real",
+    "reviewStart": 4.8,
+    "reviewCount": 28,
+    "price": "$6,300,000.00 mxn",
+    "maxGuests": 6,
+    "bedrooms": 10,
+    "bathrooms": 3,
+    "saleOff": "Lotes",
+    "isAds": null,
+    "map": { "lat": 55.2094559, "lng": 61.5594641 }
+  },
+
+
+  {
     "id": "a377ce70-0bff-4659-bf4c-d2e811c278f0",
     "tag": "casas",
     "authorId": 5,
