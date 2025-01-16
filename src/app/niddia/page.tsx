@@ -1,9 +1,18 @@
-import React, { FC } from "react";
+"use client";
+
+import React, { FC, useState } from "react";
 import Image from "next/image";
 import { Niddia } from "@/components/Niddia";
+
 export interface PageAboutProps {}
 
 const NiddiaStandAlone: FC<PageAboutProps> = ({}) => {
+  const [key, setKey] = useState(0);
+
+  const handleReload = () => {
+    setKey((prevKey) => prevKey + 1); // Cambia la clave para forzar un remount
+  };
+
   return (
     <div>
       <div className="bg-black flex justify-center items-center h-20 w-full">
@@ -15,7 +24,15 @@ const NiddiaStandAlone: FC<PageAboutProps> = ({}) => {
           className="filter invert contrast-200 brightness-200"
         />
       </div>
-      <Niddia indexValue="Niddia"/>
+      <button
+        onClick={handleReload}
+        className="bg-blue-500 text-white py-2 px-4 rounded"
+      >
+        Recargar componente
+      </button>
+      <div key={key}>
+        <Niddia indexValue="Niddia" />
+      </div>
     </div>
   );
 };
