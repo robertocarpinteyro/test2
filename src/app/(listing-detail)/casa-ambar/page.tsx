@@ -79,24 +79,24 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
 
   let [isOpenModalAmenities, setIsOpenModalAmenities] = useState(false);
 
-   const pathname = usePathname();
-    const thisPathname = usePathname();
-    const router = useRouter();
-    const searchParams = useSearchParams();
-  
-    useEffect(() => {
-      // Verifica si el parámetro "option" ya está presente
-      const option = searchParams.get("option");
-  
-      // Si no está presente, agrega "option=blue" al URL
-      if (!option) {
-        const newParams = new URLSearchParams(searchParams.toString());
-        newParams.set("option", "CasaAmbar");
-        router.replace(
-          `${pathname}?${newParams.toString()}` as unknown as Route<string>
-        );
-      }
-    }, [pathname, searchParams, router]);
+  const pathname = usePathname();
+  const thisPathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    // Verifica si el parámetro "option" ya está presente
+    const option = searchParams.get("option");
+
+    // Si no está presente, agrega "option=blue" al URL
+    if (!option) {
+      const newParams = new URLSearchParams(searchParams.toString());
+      newParams.set("option", "CasaAmbar");
+      router.replace(
+        `${pathname}?${newParams.toString()}` as unknown as Route<string>
+      );
+    }
+  }, [pathname, searchParams, router]);
 
   function closeModalAmenities() {
     setIsOpenModalAmenities(false);
@@ -191,11 +191,10 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         <div className="text-neutral-6000 dark:text-neutral-300">
           <span>
-            Sky View redefine la vida en la ciudad al combinar la tranquilidad
-            con la modernidad. Este desarrollo residencial destaca por su
-            arquitectura contemporánea, pensada para ofrecer lujo, seguridad y
-            confort. Las impresionantes terrazas proporcionan vistas
-            extraordinarias al campo de golf y un panorama urbano espectacular.
+            Casa Ambar: Lujo y Confort en Entorno Exclusivo Ubicada en el
+            prestigioso conjunto residencial Reserva Bosque Real, esta casa
+            ofrece una combinación perfecta de diseño moderno, funcionalidad y
+            un entorno natural privilegiado.
           </span>
         </div>
       </div>
@@ -601,7 +600,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="flex justify-between">
           <span className="text-3xl font-semibold">
             Desde <br />
-            $19,920,000
+            $16,500,000.00 mxn
             <span className="ml-1 text-base font-normal text-neutral-500 dark:text-neutral-400">
               mxn
             </span>
@@ -632,7 +631,9 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         </div>
 
         {/* SUBMIT */}
-        <ButtonPrimary><a href="#niddia">Niddia Resolverá tus dudas.</a></ButtonPrimary>
+        <ButtonPrimary>
+          <a href="#niddia">Niddia Resolverá tus dudas.</a>
+        </ButtonPrimary>
       </div>
     );
   };
