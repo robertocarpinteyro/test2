@@ -1,20 +1,24 @@
 "use client";
 
-import React, { FC, useState } from "react";
+import React, { FC, useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation"; // Cambia a "next/navigation"
 import { Niddia } from "@/components/Niddia";
-import { useRouter } from "next/router";
+
 export interface PageAboutProps {}
 
 const NiddiaStandAlone: FC<PageAboutProps> = ({}) => {
   const router = useRouter();
-  // Force refresh the page
-  router.reload();
-  const [key, setKey] = useState(0);
 
-  const handleReload = () => {
-    setKey((prevKey) => prevKey + 1); // Cambia la clave para forzar un remount
-  };
+  useEffect(() => {
+    // Forzar la recarga de la página
+    const hasReloaded = sessionStorage.getItem("hasReloaded");
+
+    if (!hasReloaded) {
+      sessionStorage.setItem("hasReloaded", "true");
+      router.refresh(); // Forzar recarga en sistemas de app directory
+    }
+  }, [router]);
 
   return (
     <div>
@@ -22,14 +26,12 @@ const NiddiaStandAlone: FC<PageAboutProps> = ({}) => {
         <Image
           src="https://res.cloudinary.com/dwrtldhxd/image/upload/v1734387936/niddiaLogo_t9hkkp.png"
           alt="Separador"
-          width={64} // Ajusta el ancho de la imagen
-          height={64} // Ajusta la altura de la imagen
+          width={64}
+          height={64}
           className="filter invert contrast-200 brightness-200"
         />
       </div>
-      <div key={key}>
-        <Niddia indexValue="Niddia" />
-      </div>
+      <Niddia indexValue="Niddia" />
     </div>
   );
 };
