@@ -3,10 +3,13 @@
 import React, { FC, useState } from "react";
 import Image from "next/image";
 import { Niddia } from "@/components/Niddia";
-
+import { useRouter } from "next/router";
 export interface PageAboutProps {}
 
 const NiddiaStandAlone: FC<PageAboutProps> = ({}) => {
+  const router = useRouter();
+  // Force refresh the page
+  router.reload();
   const [key, setKey] = useState(0);
 
   const handleReload = () => {
