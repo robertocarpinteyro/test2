@@ -117,7 +117,7 @@ export const FloatingNav = ({
           whileTap={{ scale: 0.9 }}
         >
           <Link
-            href={"/niddia" as Route<string>}
+            href={"https://www.niddo.ai/niddia" as Route<string>}
             className="px-4 py-2 text-white bg-gradient-to-r from-secondary-400 to-secondary-500 rounded-full shadow-lg hover:shadow-xl transition-all"
           >
             Chat
@@ -156,7 +156,7 @@ export const FloatingNav = ({
           whileTap={{ scale: 0.9 }}
         >
           <Link
-            href={"/niddia" as Route<string>}
+            href={"https://www.niddo.ai/niddia" as Route<string>}
             className="px-6 py-2 text-white bg-gradient-to-r from-secondary-400 to-secondary-500 rounded-full shadow-lg hover:shadow-xl transition-all"
           >
             Chatea con Niddia
