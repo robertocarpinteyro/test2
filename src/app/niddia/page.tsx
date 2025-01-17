@@ -1,26 +1,17 @@
 "use client";
 
-import React, { FC, useEffect } from "react";
+import React, { FC, useState } from "react";
 import Image from "next/image";
 import { Niddia } from "@/components/Niddia";
 
 export interface PageAboutProps {}
 
 const NiddiaStandAlone: FC<PageAboutProps> = ({}) => {
-  useEffect(() => {
-    // Verificar si la página ya ha sido recargada
-    const hasReloaded = sessionStorage.getItem("hasReloaded");
+  const [key, setKey] = useState(0);
 
-    if (!hasReloaded) {
-      sessionStorage.setItem("hasReloaded", "true"); // Marcar como recargado
-      window.location.reload(); // Recargar la página como F5
-    }
-
-    return () => {
-      // Limpiar la clave al desmontar el componente
-      sessionStorage.removeItem("hasReloaded");
-    };
-  }, []);
+  const handleReload = () => {
+    setKey((prevKey) => prevKey + 1); // Cambia la clave para forzar un remount
+  };
 
   return (
     <div>
@@ -33,7 +24,9 @@ const NiddiaStandAlone: FC<PageAboutProps> = ({}) => {
           className="filter invert contrast-200 brightness-200"
         />
       </div>
-      <Niddia indexValue="Niddia" />
+      <div key={key}>
+        <Niddia indexValue="Niddia" />
+      </div>
     </div>
   );
 };
