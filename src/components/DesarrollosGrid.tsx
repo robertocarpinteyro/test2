@@ -18,8 +18,8 @@ const TABS = ["casas", "departamentos", "oficinas", "lotes"];
 
 const SectionGridFeaturePlaces: FC<SectionGridFeaturePlacesProps> = ({
   gridClass = "",
-  heading = "Featured places to stay",
-  subHeading = "Popular places to stay that Chisfis recommends for you",
+  heading = "Encuentra la propiedad de tus sueños.",
+  subHeading = "Explora nuestras propiedades disponibles y con ayuda de Niddia encuentra una propiedad ideal.",
   cardType = "card2",
 }) => {
   const searchParams = useSearchParams();
