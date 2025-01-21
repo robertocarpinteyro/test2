@@ -20,9 +20,10 @@ import { Amenities_demos, PHOTOS } from "./constant";
 import StayDatesRangeInput from "./StayDatesRangeInput";
 import GuestsInput from "./GuestsInput";
 import SectionDateRange from "../SectionDateRange";
-import { Route } from "next";
+
 import { Niddia } from "@/components/Niddia";
 export interface ListingStayDetailPageProps {}
+import type { Route } from 'next';
 
 const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
   //
@@ -93,7 +94,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
       const newParams = new URLSearchParams(searchParams.toString());
       newParams.set("option", "IslaEncino");
       router.replace(
-        `${pathname}?${newParams.toString()}` as unknown as Route<string>
+        `${pathname}?${newParams.toString()}` as unknown as Route
       );
     }
   }, [pathname, searchParams, router]);

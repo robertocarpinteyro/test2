@@ -39,7 +39,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
       const newParams = new URLSearchParams(searchParams.toString());
       newParams.set("option", "blue");
       router.replace(
-        `${pathname}?${newParams.toString()}` as unknown as Route<string>
+        `${pathname}?${newParams.toString()}` as unknown as Route
       );
     }
   }, [pathname, searchParams, router]);
