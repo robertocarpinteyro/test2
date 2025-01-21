@@ -297,12 +297,12 @@
     "href": "/reserva",
     "listingCategoryId": 17,
     "title": "La Reserva",
-    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_auto/v1736497567/Vista_a%C3%A9rea_1_Lote_11_Clusters_REserva_BR_12Ago24_a_def_ep9agc.jpg",
+    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1736497567/Vista_a%C3%A9rea_1_Lote_11_Clusters_REserva_BR_12Ago24_a_def_ep9agc.jpg",
     "galleryImgs": [
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_auto/v1736500310/BR_RESERVA_VISTA_CALLE_1_qhdpdb.jpg",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_auto/v1736500309/RESERVA_VISTA_CALLE_2_rpe6er.jpg",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_auto/v1736500308/Reserva_3_onzetj.jpg",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_auto/v1736500308/Reserva1_mlrvtg.jpg"
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1736500310/BR_RESERVA_VISTA_CALLE_1_qhdpdb.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1736500309/RESERVA_VISTA_CALLE_2_rpe6er.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1736500308/Reserva_3_onzetj.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1736500308/Reserva1_mlrvtg.jpg"
     ],
     "commentCount": 70,
     "viewCount": 602,
@@ -319,7 +319,6 @@
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
 
-
   {
     "id": "a377ce70-0bff-4659-bf4c-d2e811c278f0",
     "tag": "casas",
@@ -328,13 +327,13 @@
     "href": "/casa-ambar",
     "listingCategoryId": 9,
     "title": "Casa Ambar ",
-    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_auto/v1733728169/IMG-20240401-WA0005_kzd1zo.jpg",
+    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1733728169/IMG-20240401-WA0005_kzd1zo.jpg",
     "galleryImgs": [
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_auto/v1733728169/IMG-20240401-WA0005_kzd1zo.jpg",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_auto/v1733728100/IMG-20240401-WA0006_vnjxcv.jpg",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_auto/v1733728099/Corte_N2_pvubyr.png",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_auto/v1733728097/IMG-20240401-WA0004_kuloa5.jpg",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_auto/v1733728098/Corte_N1_gwl5pt.png"
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1733728169/IMG-20240401-WA0005_kzd1zo.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1733728100/IMG-20240401-WA0006_vnjxcv.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1733728099/Corte_N2_pvubyr.png",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1733728097/IMG-20240401-WA0004_kuloa5.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1733728098/Corte_N1_gwl5pt.png"
     ],
     "commentCount": 54,
     "viewCount": 475,
@@ -358,14 +357,13 @@
     "href": "/the-residences",
     "listingCategoryId": 17,
     "title": "The Residences By Roche Bobois",
-    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_auto/v1730557349/Captura_de_pantalla_2024-11-02_a_la_s_8.18.55_a.m._jbkaar.png",
+    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1730557349/Captura_de_pantalla_2024-11-02_a_la_s_8.18.55_a.m._jbkaar.png",
     "galleryImgs": [
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_auto/v1734542498/RENDER_FACHADA_P%C3%93RTICO_m69t4n.jpg",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_auto/v1734542498/RENDER_GYM_ESCALAS_2_gcopb7.jpg",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_auto/v1734542498/RENDER_DEPTO_ROCHE_COMEDOR-SALA_iwqo5y.jpg",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_auto/v1734542498/RENDER_ALBERCA_ESCALAS_2_dewrho.jpg",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_auto/v1734542498/RENDER_AEREO_OPCION_2_rvtmht.jpg"
-
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734542498/RENDER_FACHADA_P%C3%93RTICO_m69t4n.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734542498/RENDER_GYM_ESCALAS_2_gcopb7.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734542498/RENDER_DEPTO_ROCHE_COMEDOR-SALA_iwqo5y.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734542498/RENDER_ALBERCA_ESCALAS_2_dewrho.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734542498/RENDER_AEREO_OPCION_2_rvtmht.jpg"
     ],
     "commentCount": 70,
     "viewCount": 602,
@@ -396,7 +394,6 @@
       "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734547781/CINE_PININFARINA_sovjzm.png",
       "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734547782/PININFARINA_GRADAS_3_d8ygzp.png",
       "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734547782/DESIGNO_COMEDOR__ct4htf.png"
-
     ],
     "commentCount": 70,
     "viewCount": 602,
