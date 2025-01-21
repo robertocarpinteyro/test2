@@ -86,7 +86,7 @@ export const FloatingNav = ({
         {/* Centered Logo */}
         <div className="flex-grow flex justify-center">
           <Image
-            src="https://res.cloudinary.com/dwrtldhxd/image/upload/v1733722950/logoblack_rdtpxs.png"
+            src="https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_auto/v1733722950/logoblack_rdtpxs.png"
             width={50}
             height={50}
             alt="Niddia Logo"
@@ -129,7 +129,7 @@ export const FloatingNav = ({
       <div className="hidden lg:flex items-center justify-between w-full">
         <div className="flex items-center">
           <Image
-            src="https://res.cloudinary.com/dwrtldhxd/image/upload/v1733722950/logoblack_rdtpxs.png"
+            src="https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_auto/v1733722950/logoblack_rdtpxs.png"
             width={100}
             height={100}
             alt="Niddia Logo"

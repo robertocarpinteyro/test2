@@ -25,7 +25,7 @@ const MainNav2: FC<MainNav2Props> = ({ className = "" }) => {
             className="relative contrast-200 brightness-200 self-center h-50 w-20"
           >
             <Image
-              src="https://res.cloudinary.com/dwrtldhxd/image/upload/v1733722950/logoblack_rdtpxs.png"
+              src="https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_auto/v1733722950/logoblack_rdtpxs.png"
               alt="Logo"
               width={200} // Ajusta el ancho de la imagen
               height={100} // Ajusta la altura de la imagen
