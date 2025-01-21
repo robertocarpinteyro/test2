@@ -20,8 +20,8 @@ export interface SectionGridFeaturePropertyProps {
 const SectionGridFeatureProperty: FC<SectionGridFeaturePropertyProps> = ({
   stayListings = DEMO_DATA,
   gridClass = "",
-  heading = "Featured places to stay",
-  subHeading = "Popular places to stay that Chisfis recommends for you",
+  heading = "Encuentra la propiedad de tus sueños.",
+  subHeading = "Explora nuestras propiedades disponibles y con ayuda de Niddia encuentra una propiedad ideal.",
   headingIsCenter,
   tabs = ["New York", "Tokyo", "Paris", "London"],
 }) => {
