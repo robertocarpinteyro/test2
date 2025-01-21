@@ -11,32 +11,30 @@ export interface SectionGridFilterCardProps {
   data?: StayDataType[];
 }
 
-const DEMO_DATA: StayDataType[] = DEMO_STAY_LISTINGS.filter((_, i) => i < 8);
+// Definir datos de demostración filtrando los primeros 8 elementos
+const DEMO_DATA: StayDataType[] = DEMO_STAY_LISTINGS.slice(0, 8);
 
 const SectionGridFilterCard: FC<SectionGridFilterCardProps> = ({
   className = "",
   data = DEMO_DATA,
-}) => {
-  return (
-    <div
-      className={`nc-SectionGridFilterCard ${className}`}
-      data-nc-id="SectionGridFilterCard"
-    >
-      <Heading2 />
+}) => (
+  <div className={`nc-SectionGridFilterCard ${className}`} data-nc-id="SectionGridFilterCard">
+    <Heading2 />
 
-      <div className="mb-8 lg:mb-11">
-        <TabFilters />
-      </div>
-      <div className="grid grid-cols-1 gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {data.map((stay) => (
-          <StayCard2 key={stay.id} data={stay} />
-        ))}
-      </div>
-      <div className="flex mt-16 justify-center items-center">
-        <Pagination />
-      </div>
+    <div className="mb-8 lg:mb-11">
+      <TabFilters />
     </div>
-  );
-};
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+      {data.map((stay) => (
+        <StayCard2 key={stay.id} data={stay} />
+      ))}
+    </div>
+
+    <div className="flex justify-center items-center mt-16">
+      <Pagination />
+    </div>
+  </div>
+);
 
 export default SectionGridFilterCard;
