@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test de enlace</title>
+</head>
+<body>
+  <h1>Prueba de enlace</h1>
+  <a href="/niddia" target="_blank" rel="noopener noreferrer">
+    Chatea con Niddia
+  </a>
+
+  <script>
+    document.querySelector('a[href="/niddia"]').addEventListener("click", (e) => {
+      console.log("Clic detectado en el enlace");
+    });
+  </script>
+</body>
+</html>

@@ -74,6 +74,8 @@ export default function GallerySlider({
         {/* Main image */}
         <div className={`w-full overflow-hidden ${galleryClass}`}>
           <Link
+            target="_blank"
+            rel="noopener noreferrer"
             href={href}
             className={`relative flex items-center justify-center ${ratioClass}`}
           >

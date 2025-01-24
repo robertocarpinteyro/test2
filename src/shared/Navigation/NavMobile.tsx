@@ -11,7 +11,7 @@ import SocialsList from "@/shared/SocialsList";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import SwitchDarkMode from "@/shared/SwitchDarkMode";
 import Link from "next/link";
-import LangDropdown from "@/app/(client-components)/(Header)/LangDropdown";
+
 import Image from "next/image";
 export interface NavMobileProps {
   data?: NavItemType[];
@@ -27,34 +27,7 @@ const NavMobile: React.FC<NavMobileProps> = ({
       <ul className="nav-mobile-sub-menu pl-6 pb-1 text-base">
         {item.children?.map((i, index) => (
           <Disclosure key={i.href + index} as="li">
-            <Link
-              href={{
-                pathname: i.href || undefined,
-              }}
-              className="flex px-4 text-neutral-900 dark:text-neutral-200 text-sm font-medium rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800 mt-0.5"
-            >
-              <span
-                className={`py-2.5 pr-3 ${!i.children ? "block w-full" : ""}`}
-              >
-                {i.name}
-              </span>
-              {i.children && (
-                <span
-                  className="flex-1 flex"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <Disclosure.Button
-                    as="span"
-                    className="py-2.5 flex justify-end flex-1"
-                  >
-                    <ChevronDownIcon
-                      className="ml-2 h-4 w-4 text-neutral-500"
-                      aria-hidden="true"
-                    />
-                  </Disclosure.Button>
-                </span>
-              )}
-            </Link>
+         
             {i.children && (
               <Disclosure.Panel>{_renderMenuChild(i)}</Disclosure.Panel>
             )}
@@ -64,7 +37,7 @@ const NavMobile: React.FC<NavMobileProps> = ({
     );
   };
 
-  const _renderItem = (item: NavItemType, index: number) => {
+  {/*const _renderItem = (item: NavItemType, index: number) => {
     return (
       <Disclosure
         key={item.id}
@@ -101,7 +74,7 @@ const NavMobile: React.FC<NavMobileProps> = ({
         )}
       </Disclosure>
     );
-  };
+  };*/}
 
   return (
     <div className="overflow-y-auto w-full h-screen py-2 transition transform shadow-lg ring-1 dark:ring-neutral-700 bg-white dark:bg-neutral-900 divide-y-2 divide-neutral-100 dark:divide-neutral-800">
@@ -137,7 +110,7 @@ const NavMobile: React.FC<NavMobileProps> = ({
       <div className="flex items-center justify-between py-6 px-5">
         <a
           className="inline-block"
-          href="/"
+          href="niddo.ai/niddia"
           target="_blank"
           rel="noopener noreferrer"
         >

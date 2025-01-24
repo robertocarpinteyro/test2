@@ -116,12 +116,14 @@ export const FloatingNav = ({
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          <Link
-            href={"/niddia" as Route<string>}
-            className="px-4 py-2 text-white bg-gradient-to-r from-secondary-400 to-secondary-500 rounded-full shadow-lg hover:shadow-xl transition-all"
+          <a
+            href="/niddia"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 text-white bg-gradient-to-r from-secondary-400 to-secondary-500 rounded-full shadow-lg hover:shadow-xl"
           >
             Chat
-          </Link>
+          </a>
         </motion.div>
       </div>
 
@@ -155,12 +157,14 @@ export const FloatingNav = ({
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          <Link
-            href={"/niddia" as Route<string>}
+          <a
+            href="/niddia"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-6 py-2 text-white bg-gradient-to-r from-secondary-400 to-secondary-500 rounded-full shadow-lg hover:shadow-xl transition-all"
           >
             Chatea con Niddia
-          </Link>
+          </a>
         </motion.div>
       </div>
     </div>
