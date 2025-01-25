@@ -8,9 +8,10 @@ interface NiddiaProps {
 export function Niddia({ indexValue }: NiddiaProps) {
   const [scriptLoaded, setScriptLoaded] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
-  const urlParams = new URLSearchParams(window.location.search);
-  const selectedOption = urlParams.get("option") || "niddia";
+
   useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedOption = urlParams.get("option") || "niddia";
     console.log("Niddia component mounted with indexValue:", indexValue);
 
     // Limpieza de cookies y almacenamiento
