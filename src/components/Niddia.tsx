@@ -3,9 +3,10 @@ import React, { useEffect, useState, useRef } from "react";
 
 interface NiddiaProps {
   indexValue?: string; // Prop opcional
+  selectedOption?: string;
 }
 
-export function Niddia({ indexValue }: NiddiaProps) {
+export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
   const [scriptLoaded, setScriptLoaded] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
 
@@ -22,9 +23,7 @@ export function Niddia({ indexValue }: NiddiaProps) {
     localStorage.clear();
     sessionStorage.clear();
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const selectedOption = urlParams.get("option") || "niddia";
-    console.log("Niddia component mounted with indexValue:", selectedOption);
+
     (window as any).MindStudioSettings = {
       publicToken: "pkd281a1076c773e9bd767063d6d923a5d",
       appId: "52b9bb60-13d4-45f2-93a0-bedc2ec9f07e",
