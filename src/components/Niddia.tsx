@@ -10,10 +10,6 @@ export function Niddia({ indexValue }: NiddiaProps) {
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
 
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const selectedOption = urlParams.get("option") || "niddia";
-    console.log("Niddia component mounted with indexValue:", indexValue);
-
     // Limpieza de cookies y almacenamiento
     /*
     document.cookie.split(";").forEach((cookie) => {
@@ -26,8 +22,9 @@ export function Niddia({ indexValue }: NiddiaProps) {
     localStorage.clear();
     sessionStorage.clear();
 
-
-
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedOption = urlParams.get("option") || "niddia";
+    console.log("Niddia component mounted with indexValue:", selectedOption);
     (window as any).MindStudioSettings = {
       publicToken: "pkd281a1076c773e9bd767063d6d923a5d",
       appId: "52b9bb60-13d4-45f2-93a0-bedc2ec9f07e",
@@ -45,7 +42,11 @@ export function Niddia({ indexValue }: NiddiaProps) {
     };
 
     // Agregar script solo si no existe previamente
-    if (!document.querySelector("script[src='https://api.mindstudio.ai/v1/embed.js']")) {
+    if (
+      !document.querySelector(
+        "script[src='https://api.mindstudio.ai/v1/embed.js']"
+      )
+    ) {
       const script = document.createElement("script");
       script.src = "https://api.mindstudio.ai/v1/embed.js";
       script.async = true;
@@ -59,7 +60,9 @@ export function Niddia({ indexValue }: NiddiaProps) {
     return () => {
       console.log("Cleaning up Niddia component");
       // Remover script si es necesario
-      const existingScript = document.querySelector("script[src='https://api.mindstudio.ai/v1/embed.js']");
+      const existingScript = document.querySelector(
+        "script[src='https://api.mindstudio.ai/v1/embed.js']"
+      );
       if (existingScript) {
         document.body.removeChild(existingScript);
       }
