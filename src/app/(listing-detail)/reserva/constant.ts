@@ -1,10 +1,10 @@
 import { ListingGalleryImage } from "@/components/listing-image-gallery/utils/types";
 
 export const PHOTOS: string[] = [
-  "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1730332935/WhatsApp_Image_2022-04-06_at_3.11.23_PM_8_axw26n.jpg",
-  "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1730332934/PHOTO-2022-04-29-15-42-06_13_oypcyt.jpg",
-  "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1730332935/WhatsApp_Image_2022-04-06_at_3.11.23_PM_10_xg7mdm.jpg",
-  "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1730332935/WhatsApp_Image_2022-04-06_at_3.11.23_PM_2_p6mler.jpg"
+  "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1736500310/BR_RESERVA_VISTA_CALLE_1_qhdpdb.jpg",
+  "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1736500309/RESERVA_VISTA_CALLE_2_rpe6er.jpg",
+  "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1736500308/Reserva_3_onzetj.jpg",
+  "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1736500308/Reserva1_mlrvtg.jpg"
 ];
 
 export const Amenities_demos = [

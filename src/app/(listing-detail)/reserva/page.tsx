@@ -121,7 +121,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
 
         {/* 2 */}
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
-          Isla Encino
+          La Reserva
         </h2>
 
         {/* 3 */}
@@ -596,7 +596,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         {/* PRICE */}
         <div className="flex justify-between">
           <span className="text-3xl font-semibold">
-            Desde <br />
+            Preventa a partir de <br />
             $6,300,000.00 mxn
             <span className="ml-1 text-base font-normal text-neutral-500 dark:text-neutral-400">
               mxn
@@ -614,11 +614,13 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         {/* SUM */}
         <div className="flex flex-col space-y-4">
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-            <span>Superficie total 300 m² </span>
+            <span>Desde 294m² a 497.4m² </span>
           </div>
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
             <span>Fecha de entrega</span>
-            <span>Julio 2025 más 6 meses de gracia.</span>
+            <span>Reserva Ambar - Entrega Inmediata.</span>
+            <span>Reserva Jade - Julio 2026 más 6 meses de gracia.</span>
+            <span>Reserva Bosque del Alba - Julio 2025 más 6 meses de gracia.</span>
           </div>
           {/* <div className="border-b border-neutral-200 dark:border-neutral-700"></div>*/}
           <div className="flex justify-between font-semibold">
