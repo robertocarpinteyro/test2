@@ -8,7 +8,8 @@ interface NiddiaProps {
 export function Niddia({ indexValue }: NiddiaProps) {
   const [scriptLoaded, setScriptLoaded] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
-
+  const urlParams = new URLSearchParams(window.location.search);
+  const selectedOption = urlParams.get("option") || "niddia";
   useEffect(() => {
     console.log("Niddia component mounted with indexValue:", indexValue);
 
@@ -36,7 +37,7 @@ export function Niddia({ indexValue }: NiddiaProps) {
         disableThreads: true,
         minimizeThreadPanel: true,
         launchVariables: {
-          option: "Niddia",
+          option: selectedOption,
           instruction: indexValue,
         },
       },
@@ -73,7 +74,7 @@ export function Niddia({ indexValue }: NiddiaProps) {
         referrerPolicy="origin"
         style={{
           width: "100%",
-          height: "65vh",
+          height: "85vh",
           border: "none",
           borderRadius: "8px",
           outline: "none",
