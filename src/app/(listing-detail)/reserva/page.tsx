@@ -191,7 +191,9 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         <div className="text-neutral-6000 dark:text-neutral-300">
           <span>
-          Reserva Bosque Real es un desarrollo residencial de primer nivel que ofrece lotes unifamiliares en un entorno natural y seguro, ideal para construir la casa de tus sueños.
+            Reserva Bosque Real es un desarrollo residencial de primer nivel que
+            ofrece lotes unifamiliares en un entorno natural y seguro, ideal
+            para construir la casa de tus sueños.
           </span>
         </div>
       </div>
@@ -616,11 +618,15 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
             <span>Desde 294m² a 497.4m² </span>
           </div>
-          <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-            <span>Fecha de entrega</span>
-            <span>Reserva Ambar - Entrega Inmediata.</span>
-            <span>Reserva Jade - Julio 2026 más 6 meses de gracia.</span>
-            <span>Reserva Bosque del Alba - Julio 2025 más 6 meses de gracia.</span>
+          <div className="text-neutral-6000 dark:text-neutral-300">
+            <span className="block font-semibold mb-2">Fecha de entrega</span>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Reserva Ambar - Entrega Inmediata.</li>
+              <li>Reserva Jade - Julio 2026 más 6 meses de gracia.</li>
+              <li>
+                Reserva Bosque del Alba - Julio 2025 más 6 meses de gracia.
+              </li>
+            </ul>
           </div>
           {/* <div className="border-b border-neutral-200 dark:border-neutral-700"></div>*/}
           <div className="flex justify-between font-semibold">
@@ -717,7 +723,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           {renderSection4()}
           {renderSection7()}
           <div id="niddia"></div>
-            <Niddia indexValue="lotes" selectedOption="reserva"/>
+          <Niddia indexValue="lotes" selectedOption="reserva" />
           {/*<SectionDateRange />*/}
         </div>
 
