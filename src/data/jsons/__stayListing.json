@@ -257,7 +257,7 @@
     "bedrooms": 10,
     "bathrooms": 3,
     "saleOff": "Lotes",
-    "isAds": null,
+    "isAds": true,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
   {
