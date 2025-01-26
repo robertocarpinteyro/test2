@@ -145,7 +145,66 @@
     "isAds": false,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
-
+  {
+    "id": "id10",
+    "tag": "departamentos",
+    "authorId": 10,
+    "date": "May 20, 2021",
+    "href": "/the-residences",
+    "listingCategoryId": 17,
+    "title": "The Residences By Roche Bobois",
+    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1730557349/Captura_de_pantalla_2024-11-02_a_la_s_8.18.55_a.m._jbkaar.png",
+    "galleryImgs": [
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734542498/RENDER_FACHADA_P%C3%93RTICO_m69t4n.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734542498/RENDER_GYM_ESCALAS_2_gcopb7.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734542498/RENDER_DEPTO_ROCHE_COMEDOR-SALA_iwqo5y.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734542498/RENDER_ALBERCA_ESCALAS_2_dewrho.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734542498/RENDER_AEREO_OPCION_2_rvtmht.jpg"
+    ],
+    "commentCount": 70,
+    "viewCount": 602,
+    "like": false,
+    "address": "Bosque Real",
+    "reviewStart": 4.8,
+    "reviewCount": 28,
+    "price": "$45,316,121.22 mxn",
+    "maxGuests": 6,
+    "bedrooms": 10,
+    "bathrooms": 3,
+    "saleOff": "Departamentos",
+    "isAds": false,
+    "map": { "lat": 55.2094559, "lng": 61.5594641 }
+  },
+  {
+    "id": "id11",
+    "tag": "departamentos",
+    "authorId": 10,
+    "date": "May 20, 2021",
+    "href": "/designo-hotel",
+    "listingCategoryId": 17,
+    "title": "Designo Hotel & Residential Suites",
+    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1730557349/Captura_de_pantalla_2024-11-02_a_la_s_8.18.55_a.m._jbkaar.png",
+    "galleryImgs": [
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734547781/Pininfarina_Torre_Designo_Facada_C_E01_xpq3iq.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734547783/PININFARINA_GRADAS_9_kh8zes.png",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734547781/CINE_PININFARINA_sovjzm.png",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734547782/PININFARINA_GRADAS_3_d8ygzp.png",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734547782/DESIGNO_COMEDOR__ct4htf.png"
+    ],
+    "commentCount": 70,
+    "viewCount": 602,
+    "like": false,
+    "address": "Bosque Real",
+    "reviewStart": 4.8,
+    "reviewCount": 28,
+    "price": "$7,196,657.59 mxn",
+    "maxGuests": 6,
+    "bedrooms": 10,
+    "bathrooms": 3,
+    "saleOff": "Departamentos",
+    "isAds": null,
+    "map": { "lat": 55.2094559, "lng": 61.5594641 }
+  },
   {
     "id": "id6",
     "tag": "departamentos",
@@ -229,7 +288,7 @@
     "bedrooms": 10,
     "bathrooms": 3,
     "saleOff": "Lotes",
-    "isAds": false,
+    "isAds": true,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
   {
@@ -285,7 +344,7 @@
     "bedrooms": 10,
     "bathrooms": 3,
     "saleOff": "Lotes",
-    "isAds": false,
+    "isAds": true,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
 
@@ -315,7 +374,7 @@
     "bedrooms": 10,
     "bathrooms": 3,
     "saleOff": "Lotes",
-    "isAds": false,
+    "isAds": true,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
   {
@@ -377,65 +436,5 @@
     "saleOff": "Casa",
     "isAds": false,
     "map": { "lat": 59.955413, "lng": 30.337844 }
-  },
-  {
-    "id": "id10",
-    "tag": "departamentos",
-    "authorId": 10,
-    "date": "May 20, 2021",
-    "href": "/the-residences",
-    "listingCategoryId": 17,
-    "title": "The Residences By Roche Bobois",
-    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1730557349/Captura_de_pantalla_2024-11-02_a_la_s_8.18.55_a.m._jbkaar.png",
-    "galleryImgs": [
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734542498/RENDER_FACHADA_P%C3%93RTICO_m69t4n.jpg",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734542498/RENDER_GYM_ESCALAS_2_gcopb7.jpg",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734542498/RENDER_DEPTO_ROCHE_COMEDOR-SALA_iwqo5y.jpg",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734542498/RENDER_ALBERCA_ESCALAS_2_dewrho.jpg",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734542498/RENDER_AEREO_OPCION_2_rvtmht.jpg"
-    ],
-    "commentCount": 70,
-    "viewCount": 602,
-    "like": false,
-    "address": "Bosque Real",
-    "reviewStart": 4.8,
-    "reviewCount": 28,
-    "price": "$45,316,121.22 mxn",
-    "maxGuests": 6,
-    "bedrooms": 10,
-    "bathrooms": 3,
-    "saleOff": "Departamentos",
-    "isAds": false,
-    "map": { "lat": 55.2094559, "lng": 61.5594641 }
-  },
-  {
-    "id": "id11",
-    "tag": "departamentos",
-    "authorId": 10,
-    "date": "May 20, 2021",
-    "href": "/designo-hotel",
-    "listingCategoryId": 17,
-    "title": "Designo Hotel & Residential Suites",
-    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1730557349/Captura_de_pantalla_2024-11-02_a_la_s_8.18.55_a.m._jbkaar.png",
-    "galleryImgs": [
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734547781/Pininfarina_Torre_Designo_Facada_C_E01_xpq3iq.jpg",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734547783/PININFARINA_GRADAS_9_kh8zes.png",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734547781/CINE_PININFARINA_sovjzm.png",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734547782/PININFARINA_GRADAS_3_d8ygzp.png",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1734547782/DESIGNO_COMEDOR__ct4htf.png"
-    ],
-    "commentCount": 70,
-    "viewCount": 602,
-    "like": false,
-    "address": "Bosque Real",
-    "reviewStart": 4.8,
-    "reviewCount": 28,
-    "price": "$7,196,657.59 mxn",
-    "maxGuests": 6,
-    "bedrooms": 10,
-    "bathrooms": 3,
-    "saleOff": "Departamentos",
-    "isAds": null,
-    "map": { "lat": 55.2094559, "lng": 61.5594641 }
   }
 ]
