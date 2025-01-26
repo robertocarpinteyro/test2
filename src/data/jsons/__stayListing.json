@@ -54,7 +54,7 @@
     "bedrooms": 10,
     "bathrooms": 3,
     "saleOff": "Departamentos",
-    "isAds": null,
+    "isAds": false,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
 
@@ -84,7 +84,7 @@
     "bedrooms": 10,
     "bathrooms": 3,
     "saleOff": "Departamentos",
-    "isAds": null,
+    "isAds": false,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
 
@@ -114,7 +114,7 @@
     "bedrooms": 10,
     "bathrooms": 3,
     "saleOff": "Departamentos",
-    "isAds": null,
+    "isAds": false,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
   {
@@ -142,7 +142,7 @@
     "bedrooms": 10,
     "bathrooms": 3,
     "saleOff": "Departamentos",
-    "isAds": null,
+    "isAds": false,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
 
@@ -171,7 +171,7 @@
     "bedrooms": 10,
     "bathrooms": 3,
     "saleOff": "Departamentos",
-    "isAds": null,
+    "isAds": false,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
 
@@ -200,7 +200,7 @@
     "bedrooms": 10,
     "bathrooms": 3,
     "saleOff": "Oficinas",
-    "isAds": null,
+    "isAds": false,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
   {
@@ -229,7 +229,7 @@
     "bedrooms": 10,
     "bathrooms": 3,
     "saleOff": "Lotes",
-    "isAds": null,
+    "isAds": false,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
   {
@@ -285,7 +285,7 @@
     "bedrooms": 10,
     "bathrooms": 3,
     "saleOff": "Lotes",
-    "isAds": null,
+    "isAds": false,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
 
@@ -315,7 +315,7 @@
     "bedrooms": 10,
     "bathrooms": 3,
     "saleOff": "Lotes",
-    "isAds": null,
+    "isAds": false,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
   {
@@ -344,7 +344,7 @@
     "bedrooms": 10,
     "bathrooms": 3,
     "saleOff": "Lotes",
-    "isAds": "preventa",
+    "isAds": false,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
 
@@ -375,7 +375,7 @@
     "bedrooms": 6,
     "bathrooms": 10,
     "saleOff": "Casa",
-    "isAds": null,
+    "isAds": false,
     "map": { "lat": 59.955413, "lng": 30.337844 }
   },
   {
@@ -405,7 +405,7 @@
     "bedrooms": 10,
     "bathrooms": 3,
     "saleOff": "Departamentos",
-    "isAds": null,
+    "isAds": false,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
   {
