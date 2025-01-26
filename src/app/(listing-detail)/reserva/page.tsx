@@ -539,58 +539,88 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
   }
 
   const renderSection8 = () => {
+    const images = [
+      {
+        src: "https://www.bosquereal.com.mx/wp-content/uploads/2023/10/bosque-de-ambar-lp.webp",
+        badgeText: "Bosque de Ambar",
+
+      },
+      {
+        src: "https://www.bosquereal.com.mx/wp-content/uploads/2023/10/bosque-de-olivia-lp.webp",
+        badgeText: "Bosque de Oliva",
+ 
+      },
+    ];
+  
+    const [currentIndex, setCurrentIndex] = useState(0);
+  
+    const prevSlide = () => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      );
+    };
+  
+    const nextSlide = () => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    };
+  
     return (
       <div className="listingSection__wrap">
         {/* HEADING */}
-        <h2 className="text-2xl font-semibold">Things to know</h2>
+        <h2 className="text-2xl font-semibold">LOTIFICACIÓN</h2>
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
-
+  
         {/* CONTENT */}
-        <div>
-          <h4 className="text-lg font-semibold">Cancellation policy</h4>
-          <span className="block mt-3 text-neutral-500 dark:text-neutral-400">
-            Refund 50% of the booking value when customers cancel the room
-            within 48 hours after successful booking and 14 days before the
-            check-in time. <br />
-            Then, cancel the room 14 days before the check-in time, get a 50%
-            refund of the total amount paid (minus the service fee).
-          </span>
-        </div>
-        <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
-
-        {/* CONTENT */}
-        <div>
-          <h4 className="text-lg font-semibold">Check-in time</h4>
-          <div className="mt-3 text-neutral-500 dark:text-neutral-400 max-w-md text-sm sm:text-base">
-            <div className="flex space-x-10 justify-between p-3 bg-neutral-100 dark:bg-neutral-800 rounded-lg">
-              <span>Check-in</span>
-              <span>08:00 am - 12:00 am</span>
-            </div>
-            <div className="flex space-x-10 justify-between p-3">
-              <span>Check-out</span>
-              <span>02:00 pm - 04:00 pm</span>
-            </div>
+        <div className="relative w-full h-64 mt-3 overflow-hidden">
+          <Image
+            fill
+            className="object-cover rounded-md sm:rounded-xl transition-all duration-500 ease-in-out"
+            src={images[currentIndex].src}
+            alt={`Plano Life ${currentIndex + 1}`}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+          />
+  
+          {/* Badge dinámico por imagen */}
+          <div className="absolute top-4 left-4">
+            <Badge name={images[currentIndex].badgeText} />
           </div>
+  
+          {/* Botón Anterior */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full"
+          >
+            ◀
+          </button>
+          {/* Botón Siguiente */}
+          <button
+            onClick={nextSlide}
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full"
+          >
+            ▶
+          </button>
         </div>
+  
+        {/* Indicadores */}
+        <div className="flex justify-center mt-3">
+          {images.map((_, index) => (
+            <div
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-3 h-3 mx-1 rounded-full cursor-pointer ${
+                index === currentIndex ? "bg-black" : "bg-gray-400"
+              }`}
+            ></div>
+          ))}
+        </div>
+  
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
-
-        {/* CONTENT */}
-        <div>
-          <h4 className="text-lg font-semibold">Special Note</h4>
-          <div className="prose sm:prose">
-            <ul className="mt-3 text-neutral-500 dark:text-neutral-400 space-y-2">
-              <li>
-                Ban and I will work together to keep the landscape and
-                environment green and clean by not littering, not using
-                stimulants and respecting people around.
-              </li>
-              <li>Do not sing karaoke past 11:30</li>
-            </ul>
-          </div>
-        </div>
       </div>
     );
   };
+
 
   const renderSidebar = () => {
     return (
@@ -721,6 +751,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           {renderSection1()}
           {renderSection2()}
           {renderSection4()}
+          {renderSection8()}
           {renderSection7()}
           <div id="niddia"></div>
           <Niddia indexValue="lotes" selectedOption="reserva" />
