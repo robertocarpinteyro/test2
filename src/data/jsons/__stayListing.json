@@ -318,6 +318,35 @@
     "isAds": null,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
+  {
+    "id": "id13",
+    "tag": "lotes",
+    "authorId": 10,
+    "date": "May 20, 2021",
+    "href": "/life",
+    "listingCategoryId": 17,
+    "title": "Life",
+    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1737870979/BR_Ingreso_life_zyqbzm.jpg",
+    "galleryImgs": [
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1737871345/LF05_Ingreso_yz050l.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1737870979/BR_Ingreso_life_zyqbzm.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1737870979/25_x3ml1n.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1737871335/LF04_Glorieta02.jpg_s4alnx.jpg"
+    ],
+    "commentCount": 70,
+    "viewCount": 602,
+    "like": false,
+    "address": "Bosque Real",
+    "reviewStart": 4.8,
+    "reviewCount": 28,
+    "price": "$6,300,000.00 mxn",
+    "maxGuests": 6,
+    "bedrooms": 10,
+    "bathrooms": 3,
+    "saleOff": "Lotes",
+    "isAds": "preventa",
+    "map": { "lat": 55.2094559, "lng": 61.5594641 }
+  },
 
   {
     "id": "a377ce70-0bff-4659-bf4c-d2e811c278f0",

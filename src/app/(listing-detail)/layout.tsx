@@ -21,6 +21,8 @@ import { imageGallery as ListingGalleryTheResidences } from "./the-residences/co
 import { imageGallery as ListingGalleryDesignoHotel } from "./designo-hotel/constant";
 import { imageGallery as ListingGalleryislaEncino } from "./islaEncino/constant";
 import { imageGallery as ListingGallerylaReserva } from "./reserva/constant";
+import { imageGallery as ListingGalleryLife } from "./life/constant";
+
 import { imageGallery as listingCarImageGallery } from "./listing-car-detail/constant";
 import { imageGallery as listingExperienceImageGallery } from "./listing-experiences-detail/constant";
 import { Route } from "next";
@@ -81,6 +83,9 @@ const DetailtLayout = ({ children }: { children: ReactNode }) => {
     }
     if (thisPathname?.includes("/reserva")) {
       return ListingGallerylaReserva;
+    }
+    if (thisPathname?.includes("/life")) {
+      return ListingGalleryLife;
     }
 
 

@@ -6,6 +6,7 @@ import StartRating from "@/components/StartRating";
 import BtnLikeIcon from "@/components/BtnLikeIcon";
 import SaleOffBadge from "@/components/SaleOffBadge";
 import Link from "next/link";
+import Badge from "@/shared/Badge";
 
 export interface StayCard2Props {
   className?: string;
@@ -20,16 +21,8 @@ const StayCard2: FC<StayCard2Props> = ({
   className = "",
   data = DEMO_DATA,
 }) => {
-  const {
-    galleryImgs,
-    address,
-    title,
-    href,
-    like,
-    saleOff,
-    price,
-    id,
-  } = data;
+  const { galleryImgs, address, title, href, like, saleOff, price, id, isAds } =
+    data;
 
   const renderSliderGallery = () => (
     <div className="relative w-full">
@@ -41,19 +34,37 @@ const StayCard2: FC<StayCard2Props> = ({
         href={href}
       />
       <BtnLikeIcon isLiked={like} className="absolute right-3 top-3 z-[1]" />
-      {saleOff && <SaleOffBadge className="absolute left-3 top-3" desc={saleOff} />}
+      {saleOff && (
+        <SaleOffBadge className="absolute left-3 top-3" desc={saleOff} />
+      )}
     </div>
   );
 
   const renderContent = () => (
-    <div className={`mt-${size === "default" ? "3" : "2"} space-y-${size === "default" ? "3" : "2"}`}>
+    <div
+      className={`mt-${size === "default" ? "3" : "2"} space-y-${
+        size === "default" ? "3" : "2"
+      }`}
+    >
       <div className="space-y-2">
-        <h2 className={`font-semibold capitalize text-neutral-900 dark:text-white text-base`}>
-          <span className="line-clamp-1">{title}</span>
-        </h2>
+        <div className="flex items-center space-x-2">
+          {isAds && <Badge name="PREVENTA" color="green" />}
+          <h2
+            className={`font-semibold capitalize text-neutral-900 dark:text-white ${
+              size === "default" ? "text-base" : "text-base"
+            }`}
+          >
+            <span className="line-clamp-1">{title}</span>
+          </h2>
+        </div>
         <div className="flex items-center text-neutral-500 dark:text-neutral-400 text-sm space-x-1.5">
           {size === "default" && (
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg
+              className="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -73,7 +84,11 @@ const StayCard2: FC<StayCard2Props> = ({
       </div>
       <div className="w-14 border-b border-neutral-100 dark:border-neutral-800"></div>
       <div className="flex justify-between items-center">
-        {size === "default" && <span className="text-sm text-neutral-500 dark:text-neutral-400">Desde</span>}
+        {size === "default" && (
+          <span className="text-sm text-neutral-500 dark:text-neutral-400">
+            Desde
+          </span>
+        )}
         <span className="text-base font-semibold">{price}</span>
       </div>
     </div>
@@ -82,7 +97,9 @@ const StayCard2: FC<StayCard2Props> = ({
   return (
     <div className={`nc-StayCard2 group relative ${className}`}>
       {renderSliderGallery()}
-      <a href={href} target="_blank" rel="noopener noreferrer">{renderContent()}</a>
+      <a href={href} target="_blank" rel="noopener noreferrer">
+        {renderContent()}
+      </a>
     </div>
   );
 };
