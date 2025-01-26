@@ -77,7 +77,7 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
         referrerPolicy="origin"
         style={{
           width: "100%",
-          height: "75vh",
+          height: "70vh",
           border: "none",
           borderRadius: "8px",
           outline: "none",
