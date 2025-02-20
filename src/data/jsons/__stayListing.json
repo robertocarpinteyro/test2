@@ -28,35 +28,7 @@
     "isAds": false,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
-  {
-    "id": "id2",
-    "tag": "departamentos",
-    "authorId": 10,
-    "date": "May 20, 2021",
-    "href": "/ivy",
-    "listingCategoryId": 17,
-    "title": "Ivy",
-    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1730333999/2._Fachada_Sur_Elevada_akykfe.jpg",
-    "galleryImgs": [
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1730552860/Captura_de_pantalla_2024-11-02_a_la_s_7.06.17_a.m._g3zxtw.png",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1730552857/Captura_de_pantalla_2024-11-02_a_la_s_7.06.28_a.m._fbvuou.png",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1730234645/DSC00333_jdjuva.jpg",
-      "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1730234642/DSC00243_wd4upj.jpg"
-    ],
-    "commentCount": 70,
-    "viewCount": 602,
-    "like": false,
-    "address": "Bosque Real",
-    "reviewStart": 4.8,
-    "reviewCount": 28,
-    "price": "$12,500,001.02 mxn",
-    "maxGuests": 6,
-    "bedrooms": 10,
-    "bathrooms": 3,
-    "saleOff": "Departamentos",
-    "isAds": false,
-    "map": { "lat": 55.2094559, "lng": 61.5594641 }
-  },
+
 
   {
     "id": "id3",
@@ -79,9 +51,9 @@
     "address": "Bosque Real",
     "reviewStart": 4.8,
     "reviewCount": 28,
-    "price": "$9,676,311.58 mxn",
+    "price": "$11,125,000.00 mxn",
     "maxGuests": 6,
-    "bedrooms": 10,
+    "bedrooms": 3,
     "bathrooms": 3,
     "saleOff": "Departamentos",
     "isAds": false,
