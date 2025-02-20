@@ -22,6 +22,7 @@ import GuestsInput from "./GuestsInput";
 import SectionDateRange from "../SectionDateRange";
 import { Route } from "next";
 import { Niddia } from "@/components/Niddia";
+
 export interface ListingStayDetailPageProps {}
 
 const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
@@ -598,7 +599,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="flex justify-between">
           <span className="text-3xl font-semibold">
             Desde <br />
-            $9,676,311.58
+            $11,125,000.00
             <span className="ml-1 text-base font-normal text-neutral-500 dark:text-neutral-400">
               mxn
             </span>
@@ -615,7 +616,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         {/* SUM */}
         <div className="flex flex-col space-y-4">
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-            <span>Superficie total 143.06m² </span>
+            <span>Superficie total 203.50 m² </span>
           </div>
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
             <span>Fecha de entrega</span>
