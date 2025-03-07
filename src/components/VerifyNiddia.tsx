@@ -198,7 +198,7 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
               <div>
                 <label className="block mb-2">Teléfono</label>
                 <PhoneInput
-                  country={"mx"}
+                  country={"us"}
                   value={userData.phone}
                   onChange={(phone) => setUserData({ ...userData, phone })}
                   inputProps={{

@@ -46,6 +46,11 @@ const nextConfig = {
       },
     ],
   },
+  env: {
+    TWILIO_ACCOUNT_SID: "AC0adcd327fcc0d1e8490eafdca94576aa",
+    TWILIO_AUTH_TOKEN: "74acb424f21b589ea9ec2e425eee4103",
+    TWILIO_VERIFY_SERVICE_SID: "VA227c198eba7dae9290b3504d90810886",
+  },
 };
 
 module.exports = nextConfig;

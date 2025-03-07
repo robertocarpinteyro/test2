@@ -23,6 +23,7 @@ import SectionDateRange from "../SectionDateRange";
 import { Route } from "next";
 import { Niddia } from "@/components/Niddia";
 
+
 export interface ListingStayDetailPageProps {}
 
 const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
@@ -717,6 +718,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           {renderSection4()}
           {renderSection7()}
           <div id="niddia"></div>
+    
           <Niddia indexValue="departamento" selectedOption="blue" />
           {/*<SectionDateRange />*/}
         </div>
