@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import twilio from 'twilio';
 
-const twilioAccountSid = process.env.TWILIO_ACCOUNT_SID!;
-const twilioAuthToken = process.env.TWILIO_AUTH_TOKEN!;
-const twilioVerifyServiceSid = process.env.TWILIO_VERIFY_SERVICE_SID!;
+const twilioAccountSid = process.env.TWILIO_ACCOUNT_SID;
+const twilioAuthToken = process.env.TWILIO_AUTH_TOKEN;
+const twilioVerifyServiceSid = process.env.TWILIO_VERIFY_SERVICE_SID;
 
 if (!twilioAccountSid || !twilioAuthToken || !twilioVerifyServiceSid) {
   throw new Error("Twilio environment variables are not defined");
