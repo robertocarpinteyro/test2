@@ -27,6 +27,8 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
       localStorage.clear();
       sessionStorage.clear();
 
+      localStorage.setItem("userData", JSON.stringify(userData));
+
       (window as any).MindStudioSettings = {
         publicToken: "pkd281a1076c773e9bd767063d6d923a5d",
         appId: "52b9bb60-13d4-45f2-93a0-bedc2ec9f07e",
@@ -39,6 +41,9 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
           launchVariables: {
             option: selectedOption,
             instruction: indexValue,
+            name: userData.name,
+            email: userData.email,
+            phone: userData.phone,
           },
         },
       };
@@ -58,7 +63,7 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
 
       loadScript();
     }
-  }, [isVerified, indexValue, selectedOption]);
+  }, [isVerified, indexValue, selectedOption, userData]);
 
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null;
@@ -228,7 +233,7 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
                 disabled={isLoading || timer > 0}
                 className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:bg-gray-400 mt-4"
               >
-                {timer > 0 ? "Reenviar código en ${timer}s" : "Reenviar Código"}
+                {timer > 0 ? `Reenviar código en ${timer}s` : "Reenviar Código"}
               </button>
             </div>
           )}
