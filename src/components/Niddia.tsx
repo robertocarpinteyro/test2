@@ -176,7 +176,7 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
   if (!isVerified) {
     return (
       <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-4">Verificación Requerida</h2>
+        <h2 className="text-2xl font-bold mb-4">Habla con Niddia, tu asistente inmobiliario. Verifica tu número y empieza ahora.</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           {!verificationSent ? (
             <>
