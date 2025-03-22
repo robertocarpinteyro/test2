@@ -34,7 +34,7 @@ const SectionGridFeaturePlaces: FC<SectionGridFeaturePlacesProps> = ({
         return (
           <div key={tab} id={tab}>
             {/* Título de la sección */}
-            <h3 className="text-xl font-semibold mb-4 capitalize">{tab}</h3>
+            <h2 className="text-xl font-semibold mb-4 capitalize">{tab}</h2>
 
             {/* Listados de la categoría */}
             <div
