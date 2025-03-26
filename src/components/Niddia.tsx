@@ -49,12 +49,17 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
       };
 
       const loadScript = () => {
-        if (!document.querySelector("script[src='https://api.mindstudio.ai/v1/embed.js']")) {
+        if (
+          !document.querySelector(
+            "script[src='https://api.mindstudio.ai/v1/embed.js']"
+          )
+        ) {
           const script = document.createElement("script");
           script.src = "https://api.mindstudio.ai/v1/embed.js";
           script.async = true;
           script.onload = () => setScriptLoaded(true);
-          script.onerror = () => console.error("Error loading MindStudio script");
+          script.onerror = () =>
+            console.error("Error loading MindStudio script");
           document.body.appendChild(script);
         } else {
           setScriptLoaded(true);
@@ -110,7 +115,9 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
 
         if (!response.ok) {
           const errorDetails = await response.json();
-          throw new Error(errorDetails.message || "Error enviando código de verificación");
+          throw new Error(
+            errorDetails.message || "Error enviando código de verificación"
+          );
         }
         setVerificationSent(true);
         setTimer(30); // Reset timer when code is sent
@@ -123,7 +130,10 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
         const response = await fetch("/api/verify-code", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ phone: formattedPhone, code: userData.verificationCode }),
+          body: JSON.stringify({
+            phone: formattedPhone,
+            code: userData.verificationCode,
+          }),
         });
 
         if (!response.ok) {
@@ -162,7 +172,9 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
 
       if (!response.ok) {
         const errorDetails = await response.json();
-        throw new Error(errorDetails.message || "Error enviando código de verificación");
+        throw new Error(
+          errorDetails.message || "Error enviando código de verificación"
+        );
       }
       setTimer(30); // Reset timer when code is resent
     } catch (error: any) {
@@ -176,18 +188,24 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
   if (!isVerified) {
     return (
       <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-4">Habla con Niddia, tu asistente inmobiliario. Verifica tu número y empieza ahora.</h2>
+        <h2 className="text-2xl font-bold mb-4">
+          Habla con Niddia, tu asistente inmobiliario. Verifica tu número y
+          empieza ahora.
+        </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           {!verificationSent ? (
             <>
               <div>
                 <label className="block mb-2">Nombre completo</label>
                 <input
+                  autoFocus
                   type="text"
                   required
                   className="w-full p-2 border rounded"
                   value={userData.name}
-                  onChange={(e) => setUserData({ ...userData, name: e.target.value })}
+                  onChange={(e) =>
+                    setUserData({ ...userData, name: e.target.value })
+                  }
                 />
               </div>
               <div>
@@ -197,7 +215,9 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
                   required
                   className="w-full p-2 border rounded"
                   value={userData.email}
-                  onChange={(e) => setUserData({ ...userData, email: e.target.value })}
+                  onChange={(e) =>
+                    setUserData({ ...userData, email: e.target.value })
+                  }
                 />
               </div>
               <div>
@@ -222,9 +242,12 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
               <input
                 type="text"
                 required
+                autoFocus // Agregado aquí para enfocar automáticamente
                 className="w-full p-2 border rounded"
                 value={userData.verificationCode}
-                onChange={(e) => setUserData({ ...userData, verificationCode: e.target.value })}
+                onChange={(e) =>
+                  setUserData({ ...userData, verificationCode: e.target.value })
+                }
                 placeholder="Ingresa el código SMS"
               />
               <button
@@ -242,7 +265,11 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
             disabled={isLoading}
             className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:bg-gray-400"
           >
-            {isLoading ? "Procesando..." : verificationSent ? "Verificar Código" : "Enviar Código de Verificación"}
+            {isLoading
+              ? "Procesando..."
+              : verificationSent
+              ? "Verificar Código"
+              : "Enviar Código de Verificación"}
           </button>
         </form>
       </div>
@@ -255,7 +282,12 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
         className="h-full w-full rounded-lg bg-gray-100"
         id="mindstudio-frame"
         ref={iframeRef}
-        style={{ width: "100%", height: "70vh", border: "none", borderRadius: "8px" }}
+        style={{
+          width: "100%",
+          height: "70vh",
+          border: "none",
+          borderRadius: "8px",
+        }}
         title="Niddia"
       ></iframe>
       {!scriptLoaded && <p className="text-gray-500">Cargando MindStudio...</p>}
