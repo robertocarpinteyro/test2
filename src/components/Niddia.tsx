@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import Cookies from "js-cookie"; // Importar la librería de cookies
 
 interface NiddiaProps {
   indexValue?: string;
@@ -21,6 +22,14 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [timer, setTimer] = useState(30);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
+
+  // Verificar si el usuario ya está marcado como verificado en las cookies
+  useEffect(() => {
+    const verifiedCookie = Cookies.get("isVerified");
+    if (verifiedCookie === "true") {
+      setIsVerified(true);
+    }
+  }, []);
 
   useEffect(() => {
     if (isVerified) {
@@ -146,6 +155,8 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
           throw new Error("Código inválido");
         }
 
+        // Marcar al usuario como verificado en las cookies
+        Cookies.set("isVerified", "true", { expires: 7 }); // La cookie expira en 7 días
         setIsVerified(true);
       }
     } catch (error: any) {
@@ -242,7 +253,7 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
               <input
                 type="text"
                 required
-                autoFocus // Agregado aquí para enfocar automáticamente
+                autoFocus
                 className="w-full p-2 border rounded"
                 value={userData.verificationCode}
                 onChange={(e) =>
@@ -290,7 +301,7 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
         }}
         title="Niddia"
       ></iframe>
-      {!scriptLoaded && <p className="text-gray-500">Cargando MindStudio...</p>}
+
     </main>
   );
 }
