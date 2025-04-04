@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import Cookies from "js-cookie"; // Importar la librería de cookies
+import Cookies from "js-cookie";
 
 interface NiddiaProps {
   indexValue?: string;
@@ -10,8 +10,7 @@ interface NiddiaProps {
 }
 
 export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
-  const [scriptLoaded, setScriptLoaded] = useState(false);
-  const [isVerified, setIsVerified] = useState(false);
+  const [isVerified, setIsVerified] = useState(true); // Forzar a true para omitir la verificación
   const [userData, setUserData] = useState({
     name: "",
     email: "",
@@ -21,179 +20,31 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
   const [verificationSent, setVerificationSent] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [timer, setTimer] = useState(30);
-  const iframeRef = useRef<HTMLIFrameElement | null>(null);
 
-  // Verificar si el usuario ya está marcado como verificado en las cookies
   useEffect(() => {
-    const verifiedCookie = Cookies.get("isVerified");
-    if (verifiedCookie === "true") {
-      setIsVerified(true);
-    }
+    // Omitimos la lógica de cookies para forzar la verificación
+    setIsVerified(true);
   }, []);
 
-  useEffect(() => {
-    if (isVerified) {
-      localStorage.clear();
-      sessionStorage.clear();
-
-      localStorage.setItem("userData", JSON.stringify(userData));
-
-      (window as any).MindStudioSettings = {
-        publicToken: "pkd281a1076c773e9bd767063d6d923a5d",
-        appId: "52b9bb60-13d4-45f2-93a0-bedc2ec9f07e",
-        targetId: "mindstudio-frame",
-        debugging: true,
-        options: {
-          autoFocus: true,
-          disableThreads: true,
-          minimizeThreadPanel: true,
-          launchVariables: {
-            option: selectedOption,
-            instruction: indexValue,
-            name: userData.name,
-            email: userData.email,
-            phone: userData.phone,
-          },
-        },
-      };
-
-      const loadScript = () => {
-        if (
-          !document.querySelector(
-            "script[src='https://api.mindstudio.ai/v1/embed.js']"
-          )
-        ) {
-          const script = document.createElement("script");
-          script.src = "https://api.mindstudio.ai/v1/embed.js";
-          script.async = true;
-          script.onload = () => setScriptLoaded(true);
-          script.onerror = () =>
-            console.error("Error loading MindStudio script");
-          document.body.appendChild(script);
-        } else {
-          setScriptLoaded(true);
-        }
-      };
-
-      loadScript();
-    }
-  }, [isVerified, indexValue, selectedOption, userData]);
-
-  useEffect(() => {
-    let interval: NodeJS.Timeout | null = null;
-    if (verificationSent && timer > 0) {
-      interval = setInterval(() => {
-        setTimer((prevTimer) => prevTimer - 1);
-      }, 1000);
-    } else if (timer === 0) {
-      clearInterval(interval!);
-    }
-    return () => {
-      if (interval) clearInterval(interval);
+  const buildZapierEmbedHTML = () => {
+    const launchData = {
+      name: userData.name,
+      email: userData.email,
+      phone: userData.phone,
+      option: selectedOption,
+      instruction: indexValue,
     };
-  }, [verificationSent, timer]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-
-    try {
-      if (!verificationSent) {
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userData.email)) {
-          alert("Por favor ingresa un email válido");
-          setIsLoading(false);
-          return;
-        }
-
-        let formattedPhone = userData.phone;
-        if (!formattedPhone.startsWith("+")) {
-          formattedPhone = "+" + formattedPhone;
-        }
-
-        if (!/^\+?[1-9]\d{1,14}$/.test(formattedPhone)) {
-          alert("Número de teléfono inválido");
-          setIsLoading(false);
-          return;
-        }
-
-        const response = await fetch("/api/send-verification", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ phone: formattedPhone }),
-        });
-
-        if (!response.ok) {
-          const errorDetails = await response.json();
-          throw new Error(
-            errorDetails.message || "Error enviando código de verificación"
-          );
-        }
-        setVerificationSent(true);
-        setTimer(30); // Reset timer when code is sent
-      } else {
-        let formattedPhone = userData.phone;
-        if (!formattedPhone.startsWith("+")) {
-          formattedPhone = "+" + formattedPhone;
-        }
-
-        const response = await fetch("/api/verify-code", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            phone: formattedPhone,
-            code: userData.verificationCode,
-          }),
-        });
-
-        if (!response.ok) {
-          const errorDetails = await response.json();
-          throw new Error(errorDetails.message || "Código inválido");
-        }
-
-        const result = await response.json();
-        if (!result.verified) {
-          throw new Error("Código inválido");
-        }
-
-        // Marcar al usuario como verificado en las cookies
-        Cookies.set("isVerified", "true", { expires: 7 }); // La cookie expira en 7 días
-        setIsVerified(true);
-      }
-    } catch (error: any) {
-      console.error(error);
-      alert(error.message || "Error en la verificación");
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleResendCode = async () => {
-    setIsLoading(true);
-    try {
-      let formattedPhone = userData.phone;
-      if (!formattedPhone.startsWith("+")) {
-        formattedPhone = "+" + formattedPhone;
-      }
-
-      const response = await fetch("/api/send-verification", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phone: formattedPhone }),
-      });
-
-      if (!response.ok) {
-        const errorDetails = await response.json();
-        throw new Error(
-          errorDetails.message || "Error enviando código de verificación"
-        );
-      }
-      setTimer(30); // Reset timer when code is resent
-    } catch (error: any) {
-      console.error(error);
-      alert(error.message || "Error enviando código de verificación");
-    } finally {
-      setIsLoading(false);
-    }
+    return `
+      <script async type="module" src="https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js"></script>
+      <zapier-interfaces-chatbot-embed
+        is-popup="false"
+        chatbot-id="cm9328l30001l8zr1yy53l3c3"
+        height="600px"
+        width="100%"
+        user-inputs='${JSON.stringify(launchData)}'>
+      </zapier-interfaces-chatbot-embed>
+    `;
   };
 
   if (!isVerified) {
@@ -203,13 +54,12 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
           Habla con Niddia, tu asistente inmobiliario. Verifica tu número y
           empieza ahora.
         </h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
           {!verificationSent ? (
             <>
               <div>
                 <label className="block mb-2">Nombre completo</label>
                 <input
-                  autoFocus
                   type="text"
                   required
                   className="w-full p-2 border rounded"
@@ -236,7 +86,9 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
                 <PhoneInput
                   country={"mx"}
                   value={userData.phone}
-                  onChange={(phone) => setUserData({ ...userData, phone })}
+                  onChange={(phone) =>
+                    setUserData({ ...userData, phone: phone })
+                  }
                   inputProps={{
                     name: "phone",
                     required: true,
@@ -253,21 +105,25 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
               <input
                 type="text"
                 required
-                autoFocus
                 className="w-full p-2 border rounded"
                 value={userData.verificationCode}
                 onChange={(e) =>
-                  setUserData({ ...userData, verificationCode: e.target.value })
+                  setUserData({
+                    ...userData,
+                    verificationCode: e.target.value,
+                  })
                 }
                 placeholder="Ingresa el código SMS"
               />
               <button
                 type="button"
-                onClick={handleResendCode}
+                onClick={() => {}}
                 disabled={isLoading || timer > 0}
                 className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:bg-gray-400 mt-4"
               >
-                {timer > 0 ? `Reenviar código en ${timer}s` : "Reenviar Código"}
+                {timer > 0
+                  ? `Reenviar código en ${timer}s`
+                  : "Reenviar Código"}
               </button>
             </div>
           )}
@@ -289,19 +145,10 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
 
   return (
     <main>
-      <iframe
-        className="h-full w-full rounded-lg bg-gray-100"
-        id="mindstudio-frame"
-        ref={iframeRef}
-        style={{
-          width: "100%",
-          height: "70vh",
-          border: "none",
-          borderRadius: "8px",
-        }}
-        title="Niddia"
-      ></iframe>
-
+      <div
+        className="w-full"
+        dangerouslySetInnerHTML={{ __html: buildZapierEmbedHTML() }}
+      />
     </main>
   );
 }
