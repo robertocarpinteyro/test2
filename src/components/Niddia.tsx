@@ -20,9 +20,31 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
   const [verificationSent, setVerificationSent] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [timer, setTimer] = useState(30);
+  const sendDataToZapier = async () => {
+    const payload = {
+      option: selectedOption,
+      instruction: indexValue,
+    };
 
+    try {
+      const response = await fetch(
+        "https://hooks.zapier.com/hooks/catch/18336954/2cpgn6q/",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      const result = await response.json();
+      console.log("Zapier Response:", result);
+    } catch (error) {
+      console.error("Error sending data to Zapier:", error);
+    }
+  };
   useEffect(() => {
     // Omitimos la lógica de cookies para forzar la verificación
+    sendDataToZapier();
     setIsVerified(true);
   }, []);
 
@@ -121,9 +143,7 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
                 disabled={isLoading || timer > 0}
                 className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:bg-gray-400 mt-4"
               >
-                {timer > 0
-                  ? `Reenviar código en ${timer}s`
-                  : "Reenviar Código"}
+                {timer > 0 ? `Reenviar código en ${timer}s` : "Reenviar Código"}
               </button>
             </div>
           )}
