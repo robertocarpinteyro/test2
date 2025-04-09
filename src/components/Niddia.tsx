@@ -1,8 +1,7 @@
 "use client";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import Cookies from "js-cookie";
 
 interface NiddiaProps {
   indexValue?: string;
@@ -10,46 +9,20 @@ interface NiddiaProps {
 }
 
 export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
-  const [isVerified, setIsVerified] = useState(true); // Forzar a true para omitir la verificación
   const [userData, setUserData] = useState({
-    name: "",
-    email: "",
-    phone: "",
+    name: "Usuario de prueba", // Datos de prueba
+    email: "usuario@ejemplo.com",
+    phone: "+521234567890",
     verificationCode: "",
   });
   const [verificationSent, setVerificationSent] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isVerified, setIsVerified] = useState(true);
   const [timer, setTimer] = useState(30);
+
   const sendDataToZapier = async () => {
+    console.log("Ejecutando sendDataToZapier...");
     const payload = {
-      option: selectedOption,
-      instruction: indexValue,
-    };
-
-    try {
-      const response = await fetch(
-        "https://hooks.zapier.com/hooks/catch/18336954/2cpgn6q/",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        }
-      );
-
-      const result = await response.json();
-      console.log("Zapier Response:", result);
-    } catch (error) {
-      console.error("Error sending data to Zapier:", error);
-    }
-  };
-  useEffect(() => {
-    // Omitimos la lógica de cookies para forzar la verificación
-    sendDataToZapier();
-    setIsVerified(true);
-  }, []);
-
-  const buildZapierEmbedHTML = () => {
-    const launchData = {
       name: userData.name,
       email: userData.email,
       phone: userData.phone,
@@ -57,15 +30,141 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
       instruction: indexValue,
     };
 
+    try {
+      const response = await fetch(
+        "https://hooks.zapier.com/hooks/catch/18336954/2cpjtmx/",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
+      console.log("Respuesta de Zapier:", payload);
+      const responseData = await response.json();
+      console.log("Respuesta de Zapier:", responseData);
+
+      if (!response.ok) {
+        throw new Error("Error al enviar los datos a Zapier");
+      }
+
+      console.log("Datos enviados a Zapier");
+    } catch (error) {
+      console.error("Error enviando datos a Zapier:", error);
+    }
+  };
+
+  useEffect(() => {
+    // Manejo del temporizador para la verificación
+    let interval: NodeJS.Timeout | null = null;
+    if (verificationSent && timer > 0) {
+      interval = setInterval(() => {
+        setTimer((prevTimer) => prevTimer - 1);
+      }, 1000);
+    } else if (timer === 0 && interval) {
+      clearInterval(interval);
+    }
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [verificationSent, timer]);
+
+  useEffect(() => {
+    // Enviar datos a Zapier solo si el usuario está verificado
+
+    sendDataToZapier();
+    console.log("Llamando a sendDataToZapier...");
+  }, [isVerified, selectedOption, indexValue]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      if (!verificationSent) {
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userData.email)) {
+          alert("Por favor ingresa un email válido");
+          setIsLoading(false);
+          return;
+        }
+
+        if (!/^\+?[1-9]\d{1,14}$/.test(userData.phone)) {
+          alert("Número de teléfono inválido");
+          setIsLoading(false);
+          return;
+        }
+
+        const response = await fetch("/api/send-verification", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ phone: userData.phone }),
+        });
+
+        if (!response.ok) {
+          const errorDetails = await response.json();
+          throw new Error(errorDetails.message || "Error enviando código");
+        }
+
+        setVerificationSent(true);
+        setTimer(30);
+      } else {
+        const response = await fetch("/api/verify-code", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            phone: userData.phone,
+            code: userData.verificationCode,
+          }),
+        });
+
+        const result = await response.json();
+        if (!result.verified) throw new Error("Código inválido");
+
+        setIsVerified(true);
+      }
+    } catch (error: any) {
+      alert(error.message || "Error en la verificación");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleResendCode = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch("/api/send-verification", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ phone: userData.phone }),
+      });
+
+      if (!response.ok) {
+        const errorDetails = await response.json();
+        throw new Error(errorDetails.message || "Error reenviando código");
+      }
+
+      setTimer(30);
+    } catch (error: any) {
+      alert(error.message || "Error reenviando código");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const buildZapierEmbedHTML = () => {
+    const iframeURL = `https://interfaces.zapier.com/embed/chatbot/cm9328l30001l8zr1yy53l3c3?option=${encodeURIComponent(
+      selectedOption || ""
+    )}&indexValue=${encodeURIComponent(indexValue || "")}`;
+
+    console.log("Iframe URL:", iframeURL);
+
     return `
-      <script async type="module" src="https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js"></script>
-      <zapier-interfaces-chatbot-embed
-        is-popup="false"
-        chatbot-id="cm9328l30001l8zr1yy53l3c3"
+      <iframe
+        src="${iframeURL}"
         height="600px"
-        width="100%"
-        user-inputs='${JSON.stringify(launchData)}'>
-      </zapier-interfaces-chatbot-embed>
+        width="800px"
+        allow="clipboard-write *"
+        style="border: none;">
+      </iframe>
     `;
   };
 
@@ -76,7 +175,7 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
           Habla con Niddia, tu asistente inmobiliario. Verifica tu número y
           empieza ahora.
         </h2>
-        <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
           {!verificationSent ? (
             <>
               <div>
@@ -139,7 +238,7 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
               />
               <button
                 type="button"
-                onClick={() => {}}
+                onClick={handleResendCode}
                 disabled={isLoading || timer > 0}
                 className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:bg-gray-400 mt-4"
               >
@@ -169,6 +268,7 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
         className="w-full"
         dangerouslySetInnerHTML={{ __html: buildZapierEmbedHTML() }}
       />
+      <button onClick={sendDataToZapier}>Enviar Datos a Zapier</button>
     </main>
   );
 }
