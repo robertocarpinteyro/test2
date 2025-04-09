@@ -21,7 +21,6 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
   const [timer, setTimer] = useState(30);
 
   const sendDataToZapier = async () => {
-    console.log("Ejecutando sendDataToZapier...");
     const payload = {
       name: userData.name,
       email: userData.email,
@@ -30,24 +29,28 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
       instruction: indexValue,
     };
 
+    console.log("Payload enviado  Zapaier:", JSON.stringify(payload, null, 2));
+
     try {
       const response = await fetch(
-        "https://hooks.zapier.com/hooks/catch/18336954/2cpjtmx/",
+        "https://hooks.zapier.com/hooks/catch/18336954/209pql9/",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         }
       );
-      console.log("Respuesta de Zapier:", payload);
-      const responseData = await response.json();
-      console.log("Respuesta de Zapier:", responseData);
 
       if (!response.ok) {
-        throw new Error("Error al enviar los datos a Zapier");
+        const errorText = await response.text();
+        console.error("Error al enviar los datos a Zapier:", errorText);
+        throw new Error(
+          `Error al enviar los datos: ${response.status} ${response.statusText}`
+        );
       }
 
-      console.log("Datos enviados a Zapier");
+      const responseData = await response.json();
+      console.log("Respuesta de Zapier:", responseData);
     } catch (error) {
       console.error("Error enviando datos a Zapier:", error);
     }
