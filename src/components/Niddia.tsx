@@ -21,55 +21,55 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
   const [timer, setTimer] = useState(30);
 
   const sendDataToZapier = async () => {
-    const payload = {
-      name: userData.name,
-      email: userData.email,
-      phone: userData.phone,
-      option: selectedOption,
-      instruction: indexValue,
-    };
-
-    console.log("Payload enviado  Zapaier:", JSON.stringify(payload, null, 2));
-
     try {
+      setIsLoading(true);
+
+      const payload = {
+        name: userData.name,
+        email: userData.email,
+        phone: userData.phone,
+        option: selectedOption,
+        instruction: indexValue,
+      };
+
+      console.log("Enviando a Zapier:", payload);
+
       const response = await fetch(
-        "https://hooks.zapier.com/hooks/catch/18336954/209pql9/",
+        "https://hooks.zapier.com/hooks/catch/18336954/209pql9/", // Asegúrate que esta URL es correcta
         {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
           body: JSON.stringify(payload),
         }
       );
 
       if (!response.ok) {
-        const errorText = await response.text();
-        console.error("Error al enviar los datos a Zapier:", errorText);
-        throw new Error(
-          `Error al enviar los datos: ${response.status} ${response.statusText}`
-        );
+        throw new Error(`Error HTTP: ${response.status}`);
       }
 
-      const responseData = await response.json();
-      console.log("Respuesta de Zapier:", responseData);
+      const data = await response.json();
+      console.log("Respuesta de Zapier:", data);
+      return data;
     } catch (error) {
-      console.error("Error enviando datos a Zapier:", error);
+      console.error("Error detallado:", error);
+      throw error; // Re-lanza el error para manejo superior
+    } finally {
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
-    // Manejo del temporizador para la verificación
-    let interval: NodeJS.Timeout | null = null;
-    if (verificationSent && timer > 0) {
-      interval = setInterval(() => {
-        setTimer((prevTimer) => prevTimer - 1);
-      }, 1000);
-    } else if (timer === 0 && interval) {
-      clearInterval(interval);
+    // Solo enviar si está verificado y tenemos los datos necesarios
+    if (isVerified && selectedOption && indexValue) {
+      console.log("Enviando datos a Zapier...");
+      sendDataToZapier().catch((error) => {
+        console.error("Error en sendDataToZapier:", error);
+      });
     }
-    return () => {
-      if (interval) clearInterval(interval);
-    };
-  }, [verificationSent, timer]);
+  }, [isVerified, selectedOption, indexValue]);
 
   useEffect(() => {
     // Enviar datos a Zapier solo si el usuario está verificado
