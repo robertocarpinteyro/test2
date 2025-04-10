@@ -9,51 +9,23 @@ interface NiddiaProps {
 }
 
 export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
-  const [isVerified, setIsVerified] = useState(false);
   const [userData, setUserData] = useState({
-    name: "",
-    email: "",
-    phone: "",
+    name: "Usuario de prueba",
+    email: "usuario@ejemplo.com",
+    phone: "+521234567890",
     verificationCode: "",
   });
   const [verificationSent, setVerificationSent] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isVerified, setIsVerified] = useState(false);
   const [timer, setTimer] = useState(30);
   const [apiError, setApiError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const verifiedCookie = Cookies.get("isVerified");
-    if (verifiedCookie === "true") {
-    setIsVerified(true);
-    }
-    }, []);
-    
-    useEffect(() => {
-      let interval: NodeJS.Timeout | null = null;
-      if (verificationSent && timer > 0) {
-      interval = setInterval(() => {
-      setTimer((prevTimer) => prevTimer - 1);
-      }, 1000);
-      } else if (timer === 0 && interval) {
-      clearInterval(interval);
-      }
-      return () => {
-      if (interval) clearInterval(interval);
-      };
-      }, [verificationSent, timer]);
-      
-      const handleSubmit = async (e: React.FormEvent) => {
-      e.preventDefault();
-      setIsLoading(true);
-      
-      };
-    
 
   const sendDataToZapier = async () => {
     try {
       setIsLoading(true);
       setApiError(null);
-
+      
       const payload = {
         name: userData.name,
         email: userData.email,
@@ -64,26 +36,24 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
 
       console.log("Enviando datos a Zapier:", payload);
 
-      const response = await fetch("/api/zapier", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const response = await fetch('/api/zapier', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
 
       const result = await response.json();
-
+      
       if (!response.ok || !result.success) {
-        throw new Error(result.message || "Error al enviar datos a Zapier");
+        throw new Error(result.message || 'Error al enviar datos a Zapier');
       }
 
       console.log("Datos enviados correctamente:", result.data);
       return result.data;
+      
     } catch (error) {
       console.error("Error en sendDataToZapier:", error);
-      const errorMessage =
-        error instanceof Error
-          ? error.message
-          : "Error desconocido al conectar con Zapier";
+      const errorMessage = error instanceof Error ? error.message : 'Error desconocido al conectar con Zapier';
       setApiError(errorMessage);
       throw error;
     } finally {
@@ -99,7 +69,121 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
     }
   }, [isVerified, selectedOption, indexValue]);
 
+  useEffect(() => {
+    let interval: NodeJS.Timeout | null = null;
+    if (verificationSent && timer > 0) {
+      interval = setInterval(() => {
+        setTimer((prevTimer) => prevTimer - 1);
+      }, 1000);
+    } else if (timer === 0 && interval) {
+      clearInterval(interval);
+    }
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [verificationSent, timer]);
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      if (!verificationSent) {
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userData.email)) {
+          alert("Por favor ingresa un email válido");
+          setIsLoading(false);
+          return;
+        }
+
+        let formattedPhone = userData.phone;
+        if (!formattedPhone.startsWith("+")) {
+          formattedPhone = "+" + formattedPhone;
+        }
+
+        if (!/^\+?[1-9]\d{1,14}$/.test(formattedPhone)) {
+          alert("Número de teléfono inválido");
+          setIsLoading(false);
+          return;
+        }
+
+        const response = await fetch("/api/send-verification", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ phone: formattedPhone }),
+        });
+
+        if (!response.ok) {
+          const errorDetails = await response.json();
+          throw new Error(
+            errorDetails.message || "Error enviando código de verificación"
+          );
+        }
+        setVerificationSent(true);
+        setTimer(60); // Reset timer when code is sent
+      } else {
+        let formattedPhone = userData.phone;
+        if (!formattedPhone.startsWith("+")) {
+          formattedPhone = "+" + formattedPhone;
+        }
+
+        const response = await fetch("/api/verify-code", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            phone: formattedPhone,
+            code: userData.verificationCode,
+          }),
+        });
+
+        if (!response.ok) {
+          const errorDetails = await response.json();
+          throw new Error(errorDetails.message || "Código inválido");
+        }
+
+        const result = await response.json();
+        if (!result.verified) {
+          throw new Error("Código inválido");
+        }
+
+        // Marcar al usuario como verificado en las cookies
+        Cookies.set("isVerified", "true", { expires: 1 }); // La cookie expira en 7 días
+        Cookies.set("userName", userData.name, { expires: 7 });
+        Cookies.set("userEmail", userData.email, { expires: 7 });
+        Cookies.set("userPhone", userData.phone, { expires: 7 });
+        setIsVerified(true);
+      }
+    } catch (error: any) {
+      console.error(error);
+      alert(error.message || "Error en la verificación");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleResendCode = async () => {
+    setIsLoading(true);
+    setApiError(null);
+    
+    try {
+      const response = await fetch("/api/send-verification", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ phone: userData.phone }),
+      });
+
+      if (!response.ok) {
+        const errorDetails = await response.json();
+        throw new Error(errorDetails.message || "Error reenviando código");
+      }
+
+      setTimer(30);
+    } catch (error: any) {
+      console.error("Error al reenviar código:", error);
+      setApiError(error.message || "Error al reenviar código");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const buildZapierEmbedHTML = () => {
     const iframeURL = `https://interfaces.zapier.com/embed/chatbot/cm9328l30001l8zr1yy53l3c3?option=${encodeURIComponent(
@@ -121,10 +205,9 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
     return (
       <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
         <h2 className="text-2xl font-bold mb-4">
-          Habla con Niddia, tu asistente inmobiliario. Verifica tu número y
-          empieza ahora.
+          Habla con Niddia, tu asistente inmobiliario. Verifica tu número y empieza ahora.
         </h2>
-
+        
         {apiError && (
           <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
             {apiError}
@@ -192,7 +275,14 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
                 }
                 placeholder="Ingresa el código SMS"
               />
-       
+              <button
+                type="button"
+                onClick={handleResendCode}
+                disabled={isLoading || timer > 0}
+                className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:bg-gray-400 mt-4"
+              >
+                {timer > 0 ? `Reenviar código en ${timer}s` : "Reenviar Código"}
+              </button>
             </div>
           )}
           <button
@@ -218,12 +308,12 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
           {apiError}
         </div>
       )}
-
+      
       <div
         className="w-full mb-4"
         dangerouslySetInnerHTML={{ __html: buildZapierEmbedHTML() }}
       />
-
+      
   
     </main>
   );
