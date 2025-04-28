@@ -23,14 +23,14 @@ export async function POST(request: Request) {
       }
     );
 
-    if (!zapierResponse.ok) {
+   /* if (!zapierResponse.ok) {
       const error = await zapierResponse.text();
       console.error('Error de Zapier:', error);
       return NextResponse.json(
         { success: false, message: 'Error en Zapier', zapierError: error },
         { status: zapierResponse.status }
       );
-    }
+    }*/
 
     const data = await zapierResponse.json();
     return NextResponse.json({ success: true, data });

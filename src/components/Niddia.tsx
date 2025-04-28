@@ -16,7 +16,7 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
     departamento: "https://interfaces.zapier.com/embed/chatbot/cma0a8w9k002rrdpoow6i6zqf",
     casa:"https://interfaces.zapier.com/embed/chatbot/casas",
     oficina: "https://interfaces.zapier.com/embed/chatbot/oficina",
-    lote: "https://interfaces.zapier.com/embed/chatbot/cma0cvuj7002ll4101gdi416d",
+    lotes: "https://interfaces.zapier.com/embed/chatbot/cma0cvuj7002ll4101gdi416d",
     niddia: "https://interfaces.zapier.com/embed/chatbot/niddia",
   };
 
@@ -88,11 +88,7 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
 
   return (
     <main className="container mx-auto p-4">
-      {apiError && (
-        <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
-          {apiError}
-        </div>
-      )}
+    
 
       <div
         className="w-full mb-4"
