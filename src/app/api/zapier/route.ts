@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     }
 
     const zapierResponse = await fetch(
-      'https://hooks.zapier.com/hooks/catch/18336954/209pql9/',
+      'https://hooks.zapier.com/hooks/catch/22682808/2pt2zoz/',
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
