@@ -3,7 +3,6 @@
 import React, { FC, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation"; // Cambia a "next/navigation"
-import { Niddia } from "@/components/Niddia";
 
 export interface PageAboutProps {}
 
@@ -31,7 +30,12 @@ const NiddiaStandAlone: FC<PageAboutProps> = ({}) => {
           className="filter invert contrast-200 brightness-200"
         />
       </div>
-      <Niddia indexValue="Niddia" selectedOption="niddia"/>
+      <iframe
+        src="https://embed.mightychat.ai/chatbot/67db631d-46ca-4d21-a9d1-e3cb466d6865?poweredBy=true"
+        width="100%"
+        style={{ height: "100%", minHeight: "700px" }}
+        frameBorder="0"
+      ></iframe>
     </div>
   );
 };
