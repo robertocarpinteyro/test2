@@ -205,6 +205,36 @@
     "isAds": false,
     "map": { "lat": 55.2094559, "lng": 61.5594641 }
   },
+  {
+    "id": "id6",
+    "tag": "departamentos",
+    "authorId": 10,
+    "date": "May 20, 2021",
+    "href": "/incanto",
+    "listingCategoryId": 17,
+    "title": "Incanto",
+    "featuredImage": "https://res.cloudinary.com/dwrtldhxd/image/upload/v1746410621/t2tlzbxhdruzd85t1v14.jpg",
+    "galleryImgs": [
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1746410620/tmsp4bf7gjttb2sqd1x2.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1746410620/e8petp2cacya0k3rwdy9.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1746410621/sogdcom8d2xr16rhpqo2.jpg",
+      "https://res.cloudinary.com/dwrtldhxd/image/upload/v1746410621/w9np9ku1pzkstd8xafxa.png"
+    ],
+    "commentCount": 70,
+    "viewCount": 602,
+    "like": false,
+    "address": "Bosque Real",
+    "reviewStart": 4.8,
+    "reviewCount": 28,
+    "price": "$23,762,156.25 mxn",
+    "maxGuests": 6,
+    "bedrooms": 10,
+    "bathrooms": 3,
+    "saleOff": "Departamentos",
+    "isAds": false,
+    "map": { "lat": 55.2094559, "lng": 61.5594641 }
+  },
+  
 
   {
     "id": "id7",

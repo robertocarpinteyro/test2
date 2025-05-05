@@ -23,7 +23,6 @@ import SectionDateRange from "../SectionDateRange";
 import { Route } from "next";
 import { Niddia } from "@/components/Niddia";
 
-
 export interface ListingStayDetailPageProps {}
 
 const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
@@ -39,10 +38,8 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
     // Si no está presente, agrega "option=blue" al URL
     if (!option) {
       const newParams = new URLSearchParams(searchParams.toString());
-      newParams.set("option", "blue");
-      router.replace(
-        `${pathname}?${newParams.toString()}` as unknown as Route
-      );
+      newParams.set("option", "incanto");
+      router.replace(`${pathname}?${newParams.toString()}` as unknown as Route);
     }
   }, [pathname, searchParams, router]);
   {
@@ -190,11 +187,10 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         <div className="text-neutral-6000 dark:text-neutral-300">
           <span>
-            Descubre Blue by Bosque Real, una magnífica torre de 30 niveles
-            compuesta por 120 departamentos diseñados bajo altos estándares de
-            confort y seguridad. Rodeada de exuberantes jardines, ofrece
-            impresionantes vistas hacia el campo de golf y panorámicas a
-            Interlomas y Bosques de las Lomas.
+            ¡Bienvenido a Incanto Residencial en Bosque Real, tu propio paraíso
+            dentro de la ciudad! Aquí, la modernidad y el lujo se fusionan con
+            el esplendor de la naturaleza para ofrecerte una vida de armonía,
+            seguridad y una experiencia única.
           </span>
         </div>
       </div>
@@ -508,7 +504,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15050.221244418499!2d-99.2837492!3d19.4316105!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d20403fd02c0cd%3A0x7df6f5d84efc671e!2sSky%20View%20By%20Grupo%20Bosque%20Real!5e0!3m2!1ses!2smx!4v1733717378034!5m2!1ses!2smx"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.5936198608483!2d-99.2831933!3d19.4299568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d205a0c944568b%3A0xba3dfeb9b5e842de!2sIncanto%20Bosque%20Real!5e0!3m2!1ses-419!2smx!4v1746413858693!5m2!1ses-419!2smx"
             ></iframe>
           </div>
         </div>
@@ -600,7 +596,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="flex justify-between">
           <span className="text-3xl font-semibold">
             Desde <br />
-            $11,125,000.00
+            $23,752,156.25
             <span className="ml-1 text-base font-normal text-neutral-500 dark:text-neutral-400">
               mxn
             </span>
@@ -617,11 +613,11 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         {/* SUM */}
         <div className="flex flex-col space-y-4">
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-            <span>Superficie total 203.50 m² </span>
+            <span>Superficie total 362.09 m² </span>
           </div>
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
             <span>Fecha de entrega</span>
-            <span>Entrega Inmediata.</span>
+            <span>Junio 2026 + 6 meses de gracia.</span>
           </div>
           {/* <div className="border-b border-neutral-200 dark:border-neutral-700"></div>*/}
           <div className="flex justify-between font-semibold">
@@ -696,16 +692,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           </button>
 
           {/* Botón Visita el recorrido virtual */}
-          <a
-            href="https://blue-brown-six.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center px-4 py-2 rounded-xl bg-neutral-100 text-neutral-500 hover:bg-neutral-200"
-          >
-            <span className="text-neutral-800 text-sm font-medium">
-              Visita el recorrido virtual
-            </span>
-          </a>
+       
         </div>
       </header>
 
@@ -718,7 +705,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           {renderSection4()}
           {renderSection7()}
           <div id="niddia"></div>
-    
+
           <Niddia indexValue="departamento" selectedOption="blue" />
           {/*<SectionDateRange />*/}
         </div>
