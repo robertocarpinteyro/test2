@@ -10,6 +10,7 @@ import MobileFooterSticky from "./(components)/MobileFooterSticky";
 import { imageGallery as listingStayImageGallery } from "./skyview/constant";
 import { imageGallery as ListingGalleryImage } from "./casa-ambar/constant";
 import { imageGallery as ListingGalleryBlue } from "./blue/constant";
+import { imageGallery as ListingGalleryIncanto } from "./incanto/constant";
 import { imageGallery as ListingGalleryCientoOchenta } from "./ciento-ochenta/constant";
 import { imageGallery as ListingGalleryIvy } from "./ivy/constant";
 import { imageGallery as ListingGalleryNox } from "./nox/constant";
@@ -86,6 +87,9 @@ const DetailtLayout = ({ children }: { children: ReactNode }) => {
     }
     if (thisPathname?.includes("/life")) {
       return ListingGalleryLife;
+    }
+    if (thisPathname?.includes("/incanto")) {
+      return ListingGalleryIncanto;
     }
 
 
