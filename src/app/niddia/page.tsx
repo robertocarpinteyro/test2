@@ -3,7 +3,7 @@
 import React, { FC, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation"; // Cambia a "next/navigation"
-
+import { Niddia } from "@/components/Niddia";
 export interface PageAboutProps {}
 const chatbotURLs: Record<string, string> = {
   departamento: "https://interfaces.zapier.com/embed/chatbot/cma0a8w9k002rrdpoow6i6zqf",
@@ -43,20 +43,8 @@ const NiddiaStandAlone: FC<PageAboutProps> = ({}) => {
   return (
     <div>
       <div className="bg-black flex justify-center items-center h-20 w-full">
-        <Image
-          src="https://res.cloudinary.com/dwrtldhxd/image/upload/v1734387936/niddiaLogo_t9hkkp.png"
-          alt="Separador"
-          width={64}
-          height={64}
-          className="filter invert contrast-200 brightness-200"
-        />
-      </div>
-      <iframe
-        src="https://embed.mightychat.ai/chatbot/67db631d-46ca-4d21-a9d1-e3cb466d6865?poweredBy=true"
-        width="100%"
-        style={{ height: "100%", minHeight: "700px" }}
-        frameBorder="0"
-      ></iframe>
+        <Niddia indexValue="departamento" selectedOption="blue" iframeSrc="https://interfaces.zapier.com/embed/chatbot/cmal5v08b000g14ot6zd7c4qq"/>
+    </div>
     </div>
   );
 };
