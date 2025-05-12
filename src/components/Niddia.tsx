@@ -5,16 +5,17 @@ import Cookies from "js-cookie";
 interface NiddiaProps {
   indexValue?: string;
   selectedOption?: string;
+  iframeSrc?: string; // Nueva propiedad para el src del iframe
 }
 
-export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
+export function Niddia({ indexValue, selectedOption, iframeSrc }: NiddiaProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [apiError, setApiError] = useState<string | null>(null);
 
   // URLs de los chatbots
   const chatbotURLs: Record<string, string> = {
     departamento: "https://interfaces.zapier.com/embed/chatbot/cma0a8w9k002rrdpoow6i6zqf",
-    casa:"https://interfaces.zapier.com/embed/chatbot/casas",
+    casa: "https://interfaces.zapier.com/embed/chatbot/casas",
     oficina: "https://interfaces.zapier.com/embed/chatbot/oficina",
     lotes: "https://interfaces.zapier.com/embed/chatbot/cma0cvuj7002ll4101gdi416d",
     niddia: "https://interfaces.zapier.com/embed/chatbot/niddia",
@@ -68,10 +69,11 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
   }, [selectedOption, indexValue]);
 
   const buildZapierEmbedHTML = () => {
-    // Determinar la URL del chatbot en función de instruction
+    // Determinar la URL del iframe
     const iframeURL =
-      chatbotURLs[indexValue || ""] ||
-      "https://interfaces.zapier.com/embed/chatbot/default";
+      iframeSrc || // Usar el iframeSrc si se proporciona
+      chatbotURLs[indexValue || ""] || // Usar la URL basada en indexValue
+      "https://interfaces.zapier.com/embed/chatbot/default"; // URL predeterminada
 
     return `
       <iframe
@@ -88,7 +90,11 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
 
   return (
     <main className="container mx-auto p-4">
-    
+     {/* {apiError && (
+        <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+          {apiError}
+        </div>
+      )}*/}
 
       <div
         className="w-full mb-4"

@@ -664,7 +664,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           {renderSection4()}
           {renderSection7()}
           <div id="niddia"></div>
-          <Niddia indexValue="departamento" selectedOption="ivy"/>
+          <Niddia indexValue="departamento" selectedOption="ivy" iframeSrc="https://interfaces.zapier.com/embed/chatbot/cmakn7y070018qm77q9ixm2jj"/>
           {/*<SectionDateRange />*/}
         </div>
 
