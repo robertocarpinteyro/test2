@@ -1,5 +1,11 @@
 "use client";
-
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'zapier-interfaces-chatbot-embed': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+    }
+  }
+}
 import React, { FC, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRightIcon, HomeIcon, SparklesIcon, MapPinIcon, CameraIcon } from "@heroicons/react/24/outline";
