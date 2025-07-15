@@ -1,719 +1,653 @@
 "use client";
 
-import React, { FC, Fragment, useState, useEffect } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import { ArrowRightIcon, Squares2X2Icon } from "@heroicons/react/24/outline";
-import CommentListing from "@/components/CommentListing";
-import FiveStartIconForRate from "@/components/FiveStartIconForRate";
-import StartRating from "@/components/StartRating";
-import Avatar from "@/shared/Avatar";
-import Badge from "@/shared/Badge";
-import ButtonCircle from "@/shared/ButtonCircle";
+import React, { FC, useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRightIcon, HomeIcon, SparklesIcon, MapPinIcon, CameraIcon } from "@heroicons/react/24/outline";
+import { PlayIcon } from "@heroicons/react/24/solid";
 import ButtonPrimary from "@/shared/ButtonPrimary";
 import ButtonSecondary from "@/shared/ButtonSecondary";
-import ButtonClose from "@/shared/ButtonClose";
-import Input from "@/shared/Input";
-import LikeSaveBtns from "@/components/LikeSaveBtns";
 import Image from "next/image";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Amenities_demos, PHOTOS } from "./constant";
-import StayDatesRangeInput from "./StayDatesRangeInput";
-import GuestsInput from "./GuestsInput";
-import SectionDateRange from "../SectionDateRange";
-import { Route } from "next";
-import { Niddia } from "@/components/Niddia";
-export interface ListingStayDetailPageProps {}
+import { PHOTOS } from "./constant";
 
-const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
-  //
+export interface CasaAmbarLandingPageProps {}
 
-  {
-    /*useEffect(() => {
-    if (typeof window !== "undefined") {
-      // Limpiar cookies relacionadas
-      document.cookie.split(";").forEach((cookie) => {
-        const eqPos = cookie.indexOf("=");
-        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-        document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
-      });
-
-      // Limpieza de localStorage y sessionStorage
-      localStorage.clear();
-      sessionStorage.clear();
-
-      // Capturar query string desde el cliente
-      const urlParams = new URLSearchParams(window.location.search);
-      const selectedOption = urlParams.get("option") || "niddia"; // Valor predeterminado
-
-      console.log("optionVariable", selectedOption);
-
-      // Configurar MindStudioSettings con el valor capturado
-      (window as any).MindStudioSettings = {
-        publicToken: "pkd281a1076c773e9bd767063d6d923a5d",
-        appId: "52b9bb60-13d4-45f2-93a0-bedc2ec9f07e",
-        targetId: "mindstudio-frame",
-        debugging: true,
-        options: {
-          autoFocus: true,
-          disableThreads: false,
-          minimizeThreadPanel: true,
-          launchVariables: {
-            option: selectedOption, // Pasa el valor de la query string
-          },
-        },
-      };
-
-      // Insertar el script del embeding
-      const script = document.createElement("script");
-      script.src = "https://api.mindstudio.ai/v1/embed.js";
-      script.async = false;
-      document.body.appendChild(script);
-
-      // Limpieza del script al desmontar el componente
-      return () => {
-        document.body.removeChild(script);
-      };
-    }
-  }, []); // No necesita dependencia, ya que `window.location` es global*/
-  }
-
-  let [isOpenModalAmenities, setIsOpenModalAmenities] = useState(false);
-
-  const pathname = usePathname();
-  const thisPathname = usePathname();
-  const router = useRouter();
-  const searchParams = useSearchParams();
+const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+  const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
 
   useEffect(() => {
-    // Verifica si el parámetro "option" ya está presente
-    const option = searchParams.get("option");
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % PHOTOS.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
-    // Si no está presente, agrega "option=blue" al URL
-    if (!option) {
-      const newParams = new URLSearchParams(searchParams.toString());
-      newParams.set("option", "CasaAmbar");
-      router.replace(
-        `${pathname}?${newParams.toString()}` as unknown as Route<string>
-      );
-    }
-  }, [pathname, searchParams, router]);
+  const router = useRouter();
+  const pathname = usePathname();
 
-  function closeModalAmenities() {
-    setIsOpenModalAmenities(false);
-  }
-
-  function openModalAmenities() {
-    setIsOpenModalAmenities(true);
-  }
-
-  const handleOpenModalImageGallery = () => {
-    router.push(`${thisPathname}/?modal=PHOTO_TOUR_SCROLLABLE` as Route);
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    element?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const renderSection1 = () => {
+  const handleContactClick = () => {
+    scrollToSection('contact-section');
+  };
+
+  const handleGalleryClick = () => {
+    scrollToSection('gallery-section');
+  };
+
+  // Hero Section
+  const renderHeroSection = () => {
     return (
-      <div className="listingSection__wrap !space-y-6">
-        {/* 1 */}
-        <div className="flex justify-between items-center">
-          <Badge name="Departamentos de lujo" />
-          <LikeSaveBtns />
-        </div>
-
-        {/* 2 */}
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
-          Casa Ambar
-        </h2>
-
-        {/* 3 */}
-        <div className="flex items-center space-x-4">
-          {/* <StartRating /> */}
-          <span>·</span>
-          <span>
-            <span className="ml-1"> Desarrollador</span>
+      <section className="relative h-screen w-full overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0">
+          <motion.div
+            style={{ y }}
+            className="relative w-full h-[120%] -top-[10%]"
+          >
             <Image
-              src="https://res.cloudinary.com/dwrtldhxd/image/upload/v1734541698/LEANBIMHsm_cvudos.png"
-              alt="Logo"
-              width={200} // Ajusta el ancho de la imagen
-              height={100} // Ajusta la altura de la imagen
+              src={PHOTOS[currentImageIndex]}
+              alt="Casa Ámbar Hero"
+              fill
+              className="object-cover transition-all duration-1000 ease-out"
+              priority
             />
-          </span>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
+          </motion.div>
         </div>
 
-        {/* 4 
-        <div className="flex items-center">
-          <Avatar hasChecked sizeClass="h-10 w-10" radius="rounded-full" />
-          <span className="ml-2.5 text-neutral-500 dark:text-neutral-400">
-            Hosted by{" "}
-            <span className="text-neutral-900 dark:text-neutral-200 font-medium">
-              Kevin Francis
-            </span>
-          </span>
-        </div>*/}
-
-        {/* 5 */}
-        <div className="w-full border-b border-neutral-100 dark:border-neutral-700" />
-
-        {/* 6 
-        <div className="flex items-center justify-between xl:justify-start space-x-8 xl:space-x-12 text-sm text-neutral-700 dark:text-neutral-300">
-          <div className="flex items-center space-x-3 ">
-            <i className=" las la-user text-2xl "></i>
-            <span className="">
-              6 <span className="hidden sm:inline-block">guests</span>
-            </span>
-          </div>
-          <div className="flex items-center space-x-3">
-            <i className=" las la-bed text-2xl"></i>
-            <span className=" ">
-              6 <span className="hidden sm:inline-block">beds</span>
-            </span>
-          </div>
-          <div className="flex items-center space-x-3">
-            <i className=" las la-bath text-2xl"></i>
-            <span className=" ">
-              3 <span className="hidden sm:inline-block">baths</span>
-            </span>
-          </div>
-          <div className="flex items-center space-x-3">
-            <i className=" las la-door-open text-2xl"></i>
-            <span className=" ">
-              2 <span className="hidden sm:inline-block">bedrooms</span>
-            </span>
-          </div>
-        </div>*/}
-      </div>
-    );
-  };
-
-  const renderSection2 = () => {
-    return (
-      <div className="listingSection__wrap">
-        <h2 className="text-2xl font-semibold">Información</h2>
-        <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
-        <div className="text-neutral-6000 dark:text-neutral-300">
-          <span>
-            Casa Ambar: Lujo y Confort en Entorno Exclusivo Ubicada en el
-            prestigioso conjunto residencial Reserva Bosque Real, esta casa
-            ofrece una combinación perfecta de diseño moderno, funcionalidad y
-            un entorno natural privilegiado.
-          </span>
-        </div>
-      </div>
-    );
-  };
-
-  const renderSection3 = () => {
-    return (
-      <div className="listingSection__wrap">
-        <div>
-          <h2 className="text-2xl font-semibold">Amenidades </h2>
-          <span className="block mt-2 text-neutral-500 dark:text-neutral-400">
-            {``}
-          </span>
-        </div>
-        <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
-        {/* 6 */}
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 text-sm text-neutral-700 dark:text-neutral-300 ">
-          {Amenities_demos.filter((_, i) => i < 12).map((item) => (
-            <div key={item.name} className="flex items-center space-x-3">
-              <i className={`text-3xl las ${item.icon}`}></i>
-              <span className=" ">{item.name}</span>
-            </div>
-          ))}
-        </div>
-
-        {/* ----- 
-        <div className="w-14 border-b border-neutral-200"></div>
-        <div>
-          <ButtonSecondary onClick={openModalAmenities}>
-            View more 20 amenities
-          </ButtonSecondary>
-        </div>*/}
-        {renderMotalAmenities()}
-      </div>
-    );
-  };
-
-  const renderMotalAmenities = () => {
-    return (
-      <Transition appear show={isOpenModalAmenities} as={Fragment}>
-        <Dialog
-          as="div"
-          className="fixed inset-0 z-50 overflow-y-auto"
-          onClose={closeModalAmenities}
+        {/* Hero Content */}
+        <motion.div
+          style={{ opacity }}
+          className="relative z-10 h-full flex items-center justify-center text-center px-4"
         >
-          <div className="min-h-screen px-4 text-center">
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className="mb-6"
             >
-              <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-40" />
-            </Transition.Child>
+              <span className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white text-sm font-medium border border-white/20">
+                <SparklesIcon className="w-4 h-4 mr-2" />
+                Residencia Exclusiva
+              </span>
+            </motion.div>
+            
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.7 }}
+              className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight"
+            >
+              Casa Ámbar
+            </motion.h1>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.9 }}
+              className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
+            >
+              Arquitectura que inspira. Diseño que abraza la luz.<br />
+              <span className="text-amber-300">Tu nuevo hogar en la reserva más exclusiva.</span>
+            </motion.p>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 1.1 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            >
+              <ButtonPrimary
+                onClick={handleContactClick}
+                className="px-8 py-4 text-lg bg-amber-600 hover:bg-amber-700 border-0 shadow-xl"
+              >
+                <span className="mr-2">Agendar Visita</span>
+                <ArrowRightIcon className="w-5 h-5" />
+              </ButtonPrimary>
+              
+              <ButtonSecondary
+                onClick={handleGalleryClick}
+                className="px-8 py-4 text-lg bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20"
+              >
+                <CameraIcon className="w-5 h-5 mr-2" />
+                Ver Galería
+              </ButtonSecondary>
+            </motion.div>
+          </div>
+        </motion.div>
 
-            {/* This element is to trick the browser into centering the modal contents. */}
-            <span
-              className="inline-block h-screen align-middle"
-              aria-hidden="true"
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 2 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+        >
+          <div className="w-px h-16 bg-white/50 mx-auto mb-4"></div>
+          <p className="text-white/70 text-sm">Desliza para descubrir</p>
+        </motion.div>
+      </section>
+    );
+  };
+
+  // General Description Section
+  const renderDescriptionSection = () => {
+    return (
+      <section className="py-24 lg:py-32 bg-gradient-to-br from-gray-50 to-white dark:from-neutral-900 dark:to-neutral-800">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="mb-8"
             >
-              &#8203;
+              <span className="inline-flex items-center px-4 py-2 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 text-sm font-medium mb-6">
+                <HomeIcon className="w-4 h-4 mr-2" />
+                Residencia de Lujo
+              </span>
+              
+              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-8 tracking-tight">
+                Una experiencia de vida única
+              </h2>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-12"
+            >
+              <p className="mb-6">
+                <strong className="text-amber-600 dark:text-amber-400">Casa Ámbar</strong> es una residencia única ubicada en el lote Ámbar de una exclusiva reserva. Con espacios generosos, acabados de lujo y una distribución pensada para el confort, cada nivel revela una experiencia diferente de habitar.
+              </p>
+              
+              <p>
+                Donde el diseño contemporáneo se encuentra con la funcionalidad perfecta, creando un hogar que trasciende las expectativas y redefine el concepto de lujo residencial.
+              </p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center"
+            >
+              <div className="p-6">
+                <div className="text-3xl font-bold text-amber-600 dark:text-amber-400 mb-2">332.96m²</div>
+                <div className="text-gray-600 dark:text-gray-400">Superficie Total</div>
+              </div>
+              <div className="p-6">
+                <div className="text-3xl font-bold text-amber-600 dark:text-amber-400 mb-2">4</div>
+                <div className="text-gray-600 dark:text-gray-400">Niveles de Diseño</div>
+              </div>
+              <div className="p-6">
+                <div className="text-3xl font-bold text-amber-600 dark:text-amber-400 mb-2">2025</div>
+                <div className="text-gray-600 dark:text-gray-400">Entrega Marzo</div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+    );
+  };
+
+  // Level Distribution Section
+  const renderLevelsSection = () => {
+    const levels = [
+      {
+        title: "Primer Nivel",
+        icon: "🏛️",
+        features: [
+          "Vestíbulo con piso de mármol calacata",
+          "Sala comedor con doble altura y ventanal de piso a techo",
+          "Escalera flotante",
+          "Cocina integral en nogal y granito con isla",
+          "Estudio con acceso independiente",
+          "Baño de visitas, alacena y cuarto de servicio"
+        ]
+      },
+      {
+        title: "Segundo Nivel",
+        icon: "🛏️",
+        features: [
+          "3 habitaciones con baño privado cada una",
+          "Walking closet en todas las habitaciones",
+          "Vista hacia fachada principal (orientación sur-este)",
+          "Habitación principal con carpintería en nogal",
+          "Baño tipo suite en habitación principal",
+          "Estancia familiar con espacio para pantalla grande"
+        ]
+      },
+      {
+        title: "Tercer Nivel",
+        icon: "🌅",
+        features: [
+          "Área de usos múltiples (gimnasio o habitación de huéspedes)",
+          "Terraza para 20 personas",
+          "Zona de BBQ",
+          "Medio baño",
+          "Cuarto de lavado con patio de servicio"
+        ]
+      },
+      {
+        title: "Sótano",
+        icon: "🍷",
+        features: [
+          "Área social con acabados de madera",
+          "Cava para vinos",
+          "Bodega de 25 m²",
+          "Cisterna y cuarto de máquinas",
+          "Acceso independiente"
+        ]
+      }
+    ];
+
+    return (
+      <section className="py-24 lg:py-32 bg-white dark:bg-neutral-900">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              Distribución por Niveles
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Cada nivel ha sido cuidadosamente diseñado para ofrecer una experiencia única de confort y elegancia
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {levels.map((level, index) => (
+              <motion.div
+                key={level.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-neutral-800 dark:to-neutral-700 rounded-2xl p-8 hover:shadow-xl transition-all duration-300"
+              >
+                <div className="flex items-center mb-6">
+                  <span className="text-4xl mr-4">{level.icon}</span>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{level.title}</h3>
+                </div>
+                
+                <ul className="space-y-3">
+                  {level.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-start">
+                      <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <span className="text-gray-700 dark:text-gray-300">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  };
+
+  // Features Section
+  const renderFeaturesSection = () => {
+    const features = [
+      {
+        icon: "✨",
+        title: "Diseño Contemporáneo",
+        description: "Acabados premium y arquitectura de vanguardia"
+      },
+      {
+        icon: "🌳",
+        title: "Carpintería en Nogal",
+        description: "Maderas nobles que aportan calidez y elegancia"
+      },
+      {
+        icon: "☀️",
+        title: "Luz Natural",
+        description: "Ventanales que inundan todos los niveles"
+      },
+      {
+        icon: "🏡",
+        title: "Áreas Sociales Amplias",
+        description: "Espacios diseñados para el encuentro y la convivencia"
+      },
+      {
+        icon: "🔧",
+        title: "Espacios de Servicio",
+        description: "Áreas independientes para máxima funcionalidad"
+      },
+      {
+        icon: "🎯",
+        title: "Ubicación Exclusiva",
+        description: "En el corazón de la reserva más prestigiosa"
+      }
+    ];
+
+    return (
+      <section className="py-24 lg:py-32 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-neutral-800 dark:to-neutral-900">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              Características Destacadas
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Cada detalle ha sido pensado para crear una experiencia de vida excepcional
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="text-4xl mb-4">{feature.icon}</div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  };
+
+  // Gallery Section
+  const renderGallerySection = () => {
+    return (
+      <section id="gallery-section" className="py-24 lg:py-32 bg-white dark:bg-neutral-900">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              Galería Visual
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              "Donde el diseño encuentra la funcionalidad"
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {PHOTOS.map((photo, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className={`relative overflow-hidden rounded-2xl cursor-pointer group ${
+                  index === 0 ? 'md:col-span-2 md:row-span-2' : ''
+                }`}
+              >
+                <div className={`aspect-w-16 aspect-h-9 ${index === 0 ? 'md:aspect-h-16' : ''}`}>
+                  <Image
+                    src={photo}
+                    alt={`Casa Ámbar ${index + 1}`}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-sm font-medium">Casa Ámbar - Vista {index + 1}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  };
+
+  // Location Section
+  const renderLocationSection = () => {
+    return (
+      <section className="py-24 lg:py-32 bg-gradient-to-br from-gray-50 to-white dark:from-neutral-900 dark:to-neutral-800">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <span className="inline-flex items-center px-4 py-2 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 text-sm font-medium mb-6">
+              <MapPinIcon className="w-4 h-4 mr-2" />
+              Ubicación Privilegiada
             </span>
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95"
-            >
-              <div className="inline-block py-8 h-screen w-full max-w-4xl">
-                <div className="inline-flex pb-2 flex-col w-full text-left align-middle transition-all transform overflow-hidden rounded-2xl bg-white dark:bg-neutral-900 dark:border dark:border-neutral-700 dark:text-neutral-100 shadow-xl h-full">
-                  <div className="relative flex-shrink-0 px-6 py-4 border-b border-neutral-200 dark:border-neutral-800 text-center">
-                    <h3
-                      className="text-lg font-medium leading-6 text-gray-900"
-                      id="headlessui-dialog-title-70"
-                    >
-                      Amenidades
-                    </h3>
-                    <span className="absolute left-3 top-3">
-                      <ButtonClose onClick={closeModalAmenities} />
-                    </span>
+            
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              En el Corazón de la Exclusividad
+            </h2>
+            
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-12">
+              Ubicada en el exclusivo lote Ámbar dentro de una reserva privada, que ofrece tranquilidad, privacidad y contacto con la naturaleza.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="rounded-2xl overflow-hidden shadow-2xl"
+          >
+            <div className="aspect-w-16 aspect-h-9 lg:aspect-h-6">
+              <iframe
+                width="100%"
+                height="100%"
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15050.221244418499!2d-99.2837492!3d19.4316105!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d20403fd02c0cd%3A0x7df6f5d84efc671e!2sSky%20View%20By%20Grupo%20Bosque%20Real!5e0!3m2!1ses!2smx!4v1733717378034!5m2!1ses!2smx"
+                className="w-full h-full"
+              ></iframe>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16"
+          >
+            <div className="text-center">
+              <div className="text-2xl mb-3">🌳</div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Entorno Natural</h3>
+              <p className="text-gray-600 dark:text-gray-300">Rodeada de áreas verdes y naturaleza preservada</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="text-2xl mb-3">🔒</div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Seguridad 24/7</h3>
+              <p className="text-gray-600 dark:text-gray-300">Acceso controlado y vigilancia permanente</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="text-2xl mb-3">🚗</div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Conectividad</h3>
+              <p className="text-gray-600 dark:text-gray-300">Fácil acceso a principales vías de comunicación</p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    );
+  };
+
+  // Contact Section
+  const renderContactSection = () => {
+    return (
+      <section id="contact-section" className="py-24 lg:py-32 bg-gradient-to-br from-amber-900 to-orange-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              Tu Nuevo Hogar Te Espera
+            </h2>
+            <p className="text-xl text-amber-100 max-w-3xl mx-auto">
+              Agenda una visita personalizada y descubre por qué Casa Ámbar representa el futuro del lujo residencial
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto bg-white/10 backdrop-blur-md rounded-3xl p-8 lg:p-12"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h3 className="text-2xl font-bold mb-6">Información del Proyecto</h3>
+                
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-center justify-between py-3 border-b border-white/20">
+                    <span className="text-amber-200">Precio desde:</span>
+                    <span className="text-2xl font-bold">$16,500,000 MXN</span>
                   </div>
-                  <div className="px-8 overflow-auto text-neutral-700 dark:text-neutral-300 divide-y divide-neutral-200">
-                    {Amenities_demos.filter((_, i) => i < 1212).map((item) => (
-                      <div
-                        key={item.name}
-                        className="flex items-center py-2.5 sm:py-4 lg:py-5 space-x-5 lg:space-x-8"
-                      >
-                        <i
-                          className={`text-4xl text-neutral-6000 las ${item.icon}`}
-                        ></i>
-                        <span>{item.name}</span>
-                      </div>
-                    ))}
+                  
+                  <div className="flex items-center justify-between py-3 border-b border-white/20">
+                    <span className="text-amber-200">Superficie:</span>
+                    <span className="font-semibold">332.96 m²</span>
+                  </div>
+                  
+                  <div className="flex items-center justify-between py-3 border-b border-white/20">
+                    <span className="text-amber-200">Entrega:</span>
+                    <span className="font-semibold">Marzo 2025 + 6 meses de gracia</span>
                   </div>
                 </div>
+
+                <div className="space-y-3">
+                  <ButtonPrimary
+                    className="w-full py-4 text-lg bg-amber-600 hover:bg-amber-700 border-0"
+                    onClick={() => window.open('tel:+525555555555', '_self')}
+                  >
+                    <span className="mr-2">Llamar Ahora</span>
+                    <ArrowRightIcon className="w-5 h-5" />
+                  </ButtonPrimary>
+                  
+                  <ButtonSecondary
+                    className="w-full py-4 text-lg bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20"
+                    onClick={() => window.open('https://wa.me/525555555555?text=Hola, me interesa Casa Ámbar', '_blank')}
+                  >
+                    WhatsApp
+                  </ButtonSecondary>
+                </div>
               </div>
-            </Transition.Child>
-          </div>
-        </Dialog>
-      </Transition>
+
+              <div className="lg:pl-8">
+                <Image
+                  src="https://res.cloudinary.com/dwrtldhxd/image/upload/v1734541698/LEANBIMHsm_cvudos.png"
+                  alt="Desarrollador Logo"
+                  width={300}
+                  height={150}
+                  className="mx-auto mb-6 opacity-90"
+                />
+                
+                <p className="text-amber-100 text-center">
+                  Desarrollado por expertos en construcción de lujo con más de 20 años de experiencia creando espacios excepcionales.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
     );
   };
 
-  const renderSection4 = () => {
+  // Floating CTA Button
+  const renderFloatingCTA = () => {
     return (
-      <div className="">
-        {/* HEADING listingSection__wrap
-          <div className="listingSection__wrap">
-        <div>
-          <h2 className="text-2xl font-semibold">Room Rates </h2>
-          <span className="block mt-2 text-neutral-500 dark:text-neutral-400">
-            Prices may increase on weekends or holidays
-          </span>
-        </div>
-        <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>*/}
-        {/* CONTENT 
-        <div className="flow-root">
-          <div className="text-sm sm:text-base text-neutral-6000 dark:text-neutral-300 -mb-4">
-            <div className="p-4 bg-neutral-100 dark:bg-neutral-800 flex justify-between items-center space-x-4 rounded-lg">
-              <span>Monday - Thursday</span>
-              <span>$199</span>
-            </div>
-            <div className="p-4  flex justify-between items-center space-x-4 rounded-lg">
-              <span>Monday - Thursday</span>
-              <span>$199</span>
-            </div>
-            <div className="p-4 bg-neutral-100 dark:bg-neutral-800 flex justify-between items-center space-x-4 rounded-lg">
-              <span>Friday - Sunday</span>
-              <span>$219</span>
-            </div>
-            <div className="p-4 flex justify-between items-center space-x-4 rounded-lg">
-              <span>Rent by month</span>
-              <span>-8.34 %</span>
-            </div>
-            <div className="p-4 bg-neutral-100 dark:bg-neutral-800 flex justify-between items-center space-x-4 rounded-lg">
-              <span>Minimum number of nights</span>
-              <span>1 night</span>
-            </div>
-            <div className="p-4 flex justify-between items-center space-x-4 rounded-lg">
-              <span>Max number of nights</span>
-              <span>90 nights</span>
-            </div>
-          </div>
-        </div>*/}
-      </div>
-    );
-  };
-
-  const renderSection5 = () => {
-    return (
-      <div className="listingSection__wrap">
-        {/* HEADING */}
-        <h2 className="text-2xl font-semibold">Host Information</h2>
-        <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
-
-        {/* host */}
-        <div className="flex items-center space-x-4">
-          <Avatar
-            hasChecked
-            hasCheckedClass="w-4 h-4 -top-0.5 right-0.5"
-            sizeClass="h-14 w-14"
-            radius="rounded-full"
-          />
-          <div>
-            <a className="block text-xl font-medium" href="##">
-              Kevin Francis
-            </a>
-            <div className="mt-1.5 flex items-center text-sm text-neutral-500 dark:text-neutral-400">
-              <StartRating />
-              <span className="mx-2">·</span>
-              <span> 12 places</span>
-            </div>
-          </div>
-        </div>
-
-        {/* desc */}
-        <span className="block text-neutral-6000 dark:text-neutral-300">
-          Providing lake views, The Symphony 9 Tam Coc in Ninh Binh provides
-          accommodation, an outdoor swimming pool, a bar, a shared lounge, a
-          garden and barbecue facilities...
-        </span>
-
-        {/* info */}
-        <div className="block text-neutral-500 dark:text-neutral-400 space-y-2.5">
-          <div className="flex items-center space-x-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-              />
-            </svg>
-            <span>Joined in March 2016</span>
-          </div>
-          <div className="flex items-center space-x-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
-              />
-            </svg>
-            <span>Response rate - 100%</span>
-          </div>
-          <div className="flex items-center space-x-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-
-            <span>Fast response - within a few hours</span>
-          </div>
-        </div>
-
-        {/* == */}
-        <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
-        <div></div>
-      </div>
-    );
-  };
-
-  const renderSection6 = () => {
-    return (
-      <div className="listingSection__wrap">
-        {/* HEADING */}
-        <h2 className="text-2xl font-semibold">Reviews (23 reviews)</h2>
-        <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
-
-        {/* Content */}
-        <div className="space-y-5">
-          <FiveStartIconForRate iconClass="w-6 h-6" className="space-x-0.5" />
-          <div className="relative">
-            <Input
-              fontClass=""
-              sizeClass="h-16 px-4 py-3"
-              rounded="rounded-3xl"
-              placeholder="Share your thoughts ..."
-            />
-            <ButtonCircle
-              className="absolute right-2 top-1/2 transform -translate-y-1/2"
-              size=" w-12 h-12 "
-            >
-              <ArrowRightIcon className="w-5 h-5" />
-            </ButtonCircle>
-          </div>
-        </div>
-
-        {/* comment */}
-        <div className="divide-y divide-neutral-100 dark:divide-neutral-800">
-          <CommentListing className="py-8" />
-          <CommentListing className="py-8" />
-          <CommentListing className="py-8" />
-          <CommentListing className="py-8" />
-          <div className="pt-8">
-            <ButtonSecondary>View more 20 reviews</ButtonSecondary>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  const renderSection7 = () => {
-    return (
-      <div className="listingSection__wrap">
-        {/* HEADING */}
-        <div>
-          <h2 className="text-2xl font-semibold">Úbicación</h2>
-          <span className="block mt-2 text-neutral-500 dark:text-neutral-400">
-            Bosque Real, Bosque Real, 52770 Naucalpan de Juárez, Méx.
-          </span>
-        </div>
-        <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
-
-        {/* MAP */}
-        <div className="aspect-w-5 aspect-h-5 sm:aspect-h-3 ring-1 ring-black/10 rounded-xl z-0">
-          <div className="rounded-xl overflow-hidden z-0">
-            <iframe
-              width="100%"
-              height="100%"
-              loading="lazy"
-              allowFullScreen
-              referrerPolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15050.221244418499!2d-99.2837492!3d19.4316105!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d20403fd02c0cd%3A0x7df6f5d84efc671e!2sSky%20View%20By%20Grupo%20Bosque%20Real!5e0!3m2!1ses!2smx!4v1733717378034!5m2!1ses!2smx"
-            ></iframe>
-          </div>
-        </div>
-      </div>
-    );
-  };
-  {
-    /*}  const niddia = () => {
-    return (
-      <div id="niddia-section" className="listingSection__wrap">
-        <iframe
-          className="h-full w-full rounded-lg bg-gray-100 dark:bg-neutral-800"
-          id="mindstudio-frame"
-          referrerPolicy="origin"
-          style={{
-            width: "100%",
-            height: "85vh",
-            border: "none",
-            borderRadius: "8px",
-            outline: "none",
-            backgroundColor: "gray",
-          }}
-          title="Niddia"
-          frameBorder="0"
-        ></iframe>
-      </div>
-    );
-  };*/
-  }
-
-  const renderSection8 = () => {
-    return (
-      <div className="listingSection__wrap">
-        {/* HEADING */}
-        <h2 className="text-2xl font-semibold">Things to know</h2>
-        <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
-
-        {/* CONTENT */}
-        <div>
-          <h4 className="text-lg font-semibold">Cancellation policy</h4>
-          <span className="block mt-3 text-neutral-500 dark:text-neutral-400">
-            Refund 50% of the booking value when customers cancel the room
-            within 48 hours after successful booking and 14 days before the
-            check-in time. <br />
-            Then, cancel the room 14 days before the check-in time, get a 50%
-            refund of the total amount paid (minus the service fee).
-          </span>
-        </div>
-        <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
-
-        {/* CONTENT */}
-        <div>
-          <h4 className="text-lg font-semibold">Check-in time</h4>
-          <div className="mt-3 text-neutral-500 dark:text-neutral-400 max-w-md text-sm sm:text-base">
-            <div className="flex space-x-10 justify-between p-3 bg-neutral-100 dark:bg-neutral-800 rounded-lg">
-              <span>Check-in</span>
-              <span>08:00 am - 12:00 am</span>
-            </div>
-            <div className="flex space-x-10 justify-between p-3">
-              <span>Check-out</span>
-              <span>02:00 pm - 04:00 pm</span>
-            </div>
-          </div>
-        </div>
-        <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
-
-        {/* CONTENT */}
-        <div>
-          <h4 className="text-lg font-semibold">Special Note</h4>
-          <div className="prose sm:prose">
-            <ul className="mt-3 text-neutral-500 dark:text-neutral-400 space-y-2">
-              <li>
-                Ban and I will work together to keep the landscape and
-                environment green and clean by not littering, not using
-                stimulants and respecting people around.
-              </li>
-              <li>Do not sing karaoke past 11:30</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  const renderSidebar = () => {
-    return (
-      <div className="listingSectionSidebar__wrap shadow-xl">
-        {/* PRICE */}
-        <div className="flex justify-between">
-          <span className="text-3xl font-semibold">
-            Desde <br />
-            $16,500,000.00 mxn
-            <span className="ml-1 text-base font-normal text-neutral-500 dark:text-neutral-400">
-              mxn
-            </span>
-          </span>
-        </div>
-
-        {/* FORM 
-        <form className="flex flex-col border border-neutral-200 dark:border-neutral-700 rounded-3xl ">
-          <StayDatesRangeInput className="flex-1 z-[11]" />
-          <div className="w-full border-b border-neutral-200 dark:border-neutral-700"></div>
-          <GuestsInput className="flex-1" />
-        </form>*/}
-
-        {/* SUM */}
-        <div className="flex flex-col space-y-4">
-          <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-            <span>Superficie total 332.96m² </span>
-          </div>
-          <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-            <span>Fecha de entrega</span>
-            <span>Marzo 2025 + 6 meses de gracia.</span>
-          </div>
-          {/* <div className="border-b border-neutral-200 dark:border-neutral-700"></div>*/}
-          <div className="flex justify-between font-semibold">
-            {/* <span>Total</span>
-            <span>$199</span>*/}
-          </div>
-        </div>
-
-        {/* SUBMIT */}
-        <ButtonPrimary>
-          <a href="#niddia">Niddia Resolverá tus dudas.</a>
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1 }}
+        className="fixed bottom-6 right-6 z-50 lg:hidden"
+      >
+        <ButtonPrimary
+          onClick={handleContactClick}
+          className="px-6 py-4 shadow-2xl bg-amber-600 hover:bg-amber-700 border-0"
+        >
+          <span className="mr-2">Contactar</span>
+          <ArrowRightIcon className="w-4 h-4" />
         </ButtonPrimary>
-      </div>
+      </motion.div>
     );
   };
+
+
 
   return (
-    <div className="nc-ListingStayDetailPage">
-      {/*  HEADER */}
-      <header className="rounded-md sm:rounded-xl">
-        <div className="relative grid grid-cols-3 sm:grid-cols-4 gap-1 sm:gap-2">
-          <div
-            className="col-span-2 row-span-3 sm:row-span-2 relative rounded-md sm:rounded-xl overflow-hidden cursor-pointer"
-            onClick={handleOpenModalImageGallery}
-          >
-            <Image
-              fill
-              className="object-cover rounded-md sm:rounded-xl"
-              src={PHOTOS[0]}
-              alt=""
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
-            />
-            <div className="absolute inset-0 bg-neutral-900 bg-opacity-20 opacity-0 hover:opacity-100 transition-opacity"></div>
-          </div>
-          {PHOTOS.filter((_, i) => i >= 1 && i < 5).map((item, index) => (
-            <div
-              key={index}
-              className={`relative rounded-md sm:rounded-xl overflow-hidden ${
-                index >= 3 ? "hidden sm:block" : ""
-              }`}
-            >
-              <div className="aspect-w-4 aspect-h-3 sm:aspect-w-6 sm:aspect-h-5">
-                <Image
-                  fill
-                  className="object-cover rounded-md sm:rounded-xl "
-                  src={item || ""}
-                  alt=""
-                  sizes="400px"
-                />
-              </div>
-
-              {/* OVERLAY */}
-              <div
-                className="absolute inset-0 bg-neutral-900 bg-opacity-20 opacity-0 hover:opacity-100 transition-opacity cursor-pointer"
-                onClick={handleOpenModalImageGallery}
-              />
-            </div>
-          ))}
-
-          <button
-            className="absolute hidden md:flex md:items-center md:justify-center left-3 bottom-3 px-4 py-2 rounded-xl bg-neutral-100 text-neutral-500 hover:bg-neutral-200 z-10"
-            onClick={handleOpenModalImageGallery}
-          >
-            <Squares2X2Icon className="w-5 h-5" />
-            <span className="ml-2 text-neutral-800 text-sm font-medium">
-              Ver todas las fotos
-            </span>
-          </button>
-        </div>
-      </header>
-
-      {/* MAIN */}
-      <main className=" relative z-10 mt-11 flex flex-col lg:flex-row ">
-        {/* CONTENT */}
-        <div className="w-full lg:w-3/5 xl:w-2/3 space-y-8 lg:space-y-10 lg:pr-10">
-          {renderSection1()}
-          {renderSection2()}
-
-          {renderSection4()}
-          {renderSection7()}
-          <div id="niddia"></div>
-          <Niddia indexValue="casa" />
-          {/*<SectionDateRange />*/}
-        </div>
-
-        {/*SIDEBAR */}
-        <div className="hidden lg:block flex-grow mt-14 lg:mt-0">
-          <div className="sticky top-28">{renderSidebar()}</div>
-        </div>
-      </main>
+    <div className="nc-CasaAmbarLandingPage">
+      {/* Hero Section */}
+      {renderHeroSection()}
+      
+      {/* Description Section */}
+      {renderDescriptionSection()}
+      
+      {/* Levels Section */}
+      {renderLevelsSection()}
+      
+      {/* Features Section */}
+      {renderFeaturesSection()}
+      
+      {/* Gallery Section */}
+      {renderGallerySection()}
+      
+      {/* Location Section */}
+      {renderLocationSection()}
+      
+      {/* Contact Section */}
+      {renderContactSection()}
+      
+      {/* Floating CTA */}
+      {renderFloatingCTA()}
     </div>
   );
 };
 
-export default ListingStayDetailPage;
+export default CasaAmbarLandingPage;
