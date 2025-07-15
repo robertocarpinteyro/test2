@@ -9,6 +9,7 @@ import ButtonSecondary from "@/shared/ButtonSecondary";
 import Image from "next/image";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { PHOTOS } from "./constant";
+import Script from "next/script";
 
 export interface CasaAmbarLandingPageProps {}
 
@@ -52,13 +53,15 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
             style={{ y }}
             className="relative w-full h-[120%] -top-[10%]"
           >
-            <Image
-              src={PHOTOS[currentImageIndex]}
-              alt="Casa Ámbar Hero"
-              fill
-              className="object-cover transition-all duration-1000 ease-out"
-              priority
-            />
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover"
+            >
+              <source src="https://res.cloudinary.com/dwrtldhxd/video/upload/v1752569724/Cinematic_real_state_202507150254_rn6ukf.mp4" type="video/mp4" />
+            </video>
             <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
           </motion.div>
         </div>
@@ -97,7 +100,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
               className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
             >
               Arquitectura que inspira. Diseño que abraza la luz.<br />
-              <span className="text-amber-300">Tu nuevo hogar en la reserva más exclusiva.</span>
+              <span className="text-emerald-300">Tu nuevo hogar en la reserva más exclusiva.</span>
             </motion.p>
             
             <motion.div
@@ -108,9 +111,9 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
             >
               <ButtonPrimary
                 onClick={handleContactClick}
-                className="px-8 py-4 text-lg bg-amber-600 hover:bg-amber-700 border-0 shadow-xl"
+                className="px-8 py-4 text-lg bg-emerald-600 hover:bg-emerald-700 border-0 shadow-xl"
               >
-                <span className="mr-2">Agendar Visita</span>
+                <span className="mr-2">Consultar con Nidda</span>
                 <ArrowRightIcon className="w-5 h-5" />
               </ButtonPrimary>
               
@@ -152,7 +155,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
               viewport={{ once: true }}
               className="mb-8"
             >
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 text-sm font-medium mb-6">
+              <span className="inline-flex items-center px-4 py-2 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 text-sm font-medium mb-6">
                 <HomeIcon className="w-4 h-4 mr-2" />
                 Residencia de Lujo
               </span>
@@ -170,7 +173,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
               className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-12"
             >
               <p className="mb-6">
-                <strong className="text-amber-600 dark:text-amber-400">Casa Ámbar</strong> es una residencia única ubicada en el lote Ámbar de una exclusiva reserva. Con espacios generosos, acabados de lujo y una distribución pensada para el confort, cada nivel revela una experiencia diferente de habitar.
+                <strong className="text-emerald-600 dark:text-emerald-400">Casa Ámbar</strong> es una residencia única ubicada en el lote Ámbar de una exclusiva reserva. Con espacios generosos, acabados de lujo y una distribución pensada para el confort, cada nivel revela una experiencia diferente de habitar.
               </p>
               
               <p>
@@ -186,15 +189,15 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
               className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center"
             >
               <div className="p-6">
-                <div className="text-3xl font-bold text-amber-600 dark:text-amber-400 mb-2">332.96m²</div>
+                <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">332.96m²</div>
                 <div className="text-gray-600 dark:text-gray-400">Superficie Total</div>
               </div>
               <div className="p-6">
-                <div className="text-3xl font-bold text-amber-600 dark:text-amber-400 mb-2">4</div>
+                <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">4</div>
                 <div className="text-gray-600 dark:text-gray-400">Niveles de Diseño</div>
               </div>
               <div className="p-6">
-                <div className="text-3xl font-bold text-amber-600 dark:text-amber-400 mb-2">2025</div>
+                <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">2025</div>
                 <div className="text-gray-600 dark:text-gray-400">Entrega Marzo</div>
               </div>
             </motion.div>
@@ -291,7 +294,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                 <ul className="space-y-3">
                   {level.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start">
-                      <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <span className="text-gray-700 dark:text-gray-300">{feature}</span>
                     </li>
                   ))}
@@ -340,7 +343,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
     ];
 
     return (
-      <section className="py-24 lg:py-32 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-neutral-800 dark:to-neutral-900">
+      <section className="py-24 lg:py-32 bg-gradient-to-br from-emerald-50 to-green-50 dark:from-neutral-800 dark:to-neutral-900">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -447,7 +450,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="inline-flex items-center px-4 py-2 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 text-sm font-medium mb-6">
+            <span className="inline-flex items-center px-4 py-2 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 text-sm font-medium mb-6">
               <MapPinIcon className="w-4 h-4 mr-2" />
               Ubicación Privilegiada
             </span>
@@ -514,7 +517,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
   // Contact Section
   const renderContactSection = () => {
     return (
-      <section id="contact-section" className="py-24 lg:py-32 bg-gradient-to-br from-amber-900 to-orange-900 text-white relative overflow-hidden">
+      <section id="contact-section" className="py-24 lg:py-32 bg-gradient-to-br from-emerald-900 to-green-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         
         <div className="container mx-auto px-4 relative z-10">
@@ -528,7 +531,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
               Tu Nuevo Hogar Te Espera
             </h2>
-            <p className="text-xl text-amber-100 max-w-3xl mx-auto">
+            <p className="text-xl text-emerald-100 max-w-3xl mx-auto">
               Agenda una visita personalizada y descubre por qué Casa Ámbar representa el futuro del lujo residencial
             </p>
           </motion.div>
@@ -546,27 +549,27 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                 
                 <div className="space-y-4 mb-8">
                   <div className="flex items-center justify-between py-3 border-b border-white/20">
-                    <span className="text-amber-200">Precio desde:</span>
-                    <span className="text-2xl font-bold">$16,500,000 MXN</span>
+                    <span className="text-emerald-200">Precio desde:</span>
+                    <span className="text-2xl font-bold">$19,500,000 MXN</span>
                   </div>
                   
                   <div className="flex items-center justify-between py-3 border-b border-white/20">
-                    <span className="text-amber-200">Superficie:</span>
+                    <span className="text-emerald-200">Superficie:</span>
                     <span className="font-semibold">332.96 m²</span>
                   </div>
                   
                   <div className="flex items-center justify-between py-3 border-b border-white/20">
-                    <span className="text-amber-200">Entrega:</span>
-                    <span className="font-semibold">Marzo 2025 + 6 meses de gracia</span>
+                    <span className="text-emerald-200">Entrega:</span>
+                    <span className="font-semibold">Marzo 2026 + 6 meses de gracia</span>
                   </div>
                 </div>
 
                 <div className="space-y-3">
                   <ButtonPrimary
-                    className="w-full py-4 text-lg bg-amber-600 hover:bg-amber-700 border-0"
+                    className="w-full py-4 text-lg bg-emerald-600 hover:bg-emerald-700 border-0"
                     onClick={() => window.open('tel:+525555555555', '_self')}
                   >
-                    <span className="mr-2">Llamar Ahora</span>
+                    <span className="mr-2">Hablar con Nidda</span>
                     <ArrowRightIcon className="w-5 h-5" />
                   </ButtonPrimary>
                   
@@ -588,7 +591,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                   className="mx-auto mb-6 opacity-90"
                 />
                 
-                <p className="text-amber-100 text-center">
+                <p className="text-emerald-100 text-center">
                   Desarrollado por expertos en construcción de lujo con más de 20 años de experiencia creando espacios excepcionales.
                 </p>
               </div>
@@ -610,9 +613,9 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
       >
         <ButtonPrimary
           onClick={handleContactClick}
-          className="px-6 py-4 shadow-2xl bg-amber-600 hover:bg-amber-700 border-0"
+          className="px-6 py-4 shadow-2xl bg-emerald-600 hover:bg-emerald-700 border-0"
         >
-          <span className="mr-2">Contactar</span>
+          <span className="mr-2">Contactar Nidda</span>
           <ArrowRightIcon className="w-4 h-4" />
         </ButtonPrimary>
       </motion.div>
@@ -623,6 +626,13 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
 
   return (
     <div className="nc-CasaAmbarLandingPage">
+      {/* Zapier Chatbot Script */}
+      <Script 
+        src="https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js" 
+        strategy="afterInteractive" 
+        type="module"
+      />
+      
       {/* Hero Section */}
       {renderHeroSection()}
       
@@ -646,6 +656,12 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
       
       {/* Floating CTA */}
       {renderFloatingCTA()}
+      
+      {/* Zapier Chatbot */}
+      <zapier-interfaces-chatbot-embed 
+        is-popup="true" 
+        chatbot-id="cmakou6un00321208jg7ane35"
+      ></zapier-interfaces-chatbot-embed>
     </div>
   );
 };
