@@ -1,0 +1,43 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://nidda.mx/sitemap.xml
+
+# Crawl-delay for different bots
+Crawl-delay: 1
+
+# Allow all search engines to crawl
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Block certain paths if needed
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow specific paths for better SEO
+Allow: /casa-ambar
+Allow: /skyview
+Allow: /blue
+Allow: /ivy
+Allow: /nox
+Allow: /nativ
+Allow: /torre-designo
+Allow: /incanto
+
+# Image crawling
+User-agent: Googlebot-Image
+Allow: /
+
+# Video crawling  
+User-agent: Googlebot-Video
+Allow: /

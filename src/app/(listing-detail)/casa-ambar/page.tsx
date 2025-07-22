@@ -16,6 +16,108 @@ import Image from "next/image";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { PHOTOS } from "./constant";
 import Script from "next/script";
+import Head from "next/head";
+
+// SEO Metadata
+export const metadata = {
+  title: "Casa Ámbar | Residencia de Lujo en Bosque Real, Estado de México | Venta Exclusiva con IA",
+  description: "Descubre Casa Ámbar, una residencia de lujo de 477m² en el exclusivo fraccionamiento Ambar, Bosque Real, Estado de México. Diseño contemporáneo con inteligencia artificial, materiales nobles y acabados premium. Entrega 2026.",
+  keywords: [
+    "Casa Ámbar",
+    "Bosque Real",
+    "Estado de México",
+    "inmuebles de lujo",
+    "residencia exclusiva",
+    "venta casa lujo",
+    "Casas en venta Bosque Real",
+    "Departamentos en Bosque Real",
+    "Inmuebles exclusivos en Bosque Real",
+    "Vivir en Bosque Real",
+    "fraccionamiento Ambar",
+    "diseño contemporáneo",
+    "inteligencia artificial inmobiliaria",
+    "piedra sinterizada",
+    "477 metros construcción",
+    "300 metros lote",
+    "cuarzos Black Mirror",
+    "granito Vía Láctea",
+    "walking closet",
+    "cava vinos",
+    "gimnasio privado",
+    "terraza 64m2",
+    "wellness lounge",
+    "familia room",
+    "recámaras baño privado",
+    "vestíbulo doble altura",
+    "cocina vanguardista",
+    "estudio independiente",
+    "sótano área social",
+    "seguridad 24/7",
+    "entorno natural preservado",
+    "exclusividad Bosque Real",
+    "inversión inmobiliaria México",
+    "propiedades premium Estado México",
+    "bienes raíces Bosque Real",
+    "casas de lujo Estado de México",
+    "residencias Bosque Real",
+    "comprar casa Bosque Real"
+  ].join(", "),
+  openGraph: {
+    title: "Casa Ámbar - Residencia de Lujo en Bosque Real | Venta Exclusiva",
+    description: "Residencia exclusiva de 477m² en Bosque Real, Estado de México. Diseño contemporáneo, materiales nobles, 4 niveles de lujo. Desarrollada con tecnología e inteligencia artificial.",
+    url: "https://nidda.mx/casa-ambar",
+    siteName: "NIDDA - Inmobiliaria de Lujo",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734541698/LEANBIMHsm_cvudos.png",
+        width: 1200,
+        height: 630,
+        alt: "Casa Ámbar - Fachada contemporánea en Bosque Real",
+      },
+    ],
+    locale: "es_MX",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Casa Ámbar | Lujo en Bosque Real, Estado de México",
+    description: "Residencia exclusiva 477m² con IA, diseño contemporáneo y materiales nobles en el fraccionamiento más exclusivo de Bosque Real.",
+    images: ["https://res.cloudinary.com/dwrtldhxd/image/upload/v1734541698/LEANBIMHsm_cvudos.png"],
+    creator: "@niddainmobiliaria",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://nidda.mx/casa-ambar",
+  },
+  verification: {
+    google: "tu-codigo-google-verificacion",
+  },
+  other: {
+    "geo.region": "MX-MEX",
+    "geo.placename": "Bosque Real, Estado de México",
+    "geo.position": "19.4316105;-99.2837492",
+    "ICBM": "19.4316105, -99.2837492",
+    "property:price": "19500000",
+    "property:price:currency": "MXN",
+    "property:type": "house",
+    "property:bedrooms": "3",
+    "property:bathrooms": "6",
+    "property:area": "477",
+    "property:area:units": "m2",
+    "ai:enhanced": "true",
+    "ai:description": "Desarrollado con inteligencia artificial para optimizar espacios, luz natural y experiencia de usuario",
+  }
+};
 
 export interface CasaAmbarLandingPageProps {}
 
@@ -664,6 +766,144 @@ Casa Ámbar
 
   return (
     <div className="nc-CasaAmbarLandingPage">
+      {/* Advanced SEO and Structured Data */}
+      <Head>
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "RealEstateListing",
+                  "@id": "https://nidda.mx/casa-ambar#realestate",
+                  "name": "Casa Ámbar - Residencia de Lujo en Bosque Real",
+                  "description": "Residencia exclusiva de 477m² construidos en lote de 300m² ubicada en el fraccionamiento Ambar, Bosque Real, Estado de México. Diseño contemporáneo con materiales nobles como piedra sinterizada y cuarzos Black Mirror.",
+                  "url": "https://nidda.mx/casa-ambar",
+                  "image": [
+                    "https://res.cloudinary.com/dwrtldhxd/video/upload/v1752569724/Cinematic_real_state_202507150254_rn6ukf.mp4",
+                    "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734541698/LEANBIMHsm_cvudos.png"
+                  ],
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "19500000",
+                    "priceCurrency": "MXN",
+                    "availability": "https://schema.org/InStock",
+                    "validFrom": "2025-01-01",
+                    "priceValidUntil": "2026-12-31"
+                  },
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Bosque Real",
+                    "addressRegion": "Estado de México",
+                    "addressCountry": "MX",
+                    "postalCode": "52774"
+                  },
+                  "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "19.4316105",
+                    "longitude": "-99.2837492"
+                  },
+                  "floorSize": {
+                    "@type": "QuantitativeValue",
+                    "value": 477,
+                    "unitText": "m²"
+                  },
+                  "numberOfRooms": 3,
+                  "numberOfBathroomsTotal": 6,
+                  "yearBuilt": 2026,
+                  "additionalProperty": [
+                    {
+                      "@type": "PropertyValue",
+                      "name": "Niveles",
+                      "value": "4 (Sótano, Nivel 01, Nivel 02, Nivel 03)"
+                    },
+                    {
+                      "@type": "PropertyValue",
+                      "name": "Lote",
+                      "value": "300 m²"
+                    },
+                    {
+                      "@type": "PropertyValue",
+                      "name": "Tecnología",
+                      "value": "Desarrollado con Inteligencia Artificial"
+                    },
+                    {
+                      "@type": "PropertyValue",
+                      "name": "Materiales",
+                      "value": "Piedra sinterizada, cristal, cuarzos Black Mirror y White Mirror, granito Vía Láctea"
+                    }
+                  ]
+                },
+                {
+                  "@type": "Organization",
+                  "@id": "https://nidda.mx#organization",
+                  "name": "NIDDA Inmobiliaria",
+                  "url": "https://nidda.mx",
+                  "logo": "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734541698/LEANBIMHsm_cvudos.png",
+                  "sameAs": [
+                    "https://www.facebook.com/niddainmobiliaria",
+                    "https://www.instagram.com/niddainmobiliaria",
+                    "https://wa.me/525555555555"
+                  ],
+                  "contactPoint": {
+                    "@type": "ContactPoint",
+                    "telephone": "+52-55-5555-5555",
+                    "contactType": "sales",
+                    "availableLanguage": "Spanish"
+                  }
+                },
+                {
+                  "@type": "WebPage",
+                  "@id": "https://nidda.mx/casa-ambar#webpage",
+                  "url": "https://nidda.mx/casa-ambar",
+                  "name": "Casa Ámbar | Residencia de Lujo en Bosque Real",
+                  "isPartOf": {
+                    "@id": "https://nidda.mx#website"
+                  },
+                  "about": {
+                    "@id": "https://nidda.mx/casa-ambar#realestate"
+                  },
+                  "description": "Página oficial de Casa Ámbar, residencia de lujo en Bosque Real desarrollada con inteligencia artificial. Conoce todos los detalles de esta exclusiva propiedad de 477m² con materiales nobles y diseño contemporáneo."
+                }
+              ]
+            })
+          }}
+        />
+        
+        {/* Additional SEO Tags */}
+        <meta name="author" content="NIDDA Inmobiliaria" />
+        <meta name="language" content="es-MX" />
+        <meta name="distribution" content="global" />
+        <meta name="rating" content="general" />
+        <meta name="revisit-after" content="7 days" />
+        
+        {/* Property Specific Meta Tags */}
+        <meta property="property:price" content="19500000" />
+        <meta property="property:price:currency" content="MXN" />
+        <meta property="property:type" content="house" />
+        <meta property="property:bedrooms" content="3" />
+        <meta property="property:bathrooms" content="6" />
+        <meta property="property:area" content="477" />
+        <meta property="property:area:units" content="m2" />
+        
+        {/* AI and Technology Tags */}
+        <meta name="ai:enhanced" content="true" />
+        <meta name="ai:description" content="Desarrollado con inteligencia artificial para optimizar espacios, luz natural y experiencia de usuario" />
+        
+        {/* Local Business Tags */}
+        <meta name="geo.region" content="MX-MEX" />
+        <meta name="geo.placename" content="Bosque Real, Estado de México" />
+        <meta name="geo.position" content="19.4316105;-99.2837492" />
+        <meta name="ICBM" content="19.4316105, -99.2837492" />
+        
+        {/* Canonical and Hreflang */}
+        <link rel="canonical" href="https://nidda.mx/casa-ambar" />
+        <link rel="alternate" hrefLang="es-mx" href="https://nidda.mx/casa-ambar" />
+        <link rel="alternate" hrefLang="es" href="https://nidda.mx/casa-ambar" />
+      </Head>
+      
       {/* Zapier Chatbot Script */}
       <Script 
         src="https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js" 
