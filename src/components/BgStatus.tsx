@@ -14,24 +14,38 @@ function BgStatus({ transitionData, currentSlideData }: Props) {
     <div className="relative flex items-center justify-between w-full h-full">
 
       {transitionData && (
-        <motion.img
+        <motion.div
           key={transitionData.img}
           layoutId={transitionData.img}
-          alt="Transition Image"
           transition={{
             opacity: { ease: "linear" },
             layout: { duration: 0.6 },
           }}
-          className="absolute left-0 top-0 h-full w-full object-cover brightness-50"
-          src={transitionData.img}
-        />
+          className="absolute left-0 top-0 h-full w-full brightness-50"
+        >
+          <Image
+            src={transitionData.img}
+            alt="Transition Image"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            priority
+          />
+        </motion.div>
       )}
-      <motion.img
-        alt="Current Image"
+      <motion.div
         key={currentSlideData.data.img + "transition"}
-        src={currentSlideData.data.img}
-        className="absolute left-0 top-0 h-full w-full object-cover brightness-50"
-      />
+        className="absolute left-0 top-0 h-full w-full brightness-50"
+      >
+        <Image
+          src={currentSlideData.data.img}
+          alt="Current Image"
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 50vw"
+          priority
+        />
+      </motion.div>
 
 
       <div className="absolute right-0 top-0 flex items-end justify-end w-56 sm:w-60 md:w-1/2 h-full pr-8 ">

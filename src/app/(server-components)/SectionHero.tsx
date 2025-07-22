@@ -16,11 +16,10 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
       <div className="flex flex-col lg:flex-row lg:items-center">
         <div className="flex-shrink-0 lg:w-1/2 flex flex-col items-start space-y-8 sm:space-y-10 pb-14 lg:pb-64 xl:pr-14 lg:mr-10 xl:mr-0">
           <h2 className="font-medium text-4xl md:text-5xl xl:text-7xl !leading-[114%] ">
-            Hotel, car & experiences
+            Tu hogar ideal en Bosque Real
           </h2>
           <span className="text-base md:text-lg text-neutral-500 dark:text-neutral-400">
-            Accompanying us, you have a trip full of experiences. With Chisfis,
-            booking accommodation, resort villas, hotels
+            Con NIDDO y NIDDIA IA, encuentra la propiedad perfecta en Bosque Real. Casas, departamentos y lotes exclusivos te esperan.
           </span>
           <ButtonPrimary href="/listing-stay-map" sizeClass="px-5 py-4 sm:px-7">
             Start your search

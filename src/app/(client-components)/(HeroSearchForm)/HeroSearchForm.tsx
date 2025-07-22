@@ -2,16 +2,14 @@
 
 import React, { FC, useState } from "react";
 import StaySearchForm from "./(stay-search-form)/StaySearchForm";
-import ExperiencesSearchForm from "./(experiences-search-form)/ExperiencesSearchForm";
-import RentalCarSearchForm from "./(car-search-form)/RentalCarSearchForm";
-import FlightSearchForm from "./(flight-search-form)/FlightSearchForm";
+// Removed unused search forms: Experiences, Cars, Flights
 
-export type SearchTab = "Stays" | "Experiences" | "Cars" | "Flights";
+export type SearchTab = "Stays";
 
 export interface HeroSearchFormProps {
   className?: string;
   currentTab?: SearchTab;
-  currentPage?: "Stays" | "Experiences" | "Cars" | "Flights";
+  currentPage?: "Stays";
 }
 
 const HeroSearchForm: FC<HeroSearchFormProps> = ({
@@ -19,7 +17,7 @@ const HeroSearchForm: FC<HeroSearchFormProps> = ({
   currentTab = "Stays",
   currentPage,
 }) => {
-  const tabs: SearchTab[] = ["Stays", "Experiences", "Cars", "Flights"];
+  const tabs: SearchTab[] = ["Stays"];
   const [tabActive, setTabActive] = useState<SearchTab>(currentTab);
 
   const renderTab = () => {
@@ -49,19 +47,8 @@ const HeroSearchForm: FC<HeroSearchFormProps> = ({
   };
 
   const renderForm = () => {
-    switch (tabActive) {
-      case "Stays":
-        return <StaySearchForm />;
-      case "Experiences":
-        return <ExperiencesSearchForm />;
-      case "Cars":
-        return <RentalCarSearchForm />;
-      case "Flights":
-        return <FlightSearchForm />;
-
-      default:
-        return null;
-    }
+    // Only Stays form is available
+    return <StaySearchForm />;
   };
 
   return (

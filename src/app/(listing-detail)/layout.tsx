@@ -24,8 +24,7 @@ import { imageGallery as ListingGalleryislaEncino } from "./islaEncino/constant"
 import { imageGallery as ListingGallerylaReserva } from "./reserva/constant";
 import { imageGallery as ListingGalleryLife } from "./life/constant";
 
-import { imageGallery as listingCarImageGallery } from "./listing-car-detail/constant";
-import { imageGallery as listingExperienceImageGallery } from "./listing-experiences-detail/constant";
+// Removed unused car and experience imports
 import { Route } from "next";
 import { imageGallery } from "./casa-ambar/constant";
 
