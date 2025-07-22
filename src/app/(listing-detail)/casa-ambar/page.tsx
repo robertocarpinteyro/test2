@@ -20,22 +20,34 @@ import Head from "next/head";
 
 // SEO Metadata
 export const metadata = {
-  title: "Casa Ámbar | Residencia de Lujo en Bosque Real, Estado de México | Venta Exclusiva con IA",
-  description: "Descubre Casa Ámbar, una residencia de lujo de 477m² en el exclusivo fraccionamiento Ambar, Bosque Real, Estado de México. Diseño contemporáneo con inteligencia artificial, materiales nobles y acabados premium. Entrega 2026.",
+  title: "Casa Ámbar Bosque Real | NIDDO Broker | NIDDIA Asistente IA | Venta Exclusiva",
+  description: "Descubre Casa Ámbar, residencia de lujo 477m² en fraccionamiento Ambar, Bosque Real. NIDDO broker especialista y NIDDIA asistente virtual IA. Diseño contemporáneo, materiales nobles. Entrega 2026.",
   keywords: [
-    "Casa Ámbar",
-    "Bosque Real",
-    "Estado de México",
-    "inmuebles de lujo",
-    "residencia exclusiva",
-    "venta casa lujo",
+    "Casa Ámbar Bosque Real",
+    "NIDDO broker Bosque Real",
+    "NIDDIA asistente virtual",
+    "Bosque Real propiedades",
     "Casas en venta Bosque Real",
     "Departamentos en Bosque Real",
     "Inmuebles exclusivos en Bosque Real",
     "Vivir en Bosque Real",
-    "fraccionamiento Ambar",
+    "fraccionamiento Ambar Bosque Real",
+    "broker Bosque Real",
+    "bienes raíces Bosque Real",
+    "residencias Bosque Real",
+    "comprar casa Bosque Real",
+    "inversión Bosque Real",
+    "desarrollos Bosque Real",
+    "Sky View Bosque Real",
+    "Reserva Bosque Real",
+    "Estado de México Bosque Real",
+    "inmuebles de lujo Bosque Real",
+    "residencia exclusiva Bosque Real",
+    "venta casa lujo Bosque Real",
     "diseño contemporáneo",
     "inteligencia artificial inmobiliaria",
+    "NIDDIA IA",
+    "asistente virtual propiedades",
     "piedra sinterizada",
     "477 metros construcción",
     "300 metros lote",
@@ -52,21 +64,16 @@ export const metadata = {
     "cocina vanguardista",
     "estudio independiente",
     "sótano área social",
-    "seguridad 24/7",
-    "entorno natural preservado",
+    "seguridad 24/7 Bosque Real",
+    "entorno natural Bosque Real",
     "exclusividad Bosque Real",
-    "inversión inmobiliaria México",
-    "propiedades premium Estado México",
-    "bienes raíces Bosque Real",
-    "casas de lujo Estado de México",
-    "residencias Bosque Real",
-    "comprar casa Bosque Real"
+    "NIDDO.ai"
   ].join(", "),
   openGraph: {
-    title: "Casa Ámbar - Residencia de Lujo en Bosque Real | Venta Exclusiva",
-    description: "Residencia exclusiva de 477m² en Bosque Real, Estado de México. Diseño contemporáneo, materiales nobles, 4 niveles de lujo. Desarrollada con tecnología e inteligencia artificial.",
-    url: "https://nidda.mx/casa-ambar",
-    siteName: "NIDDA - Inmobiliaria de Lujo",
+    title: "Casa Ámbar Bosque Real | NIDDO Broker | NIDDIA IA",
+    description: "Residencia exclusiva 477m² en Bosque Real, Estado de México. NIDDO broker especialista, NIDDIA asistente virtual IA. Diseño contemporáneo, materiales nobles, 4 niveles lujo.",
+    url: "https://niddo.ai/casa-ambar",
+    siteName: "NIDDO - Broker Bosque Real",
     images: [
       {
         url: "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734541698/LEANBIMHsm_cvudos.png",
@@ -80,10 +87,10 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Casa Ámbar | Lujo en Bosque Real, Estado de México",
-    description: "Residencia exclusiva 477m² con IA, diseño contemporáneo y materiales nobles en el fraccionamiento más exclusivo de Bosque Real.",
+    title: "Casa Ámbar Bosque Real | NIDDO Broker + NIDDIA IA",
+    description: "Residencia exclusiva 477m² en Bosque Real. NIDDO broker especialista y NIDDIA asistente virtual IA. Diseño contemporáneo, materiales nobles.",
     images: ["https://res.cloudinary.com/dwrtldhxd/image/upload/v1734541698/LEANBIMHsm_cvudos.png"],
-    creator: "@niddainmobiliaria",
+    creator: "@niddobroker",
   },
   robots: {
     index: true,
@@ -97,7 +104,7 @@ export const metadata = {
     },
   },
   alternates: {
-    canonical: "https://nidda.mx/casa-ambar",
+    canonical: "https://niddo.ai/casa-ambar",
   },
   verification: {
     google: "tu-codigo-google-verificacion",
@@ -777,10 +784,10 @@ Casa Ámbar
               "@graph": [
                 {
                   "@type": "RealEstateListing",
-                  "@id": "https://nidda.mx/casa-ambar#realestate",
+                  "@id": "https://niddo.ai/casa-ambar#realestate",
                   "name": "Casa Ámbar - Residencia de Lujo en Bosque Real",
                   "description": "Residencia exclusiva de 477m² construidos en lote de 300m² ubicada en el fraccionamiento Ambar, Bosque Real, Estado de México. Diseño contemporáneo con materiales nobles como piedra sinterizada y cuarzos Black Mirror.",
-                  "url": "https://nidda.mx/casa-ambar",
+                  "url": "https://niddo.ai/casa-ambar",
                   "image": [
                     "https://res.cloudinary.com/dwrtldhxd/video/upload/v1752569724/Cinematic_real_state_202507150254_rn6ukf.mp4",
                     "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734541698/LEANBIMHsm_cvudos.png"
@@ -838,13 +845,13 @@ Casa Ámbar
                 },
                 {
                   "@type": "Organization",
-                  "@id": "https://nidda.mx#organization",
-                  "name": "NIDDA Inmobiliaria",
-                  "url": "https://nidda.mx",
+                  "@id": "https://niddo.ai#organization",
+                  "name": "NIDDO Broker Inmobiliario",
+                  "url": "https://niddo.ai",
                   "logo": "https://res.cloudinary.com/dwrtldhxd/image/upload/v1734541698/LEANBIMHsm_cvudos.png",
                   "sameAs": [
-                    "https://www.facebook.com/niddainmobiliaria",
-                    "https://www.instagram.com/niddainmobiliaria",
+                    "https://www.facebook.com/niddobroker",
+                    "https://www.instagram.com/niddobroker",
                     "https://wa.me/525555555555"
                   ],
                   "contactPoint": {
@@ -856,16 +863,16 @@ Casa Ámbar
                 },
                 {
                   "@type": "WebPage",
-                  "@id": "https://nidda.mx/casa-ambar#webpage",
-                  "url": "https://nidda.mx/casa-ambar",
-                  "name": "Casa Ámbar | Residencia de Lujo en Bosque Real",
+                  "@id": "https://niddo.ai/casa-ambar#webpage",
+                  "url": "https://niddo.ai/casa-ambar",
+                  "name": "Casa Ámbar Bosque Real | NIDDO Broker",
                   "isPartOf": {
-                    "@id": "https://nidda.mx#website"
+                    "@id": "https://niddo.ai#website"
                   },
                   "about": {
-                    "@id": "https://nidda.mx/casa-ambar#realestate"
+                    "@id": "https://niddo.ai/casa-ambar#realestate"
                   },
-                  "description": "Página oficial de Casa Ámbar, residencia de lujo en Bosque Real desarrollada con inteligencia artificial. Conoce todos los detalles de esta exclusiva propiedad de 477m² con materiales nobles y diseño contemporáneo."
+                  "description": "Página oficial Casa Ámbar, residencia lujo Bosque Real. NIDDO broker especialista y NIDDIA asistente virtual IA. Propiedad exclusiva 477m², materiales nobles, diseño contemporáneo."
                 }
               ]
             })
@@ -899,9 +906,9 @@ Casa Ámbar
         <meta name="ICBM" content="19.4316105, -99.2837492" />
         
         {/* Canonical and Hreflang */}
-        <link rel="canonical" href="https://nidda.mx/casa-ambar" />
-        <link rel="alternate" hrefLang="es-mx" href="https://nidda.mx/casa-ambar" />
-        <link rel="alternate" hrefLang="es" href="https://nidda.mx/casa-ambar" />
+        <link rel="canonical" href="https://niddo.ai/casa-ambar" />
+        <link rel="alternate" hrefLang="es-mx" href="https://niddo.ai/casa-ambar" />
+        <link rel="alternate" hrefLang="es" href="https://niddo.ai/casa-ambar" />
       </Head>
       
       {/* Zapier Chatbot Script */}

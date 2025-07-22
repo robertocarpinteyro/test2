@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://nidda.mx/sitemap.xml
+Sitemap: https://niddo.ai/sitemap.xml
 
 # Crawl-delay for different bots
 Crawl-delay: 1
