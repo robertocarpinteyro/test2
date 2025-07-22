@@ -8,7 +8,7 @@ declare global {
 }
 import React, { FC, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRightIcon, HomeIcon, SparklesIcon, MapPinIcon, CameraIcon } from "@heroicons/react/24/outline";
+import { ArrowRightIcon, HomeIcon, SparklesIcon, MapPinIcon, CameraIcon, ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
 import { PlayIcon } from "@heroicons/react/24/solid";
 import ButtonPrimary from "@/shared/ButtonPrimary";
 import ButtonSecondary from "@/shared/ButtonSecondary";
@@ -22,6 +22,14 @@ export interface CasaAmbarLandingPageProps {}
 const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [expandedLevels, setExpandedLevels] = useState<{[key: string]: boolean}>({});
+
+  const toggleLevel = (levelTitle: string) => {
+    setExpandedLevels(prev => ({
+      ...prev,
+      [levelTitle]: !prev[levelTitle]
+    }));
+  };
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
@@ -96,7 +104,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
               transition={{ duration: 1, delay: 0.7 }}
               className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight"
             >
-              Casa Ámbar
+Casa Ámbar
             </motion.h1>
             
             <motion.p
@@ -179,11 +187,11 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
               className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-12"
             >
               <p className="mb-6">
-                <strong className="text-emerald-600 dark:text-emerald-400">Casa Ámbar</strong> es una residencia única ubicada en el lote Ámbar de una exclusiva reserva. Con espacios generosos, acabados de lujo y una distribución pensada para el confort, cada nivel revela una experiencia diferente de habitar.
+                <strong className="text-emerald-600 dark:text-emerald-400">Casa Ámbar</strong> ha sido concebida desde una visión de diseño contemporáneo que se destaca por su elegancia sobria y líneas arquitectónicas limpias. Su fachada conjuga materiales nobles, como piedra sinterizada y cristal, con una paleta cromática contrastante y una composición moderna que transmite exclusividad, equilibrio y estilo.
               </p>
               
               <p>
-                Donde el diseño contemporáneo se encuentra con la funcionalidad perfecta, creando un hogar que trasciende las expectativas y redefine el concepto de lujo residencial.
+                Cada nivel ha sido concebido para brindar amplitud, confort y conexión con el exterior, integrando la luz natural como elemento protagonista. Más que una casa, es un espacio pensado para vivir con sofisticación, privacidad y armonía.
               </p>
             </motion.div>
             
@@ -195,8 +203,8 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
               className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center"
             >
               <div className="p-6">
-                <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">332.96m²</div>
-                <div className="text-gray-600 dark:text-gray-400">Superficie Total</div>
+                <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">477m²</div>
+                <div className="text-gray-600 dark:text-gray-400">Construcción</div>
               </div>
               <div className="p-6">
                 <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">4</div>
@@ -217,49 +225,50 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
   const renderLevelsSection = () => {
     const levels = [
       {
-        title: "Primer Nivel",
+        title: "Nivel 01",
         icon: "🏛️",
+        spaces: "Estudio 24m², Baño 5m², Sala 22m², Comedor 15m², Cocina 26m², Servicio 9m², Alacena 5m²",
         features: [
-          "Vestíbulo con piso de mármol calacata",
-          "Sala comedor con doble altura y ventanal de piso a techo",
-          "Escalera flotante",
-          "Cocina integral en nogal y granito con isla",
-          "Estudio con acceso independiente",
-          "Baño de visitas, alacena y cuarto de servicio"
+          "Vestíbulo exterior enmarcado por jardines con paisajismo de texturas y matrices de color",
+          "Vestíbulo interior como hilo conductor para espectacular doble altura",
+          "Sala comedor coronando el espacio con doble altura",
+          "Cocina vanguardista con cuarzos Black Mirror y White Mirror de carácter atemporal",
+          "Estudio de diseño contemporáneo con mobiliario empotrado y detalles decorativos",
+          "Acceso independiente y baño completo que permite transformarlo en suite privada"
         ]
       },
       {
-        title: "Segundo Nivel",
+        title: "Nivel 02",
         icon: "🛏️",
+        spaces: "Master Bedroom 25m², Baño 12m², Walking Closet 9m², Recamara 1: 21m², Baño 4m², Walking Closet 4m², Recamara 2: 21m², Baño 4m², Walking Closet 4m², Family Room 33m²",
         features: [
-          "3 habitaciones con baño privado cada una",
-          "Walking closet en todas las habitaciones",
-          "Vista hacia fachada principal (orientación sur-este)",
-          "Habitación principal con carpintería en nogal",
-          "Baño tipo suite en habitación principal",
-          "Estancia familiar con espacio para pantalla grande"
+          "Amplio e iluminado Family Room como vestíbulo a las tres recámaras",
+          "Cada recámara cuenta con baño privado, walking closet y terraza individual",
+          "Terrazas que conectan los interiores con el paisaje de la zona",
+          "Recámara principal con baño de diseño lineal",
+          "Porcelánicos de gran formato y espectacular acento de granito Vía Láctea"
         ]
       },
       {
-        title: "Tercer Nivel",
+        title: "Nivel 03",
         icon: "🌅",
+        spaces: "Terraza 64m², Gimnasio 28m², Baño 4m², Wellness Lounge 10m², ½ Baño 4m², Lavandería 8m²",
         features: [
-          "Área de usos múltiples (gimnasio o habitación de huéspedes)",
-          "Terraza para 20 personas",
-          "Zona de BBQ",
-          "Medio baño",
-          "Cuarto de lavado con patio de servicio"
+          "Diseñado para potenciar el bienestar y la vida social",
+          "Gimnasio con vistas al sur oriente, perfecto para recibir la luz matutina",
+          "Wellness lounge con acceso directo a baño privado",
+          "Dos terrazas independientes para ambiente social y rincón privado",
+          "Puede adaptarse como suite adicional según necesidades de estilo de vida"
         ]
       },
       {
         title: "Sótano",
         icon: "🍷",
+        spaces: "Cuarto de máquinas 11m², Cisterna 8m², Bodega 13m², Cava 9m², Área social 23m²",
         features: [
-          "Área social con acabados de madera",
-          "Cava para vinos",
-          "Bodega de 25 m²",
-          "Cisterna y cuarto de máquinas",
-          "Acceso independiente"
+          "Dotando de exclusividad, privacidad y distinción",
+          "Área de degustación y cava creando el ambiente ideal para el deleite",
+          "Zona de resguardo con espacio versátil para almacenaje general"
         ]
       }
     ];
@@ -295,6 +304,29 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                 <div className="flex items-center mb-6">
                   <span className="text-4xl mr-4">{level.icon}</span>
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{level.title}</h3>
+                </div>
+                
+                <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-lg mb-6 overflow-hidden">
+                  <button
+                    onClick={() => toggleLevel(level.title)}
+                    className="w-full p-4 flex items-center justify-between text-left hover:bg-emerald-100 dark:hover:bg-emerald-900/30 transition-colors"
+                  >
+                    <div>
+                      <h4 className="text-sm font-semibold text-emerald-800 dark:text-emerald-200">Espacios</h4>
+                      <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-1">Click para ver detalles</p>
+                    </div>
+                    {expandedLevels[level.title] ? (
+                      <ChevronUpIcon className="w-5 h-5 text-emerald-700 dark:text-emerald-300" />
+                    ) : (
+                      <ChevronDownIcon className="w-5 h-5 text-emerald-700 dark:text-emerald-300" />
+                    )}
+                  </button>
+                  
+                  {expandedLevels[level.title] && (
+                    <div className="p-4 pt-0 border-t border-emerald-200 dark:border-emerald-800">
+                      <p className="text-sm text-emerald-700 dark:text-emerald-300">{level.spaces}</p>
+                    </div>
+                  )}
                 </div>
                 
                 <ul className="space-y-3">
@@ -466,7 +498,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
             </h2>
             
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-12">
-              Ubicada en el exclusivo lote Ámbar dentro de una reserva privada, que ofrece tranquilidad, privacidad y contacto con la naturaleza.
+              Ubicada en el fraccionamiento Ambar dentro del Desarrollo Reserva Bosque Real, con 477 m² de construcción sobre un lote de 300 m².
             </p>
           </motion.div>
 
@@ -560,13 +592,13 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                   </div>
                   
                   <div className="flex items-center justify-between py-3 border-b border-white/20">
-                    <span className="text-emerald-200">Superficie:</span>
-                    <span className="font-semibold">332.96 m²</span>
+                    <span className="text-emerald-200">Construcción/Lote:</span>
+                    <span className="font-semibold">477 m² / 300 m²</span>
                   </div>
                   
                   <div className="flex items-center justify-between py-3 border-b border-white/20">
                     <span className="text-emerald-200">Entrega:</span>
-                    <span className="font-semibold">Marzo 2026 + 6 meses de gracia</span>
+                    <span className="font-semibold">Agosto 2025 + 6 meses de gracia</span>
                   </div>
                 </div>
 
