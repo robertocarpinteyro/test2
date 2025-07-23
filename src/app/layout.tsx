@@ -10,7 +10,7 @@ import ClientLayout from "@/components/ClientLayout";
 export const metadata: Metadata = {
   metadataBase: new URL('https://niddo.ai'),
   title: {
-    default: 'NIDDO | Broker Inmobiliario de Lujo en Bosque Real con IA | NIDDIA Asistente Virtual',
+    default: 'NIDDO | Encuentra tu hogar ideal en bosque real | NIDDIA Asistente Virtual',
     template: '%s | NIDDO Bosque Real'
   },
   description: 'NIDDO es el broker inmobiliario líder especializado en propiedades de lujo en Bosque Real, Estado de México. Con NIDDIA, nuestra asistente virtual con inteligencia artificial, encuentra tu hogar exclusivo en Bosque Real con asesoría personalizada.',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     'asesoría inmobiliaria IA',
     'tecnología inmobiliaria',
     'venta casas lujo Bosque Real',
-    'broker innovador México',
+    'Comprar en bosque real',
     'propiedades premium Bosque Real',
     'NIDDO.ai',
     'Sky View Bosque Real',
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     title: 'NIDDO | Broker Bosque Real con NIDDIA IA',
     description: 'Broker especialista en propiedades exclusivas de Bosque Real, Estado de México. NIDDIA asistente virtual con inteligencia artificial.',
     images: ['/twitter-image.jpg'],
-    creator: '@niddobroker',
+    creator: '@niddo.ai',
   },
   robots: {
     index: true,
