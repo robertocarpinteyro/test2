@@ -65,20 +65,15 @@ const demoChildMenus: NavItemType[] = [
   {
     id: ncNanoId(),
     href: "/",
-    name: "Online booking",
+    name: "Propiedades Bosque Real",
   },
   {
     id: ncNanoId(),
     href: "/home-2",
-    name: "Real estate",
+    name: "Portal inmobiliario",
     isNew: true,
   },
-  {
-    id: ncNanoId(),
-    href: "/home-3",
-    name: "Home 3",
-    isNew: true,
-  },
+  // Removed Home 3 reference
 ];
 
 const otherPageChildMenus: NavItemType[] = [
@@ -201,69 +196,7 @@ export const NAVIGATION_DEMO: NavItemType[] = [
         ],
       },
 
-      //
-      {
-        id: ncNanoId(),
-        href: "/listing-experiences",
-        name: "Experiences listings",
-        type: "dropdown",
-        children: [
-          {
-            id: ncNanoId(),
-            href: "/listing-experiences",
-            name: "Experiences page",
-          },
-          {
-            id: ncNanoId(),
-            href: "/listing-experiences-map",
-            name: "Experiences page (map)",
-          },
-          {
-            id: ncNanoId(),
-            href: "/listing-experiences-detail",
-            name: "Experiences Detail",
-          },
-        ],
-      },
-
-      //
-      {
-        id: ncNanoId(),
-        href: "/listing-car",
-        name: "Cars listings",
-        type: "dropdown",
-        children: [
-          { id: ncNanoId(), href: "/listing-car", name: "Cars page" },
-          { id: ncNanoId(), href: "/listing-car-map", name: "Cars page (map)" },
-          { id: ncNanoId(), href: "/listing-car-detail", name: "Car Detail" },
-        ],
-      },
-
-      //
-      {
-        id: ncNanoId(),
-        href: "/listing-real-estate",
-        name: "Real Estate Listings",
-        type: "dropdown",
-        children: [
-          {
-            id: ncNanoId(),
-            href: "/listing-real-estate",
-            name: "Real Estate Listings",
-          },
-          {
-            id: ncNanoId(),
-            href: "/listing-real-estate-map",
-            name: "Real Estate Maps",
-          },
-        ],
-      },
-      //
-      {
-        id: ncNanoId(),
-        href: "/listing-flights",
-        name: "Flights listings",
-      },
+      // Removed Experiences, Cars, Real Estate, and Flights listings since they were deleted from the project
     ],
   },
   {
@@ -307,52 +240,10 @@ export const NAVIGATION_DEMO_2: NavItemType[] = [
       },
       { id: ncNanoId(), href: "/skyview", name: "Stay detail" },
 
-      //
-      {
-        id: ncNanoId(),
-        href: "/listing-experiences",
-        name: "Experiences listings",
-      },
-      {
-        id: ncNanoId(),
-        href: "/listing-experiences-map",
-        name: "Experiences (map)",
-      },
-      {
-        id: ncNanoId(),
-        href: "/listing-experiences-detail",
-        name: "Experiences detail",
-      },
+      // Removed Experiences listings
     ],
   },
-  {
-    id: ncNanoId(),
-    href: "/listing-car",
-    name: "Listing pages",
-    children: [
-      { id: ncNanoId(), href: "/listing-car", name: "Cars listings" },
-      { id: ncNanoId(), href: "/listing-car-map", name: "Cars listings (map)" },
-      { id: ncNanoId(), href: "/listing-car-detail", name: "Car detail" },
-
-      //
-      {
-        id: ncNanoId(),
-        href: "/listing-real-estate",
-        name: "Real estate listings",
-      },
-      {
-        id: ncNanoId(),
-        href: "/listing-real-estate-map",
-        name: "Real estate (map)",
-      },
-      //
-      {
-        id: ncNanoId(),
-        href: "/listing-flights",
-        name: "Flights listings",
-      },
-    ],
-  },
+  // Removed Cars listing page since it was deleted from the project
 
   //
   {
