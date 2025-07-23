@@ -78,7 +78,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
               playsInline
               className="w-full h-full object-cover"
             >
-              <source src="https://res.cloudinary.com/dwrtldhxd/video/upload/v1752569724/Cinematic_real_state_202507150254_rn6ukf.mp4" type="video/mp4" />
+              <source src="https://res.cloudinary.com/dwrtldhxd/video/upload/v1753233777/Presentacionambar_p6nkjx.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
           </motion.div>
