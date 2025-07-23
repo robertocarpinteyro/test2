@@ -79,8 +79,8 @@ const sliderData = [
     title: "Casas",
     description:
       "¿Sueñas con tu hogar ideal? Nosotros lo encontramos",
-    entrega: "Agosto 2025 + 6 meses de gracia.",
-    precioMinimo: "$15 mpd",
+    entrega: "Septiembre 2025 + 6 meses de gracia.",
+    precioMinimo: "$19,5 mpd",
     precioMaximo: "800",
     superficieMinima: "420",
   },

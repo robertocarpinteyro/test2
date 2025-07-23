@@ -602,7 +602,7 @@ Casa Ámbar
                   
                   <div className="flex items-center justify-between py-3 border-b border-white/20">
                     <span className="text-emerald-200">Entrega:</span>
-                    <span className="font-semibold">Agosto 2025 + 6 meses de gracia</span>
+                    <span className="font-semibold">Septiembre 2025 + 6 meses de gracia</span>
                   </div>
                 </div>
 
