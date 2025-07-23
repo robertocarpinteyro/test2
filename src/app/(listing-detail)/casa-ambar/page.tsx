@@ -215,8 +215,8 @@ Casa Ámbar
                 <div className="text-gray-600 dark:text-gray-400">Niveles de Diseño</div>
               </div>
               <div className="p-6">
-                <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">2026</div>
-                <div className="text-gray-600 dark:text-gray-400">Entrega Marzo</div>
+                <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">2025</div>
+                <div className="text-gray-600 dark:text-gray-400">Entrega Agosto</div>
               </div>
             </motion.div>
           </div>

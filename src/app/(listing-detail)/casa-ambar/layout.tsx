@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 // SEO Metadata for Casa Ámbar
 export const metadata: Metadata = {
   title: "Casa Ámbar Bosque Real | NIDDO Broker | NIDDIA Asistente IA | Venta Exclusiva",
-  description: "Descubre Casa Ámbar, residencia de lujo 477m² en fraccionamiento Ambar, Bosque Real. NIDDO broker especialista y NIDDIA asistente virtual IA. Diseño contemporáneo, materiales nobles. Entrega 2026.",
+  description: "Descubre Casa Ámbar, residencia de lujo 477m² en fraccionamiento Ambar, Bosque Real. NIDDO broker especialista y NIDDIA asistente virtual IA. Diseño contemporáneo, materiales nobles. Entrega 2025.",
   keywords: [
     "Casa Ámbar Bosque Real",
     "NIDDO broker Bosque Real",
