@@ -28,9 +28,8 @@ let OPTIONS = {
 let OBSERVER: IntersectionObserver | null = null;
 const PAGES_HIDE_HEADER_BORDER: PathName[] = [
   "/home-3",
-  "/listing-car-detail",
-  "/listing-experiences-detail",
   "/skyview",
+  // Removed car and experiences detail pages since they were deleted
 ];
 
 const SiteHeader = () => {
@@ -39,9 +38,9 @@ const SiteHeader = () => {
   let [headers] = useState<SiteHeaders[]>(["Header 1", "Header 2", "Header 3"]);
 
   let [homePages] = useState<HomePageItem[]>([
-    { name: "Travel", slug: "/" },
-    { name: "Real Estate", slug: "/home-2" },
-    { name: "Booking", slug: "/home-3" },
+    { name: "Propiedades Bosque Real", slug: "/" },
+    { name: "Portal Inmobiliario", slug: "/home-2" },
+    // Removed Booking page reference
   ]);
   const [headerSelected, setHeaderSelected] = useState<SiteHeaders>("Header 2");
 
