@@ -207,7 +207,7 @@ Casa Ámbar
               className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center"
             >
               <div className="p-6">
-                <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">477m²</div>
+                <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">474m² + terraza</div>
                 <div className="text-gray-600 dark:text-gray-400">Construcción</div>
               </div>
               <div className="p-6">
@@ -216,7 +216,7 @@ Casa Ámbar
               </div>
               <div className="p-6">
                 <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">2025</div>
-                <div className="text-gray-600 dark:text-gray-400">Entrega Agosto</div>
+                <div className="text-gray-600 dark:text-gray-400">Entrega Septiembre</div>
               </div>
             </motion.div>
           </div>
@@ -502,7 +502,7 @@ Casa Ámbar
             </h2>
             
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-12">
-              Ubicada en el fraccionamiento Ambar dentro del Desarrollo Reserva Bosque Real, con 477 m² de construcción sobre un lote de 300 m².
+              Ubicada en el fraccionamiento Ambar dentro del Desarrollo Reserva Bosque Real, con 474 m² de construcción + terraza sobre un lote de 300 m².
             </p>
           </motion.div>
 
@@ -597,7 +597,7 @@ Casa Ámbar
                   
                   <div className="flex items-center justify-between py-3 border-b border-white/20">
                     <span className="text-emerald-200">Construcción/Lote:</span>
-                    <span className="font-semibold">477 m² / 300 m²</span>
+                    <span className="font-semibold">474 m² + terraza / 300 m²</span>
                   </div>
                   
                   <div className="flex items-center justify-between py-3 border-b border-white/20">

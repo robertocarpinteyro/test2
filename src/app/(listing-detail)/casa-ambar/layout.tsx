@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 // SEO Metadata for Casa Ámbar
 export const metadata: Metadata = {
   title: "Casa Ámbar Bosque Real | NIDDO Broker | NIDDIA Asistente IA | Venta Exclusiva",
-  description: "Descubre Casa Ámbar, residencia de lujo 472m² en fraccionamiento Ambar, Bosque Real. NIDDO broker especialista y NIDDIA asistente virtual IA. Diseño contemporáneo, materiales nobles. Entrega 2025.",
+  description: "Descubre Casa Ámbar, residencia de lujo 474m² + terraza en fraccionamiento Ambar, Bosque Real. NIDDO broker especialista y NIDDIA asistente virtual IA. Diseño contemporáneo, materiales nobles. Entrega 2025.",
   keywords: [
     "Casa Ámbar Bosque Real",
     "NIDDO broker Bosque Real",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     "NIDDIA IA",
     "asistente virtual propiedades",
     "piedra sinterizada",
-    "472 metros construcción",
+    "477 metros construcción",
     "300 metros lote",
     "cuarzos Black Mirror",
     "granito Vía Láctea",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   ].join(", "),
   openGraph: {
     title: "Casa Ámbar Bosque Real | NIDDO Broker | NIDDIA IA",
-    description: "Residencia exclusiva 477m² en Bosque Real, Estado de México. NIDDO broker especialista, NIDDIA asistente virtual IA. Diseño contemporáneo, materiales nobles, 4 niveles lujo.",
+    description: "Residencia exclusiva 474m² + terraza en Bosque Real, Estado de México. NIDDO broker especialista, NIDDIA asistente virtual IA. Diseño contemporáneo, materiales nobles, 4 niveles lujo.",
     url: "https://niddo.ai/casa-ambar",
     siteName: "NIDDO - Broker Bosque Real",
     images: [
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Casa Ámbar Bosque Real | NIDDO Broker + NIDDIA IA",
-    description: "Residencia exclusiva 477m² en Bosque Real. NIDDO broker especialista y NIDDIA asistente virtual IA. Diseño contemporáneo, materiales nobles.",
+    description: "Residencia exclusiva 474m² + terraza en Bosque Real. NIDDO broker especialista y NIDDIA asistente virtual IA. Diseño contemporáneo, materiales nobles.",
     images: ["https://res.cloudinary.com/dwrtldhxd/image/upload/v1734541698/LEANBIMHsm_cvudos.png"],
     creator: "@niddobroker",
   },
@@ -101,7 +101,7 @@ export const metadata: Metadata = {
     "property:type": "house",
     "property:bedrooms": "4",
     "property:bathrooms": "6",
-    "property:area": "472",
+    "property:area": "474 + terraza",
     "property:area:units": "m2",
     "ai:enhanced": "true",
     "ai:description": "Desarrollado con inteligencia artificial para optimizar espacios, luz natural y experiencia de usuario",

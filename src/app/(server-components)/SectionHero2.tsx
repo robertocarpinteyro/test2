@@ -82,7 +82,7 @@ const sliderData = [
     entrega: "Septiembre 2025 + 6 meses de gracia.",
     precioMinimo: "$19,5 mpd",
     precioMaximo: "800",
-    superficieMinima: "472",
+    superficieMinima: "474 + terraza",
   },
   {
     img: "/img/skyview.jpg",
