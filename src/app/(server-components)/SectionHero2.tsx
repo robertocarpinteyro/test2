@@ -57,14 +57,7 @@ const SectionHero2: FC<SectionHero2Props> = ({ className = "", children }) => {
           </div>
         </div>
         <div className="hidden lg:block lg:mt-20 w-full">
-          <HeroFilter
-            currentSlideData={currentSlideData}
-            data={data}
-            transitionData={transitionData}
-            handleTransitionData={setTransitionData}
-            handleCurrentSlideData={setCurrentSlideData}
-            sliderData={sliderData}
-          />
+ 
         </div>
       </div>
     </div>
