@@ -23,7 +23,7 @@ interface NavItem {
   icon: any;
 }
 
-const NAV: NavItem[] = [
+/*const NAV: NavItem[] = [
   {
     name: "Explorar",
     link: "/",
@@ -34,7 +34,7 @@ const NAV: NavItem[] = [
     name: "Menu",
     icon: MenuBar,
   },
-];
+];*/
 
 const FooterNav = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -126,7 +126,7 @@ const FooterNav = () => {
     >
       <div className="w-full max-w-lg flex justify-around mx-auto text-sm text-center ">
         {/* MENU */}
-        {NAV.map(renderItem)}
+        {/*{NAV.map(renderItem)}*/}
       </div>
     </div>
   );

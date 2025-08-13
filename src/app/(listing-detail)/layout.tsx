@@ -111,7 +111,7 @@ const DetailtLayout = ({ children }: { children: ReactNode }) => {
       <div className="container py-24 lg:py-32"></div>
 
       {/* STICKY FOOTER MOBILE */}
-      <MobileFooterSticky />
+     
     </div>
   );
 };

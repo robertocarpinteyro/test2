@@ -699,7 +699,7 @@ Casa Ámbar
       {renderContactSection()}
       
       {/* Floating CTA */}
-      {renderFloatingCTA()}
+      {/*renderFloatingCTA()*/}
       
       {/* Zapier Chatbot */}
       <zapier-interfaces-chatbot-embed 
