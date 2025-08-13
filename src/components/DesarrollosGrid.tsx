@@ -14,7 +14,7 @@ export interface SectionGridFeaturePlacesProps {
 }
 
 // Orden específico de las secciones
-const TABS = ["departamentos", "lotes", "casas", "oficinas"];
+const TABS = ["casas", "departamentos", "lotes", "oficinas"];
 
 const SectionGridFeaturePlaces: FC<SectionGridFeaturePlacesProps> = ({
   gridClass = "",
