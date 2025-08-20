@@ -151,7 +151,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                 onClick={handleContactClick}
                 className="px-8 py-4 text-lg bg-emerald-600 hover:bg-emerald-700 border-0 shadow-xl"
               >
-                <span className="mr-2">Consultar con Nidda</span>
+                <span className="mr-2">Consultar con Niddia</span>
                 <ArrowRightIcon className="w-5 h-5" />
               </ButtonPrimary>
 
@@ -703,7 +703,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                     className="w-full py-4 text-lg bg-emerald-600 hover:bg-emerald-700 border-0"
                     onClick={() => window.open("tel:+525555555555", "_self")}
                   >
-                    <span className="mr-2">Hablar con Nidda</span>
+                    <span className="mr-2">Hablar con Niddia</span>
                     <ArrowRightIcon className="w-5 h-5" />
                   </ButtonPrimary>
 
@@ -755,7 +755,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
           onClick={handleContactClick}
           className="px-6 py-4 shadow-2xl bg-emerald-600 hover:bg-emerald-700 border-0"
         >
-          <span className="mr-2">Contactar Nidda</span>
+          <span className="mr-2">Contactar Niddia</span>
           <ArrowRightIcon className="w-4 h-4" />
         </ButtonPrimary>
       </motion.div>
