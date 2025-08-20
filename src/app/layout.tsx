@@ -106,7 +106,7 @@ export default function RootLayout({
   return (
     <html lang="es-MX" className={museoModerno.className}>
       <body className="bg-white text-base dark:bg-neutral-900 text-neutral-900 dark:text-neutral-200">
-            <MetaPixel />
+           
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
