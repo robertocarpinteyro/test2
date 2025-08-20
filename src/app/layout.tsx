@@ -5,7 +5,7 @@ import "@/styles/index.scss";
 import "rc-slider/assets/index.css";
 import type { Metadata } from "next";
 import ClientLayout from "@/components/ClientLayout";
-
+import MetaPixel from '@/components/MetaPixel'
 // Global Metadata
 export const metadata: Metadata = {
   metadataBase: new URL('https://niddo.ai'),
@@ -106,6 +106,7 @@ export default function RootLayout({
   return (
     <html lang="es-MX" className={museoModerno.className}>
       <body className="bg-white text-base dark:bg-neutral-900 text-neutral-900 dark:text-neutral-200">
+            <MetaPixel />
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
