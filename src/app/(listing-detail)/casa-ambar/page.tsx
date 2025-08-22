@@ -547,7 +547,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
       </section>
     );
   };
-  <MetaPixel />;
+
   // Location Section
   const renderLocationSection = () => {
     return (
