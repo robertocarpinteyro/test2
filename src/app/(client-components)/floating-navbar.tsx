@@ -5,7 +5,7 @@ import { useScroll, useMotionValueEvent, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Route } from "@/routers/types";
-
+import { fbqCustom } from "lib/fbpixel";
 export const FloatingNav = ({
   navItems,
   className,
@@ -51,7 +51,11 @@ export const FloatingNav = ({
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
+  const handleClick = () => {
+    fbqCustom("trackCustom", {
+      content_name: "Click Chat Niddia HomePage",
+    });
+  };
   return (
     <div
       className={`fixed top-5 inset-x-0 z-50 flex items-center justify-between p-3 w-full max-w-screen-lg mx-auto transition-all duration-300 ${
@@ -120,6 +124,7 @@ export const FloatingNav = ({
             href="/niddia"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={handleClick} // 👈 aquí disparas el evento
             className="px-4 py-2 text-white bg-gradient-to-r from-secondary-400 to-secondary-500 rounded-full shadow-lg hover:shadow-xl"
           >
             Chat
