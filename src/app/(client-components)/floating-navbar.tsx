@@ -166,6 +166,7 @@ export const FloatingNav = ({
             href="/niddia"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={handleClick} //
             className="px-6 py-2 text-white bg-gradient-to-r from-secondary-400 to-secondary-500 rounded-full shadow-lg hover:shadow-xl transition-all"
           >
             Chatea con Niddia
