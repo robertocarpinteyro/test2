@@ -6,7 +6,9 @@
       "Bash(npm run build:*)",
       "Bash(npm run lint)",
       "Bash(ls:*)",
-      "Bash(xcopy:*)"
+      "Bash(xcopy:*)",
+      "Bash(taskkill:*)",
+      "Bash(npx kill-port:*)"
     ],
     "deny": []
   }

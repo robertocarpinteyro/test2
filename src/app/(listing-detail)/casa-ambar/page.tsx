@@ -65,7 +65,46 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
   };
 
   const handleContactClick = () => {
-    scrollToSection("contact-section");
+    // Abrir el chat de Zapier con mensaje predefinido
+    openZapierChatWithMessage("Me interesa Casa Ámbar, quiero más información");
+  };
+
+  // Función para abrir Zapier chat con mensaje predefinido
+  const openZapierChatWithMessage = (message: string) => {
+    try {
+      // Verificar si la función postMessage está disponible
+      if (typeof window !== 'undefined' && window.postMessage) {
+        // Primero abrir el chat
+        window.postMessage({
+          type: 'ZAPIER_CHATBOT_OPEN',
+          chatbotId: 'cmakou6un00321208jg7ane35'
+        }, '*');
+        
+        // Luego enviar el mensaje después de un pequeño delay para asegurar que el chat esté abierto
+        setTimeout(() => {
+          window.postMessage({
+            type: 'ZAPIER_CHATBOT_SEND_MESSAGE',
+            message: message,
+            chatbotId: 'cmakou6un00321208jg7ane35'
+          }, '*');
+        }, 800);
+        
+        // Método alternativo: intentar hacer click en el chatbot si existe
+        setTimeout(() => {
+          const chatbotElement = document.querySelector('zapier-interfaces-chatbot-embed');
+          if (chatbotElement) {
+            (chatbotElement as any).click?.();
+          }
+        }, 100);
+      } else {
+        // Fallback si postMessage no está disponible
+        throw new Error('postMessage no disponible');
+      }
+    } catch (error) {
+      console.error('Error al abrir chat de Zapier:', error);
+      // Fallback: scroll to contact section if chat fails
+      scrollToSection("contact-section");
+    }
   };
 
   const handleGalleryClick = () => {
@@ -873,7 +912,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                 <div className="space-y-3">
                   <ButtonPrimary
                     className="w-full py-4 text-lg bg-emerald-600 hover:bg-emerald-700 border-0"
-                    onClick={() => window.open("tel:+525555555555", "_self")}
+                    onClick={() => openZapierChatWithMessage("Me interesa Casa Ámbar, quiero más información")}
                   >
                     <span className="mr-2">Hablar con Niddia</span>
                     <ArrowRightIcon className="w-5 h-5" />
