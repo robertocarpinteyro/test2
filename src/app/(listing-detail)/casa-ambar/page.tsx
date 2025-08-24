@@ -56,6 +56,24 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
     return () => clearInterval(interval);
   }, []);
 
+  // Efecto para detectar cuando el chatbot de Zapier esté listo
+  useEffect(() => {
+    const checkChatbotReady = () => {
+      const chatbot = document.querySelector('zapier-interfaces-chatbot-embed');
+      if (chatbot) {
+        console.log('✅ Chatbot de Zapier cargado correctamente');
+      }
+    };
+
+    // Verificar inmediatamente
+    checkChatbotReady();
+
+    // Verificar después de un tiempo si no se encontró
+    const timer = setTimeout(checkChatbotReady, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const router = useRouter();
   const pathname = usePathname();
 
@@ -65,47 +83,53 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
   };
 
   const handleContactClick = () => {
-    // Abrir el chat de Zapier con mensaje predefinido
-    openZapierChatWithMessage("Me interesa Casa Ámbar, quiero más información");
-  };
-
-  // Función para abrir Zapier chat con mensaje predefinido
-  const openZapierChatWithMessage = (message: string) => {
+    // Método oficial de Zapier para abrir el chatbot
     try {
-      // Verificar si la función postMessage está disponible
-      if (typeof window !== 'undefined' && window.postMessage) {
-        // Primero abrir el chat
+      // Buscar el elemento del chatbot
+      const chatbot = document.querySelector('zapier-interfaces-chatbot-embed') as any;
+      
+      if (chatbot) {
+        // Método 1: Usar la función open() si existe
+        if (typeof chatbot.open === 'function') {
+          chatbot.open();
+          return;
+        }
+        
+        // Método 2: Disparar evento personalizado de Zapier
+        const openEvent = new CustomEvent('zapier-chatbot-open', {
+          bubbles: true,
+          detail: { chatbotId: 'cmakou6un00321208jg7ane35' }
+        });
+        chatbot.dispatchEvent(openEvent);
+        
+        // Método 3: PostMessage con el formato oficial de Zapier
         window.postMessage({
-          type: 'ZAPIER_CHATBOT_OPEN',
+          type: 'zapier-chatbot-open',
           chatbotId: 'cmakou6un00321208jg7ane35'
         }, '*');
         
-        // Luego enviar el mensaje después de un pequeño delay para asegurar que el chat esté abierto
+        // Método 4: Intentar acceder al shadow DOM y hacer click en el botón
         setTimeout(() => {
-          window.postMessage({
-            type: 'ZAPIER_CHATBOT_SEND_MESSAGE',
-            message: message,
-            chatbotId: 'cmakou6un00321208jg7ane35'
-          }, '*');
-        }, 800);
-        
-        // Método alternativo: intentar hacer click en el chatbot si existe
-        setTimeout(() => {
-          const chatbotElement = document.querySelector('zapier-interfaces-chatbot-embed');
-          if (chatbotElement) {
-            (chatbotElement as any).click?.();
+          if (chatbot.shadowRoot) {
+            const button = chatbot.shadowRoot.querySelector('button') || 
+                          chatbot.shadowRoot.querySelector('[data-testid="chat-button"]') ||
+                          chatbot.shadowRoot.querySelector('.chat-trigger');
+            if (button) {
+              (button as HTMLElement).click();
+            }
           }
         }, 100);
+        
       } else {
-        // Fallback si postMessage no está disponible
-        throw new Error('postMessage no disponible');
+        // Fallback: scroll a la sección de contacto
+        scrollToSection("contact-section");
       }
     } catch (error) {
-      console.error('Error al abrir chat de Zapier:', error);
-      // Fallback: scroll to contact section if chat fails
+      console.error('Error opening Zapier chatbot:', error);
       scrollToSection("contact-section");
     }
   };
+
 
   const handleGalleryClick = () => {
     scrollToSection("gallery-section");
@@ -953,25 +977,6 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
     );
   };
 
-  // Floating CTA Button
-  const renderFloatingCTA = () => {
-    return (
-      <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1 }}
-        className="fixed bottom-6 right-6 z-50 lg:hidden"
-      >
-        <ButtonPrimary
-          onClick={handleContactClick}
-          className="px-6 py-4 shadow-2xl bg-emerald-600 hover:bg-emerald-700 border-0"
-        >
-          <span className="mr-2">Contactar Niddia</span>
-          <ArrowRightIcon className="w-4 h-4" />
-        </ButtonPrimary>
-      </motion.div>
-    );
-  };
 
   // Lightbox Modal Component
   const renderLightbox = () => {
@@ -1090,8 +1095,6 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
       {/* Contact Section */}
       {renderContactSection()}
 
-      {/* Floating CTA */}
-      {/*renderFloatingCTA()*/}
 
       {/* Zapier Chatbot */}
       <zapier-interfaces-chatbot-embed
