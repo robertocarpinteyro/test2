@@ -1,11 +1,11 @@
 import { ListingGalleryImage } from "@/components/listing-image-gallery/utils/types";
 
 export const PHOTOS: string[] = [
-  "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1733728169/IMG-20240401-WA0005_kzd1zo.jpg",
-  "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1733728100/IMG-20240401-WA0006_vnjxcv.jpg",
-  "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1733728099/Corte_N2_pvubyr.png",
-  "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1733728097/IMG-20240401-WA0004_kuloa5.jpg",
-  "https://res.cloudinary.com/dwrtldhxd/image/upload/f_auto,q_20/v1733728098/Corte_N1_gwl5pt.png",
+  "https://res.cloudinary.com/dwrtldhxd/image/upload/v1756072005/Gimnasio_01_PTe_ds6bl6.png",
+  "https://res.cloudinary.com/dwrtldhxd/image/upload/v1756072008/Cocina_01_PT_ejojal.png",
+  "https://res.cloudinary.com/dwrtldhxd/image/upload/v1756072007/Estudio_01_PT_sta3cj.png",
+  "https://res.cloudinary.com/dwrtldhxd/image/upload/v1756072009/Estancia_01_PT_avgukn.png",
+  "https://res.cloudinary.com/dwrtldhxd/image/upload/v1733728097/IMG-20240401-WA0004_kuloa5.jpg"
 ];
 
 export const Amenities_demos = [
