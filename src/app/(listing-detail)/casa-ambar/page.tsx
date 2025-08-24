@@ -1,7 +1,7 @@
 "use client";
 
 import React, { FC, useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import {
   ArrowRightIcon,
   HomeIcon,
@@ -10,6 +10,9 @@ import {
   CameraIcon,
   ChevronDownIcon,
   ChevronUpIcon,
+  XMarkIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
 } from "@heroicons/react/24/outline";
 import { PlayIcon } from "@heroicons/react/24/solid";
 import ButtonPrimary from "@/shared/ButtonPrimary";
@@ -38,16 +41,10 @@ export interface CasaAmbarLandingPageProps {}
 const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [expandedLevels, setExpandedLevels] = useState<{
-    [key: string]: boolean;
-  }>({});
-
-  const toggleLevel = (levelTitle: string) => {
-    setExpandedLevels((prev) => ({
-      ...prev,
-      [levelTitle]: !prev[levelTitle],
-    }));
-  };
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState<string>("");
+  const [lightboxImages, setLightboxImages] = useState<string[]>([]);
+  const [lightboxCurrentIndex, setLightboxCurrentIndex] = useState(0);
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
@@ -74,6 +71,53 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
   const handleGalleryClick = () => {
     scrollToSection("gallery-section");
   };
+
+  // Lightbox functionality
+  const openLightbox = (image: string, images: string[], currentIndex: number) => {
+    setLightboxImage(image);
+    setLightboxImages(images);
+    setLightboxCurrentIndex(currentIndex);
+    setLightboxOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    setLightboxImage("");
+    setLightboxImages([]);
+    setLightboxCurrentIndex(0);
+    document.body.style.overflow = 'unset';
+  };
+
+  const nextImage = () => {
+    const nextIndex = (lightboxCurrentIndex + 1) % lightboxImages.length;
+    setLightboxCurrentIndex(nextIndex);
+    setLightboxImage(lightboxImages[nextIndex]);
+  };
+
+  const prevImage = () => {
+    const prevIndex = (lightboxCurrentIndex - 1 + lightboxImages.length) % lightboxImages.length;
+    setLightboxCurrentIndex(prevIndex);
+    setLightboxImage(lightboxImages[prevIndex]);
+  };
+
+  // Keyboard navigation for lightbox
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!lightboxOpen) return;
+      
+      if (e.key === 'Escape') {
+        closeLightbox();
+      } else if (e.key === 'ArrowRight') {
+        nextImage();
+      } else if (e.key === 'ArrowLeft') {
+        prevImage();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxOpen, lightboxCurrentIndex, lightboxImages]);
 
   // Hero Section
   const renderHeroSection = () => {
@@ -268,11 +312,12 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
     );
   };
 
-  // Level Distribution Section
-  const renderLevelsSection = () => {
+  // Enhanced Level Distribution Section with Media Integration
+  const renderEnhancedLevelsSection = () => {
     const levels = [
       {
         title: "Nivel 01",
+        subtitle: "Área Social y de Servicios",
         icon: "🏛️",
         spaces:
           "Estudio 24m², Baño 5m², Sala 22m², Comedor 15m², Cocina 26m², Servicio 9m², Alacena 5m²",
@@ -284,9 +329,17 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
           "Estudio de diseño contemporáneo con mobiliario empotrado y detalles decorativos",
           "Acceso independiente y baño completo que permite transformarlo en suite privada",
         ],
+        photos: [
+          "https://res.cloudinary.com/dwrtldhxd/image/upload/v1756071937/Cocina_vokbm5.jpg",
+          "https://res.cloudinary.com/dwrtldhxd/image/upload/v1756071937/Jardin_bmckwm.jpg",
+          "https://res.cloudinary.com/dwrtldhxd/image/upload/v1756072729/Sala_uqerwg.jpg",
+        ],
+        hasVirtualTour: true,
+        virtualTourPath: "/recorrido/Primer Nivel/index.html",
       },
       {
         title: "Nivel 02",
+        subtitle: "Área Privada de Descanso",
         icon: "🛏️",
         spaces:
           "Master Bedroom 25m², Baño 12m², Walking Closet 9m², Recamara 1: 21m², Baño 4m², Walking Closet 4m², Recamara 2: 21m², Baño 4m², Walking Closet 4m², Family Room 33m²",
@@ -297,9 +350,12 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
           "Recámara principal con baño de diseño lineal",
           "Porcelánicos de gran formato y espectacular acento de granito Vía Láctea",
         ],
+        photos: [],
+        hasVirtualTour: false,
       },
       {
         title: "Nivel 03",
+        subtitle: "Área de Bienestar y Entretenimiento",
         icon: "🌅",
         spaces:
           "Terraza 64m², Gimnasio 28m², Baño 4m², Wellness Lounge 10m², ½ Baño 4m², Lavandería 8m²",
@@ -310,9 +366,12 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
           "Dos terrazas independientes para ambiente social y rincón privado",
           "Puede adaptarse como suite adicional según necesidades de estilo de vida",
         ],
+        photos: [],
+        hasVirtualTour: false,
       },
       {
         title: "Sótano",
+        subtitle: "Área de Servicios y Cava",
         icon: "🍷",
         spaces:
           "Cuarto de máquinas 11m², Cisterna 8m², Bodega 13m², Cava 9m², Área social 23m²",
@@ -321,6 +380,8 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
           "Área de degustación y cava creando el ambiente ideal para el deleite",
           "Zona de resguardo con espacio versátil para almacenaje general",
         ],
+        photos: [],
+        hasVirtualTour: false,
       },
     ];
 
@@ -343,62 +404,164 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="space-y-24">
             {levels.map((level, index) => (
               <motion.div
                 key={level.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-neutral-800 dark:to-neutral-700 rounded-2xl p-8 hover:shadow-xl transition-all duration-300"
+                className="bg-gradient-to-br from-gray-50 to-white dark:from-neutral-800 dark:to-neutral-900 rounded-3xl overflow-hidden shadow-xl"
               >
-                <div className="flex items-center mb-6">
-                  <span className="text-4xl mr-4">{level.icon}</span>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                    {level.title}
-                  </h3>
-                </div>
-
-                <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-lg mb-6 overflow-hidden">
-                  <button
-                    onClick={() => toggleLevel(level.title)}
-                    className="w-full p-4 flex items-center justify-between text-left hover:bg-emerald-100 dark:hover:bg-emerald-900/30 transition-colors"
-                  >
+                {/* Header */}
+                <div className="p-8 lg:p-12 border-b border-gray-200 dark:border-neutral-700">
+                  <div className="flex items-center mb-4">
+                    <span className="text-5xl mr-6">{level.icon}</span>
                     <div>
-                      <h4 className="text-sm font-semibold text-emerald-800 dark:text-emerald-200">
-                        Espacios
-                      </h4>
-                      <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-1">
-                        Click para ver detalles
+                      <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-2">
+                        {level.title}
+                      </h3>
+                      <p className="text-lg text-emerald-600 dark:text-emerald-400 font-medium">
+                        {level.subtitle}
                       </p>
                     </div>
-                    {expandedLevels[level.title] ? (
-                      <ChevronUpIcon className="w-5 h-5 text-emerald-700 dark:text-emerald-300" />
-                    ) : (
-                      <ChevronDownIcon className="w-5 h-5 text-emerald-700 dark:text-emerald-300" />
-                    )}
-                  </button>
+                  </div>
 
-                  {expandedLevels[level.title] && (
-                    <div className="p-4 pt-0 border-t border-emerald-200 dark:border-emerald-800">
-                      <p className="text-sm text-emerald-700 dark:text-emerald-300">
-                        {level.spaces}
-                      </p>
+                  {/* Spaces Overview */}
+                  <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-2xl p-6 mb-6">
+                    <h4 className="text-lg font-semibold text-emerald-800 dark:text-emerald-200 mb-3">
+                      Espacios y Dimensiones
+                    </h4>
+                    <p className="text-emerald-700 dark:text-emerald-300 leading-relaxed">
+                      {level.spaces}
+                    </p>
+                  </div>
+
+                  {/* Features */}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                        Características Principales
+                      </h4>
+                      <ul className="space-y-3">
+                        {level.features.slice(0, Math.ceil(level.features.length / 2)).map((feature, featureIndex) => (
+                          <li key={featureIndex} className="flex items-start">
+                            <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <span className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                              {feature}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                  )}
+                    <div>
+                      <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                        Detalles de Diseño
+                      </h4>
+                      <ul className="space-y-3">
+                        {level.features.slice(Math.ceil(level.features.length / 2)).map((feature, featureIndex) => (
+                          <li key={featureIndex} className="flex items-start">
+                            <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <span className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                              {feature}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
 
-                <ul className="space-y-3">
-                  {level.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start">
-                      <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      <span className="text-gray-700 dark:text-gray-300">
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Media Content */}
+                {(level.photos.length > 0 || level.hasVirtualTour) && (
+                  <div className="p-8 lg:p-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                      {/* Photo Gallery */}
+                      {level.photos.length > 0 && (
+                        <div>
+                          <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center">
+                            <CameraIcon className="w-5 h-5 mr-2 text-emerald-600" />
+                            Galería Fotográfica
+                          </h4>
+                          <div className="grid grid-cols-1 gap-4">
+                            {level.photos.map((photo, photoIndex) => (
+                              <motion.div
+                                key={photoIndex}
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.6, delay: photoIndex * 0.1 }}
+                                viewport={{ once: true }}
+                                className="relative overflow-hidden rounded-xl group cursor-pointer"
+                                onClick={() => openLightbox(photo, level.photos, photoIndex)}
+                              >
+                                <div className="aspect-w-16 aspect-h-10">
+                                  <Image
+                                    src={photo}
+                                    alt={`${level.title} - Vista ${photoIndex + 1}`}
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                  />
+                                </div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                  <div className="bg-white/20 backdrop-blur-md rounded-full p-3">
+                                    <CameraIcon className="w-6 h-6 text-white" />
+                                  </div>
+                                </div>
+                                <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                  <p className="text-sm font-medium">
+                                    {level.title} - Vista {photoIndex + 1}
+                                  </p>
+                                  <p className="text-xs text-white/80 mt-1">
+                                    Click para ampliar
+                                  </p>
+                                </div>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Virtual Tour */}
+                      {level.hasVirtualTour && (
+                        <div>
+                          <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center">
+                            <PlayIcon className="w-5 h-5 mr-2 text-emerald-600" />
+                            Recorrido Virtual 360°
+                          </h4>
+                          <div className="relative overflow-hidden rounded-xl bg-gray-100 dark:bg-neutral-800">
+                            <div className="aspect-w-16 aspect-h-10">
+                              <iframe
+                                src={level.virtualTourPath}
+                                className="w-full h-full border-0"
+                                allowFullScreen
+                                loading="lazy"
+                                title={`Recorrido Virtual ${level.title}`}
+                              />
+                            </div>
+                          </div>
+                          <p className="text-sm text-gray-600 dark:text-gray-400 mt-3 text-center">
+                            Explora cada rincón con nuestro tour interactivo 360°
+                          </p>
+                        </div>
+                      )}
+
+                      {/* Placeholder for levels without media */}
+                      {level.photos.length === 0 && !level.hasVirtualTour && (
+                        <div className="lg:col-span-2">
+                          <div className="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/10 dark:to-green-900/10 rounded-xl p-8 text-center">
+                            <div className="text-4xl mb-4">📸</div>
+                            <p className="text-emerald-700 dark:text-emerald-300 font-medium">
+                              Galería fotográfica y recorrido virtual próximamente disponibles
+                            </p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
@@ -520,6 +683,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                 className={`relative overflow-hidden rounded-2xl cursor-pointer group ${
                   index === 0 ? "md:col-span-2 md:row-span-2" : ""
                 }`}
+                onClick={() => openLightbox(photo, PHOTOS, index)}
               >
                 <div
                   className={`aspect-w-16 aspect-h-9 ${
@@ -535,9 +699,17 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-white/20 backdrop-blur-md rounded-full p-4">
+                    <CameraIcon className="w-8 h-8 text-white" />
+                  </div>
+                </div>
                 <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <p className="text-sm font-medium">
                     Casa Ámbar - Vista {index + 1}
+                  </p>
+                  <p className="text-xs text-white/80 mt-1">
+                    Click para ampliar
                   </p>
                 </div>
               </motion.div>
@@ -590,7 +762,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                 loading="lazy"
                 allowFullScreen
                 referrerPolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15050.221244418499!2d-99.2837492!3d19.4316105!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d20403fd02c0cd%3A0x7df6f5d84efc671e!2sSky%20View%20By%20Grupo%20Bosque%20Real!5e0!3m2!1ses!2smx!4v1733717378034!5m2!1ses!2smx"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1582.0544831671837!2d-99.30105010364589!3d19.421870601324372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d207c3186a53b1%3A0x12ef60d627df404e!2sReserva%20By%20Grupo%20Bosque%20Real!5e0!3m2!1ses-419!2smx!4v1756070333021!5m2!1ses-419!2smx"
                 className="w-full h-full"
               ></iframe>
             </div>
@@ -711,7 +883,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                     className="w-full py-4 text-lg bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20"
                     onClick={() =>
                       window.open(
-                        "https://wa.me/525555555555?text=Hola, me interesa Casa Ámbar",
+                        "https://wa.me/525513594601?text=Hola, me interesa Casa Ámbar",
                         "_blank"
                       )
                     }
@@ -762,6 +934,91 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
     );
   };
 
+  // Lightbox Modal Component
+  const renderLightbox = () => {
+    return (
+      <AnimatePresence>
+        {lightboxOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-sm flex items-center justify-center"
+            onClick={closeLightbox}
+          >
+            {/* Close Button */}
+            <button
+              onClick={closeLightbox}
+              className="absolute top-4 right-4 z-50 p-2 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-colors"
+            >
+              <XMarkIcon className="w-6 h-6 text-white" />
+            </button>
+
+            {/* Image Counter */}
+            {lightboxImages.length > 1 && (
+              <div className="absolute top-4 left-4 z-50 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white text-sm">
+                {lightboxCurrentIndex + 1} / {lightboxImages.length}
+              </div>
+            )}
+
+            {/* Navigation Arrows */}
+            {lightboxImages.length > 1 && (
+              <>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    prevImage();
+                  }}
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 z-50 p-3 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-colors"
+                >
+                  <ChevronLeftIcon className="w-6 h-6 text-white" />
+                </button>
+                
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    nextImage();
+                  }}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 z-50 p-3 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-colors"
+                >
+                  <ChevronRightIcon className="w-6 h-6 text-white" />
+                </button>
+              </>
+            )}
+
+            {/* Main Image */}
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="relative max-w-[90vw] max-h-[90vh] w-full h-full flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={lightboxImage}
+                alt="Vista ampliada"
+                fill
+                className="object-contain"
+                sizes="90vw"
+                priority
+              />
+            </motion.div>
+
+            {/* Instructions */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-50 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white text-sm text-center">
+              {lightboxImages.length > 1 ? (
+                <span>Usa las flechas o teclas ← → para navegar • ESC para cerrar</span>
+              ) : (
+                <span>ESC para cerrar</span>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    );
+  };
+
   return (
     <div className="nc-CasaAmbarLandingPage">
       {/* SEO Metadata is handled by layout.tsx */}
@@ -779,8 +1036,8 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
       {/* Description Section */}
       {renderDescriptionSection()}
 
-      {/* Levels Section */}
-      {renderLevelsSection()}
+      {/* Enhanced Levels Section */}
+      {renderEnhancedLevelsSection()}
 
       {/* Features Section */}
       {renderFeaturesSection()}
@@ -802,6 +1059,9 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
         is-popup="true"
         chatbot-id="cmakou6un00321208jg7ane35"
       ></zapier-interfaces-chatbot-embed>
+
+      {/* Lightbox Modal */}
+      {renderLightbox()}
     </div>
   );
 };

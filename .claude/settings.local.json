@@ -5,7 +5,8 @@
       "Bash(rm:*)",
       "Bash(npm run build:*)",
       "Bash(npm run lint)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(xcopy:*)"
     ],
     "deny": []
   }
