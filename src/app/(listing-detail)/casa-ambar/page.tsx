@@ -330,9 +330,11 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
           "Acceso independiente y baño completo que permite transformarlo en suite privada",
         ],
         photos: [
-          "https://res.cloudinary.com/dwrtldhxd/image/upload/v1756071937/Cocina_vokbm5.jpg",
-          "https://res.cloudinary.com/dwrtldhxd/image/upload/v1756071937/Jardin_bmckwm.jpg",
-          "https://res.cloudinary.com/dwrtldhxd/image/upload/v1756072729/Sala_uqerwg.jpg",
+          "https://res.cloudinary.com/dwrtldhxd/image/upload/v1756072005/Gimnasio_01_PTe_ds6bl6.png",
+          "https://res.cloudinary.com/dwrtldhxd/image/upload/v1756072008/Cocina_01_PT_ejojal.png",
+          "https://res.cloudinary.com/dwrtldhxd/image/upload/v1756072007/Estudio_01_PT_sta3cj.png",
+          "https://res.cloudinary.com/dwrtldhxd/image/upload/v1756072009/Estancia_01_PT_avgukn.png",
+          "https://res.cloudinary.com/dwrtldhxd/image/upload/v1733728097/IMG-20240401-WA0004_kuloa5.jpg"
         ],
         hasVirtualTour: true,
         virtualTourPath: "/recorrido/Primer Nivel/index.html",
