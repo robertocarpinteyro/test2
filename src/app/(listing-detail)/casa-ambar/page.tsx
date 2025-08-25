@@ -846,7 +846,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                 <div className="space-y-4 mb-8">
                   <div className="flex items-center justify-between py-3 border-b border-white/20">
                     <span className="text-emerald-200">Precio desde:</span>
-                    <span className="text-2xl font-bold">$19,500,000 MXN</span>
+                    <span className="text-2xl font-bold">$19,750,000 MXN</span>
                   </div>
 
                   <div className="flex items-center justify-between py-3 border-b border-white/20">
