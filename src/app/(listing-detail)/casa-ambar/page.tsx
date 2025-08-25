@@ -1,12 +1,7 @@
 "use client";
 
 import React, { FC, useState, useEffect } from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  AnimatePresence,
-} from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import {
   ArrowRightIcon,
   HomeIcon,
@@ -61,6 +56,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
     return () => clearInterval(interval);
   }, []);
 
+
   const router = useRouter();
   const pathname = usePathname();
 
@@ -69,21 +65,19 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
     element?.scrollIntoView({ behavior: "smooth" });
   };
 
+
+
   const handleGalleryClick = () => {
     scrollToSection("gallery-section");
   };
 
   // Lightbox functionality
-  const openLightbox = (
-    image: string,
-    images: string[],
-    currentIndex: number
-  ) => {
+  const openLightbox = (image: string, images: string[], currentIndex: number) => {
     setLightboxImage(image);
     setLightboxImages(images);
     setLightboxCurrentIndex(currentIndex);
     setLightboxOpen(true);
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden';
   };
 
   const closeLightbox = () => {
@@ -91,7 +85,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
     setLightboxImage("");
     setLightboxImages([]);
     setLightboxCurrentIndex(0);
-    document.body.style.overflow = "unset";
+    document.body.style.overflow = 'unset';
   };
 
   const nextImage = () => {
@@ -101,9 +95,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
   };
 
   const prevImage = () => {
-    const prevIndex =
-      (lightboxCurrentIndex - 1 + lightboxImages.length) %
-      lightboxImages.length;
+    const prevIndex = (lightboxCurrentIndex - 1 + lightboxImages.length) % lightboxImages.length;
     setLightboxCurrentIndex(prevIndex);
     setLightboxImage(lightboxImages[prevIndex]);
   };
@@ -112,18 +104,18 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!lightboxOpen) return;
-
-      if (e.key === "Escape") {
+      
+      if (e.key === 'Escape') {
         closeLightbox();
-      } else if (e.key === "ArrowRight") {
+      } else if (e.key === 'ArrowRight') {
         nextImage();
-      } else if (e.key === "ArrowLeft") {
+      } else if (e.key === 'ArrowLeft') {
         prevImage();
       }
     };
 
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
   }, [lightboxOpen, lightboxCurrentIndex, lightboxImages]);
 
   // Hero Section
@@ -198,6 +190,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
               transition={{ duration: 1, delay: 1.1 }}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
+
               <ButtonSecondary
                 onClick={handleGalleryClick}
                 className="px-8 py-4 text-lg bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20"
@@ -444,16 +437,14 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                         Características Principales
                       </h4>
                       <ul className="space-y-3">
-                        {level.features
-                          .slice(0, Math.ceil(level.features.length / 2))
-                          .map((feature, featureIndex) => (
-                            <li key={featureIndex} className="flex items-start">
-                              <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                              <span className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                                {feature}
-                              </span>
-                            </li>
-                          ))}
+                        {level.features.slice(0, Math.ceil(level.features.length / 2)).map((feature, featureIndex) => (
+                          <li key={featureIndex} className="flex items-start">
+                            <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <span className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                              {feature}
+                            </span>
+                          </li>
+                        ))}
                       </ul>
                     </div>
                     <div>
@@ -461,16 +452,14 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                         Detalles de Diseño
                       </h4>
                       <ul className="space-y-3">
-                        {level.features
-                          .slice(Math.ceil(level.features.length / 2))
-                          .map((feature, featureIndex) => (
-                            <li key={featureIndex} className="flex items-start">
-                              <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                              <span className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                                {feature}
-                              </span>
-                            </li>
-                          ))}
+                        {level.features.slice(Math.ceil(level.features.length / 2)).map((feature, featureIndex) => (
+                          <li key={featureIndex} className="flex items-start">
+                            <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <span className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                              {feature}
+                            </span>
+                          </li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -493,22 +482,15 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                                 key={photoIndex}
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
-                                transition={{
-                                  duration: 0.6,
-                                  delay: photoIndex * 0.1,
-                                }}
+                                transition={{ duration: 0.6, delay: photoIndex * 0.1 }}
                                 viewport={{ once: true }}
                                 className="relative overflow-hidden rounded-xl group cursor-pointer"
-                                onClick={() =>
-                                  openLightbox(photo, level.photos, photoIndex)
-                                }
+                                onClick={() => openLightbox(photo, level.photos, photoIndex)}
                               >
                                 <div className="aspect-w-16 aspect-h-10">
                                   <Image
                                     src={photo}
-                                    alt={`${level.title} - Vista ${
-                                      photoIndex + 1
-                                    }`}
+                                    alt={`${level.title} - Vista ${photoIndex + 1}`}
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                                     sizes="(max-width: 768px) 100vw, 50vw"
@@ -553,8 +535,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                             </div>
                           </div>
                           <p className="text-sm text-gray-600 dark:text-gray-400 mt-3 text-center">
-                            Explora cada rincón con nuestro tour interactivo
-                            360°
+                            Explora cada rincón con nuestro tour interactivo 360°
                           </p>
                         </div>
                       )}
@@ -565,8 +546,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                           <div className="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/10 dark:to-green-900/10 rounded-xl p-8 text-center">
                             <div className="text-4xl mb-4">📸</div>
                             <p className="text-emerald-700 dark:text-emerald-300 font-medium">
-                              Galería fotográfica y recorrido virtual
-                              próximamente disponibles
+                              Galería fotográfica y recorrido virtual próximamente disponibles
                             </p>
                           </div>
                         </div>
@@ -883,6 +863,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                 </div>
 
                 <div className="space-y-3">
+
                   <ButtonSecondary
                     className="w-full py-4 text-lg bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20"
                     onClick={() =>
@@ -917,6 +898,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
       </section>
     );
   };
+
 
   // Lightbox Modal Component
   const renderLightbox = () => {
@@ -957,7 +939,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                 >
                   <ChevronLeftIcon className="w-6 h-6 text-white" />
                 </button>
-
+                
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
@@ -992,9 +974,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
             {/* Instructions */}
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-50 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white text-sm text-center">
               {lightboxImages.length > 1 ? (
-                <span>
-                  Usa las flechas o teclas ← → para navegar • ESC para cerrar
-                </span>
+                <span>Usa las flechas o teclas ← → para navegar • ESC para cerrar</span>
               ) : (
                 <span>ESC para cerrar</span>
               )}
@@ -1010,15 +990,11 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
       {/* SEO Metadata is handled by layout.tsx */}
 
       {/* Zapier Chatbot Script */}
-      <script
-        async
-        type="module"
+      <Script
         src="https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js"
-      ></script>
-      <zapier-interfaces-chatbot-embed
-        is-popup="false"
-        chatbot-id="cmakou6un00321208jg7ane35"
-      ></zapier-interfaces-chatbot-embed>
+        strategy="afterInteractive"
+        type="module"
+      />
 
       {/* Hero Section */}
       {renderHeroSection()}
@@ -1040,6 +1016,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
 
       {/* Contact Section */}
       {renderContactSection()}
+
 
       {/* Zapier Chatbot */}
       <zapier-interfaces-chatbot-embed
