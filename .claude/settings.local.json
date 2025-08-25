@@ -8,7 +8,8 @@
       "Bash(ls:*)",
       "Bash(xcopy:*)",
       "Bash(taskkill:*)",
-      "Bash(npx kill-port:*)"
+      "Bash(npx kill-port:*)",
+      "Bash(git add:*)"
     ],
     "deny": []
   }

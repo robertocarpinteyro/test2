@@ -56,23 +56,6 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
     return () => clearInterval(interval);
   }, []);
 
-  // Efecto para detectar cuando el chatbot de Zapier esté listo
-  useEffect(() => {
-    const checkChatbotReady = () => {
-      const chatbot = document.querySelector('zapier-interfaces-chatbot-embed');
-      if (chatbot) {
-        console.log('✅ Chatbot de Zapier cargado correctamente');
-      }
-    };
-
-    // Verificar inmediatamente
-    checkChatbotReady();
-
-    // Verificar después de un tiempo si no se encontró
-    const timer = setTimeout(checkChatbotReady, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   const router = useRouter();
   const pathname = usePathname();
@@ -82,53 +65,6 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
     element?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleContactClick = () => {
-    // Método oficial de Zapier para abrir el chatbot
-    try {
-      // Buscar el elemento del chatbot
-      const chatbot = document.querySelector('zapier-interfaces-chatbot-embed') as any;
-      
-      if (chatbot) {
-        // Método 1: Usar la función open() si existe
-        if (typeof chatbot.open === 'function') {
-          chatbot.open();
-          return;
-        }
-        
-        // Método 2: Disparar evento personalizado de Zapier
-        const openEvent = new CustomEvent('zapier-chatbot-open', {
-          bubbles: true,
-          detail: { chatbotId: 'cmakou6un00321208jg7ane35' }
-        });
-        chatbot.dispatchEvent(openEvent);
-        
-        // Método 3: PostMessage con el formato oficial de Zapier
-        window.postMessage({
-          type: 'zapier-chatbot-open',
-          chatbotId: 'cmakou6un00321208jg7ane35'
-        }, '*');
-        
-        // Método 4: Intentar acceder al shadow DOM y hacer click en el botón
-        setTimeout(() => {
-          if (chatbot.shadowRoot) {
-            const button = chatbot.shadowRoot.querySelector('button') || 
-                          chatbot.shadowRoot.querySelector('[data-testid="chat-button"]') ||
-                          chatbot.shadowRoot.querySelector('.chat-trigger');
-            if (button) {
-              (button as HTMLElement).click();
-            }
-          }
-        }, 100);
-        
-      } else {
-        // Fallback: scroll a la sección de contacto
-        scrollToSection("contact-section");
-      }
-    } catch (error) {
-      console.error('Error opening Zapier chatbot:', error);
-      scrollToSection("contact-section");
-    }
-  };
 
 
   const handleGalleryClick = () => {
@@ -254,13 +190,6 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
               transition={{ duration: 1, delay: 1.1 }}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
-              <ButtonPrimary
-                onClick={handleContactClick}
-                className="px-8 py-4 text-lg bg-emerald-600 hover:bg-emerald-700 border-0 shadow-xl"
-              >
-                <span className="mr-2">Consultar con Niddia</span>
-                <ArrowRightIcon className="w-5 h-5" />
-              </ButtonPrimary>
 
               <ButtonSecondary
                 onClick={handleGalleryClick}
@@ -934,13 +863,6 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                 </div>
 
                 <div className="space-y-3">
-                  <ButtonPrimary
-                    className="w-full py-4 text-lg bg-emerald-600 hover:bg-emerald-700 border-0"
-                    onClick={() => openZapierChatWithMessage("Me interesa Casa Ámbar, quiero más información")}
-                  >
-                    <span className="mr-2">Hablar con Niddia</span>
-                    <ArrowRightIcon className="w-5 h-5" />
-                  </ButtonPrimary>
 
                   <ButtonSecondary
                     className="w-full py-4 text-lg bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20"
