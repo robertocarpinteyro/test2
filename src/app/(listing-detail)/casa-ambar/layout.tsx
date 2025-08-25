@@ -96,7 +96,7 @@ export const metadata: Metadata = {
     "geo.placename": "Bosque Real, Estado de México",
     "geo.position": "19.4316105;-99.2837492",
     "ICBM": "19.4316105, -99.2837492",
-    "property:price": "19,500,000",
+    "property:price": "19,750,000",
     "property:price:currency": "MXN",
     "property:type": "house",
     "property:bedrooms": "4",

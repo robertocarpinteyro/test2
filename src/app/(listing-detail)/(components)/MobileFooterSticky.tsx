@@ -23,7 +23,7 @@ const MobileFooterSticky = () => {
         return desarrollo.price;
       }
       if (thisPathname?.includes("/casa-ambar")) {
-        desarrollo.price = "$19,500,000";
+        desarrollo.price = "$19,750,000";
         return desarrollo.price;
       }
       if (thisPathname?.includes("/ivy")) {

@@ -56,7 +56,6 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
     return () => clearInterval(interval);
   }, []);
 
-
   const router = useRouter();
   const pathname = usePathname();
 
@@ -65,7 +64,9 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
     element?.scrollIntoView({ behavior: "smooth" });
   };
 
-
+  const handleContactClick = () => {
+    scrollToSection("contact-section");
+  };
 
   const handleGalleryClick = () => {
     scrollToSection("gallery-section");
@@ -190,6 +191,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
               transition={{ duration: 1, delay: 1.1 }}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
+             
 
               <ButtonSecondary
                 onClick={handleGalleryClick}
@@ -863,6 +865,13 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                 </div>
 
                 <div className="space-y-3">
+                  <ButtonPrimary
+                    className="w-full py-4 text-lg bg-emerald-600 hover:bg-emerald-700 border-0"
+                    onClick={() => window.open("tel:+525555555555", "_self")}
+                  >
+                    <span className="mr-2">Hablar con Niddia</span>
+                    <ArrowRightIcon className="w-5 h-5" />
+                  </ButtonPrimary>
 
                   <ButtonSecondary
                     className="w-full py-4 text-lg bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20"
@@ -899,6 +908,25 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
     );
   };
 
+  // Floating CTA Button
+  const renderFloatingCTA = () => {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1 }}
+        className="fixed bottom-6 right-6 z-50 lg:hidden"
+      >
+        <ButtonPrimary
+          onClick={handleContactClick}
+          className="px-6 py-4 shadow-2xl bg-emerald-600 hover:bg-emerald-700 border-0"
+        >
+          <span className="mr-2">Contactar Niddia</span>
+          <ArrowRightIcon className="w-4 h-4" />
+        </ButtonPrimary>
+      </motion.div>
+    );
+  };
 
   // Lightbox Modal Component
   const renderLightbox = () => {
@@ -1017,6 +1045,8 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
       {/* Contact Section */}
       {renderContactSection()}
 
+      {/* Floating CTA */}
+      {/*renderFloatingCTA()*/}
 
       {/* Zapier Chatbot */}
       <zapier-interfaces-chatbot-embed
