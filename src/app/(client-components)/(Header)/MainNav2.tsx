@@ -17,7 +17,7 @@ export interface MainNav2Props {
 
 const MainNav2: FC<MainNav2Props> = ({ className = "" }) => {
   return (
-    <div className={`MainNav2 relative z-10 ${className}`}>
+    <div className={`MainNav2 sticky top-0 z-40 bg-white/95 dark:bg-neutral-900/95 backdrop-blur-md border-b border-neutral-200/20 dark:border-neutral-700/20 shadow-sm ${className}`}>
       <div className="px-4 h-20 lg:container flex justify-between">
         <div className="hidden md:flex justify-start flex-1 space-x-3 sm:space-x-8 lg:space-x-10">
           <Link
