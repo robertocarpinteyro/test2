@@ -889,7 +889,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
 
               <div className="lg:pl-8">
                 <Image
-                  src="https://res.cloudinary.com/dwrtldhxd/image/upload/v1734541698/LEANBIMHsm_cvudos.png"
+                  src="https://res.cloudinary.com/dwrtldhxd/image/upload/v1734498384/BosqueReal_wo13lr.png"
                   alt="Desarrollador Logo"
                   width={300}
                   height={150}
