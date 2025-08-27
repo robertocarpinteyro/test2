@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface NiddiaProps {
   indexValue?: string;
@@ -9,6 +10,7 @@ interface NiddiaProps {
 }
 
 export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
+  const { t } = useTranslation();
   const [scriptLoaded, setScriptLoaded] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
   const [userData, setUserData] = useState({
