@@ -105,7 +105,7 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
 
         if (!response.ok) {
           const errorDetails = await response.json();
-          throw new Error(errorDetails.message || "Error enviando código de verificación");
+          throw new Error(errorDetails.message || t("validation.sendingCodeError"));
         }
         setVerificationSent(true);
         setTimer(30); // Reset timer when code is sent
@@ -157,7 +157,7 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
 
       if (!response.ok) {
         const errorDetails = await response.json();
-        throw new Error(errorDetails.message || "Error enviando código de verificación");
+        throw new Error(errorDetails.message || t("validation.sendingCodeError"));
       }
       setTimer(30); // Reset timer when code is resent
     } catch (error: any) {
@@ -220,7 +220,7 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
                 className="w-full p-2 border rounded"
                 value={userData.verificationCode}
                 onChange={(e) => setUserData({ ...userData, verificationCode: e.target.value })}
-                placeholder="Ingresa el código SMS"
+                placeholder={t("niddia.enterSMSCode")}
               />
               <button
                 type="button"
@@ -228,7 +228,7 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
                 disabled={isLoading || timer > 0}
                 className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:bg-gray-400 mt-4"
               >
-                {timer > 0 ? `Reenviar código en ${timer}s` : "Reenviar Código"}
+                {timer > 0 ? `${t("niddia.resendIn")} ${timer}s` : t("niddia.resendCode")}
               </button>
             </div>
           )}
@@ -237,7 +237,7 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
             disabled={isLoading}
             className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:bg-gray-400"
           >
-            {isLoading ? "Procesando..." : verificationSent ? "Verificar Código" : "Enviar Código de Verificación"}
+            {isLoading ? t("niddia.processing") : verificationSent ? t("niddia.verifyCode") : t("niddia.sendCode")}
           </button>
         </form>
       </div>
@@ -253,7 +253,7 @@ export function Niddia({ indexValue, selectedOption }: NiddiaProps) {
         style={{ width: "100%", height: "70vh", border: "none", borderRadius: "8px" }}
         title="Niddia"
       ></iframe>
-      {!scriptLoaded && <p className="text-gray-500">Cargando MindStudio...</p>}
+      {!scriptLoaded && <p className="text-gray-500">{t("niddia.loadingMindStudio")}</p>}
     </main>
   );
 }

@@ -5,6 +5,7 @@ import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { Fragment } from "react";
 import { PathName } from "@/routers/types";
 import Link from "next/link";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface SolutionItem {
   name: string;
@@ -14,18 +15,22 @@ interface SolutionItem {
   active?: boolean;
 }
 
-const solutions: SolutionItem[] = [
-  {
-    name: "Propiedades",
-    description: "Encuentra tu hogar ideal en Bosque Real",
-    href: "/listing-stay",
-    active: true,
-    icon: IconOne,
-  },
+// Solutions moved to component for translation support
   // Removed Cars, Real Estate, Flights, and Experiences since they were deleted from the project
 ];
 
 export default function DropdownTravelers() {
+  const { t } = useTranslation();
+  
+  const solutions: SolutionItem[] = [
+    {
+      name: t("navigation.properties"),
+      description: t("navigation.findIdealHome"),
+      href: "/listing-stay",
+      active: true,
+      icon: IconOne,
+    },
+  ];
   return (
     <Popover className="DropdownTravelers relative flex">
       {({ open, close }) => (

@@ -6,60 +6,67 @@ import { CustomLink } from "@/data/types";
 import React from "react";
 import FooterNav from "./FooterNav";
 import Image from "next/image";
+import { useTranslation } from "@/hooks/useTranslation";
 export interface WidgetFooterMenu {
   id: string;
   title: string;
   menus: CustomLink[];
 }
 
-const widgetMenus: WidgetFooterMenu[] = [
-  {
-    id: "5",
-    title: "Getting started",
-    menus: [
-      { href: "#", label: "Installation" },
-      { href: "#", label: "Release Notes" },
-      { href: "#", label: "Upgrade Guide" },
-      { href: "#", label: "Browser Support" },
-      { href: "#", label: "Editor Support" },
-    ],
-  },
-  {
-    id: "1",
-    title: "Explore",
-    menus: [
-      { href: "#", label: "Design features" },
-      { href: "#", label: "Prototyping" },
-      { href: "#", label: "Design systems" },
-      { href: "#", label: "Pricing" },
-      { href: "#", label: "Security" },
-    ],
-  },
-  {
-    id: "2",
-    title: "Resources",
-    menus: [
-      { href: "#", label: "Best practices" },
-      { href: "#", label: "Support" },
-      { href: "#", label: "Developers" },
-      { href: "#", label: "Learn design" },
-      { href: "#", label: "Releases" },
-    ],
-  },
-  {
-    id: "4",
-    title: "Community",
-    menus: [
-      { href: "#", label: "Discussion Forums" },
-      { href: "#", label: "Code of Conduct" },
-      { href: "#", label: "Community Resources" },
-      { href: "#", label: "Contributing" },
-      { href: "#", label: "Concurrent Mode" },
-    ],
-  },
-];
+// Widget menus moved to component for translation support
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
+  
+  const getTranslatedWidgetMenus = (): WidgetFooterMenu[] => [
+    {
+      id: "5",
+      title: t("footer.gettingStarted"),
+      menus: [
+        { href: "#", label: t("footer.installation") },
+        { href: "#", label: t("footer.releaseNotes") },
+        { href: "#", label: t("footer.upgradeGuide") },
+        { href: "#", label: t("footer.browserSupport") },
+        { href: "#", label: t("footer.editorSupport") },
+      ],
+    },
+    {
+      id: "1",
+      title: t("footer.explore"),
+      menus: [
+        { href: "#", label: t("footer.designFeatures") },
+        { href: "#", label: t("footer.prototyping") },
+        { href: "#", label: t("footer.designSystems") },
+        { href: "#", label: t("footer.pricing") },
+        { href: "#", label: t("footer.security") },
+      ],
+    },
+    {
+      id: "2",
+      title: t("footer.resources"),
+      menus: [
+        { href: "#", label: t("footer.bestPractices") },
+        { href: "#", label: t("footer.support") },
+        { href: "#", label: t("footer.developers") },
+        { href: "#", label: t("footer.learnDesign") },
+        { href: "#", label: t("footer.releases") },
+      ],
+    },
+    {
+      id: "4",
+      title: t("footer.community"),
+      menus: [
+        { href: "#", label: t("footer.discussionForums") },
+        { href: "#", label: t("footer.codeOfConduct") },
+        { href: "#", label: t("footer.communityResources") },
+        { href: "#", label: t("footer.contributing") },
+        { href: "#", label: t("footer.concurrentMode") },
+      ],
+    },
+  ];
+  
+  const widgetMenus = getTranslatedWidgetMenus();
+  
   const renderWidgetMenuItem = (menu: WidgetFooterMenu, index: number) => {
     return (
       <div key={index} className="text-sm">
@@ -103,7 +110,7 @@ const Footer: React.FC = () => {
               <SocialsList1 className="flex items-center space-x-3 lg:space-x-0 lg:flex-col lg:space-y-2.5 lg:items-start" />
             </div>
           </div>
-          {/*{widgetMenus.map(renderWidgetMenuItem)}*/}
+      
         </div>
       </div>
     </>

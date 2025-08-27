@@ -7,6 +7,7 @@ import BtnLikeIcon from "@/components/BtnLikeIcon";
 import SaleOffBadge from "@/components/SaleOffBadge";
 import Link from "next/link";
 import Badge from "@/shared/Badge";
+import { useTranslation } from "@/hooks/useTranslation";
 
 export interface StayCard2Props {
   className?: string;
@@ -21,6 +22,7 @@ const StayCard2: FC<StayCard2Props> = ({
   className = "",
   data = DEMO_DATA,
 }) => {
+  const { t } = useTranslation();
   const { galleryImgs, address, title, href, like, saleOff, price, id, isAds } =
     data;
 
@@ -86,7 +88,7 @@ const StayCard2: FC<StayCard2Props> = ({
       <div className="flex justify-between items-center">
         {size === "default" && (
           <span className="text-sm text-neutral-500 dark:text-neutral-400">
-            Desde
+            {t("propertyCard.from")}
           </span>
         )}
         <span className="text-base font-semibold">{price}</span>

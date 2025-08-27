@@ -5,6 +5,7 @@ import { DEMO_STAY_LISTINGS } from "@/data/listings";
 import { StayDataType } from "@/data/types";
 import StayCard from "./StayCard";
 import StayCard2 from "./StayCard2";
+import { useTranslation } from "@/hooks/useTranslation";
 
 export interface SectionGridFeaturePlacesProps {
   gridClass?: string;
@@ -18,10 +19,24 @@ const TABS = ["casas", "departamentos", "lotes", "oficinas"];
 
 const SectionGridFeaturePlaces: FC<SectionGridFeaturePlacesProps> = ({
   gridClass = "",
-  heading = "Encuentra la propiedad de tus sueños.",
-  subHeading = "Explora nuestras propiedades disponibles y con ayuda de Niddia encuentra una propiedad ideal.",
+  heading,
+  subHeading,
   cardType = "card2",
 }) => {
+  const { t } = useTranslation();
+  
+  const defaultHeading = heading || t("sections.featuredProperties");
+  const defaultSubHeading = subHeading || t("sections.featuredPropertiesSubtitle");  
+  
+  const getTabTitle = (tab: string) => {
+    switch (tab) {
+      case "casas": return t("hero.propertyTypes.houses");
+      case "departamentos": return t("hero.propertyTypes.apartments");
+      case "lotes": return t("hero.propertyTypes.lots");
+      case "oficinas": return t("hero.propertyTypes.offices");
+      default: return tab;
+    }
+  };
   // Renderizar las secciones una debajo de la otra
   const renderSections = () => (
     <div className="space-y-12">
@@ -34,7 +49,7 @@ const SectionGridFeaturePlaces: FC<SectionGridFeaturePlacesProps> = ({
         return (
           <div key={tab} id={tab}>
             {/* Título de la sección */}
-            <h2 className="text-xl font-semibold mb-4 capitalize">{tab}</h2>
+            <h2 className="text-xl font-semibold mb-4 capitalize">{getTabTitle(tab)}</h2>
 
             {/* Listados de la categoría */}
             <div
@@ -57,8 +72,8 @@ const SectionGridFeaturePlaces: FC<SectionGridFeaturePlacesProps> = ({
       {/* Sección de título opcional */}
       {heading && (
         <div className="mb-4 text-center sm:text-left">
-          <h2 className="text-2xl font-semibold">{heading}</h2>
-          <p className="text-gray-500">{subHeading}</p>
+          <h2 className="text-2xl font-semibold">{defaultHeading}</h2>
+          <p className="text-gray-500">{defaultSubHeading}</p>
         </div>
       )}
 

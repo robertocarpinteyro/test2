@@ -22,10 +22,12 @@ import GuestsInput from "./GuestsInput";
 import SectionDateRange from "../SectionDateRange";
 import { Route } from "next";
 import { Niddia } from "@/components/Niddia";
+import { useTranslation } from "@/hooks/useTranslation";
 
 export interface ListingStayDetailPageProps {}
 
 const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
+  const { t } = useTranslation();
   //
 
   {

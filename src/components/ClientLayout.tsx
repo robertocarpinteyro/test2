@@ -5,12 +5,9 @@ import FooterNav from "@/components/FooterNav";
 import MainNav2 from "@/app/(client-components)/(Header)/MainNav2";
 import { FloatingNav } from "@/app/(client-components)/floating-navbar";
 import { usePathname } from "next/navigation";
+import { useTranslation } from "@/hooks/useTranslation";
 
-const navItems: { name: string; link: string }[] = [
-  { name: "Inicio", link: "/" },
-  { name: "Acerca de", link: "/#acercade" },
-  { name: "Desarrollos", link: "/#desarrollos" },
-];
+// navItems moved to component for translation support
 
 export default function ClientLayout({
   children,
@@ -18,6 +15,13 @@ export default function ClientLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const { t } = useTranslation();
+  
+  const navItems: { name: string; link: string }[] = [
+    { name: t("navigation.home"), link: "/" },
+    { name: t("navigation.about"), link: "/#acercade" },
+    { name: t("navigation.developments"), link: "/#desarrollos" },
+  ];
 
   return (
     <>

@@ -22,10 +22,12 @@ import GuestsInput from "./GuestsInput";
 import SectionDateRange from "../SectionDateRange";
 
 import { Niddia } from "@/components/Niddia";
+import { useTranslation } from "@/hooks/useTranslation";
 export interface ListingStayDetailPageProps {}
 import type { Route } from 'next';
 
 const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
+  const { t } = useTranslation();
   //
 
   {
@@ -116,13 +118,13 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
       <div className="listingSection__wrap !space-y-6">
         {/* 1 */}
         <div className="flex justify-between items-center">
-          <Badge name="Lotes Recidenciales" />
+          <Badge name={t("developments.islaEncino.residentialLots")} />
           <LikeSaveBtns />
         </div>
 
         {/* 2 */}
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
-          Isla Encino
+          {t("developments.islaEncino.name")}
         </h2>
 
         {/* 3 */}
@@ -130,7 +132,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           {/* <StartRating /> */}
           <span>·</span>
           <span>
-            <span className="ml-1"> Desarrollador</span>
+            <span className="ml-1"> {t("developments.common.developer")}</span>
             <Image
               src="https://res.cloudinary.com/dwrtldhxd/image/upload/v1734498384/BosqueReal_wo13lr.png"
               alt="Logo"
@@ -542,12 +544,12 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
     const images = [
       {
         src: "https://www.bosquereal.com.mx/wp-content/uploads/2024/09/encino-2.jpg",
-        badgeText: "Isla Encino",
+        badgeText: t("developments.islaEncino.name"),
 
       },
       {
         src: "https://www.bosquereal.com.mx/wp-content/uploads/2024/09/encino-1.jpg",
-        badgeText: "Isla Encino",
+        badgeText: t("developments.islaEncino.name"),
  
       },
     ];

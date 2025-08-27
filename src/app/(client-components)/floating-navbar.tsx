@@ -6,6 +6,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Route } from "@/routers/types";
 import { fbqCustom } from "lib/fbpixel";
+import LanguageToggle from "@/components/LanguageToggle";
+import { useTranslation } from "@/hooks/useTranslation";
 export const FloatingNav = ({
   navItems,
   className,
@@ -17,6 +19,7 @@ export const FloatingNav = ({
   }[];
   className?: string;
 }) => {
+  const { t } = useTranslation();
   const { scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -114,22 +117,25 @@ export const FloatingNav = ({
           </ul>
         )}
 
-        {/* Chat Button */}
-        <motion.div
-          className="flex justify-end"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <a
-            href="/niddia"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleClick} // 👈 aquí disparas el evento
-            className="px-4 py-2 text-white bg-gradient-to-r from-secondary-400 to-secondary-500 rounded-full shadow-lg hover:shadow-xl"
+        {/* Language Toggle and Chat Button */}
+        <div className="flex items-center space-x-2">
+          <LanguageToggle />
+          <motion.div
+            className="flex justify-end"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
           >
-            Chat
-          </a>
-        </motion.div>
+            <a
+              href="/niddia"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleClick} // 👈 aquí disparas el evento
+              className="px-4 py-2 text-white bg-gradient-to-r from-secondary-400 to-secondary-500 rounded-full shadow-lg hover:shadow-xl"
+            >
+              {t("navigation.chat")}
+            </a>
+          </motion.div>
+        </div>
       </div>
 
       {/* Desktop Navbar */}
@@ -157,21 +163,24 @@ export const FloatingNav = ({
           ))}
         </ul>
 
-        <motion.div
-          className="navbar-end"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <a
-            href="/niddia"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleClick} //
-            className="px-6 py-2 text-white bg-gradient-to-r from-secondary-400 to-secondary-500 rounded-full shadow-lg hover:shadow-xl transition-all"
+        <div className="flex items-center space-x-3">
+          <LanguageToggle />
+          <motion.div
+            className="navbar-end"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
           >
-            Chatea con Niddia
-          </a>
-        </motion.div>
+            <a
+              href="/niddia"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleClick} //
+              className="px-6 py-2 text-white bg-gradient-to-r from-secondary-400 to-secondary-500 rounded-full shadow-lg hover:shadow-xl transition-all"
+            >
+              {t("navigation.chatWithNiddia")}
+            </a>
+          </motion.div>
+        </div>
       </div>
     </div>
   );

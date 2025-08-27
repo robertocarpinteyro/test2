@@ -1,3 +1,4 @@
+"use client";
 import React, { FC } from "react";
 import SectionSubscribe2 from "@/components/SectionSubscribe2";
 import SocialsList from "@/shared/SocialsList";
@@ -5,6 +6,7 @@ import Label from "@/components/Label";
 import Input from "@/shared/Input";
 import Textarea from "@/shared/Textarea";
 import ButtonPrimary from "@/shared/ButtonPrimary";
+import { useTranslation } from "@/hooks/useTranslation";
 
 export interface PageContactProps {}
 
@@ -24,11 +26,13 @@ const info = [
 ];
 
 const PageContact: FC<PageContactProps> = ({}) => {
+  const { t } = useTranslation();
+  
   return (
     <div className={`nc-PageContact overflow-hidden`}>
       <div className="mb-24 lg:mb-32">
         <h2 className="my-16 sm:my-20 flex items-center text-3xl leading-[115%] md:text-5xl md:leading-[115%] font-semibold text-neutral-900 dark:text-neutral-100 justify-center">
-          Contact
+          {t("pages.contact.title")}
         </h2>
         <div className="container max-w-7xl mx-auto">
           <div className="flex-shrink-0 grid grid-cols-1 sm:grid-cols-2 gap-12 ">

@@ -22,11 +22,12 @@ import GuestsInput from "./GuestsInput";
 import SectionDateRange from "../SectionDateRange";
 import { Route } from "next";
 import { Niddia } from "@/components/Niddia";
+import { useTranslation } from "@/hooks/useTranslation";
 
 export interface ListingStayDetailPageProps {}
 
 const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
-  //
+  const { t } = useTranslation();
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -113,19 +114,19 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
       <div className="listingSection__wrap !space-y-6">
         {/* 1 */}
         <div className="flex justify-between items-center">
-          <Badge name="Departamentos de lujo" />
+          <Badge name={t("developments.incanto.luxuryDepartments")} />
           <LikeSaveBtns />
         </div>
 
         {/* 2 */}
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">Blue</h2>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">Incanto</h2>
 
         {/* 3 */}
         <div className="flex items-center space-x-4">
           {/* <StartRating /> */}
           <span>·</span>
           <span>
-            <span className="ml-1">Desarrollador</span>
+            <span className="ml-1">{t("developments.common.developer")}</span>
             <Image
               src="https://res.cloudinary.com/dwrtldhxd/image/upload/v1734498384/BosqueReal_wo13lr.png"
               alt="Logo"
@@ -183,14 +184,11 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
   const renderSection2 = () => {
     return (
       <div className="listingSection__wrap">
-        <h2 className="text-2xl font-semibold">Información</h2>
+        <h2 className="text-2xl font-semibold">{t("developments.common.information")}</h2>
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         <div className="text-neutral-6000 dark:text-neutral-300">
           <span>
-            ¡Bienvenido a Incanto Residencial en Bosque Real, tu propio paraíso
-            dentro de la ciudad! Aquí, la modernidad y el lujo se fusionan con
-            el esplendor de la naturaleza para ofrecerte una vida de armonía,
-            seguridad y una experiencia única.
+            {t("developments.incanto.description")}
           </span>
         </div>
       </div>
@@ -201,7 +199,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
     return (
       <div className="listingSection__wrap">
         <div>
-          <h2 className="text-2xl font-semibold">Amenidades </h2>
+          <h2 className="text-2xl font-semibold">{t("developments.common.amenities")} </h2>
           <span className="block mt-2 text-neutral-500 dark:text-neutral-400">
             {``}
           </span>
@@ -273,7 +271,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
                       className="text-lg font-medium leading-6 text-gray-900"
                       id="headlessui-dialog-title-70"
                     >
-                      Amenidades
+                      {t("developments.common.amenities")}
                     </h3>
                     <span className="absolute left-3 top-3">
                       <ButtonClose onClick={closeModalAmenities} />
@@ -595,7 +593,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         {/* PRICE */}
         <div className="flex justify-between">
           <span className="text-3xl font-semibold">
-            Desde <br />
+            {t("developments.common.from")} <br />
             $23,752,156.25
             <span className="ml-1 text-base font-normal text-neutral-500 dark:text-neutral-400">
               mxn
@@ -613,10 +611,10 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         {/* SUM */}
         <div className="flex flex-col space-y-4">
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-            <span>Superficie total 362.09 m² </span>
+            <span>{t("developments.incanto.totalSurface")} </span>
           </div>
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-            <span>Fecha de entrega</span>
+            <span>{t("developments.common.deliveryDate")}</span>
             <span>Junio 2026 + 6 meses de gracia.</span>
           </div>
           {/* <div className="border-b border-neutral-200 dark:border-neutral-700"></div>*/}
@@ -628,7 +626,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
 
         {/* SUBMIT */}
         <ButtonPrimary>
-          <a href="#niddia">Niddia Resolverá tus dudas.</a>
+          <a href="#niddia">{t("developments.common.niddiaHelp")}</a>
         </ButtonPrimary>
       </div>
     );
@@ -687,7 +685,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           >
             <Squares2X2Icon className="w-5 h-5" />
             <span className="ml-2 text-neutral-800 text-sm font-medium">
-              Ver todas las fotos
+              {t("developments.common.viewAllPhotos")}
             </span>
           </button>
 

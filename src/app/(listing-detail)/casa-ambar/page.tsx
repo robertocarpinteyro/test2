@@ -22,6 +22,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { PHOTOS } from "./constant";
 import Script from "next/script";
 import MetaPixel from "@/components/MetaPixel";
+import { useTranslation } from "@/hooks/useTranslation";
 
 declare global {
   namespace JSX {
@@ -39,6 +40,7 @@ declare global {
 export interface CasaAmbarLandingPageProps {}
 
 const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
+  const { t } = useTranslation();
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -159,7 +161,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
             >
               <span className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white text-sm font-medium border border-white/20">
                 <SparklesIcon className="w-4 h-4 mr-2" />
-                Residencia Exclusiva
+                {t("developments.casaAmbar.exclusiveResidenceTag")}
               </span>
             </motion.div>
 
@@ -169,7 +171,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
               transition={{ duration: 1, delay: 0.7 }}
               className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight"
             >
-              Casa Ámbar
+              {t("developments.casaAmbar.name")}
             </motion.h1>
 
             <motion.p
@@ -178,10 +180,10 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
               transition={{ duration: 1, delay: 0.9 }}
               className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
             >
-              Arquitectura que inspira. Diseño que abraza la luz.
+              {t("developments.casaAmbar.architectureInspires")}
               <br />
               <span className="text-emerald-300">
-                Tu nuevo hogar en la reserva más exclusiva.
+                {t("developments.casaAmbar.newHomeExclusive")}
               </span>
             </motion.p>
 
@@ -198,7 +200,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                 className="px-8 py-4 text-lg bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20"
               >
                 <CameraIcon className="w-5 h-5 mr-2" />
-                Ver Galería
+                {t("developments.common.viewGallery")}
               </ButtonSecondary>
             </motion.div>
           </div>
@@ -212,7 +214,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
         >
           <div className="w-px h-16 bg-white/50 mx-auto mb-4"></div>
-          <p className="text-white/70 text-sm">Desliza para descubrir</p>
+          <p className="text-white/70 text-sm">{t("developments.common.swipeToDiscover")}</p>
         </motion.div>
       </section>
     );
@@ -233,11 +235,11 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
             >
               <span className="inline-flex items-center px-4 py-2 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 text-sm font-medium mb-6">
                 <HomeIcon className="w-4 h-4 mr-2" />
-                Residencia de Lujo
+                {t("developments.casaAmbar.luxuryResidence")}
               </span>
 
               <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-8 tracking-tight">
-                Una experiencia de vida única
+                {t("developments.casaAmbar.uniqueLifeExperience")}
               </h2>
             </motion.div>
 
@@ -252,19 +254,12 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                 <strong className="text-emerald-600 dark:text-emerald-400">
                   Casa Ámbar
                 </strong>{" "}
-                ha sido concebida desde una visión de diseño contemporáneo que
-                se destaca por su elegancia sobria y líneas arquitectónicas
-                limpias. Su fachada conjuga materiales nobles, como piedra
-                sinterizada y cristal, con una paleta cromática contrastante y
-                una composición moderna que transmite exclusividad, equilibrio y
-                estilo.
+                {t("developments.casaAmbar.conceivedDescription")}
+                {t("developments.casaAmbar.facadeDescription")}
               </p>
 
               <p>
-                Cada nivel ha sido concebido para brindar amplitud, confort y
-                conexión con el exterior, integrando la luz natural como
-                elemento protagonista. Más que una casa, es un espacio pensado
-                para vivir con sofisticación, privacidad y armonía.
+                {t("developments.casaAmbar.levelDescription")}
               </p>
             </motion.div>
 
@@ -277,10 +272,10 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
             >
               <div className="p-6">
                 <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">
-                  474m² + terraza
+                  {t("developments.casaAmbar.construction474")}
                 </div>
                 <div className="text-gray-600 dark:text-gray-400">
-                  Construcción
+                  {t("developments.common.construction")}
                 </div>
               </div>
               <div className="p-6">
@@ -296,7 +291,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                   2025
                 </div>
                 <div className="text-gray-600 dark:text-gray-400">
-                  Entrega Septiembre
+                  {t("developments.casaAmbar.septemberDelivery")}
                 </div>
               </div>
             </motion.div>
@@ -310,19 +305,11 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
   const renderEnhancedLevelsSection = () => {
     const levels = [
       {
-        title: "Nivel 01",
-        subtitle: "Área Social y de Servicios",
+        title: t("developments.casaAmbar.nivel01"),
+        subtitle: t("developments.casaAmbar.socialServiceArea"),
         icon: "🏛️",
-        spaces:
-          "Estudio 24m², Baño 5m², Sala 22m², Comedor 15m², Cocina 26m², Servicio 9m², Alacena 5m²",
-        features: [
-          "Vestíbulo exterior enmarcado por jardines con paisajismo de texturas y matrices de color",
-          "Vestíbulo interior como hilo conductor para espectacular doble altura",
-          "Sala comedor coronando el espacio con doble altura",
-          "Cocina vanguardista con cuarzos Black Mirror y White Mirror de carácter atemporal",
-          "Estudio de diseño contemporáneo con mobiliario empotrado y detalles decorativos",
-          "Acceso independiente y baño completo que permite transformarlo en suite privada",
-        ],
+        spaces: t("developments.casaAmbar.nivel01Spaces"),
+        features: t("developments.casaAmbar.nivel01Features"),
         photos: [
           "https://res.cloudinary.com/dwrtldhxd/image/upload/v1756071937/Cocina_vokbm5.jpg",
           "https://res.cloudinary.com/dwrtldhxd/image/upload/v1756071937/Jardin_bmckwm.jpg",
@@ -332,47 +319,39 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
         virtualTourPath: "/recorrido/Primer Nivel/index.html",
       },
       {
-        title: "Nivel 02",
+        title: t("developments.casaAmbar.nivel02"),
         subtitle: "Área Privada de Descanso",
         icon: "🛏️",
         spaces:
           "Master Bedroom 25m², Baño 12m², Walking Closet 9m², Recamara 1: 21m², Baño 4m², Walking Closet 4m², Recamara 2: 21m², Baño 4m², Walking Closet 4m², Family Room 33m²",
         features: [
-          "Amplio e iluminado Family Room como vestíbulo a las tres recámaras",
-          "Cada recámara cuenta con baño privado, walking closet y terraza individual",
-          "Terrazas que conectan los interiores con el paisaje de la zona",
-          "Recámara principal con baño de diseño lineal",
-          "Porcelánicos de gran formato y espectacular acento de granito Vía Láctea",
+          t("developments.casaAmbar.levelFeatures.familyRoom"),
+          t("developments.casaAmbar.levelFeatures.eachBedroom"),
+          t("developments.casaAmbar.levelFeatures.terraces"),
+          t("developments.casaAmbar.levelFeatures.masterBedroom"),
+          t("developments.casaAmbar.levelFeatures.porcelain"),
         ],
         photos: [],
         hasVirtualTour: false,
       },
       {
-        title: "Nivel 03",
-        subtitle: "Área de Bienestar y Entretenimiento",
+        title: t("developments.casaAmbar.nivel03"),
+        subtitle: t("developments.casaAmbar.wellnessEntertainmentArea"),
         icon: "🌅",
-        spaces:
-          "Terraza 64m², Gimnasio 28m², Baño 4m², Wellness Lounge 10m², ½ Baño 4m², Lavandería 8m²",
-        features: [
-          "Diseñado para potenciar el bienestar y la vida social",
-          "Gimnasio con vistas al sur oriente, perfecto para recibir la luz matutina",
-          "Wellness lounge con acceso directo a baño privado",
-          "Dos terrazas independientes para ambiente social y rincón privado",
-          "Puede adaptarse como suite adicional según necesidades de estilo de vida",
-        ],
+        spaces: t("developments.casaAmbar.nivel03Spaces"),
+        features: t("developments.casaAmbar.nivel03Features"),
         photos: [],
         hasVirtualTour: false,
       },
       {
-        title: "Sótano",
+        title: t("developments.casaAmbar.sotano"),
         subtitle: "Área de Servicios y Cava",
         icon: "🍷",
-        spaces:
-          "Cuarto de máquinas 11m², Cisterna 8m², Bodega 13m², Cava 9m², Área social 23m²",
+        spaces: t("developments.casaAmbar.sotanoSpaces"),
         features: [
-          "Dotando de exclusividad, privacidad y distinción",
-          "Área de degustación y cava creando el ambiente ideal para el deleite",
-          "Zona de resguardo con espacio versátil para almacenaje general",
+          t("developments.casaAmbar.levelFeatures.exclusivity"),
+          t("developments.casaAmbar.levelFeatures.tastingArea"),
+          t("developments.casaAmbar.levelFeatures.storageArea"),
         ],
         photos: [],
         hasVirtualTour: false,
@@ -390,11 +369,10 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              Distribución por Niveles
+              {t("developments.casaAmbar.levelDistribution")}
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Cada nivel ha sido cuidadosamente diseñado para ofrecer una
-              experiencia única de confort y elegancia
+              {t("developments.casaAmbar.levelDistributionDesc")}
             </p>
           </motion.div>
 
@@ -425,7 +403,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                   {/* Spaces Overview */}
                   <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-2xl p-6 mb-6">
                     <h4 className="text-lg font-semibold text-emerald-800 dark:text-emerald-200 mb-3">
-                      Espacios y Dimensiones
+                      {t("developments.casaAmbar.spacesAndDimensions")}
                     </h4>
                     <p className="text-emerald-700 dark:text-emerald-300 leading-relaxed">
                       {level.spaces}
@@ -436,7 +414,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div>
                       <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-                        Características Principales
+                        {t("developments.casaAmbar.mainCharacteristics")}
                       </h4>
                       <ul className="space-y-3">
                         {level.features.slice(0, Math.ceil(level.features.length / 2)).map((feature, featureIndex) => (
@@ -451,7 +429,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                     </div>
                     <div>
                       <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-                        Detalles de Diseño
+                        {t("developments.casaAmbar.designDetails")}
                       </h4>
                       <ul className="space-y-3">
                         {level.features.slice(Math.ceil(level.features.length / 2)).map((feature, featureIndex) => (
@@ -476,7 +454,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                         <div>
                           <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center">
                             <CameraIcon className="w-5 h-5 mr-2 text-emerald-600" />
-                            Galería Fotográfica
+                            {t("developments.casaAmbar.photoGallery")}
                           </h4>
                           <div className="grid grid-cols-1 gap-4">
                             {level.photos.map((photo, photoIndex) => (
@@ -523,7 +501,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                         <div>
                           <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center">
                             <PlayIcon className="w-5 h-5 mr-2 text-emerald-600" />
-                            Recorrido Virtual 360°
+                            {t("developments.casaAmbar.virtualTour360")}
                           </h4>
                           <div className="relative overflow-hidden rounded-xl bg-gray-100 dark:bg-neutral-800">
                             <div className="aspect-w-16 aspect-h-10">
@@ -532,7 +510,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                                 className="w-full h-full border-0"
                                 allowFullScreen
                                 loading="lazy"
-                                title={`Recorrido Virtual ${level.title}`}
+                                title={`${t("developments.casaAmbar.virtualTourTitle")} ${level.title}`}
                               />
                             </div>
                           </div>
@@ -548,7 +526,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                           <div className="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/10 dark:to-green-900/10 rounded-xl p-8 text-center">
                             <div className="text-4xl mb-4">📸</div>
                             <p className="text-emerald-700 dark:text-emerald-300 font-medium">
-                              Galería fotográfica y recorrido virtual próximamente disponibles
+                              {t("developments.casaAmbar.galleryComingSoon")}
                             </p>
                           </div>
                         </div>
@@ -569,33 +547,33 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
     const features = [
       {
         icon: "✨",
-        title: "Diseño Contemporáneo",
-        description: "Acabados premium y arquitectura de vanguardia",
+        title: t("developments.casaAmbar.features.contemporaryDesign"),
+        description: t("developments.casaAmbar.features.contemporaryDesignDesc"),
       },
       {
         icon: "🌳",
-        title: "Carpintería en Nogal",
-        description: "Maderas nobles que aportan calidez y elegancia",
+        title: t("developments.casaAmbar.features.walnutCarpentry"),
+        description: t("developments.casaAmbar.features.walnutCarpentryDesc"),
       },
       {
         icon: "☀️",
-        title: "Luz Natural",
-        description: "Ventanales que inundan todos los niveles",
+        title: t("developments.casaAmbar.features.naturalLight"),
+        description: t("developments.casaAmbar.features.naturalLightDesc"),
       },
       {
         icon: "🏡",
-        title: "Áreas Sociales Amplias",
-        description: "Espacios diseñados para el encuentro y la convivencia",
+        title: t("developments.casaAmbar.features.ampleSocialAreas"),
+        description: t("developments.casaAmbar.features.ampleSocialAreasDesc"),
       },
       {
         icon: "🔧",
-        title: "Espacios de Servicio",
-        description: "Áreas independientes para máxima funcionalidad",
+        title: t("developments.casaAmbar.features.serviceSpaces"),
+        description: t("developments.casaAmbar.features.serviceSpacesDesc"),
       },
       {
         icon: "🎯",
-        title: "Ubicación Exclusiva",
-        description: "En el corazón de la reserva más prestigiosa",
+        title: t("developments.casaAmbar.features.exclusiveLocation"),
+        description: t("developments.casaAmbar.features.exclusiveLocationDesc"),
       },
     ];
 
@@ -610,11 +588,10 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              Características Destacadas
+              {t("developments.casaAmbar.featuredCharacteristics")}
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Cada detalle ha sido pensado para crear una experiencia de vida
-              excepcional
+              {t("developments.casaAmbar.featuredCharacteristicsDesc")}
             </p>
           </motion.div>
 
@@ -659,10 +636,10 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              Galería Visual
+              {t("developments.casaAmbar.visualGallery")}
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              "Donde el diseño encuentra la funcionalidad"
+              "{t("developments.casaAmbar.whereDesignMeets")}"
             </p>
           </motion.div>
 
@@ -728,17 +705,15 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
           >
             <span className="inline-flex items-center px-4 py-2 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 text-sm font-medium mb-6">
               <MapPinIcon className="w-4 h-4 mr-2" />
-              Ubicación Privilegiada
+              {t("developments.casaAmbar.privilegedLocation")}
             </span>
 
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              En el Corazón de la Exclusividad
+              {t("developments.casaAmbar.heartExclusivity")}
             </h2>
 
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-12">
-              Ubicada en el fraccionamiento Ambar dentro del Desarrollo Reserva
-              Bosque Real, con 474 m² de construcción + terraza sobre un lote de
-              300 m².
+              {t("developments.casaAmbar.locatedInAmbar")}
             </p>
           </motion.div>
 
@@ -772,30 +747,30 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
             <div className="text-center">
               <div className="text-2xl mb-3">🌳</div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                Entorno Natural
+                {t("developments.casaAmbar.naturalEnvironment")}
               </h3>
               <p className="text-gray-600 dark:text-gray-300">
-                Rodeada de áreas verdes y naturaleza preservada
+                {t("developments.casaAmbar.naturalEnvironmentDesc")}
               </p>
             </div>
 
             <div className="text-center">
               <div className="text-2xl mb-3">🔒</div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                Seguridad 24/7
+                {t("developments.casaAmbar.security247")}
               </h3>
               <p className="text-gray-600 dark:text-gray-300">
-                Acceso controlado y vigilancia permanente
+                {t("developments.casaAmbar.security247Desc")}
               </p>
             </div>
 
             <div className="text-center">
               <div className="text-2xl mb-3">🚗</div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                Conectividad
+                {t("developments.casaAmbar.connectivity")}
               </h3>
               <p className="text-gray-600 dark:text-gray-300">
-                Fácil acceso a principales vías de comunicación
+                {t("developments.casaAmbar.connectivityDesc")}
               </p>
             </div>
           </motion.div>
@@ -809,7 +784,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
     return (
       <section
         id="contact-section"
-        className="py-24 lg:py-32 bg-gradient-to-br from-emerald-900 to-green-900 text-white relative overflow-hidden"
+        className="py-16 lg:py-20 bg-gradient-to-br from-emerald-900 to-green-900 text-white relative overflow-hidden"
       >
         <div className="absolute inset-0 bg-black/20"></div>
 
@@ -819,14 +794,13 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-              Tu Nuevo Hogar Te Espera
+              {t("developments.casaAmbar.yourNewHomeAwaits")}
             </h2>
             <p className="text-xl text-emerald-100 max-w-3xl mx-auto">
-              Agenda una visita personalizada y descubre por qué Casa Ámbar
-              representa el futuro del lujo residencial
+              {t("developments.casaAmbar.schedulePersonalizedVisit")}
             </p>
           </motion.div>
 
@@ -840,26 +814,26 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h3 className="text-2xl font-bold mb-6">
-                  Información del Proyecto
+                  {t("developments.casaAmbar.projectInformation")}
                 </h3>
 
                 <div className="space-y-4 mb-8">
-                  <div className="flex items-center justify-between py-3 border-b border-white/20">
-                    <span className="text-emerald-200">Precio desde:</span>
+                  <div className="flex flex-col md:flex-row  items-center justify-between py-3 border-b border-white/20">
+                    <span className="text-emerald-200">{t("developments.common.priceFrom")}:</span>
                     <span className="text-2xl font-bold">$19,750,000 MXN</span>
                   </div>
 
-                  <div className="flex items-center justify-between py-3 border-b border-white/20">
-                    <span className="text-emerald-200">Construcción/Lote:</span>
+                  <div className="flex flex-col md:flex-row  items-center justify-between py-3 border-b border-white/20">
+                    <span className="text-emerald-200">{t("developments.common.construction")}/{t("developments.common.lot")}:</span>
                     <span className="font-semibold">
-                      474 m² + terraza / 300 m²
+                      {t("developments.casaAmbar.constructionDetails")}
                     </span>
                   </div>
 
-                  <div className="flex items-center justify-between py-3 border-b border-white/20">
-                    <span className="text-emerald-200">Entrega:</span>
+                  <div className="flex flex-col md:flex-row  items-center justify-between py-3 border-b border-white/20">
+                    <span className="text-emerald-200">{t("developments.casaAmbar.delivery")}:</span>
                     <span className="font-semibold">
-                      Septiembre 2025 + 6 meses de gracia
+                      {t("developments.casaAmbar.deliveryDate")}
                     </span>
                   </div>
                 </div>
@@ -897,8 +871,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                 />
 
                 <p className="text-emerald-100 text-center">
-                  Desarrollado por expertos en construcción de lujo con más de
-                  20 años de experiencia creando espacios excepcionales.
+                  {t("developments.casaAmbar.developedByExperts")}
                 </p>
               </div>
             </div>

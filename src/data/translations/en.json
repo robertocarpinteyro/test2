@@ -1,0 +1,948 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "signup": "Sign Up",
+    "account": "Account",
+    "blog": "Blog",
+    "listings": "Listings"
+  },
+  "common": {
+    "loading": "Loading...",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "price": "Price",
+    "location": "Location",
+    "date": "Date",
+    "guests": "Guests",
+    "book": "Book",
+    "bookNow": "Book Now",
+    "viewDetails": "View Details",
+    "showMore": "Show More",
+    "showLess": "Show Less",
+    "next": "Next",
+    "previous": "Previous",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No",
+    "or": "or",
+    "and": "and",
+    "changeImage": "Change Image",
+    "upload": "Upload",
+    "download": "Download",
+    "select": "Select",
+    "choose": "Choose",
+    "apply": "Apply",
+    "reset": "Reset"
+  },
+  "hero": {
+    "title": "Find Your Perfect Stay with Niddo",
+    "subtitle": "Discover amazing places to stay around the world",
+    "searchPlaceholder": "Where do you want to go?",
+    "checkIn": "Check In",
+    "checkOut": "Check Out",
+    "guests": "Guests"
+  },
+  "services": {
+    "title": "Our Services",
+    "landscapeDesign": {
+      "title": "Landscape Design",
+      "description": "Professional landscape design services",
+      "largedescription": "Transform your outdoor space with our expert landscape design services. We create beautiful, functional landscapes tailored to your style and needs.",
+      "extra": "Get a Free Quote",
+      "link": "Contact Us Today",
+      "features": [
+        "Custom Design Plans",
+        "3D Visualization",
+        "Plant Selection",
+        "Hardscape Design",
+        "Irrigation Planning"
+      ],
+      "tabs": {
+        "pricing": {
+          "title": "Pricing"
+        },
+        "reviews": {
+          "title": "Reviews"
+        },
+        "contact": {
+          "title": "Contact"
+        },
+        "pricingCard": {
+          "title": "Starting at",
+          "price": "$500",
+          "description": "Professional landscape design consultation and planning",
+          "features": [
+            "Site Analysis",
+            "Design Consultation",
+            "Concept Plans",
+            "Plant Recommendations",
+            "Project Timeline"
+          ]
+        }
+      }
+    },
+    "buildInstallation": {
+      "title": "Build & Installation",
+      "description": "Expert construction and installation services",
+      "largedescription": "From concept to completion, our skilled team handles all aspects of landscape construction and installation with precision and care.",
+      "extra": "Professional Installation",
+      "link": "Get Started",
+      "features": [
+        "Hardscape Installation",
+        "Softscape Planting",
+        "Irrigation Systems",
+        "Lighting Installation",
+        "Custom Structures"
+      ],
+      "tabs": {
+        "pricing": {
+          "title": "Pricing"
+        },
+        "reviews": {
+          "title": "Reviews"
+        },
+        "contact": {
+          "title": "Contact"
+        },
+        "pricingCard": {
+          "title": "Starting at",
+          "price": "$1,200",
+          "description": "Complete build and installation services",
+          "features": [
+            "Material Supply",
+            "Professional Installation",
+            "Quality Assurance",
+            "Project Management",
+            "Warranty Included"
+          ]
+        },
+        "contact": {
+          "info": "Contact us for a personalized quote"
+        }
+      }
+    },
+    "lawnMaintenance": {
+      "title": "Lawn Maintenance",
+      "description": "Regular lawn care and maintenance",
+      "largedescription": "Keep your lawn healthy and beautiful year-round with our comprehensive maintenance services.",
+      "extra": "Seasonal Packages",
+      "link": "Learn More",
+      "features": [
+        "Mowing & Edging",
+        "Fertilization",
+        "Weed Control",
+        "Aeration",
+        "Seasonal Cleanup"
+      ],
+      "tabs": {
+        "pricing": {
+          "title": "Pricing"
+        },
+        "reviews": {
+          "title": "Reviews"
+        },
+        "contact": {
+          "title": "Contact"
+        },
+        "pricingCard": {
+          "title": "Starting at",
+          "price": "$80/month",
+          "description": "Regular lawn maintenance service",
+          "features": [
+            "Weekly Mowing",
+            "Bi-weekly Edging",
+            "Monthly Fertilization",
+            "Weed Treatment",
+            "Seasonal Services"
+          ]
+        }
+      }
+    },
+    "treeServices": {
+      "title": "Tree Services",
+      "description": "Professional tree care and removal",
+      "largedescription": "Expert tree services including pruning, removal, and health assessments to keep your trees safe and healthy.",
+      "extra": "Certified Arborists",
+      "link": "Schedule Service",
+      "features": [
+        "Tree Pruning",
+        "Tree Removal",
+        "Stump Grinding",
+        "Health Assessments",
+        "Emergency Services"
+      ],
+      "tabs": {
+        "pricing": {
+          "title": "Pricing"
+        },
+        "reviews": {
+          "title": "Reviews"
+        },
+        "contact": {
+          "title": "Contact"
+        },
+        "pricingCard": {
+          "title": "Starting at",
+          "price": "$250",
+          "description": "Professional tree services",
+          "features": [
+            "Free Estimates",
+            "Certified Arborists",
+            "Insured Service",
+            "Emergency Response",
+            "Cleanup Included"
+          ]
+        }
+      }
+    },
+    "propertyCleanups": {
+      "title": "Property Cleanups",
+      "description": "Complete property cleanup services",
+      "largedescription": "Comprehensive cleanup services for residential and commercial properties, including debris removal and site preparation.",
+      "extra": "Same Day Service",
+      "link": "Book Now",
+      "features": [
+        "Debris Removal",
+        "Yard Cleanup",
+        "Construction Cleanup",
+        "Seasonal Cleanup",
+        "Junk Removal"
+      ],
+      "tabs": {
+        "pricing": {
+          "title": "Pricing"
+        },
+        "reviews": {
+          "title": "Reviews"
+        },
+        "contact": {
+          "title": "Contact"
+        },
+        "pricingCard": {
+          "title": "Starting at",
+          "price": "$150",
+          "description": "Property cleanup service",
+          "features": [
+            "Debris Removal",
+            "Hauling Service",
+            "Site Cleanup",
+            "Eco-friendly Disposal",
+            "Same Day Service"
+          ]
+        }
+      }
+    },
+    "landscapeCare": {
+      "title": "Landscape Care",
+      "description": "Ongoing landscape maintenance and care",
+      "largedescription": "Comprehensive landscape care services to maintain the beauty and health of your outdoor spaces throughout the seasons.",
+      "extra": "Year-round Care",
+      "link": "Get Quote",
+      "features": [
+        "Plant Care",
+        "Irrigation Maintenance",
+        "Seasonal Adjustments",
+        "Pest Management",
+        "Soil Health"
+      ],
+      "tabs": {
+        "pricing": {
+          "title": "Pricing"
+        },
+        "reviews": {
+          "title": "Reviews"
+        },
+        "contact": {
+          "title": "Contact"
+        },
+        "pricingCard": {
+          "title": "Starting at",
+          "price": "$120/month",
+          "description": "Complete landscape care package",
+          "features": [
+            "Monthly Maintenance",
+            "Plant Health Monitoring",
+            "Irrigation Checks",
+            "Seasonal Adjustments",
+            "Problem Resolution"
+          ]
+        }
+      }
+    },
+    "xeriscaping": {
+      "title": "Xeriscaping",
+      "description": "Water-efficient landscape design",
+      "largedescription": "Sustainable xeriscaping solutions that conserve water while creating beautiful, low-maintenance landscapes.",
+      "extra": "Water Conservation",
+      "link": "Explore Options",
+      "features": [
+        "Drought-Resistant Plants",
+        "Water-Efficient Design",
+        "Native Plant Selection",
+        "Mulching Systems",
+        "Low Maintenance"
+      ],
+      "tabs": {
+        "pricing": {
+          "title": "Pricing"
+        },
+        "reviews": {
+          "title": "Reviews"
+        },
+        "contact": {
+          "title": "Contact"
+        },
+        "pricingCard": {
+          "title": "Starting at",
+          "price": "$800",
+          "description": "Water-efficient landscape design",
+          "features": [
+            "Native Plant Selection",
+            "Efficient Irrigation",
+            "Mulch Installation",
+            "Rock Gardens",
+            "Maintenance Plan"
+          ]
+        }
+      }
+    }
+  },
+  "footer": {
+    "company": "Company",
+    "about": "About Us",
+    "careers": "Careers",
+    "contact": "Contact",
+    "support": "Support",
+    "help": "Help Center",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "rights": "All rights reserved"
+  },
+  "form": {
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "subject": "Subject",
+    "submit": "Submit",
+    "sending": "Sending...",
+    "sent": "Message sent successfully!",
+    "error": "Please fill in all required fields",
+    "errorMessage": "Please fill in all fields",
+    "successMessage": "Message sent successfully!",
+    "contactInfo": "Contact Information",
+    "getInTouch": "Get in touch with us"
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "leaveButton": "Leave a Testimonial",
+    "writeReview": "Write a Review",
+    "yourName": "Your Name",
+    "yourPosition": "Your Position",
+    "yourMessage": "Your Message",
+    "rating": "Rating",
+    "submit": "Submit Testimonial"
+  },
+  "account": {
+    "profile": "Profile",
+    "settings": "Settings",
+    "billing": "Billing",
+    "password": "Password",
+    "logout": "Logout",
+    "savedLists": "Saved Lists"
+  },
+  "hero": {
+    "title": "Find Your Dream Home in Bosque Real",
+    "subtitle": "Discover exclusive properties in Mexico's most prestigious development",
+    "searchPlaceholder": "Where do you want to live?",
+    "checkIn": "Check In",
+    "checkOut": "Check Out",
+    "guests": "Guests",
+    "propertyTypes": {
+      "houses": "Houses",
+      "apartments": "Apartments",
+      "offices": "Offices",
+      "lots": "Lots"
+    },
+    "descriptions": {
+      "houses": "Do you dream of your ideal home? We'll find it",
+      "apartments": "Do you dream of your ideal home? We'll find it",
+      "offices": "Discover our offices in Bosque Real, an ideal space for your company's growth.",
+      "lots": "At Niddo, we offer you the opportunity to build the house of your dreams."
+    },
+    "propertyDetails": {
+      "priceFrom": "Price from",
+      "minSurface": "Minimum surface",
+      "delivery": "Delivery"
+    }
+  },
+  "properties": {
+    "viewDetails": "View Details",
+    "contactAgent": "Contact Agent",
+    "schedule": "Schedule Visit",
+    "features": "Features",
+    "location": "Location",
+    "amenities": "Amenities",
+    "gallery": "Photo Gallery",
+    "floorPlans": "Floor Plans",
+    "virtualTour": "Virtual Tour",
+    "financing": "Financing Options",
+    "neighborhood": "Neighborhood",
+    "nearbyPlaces": "Nearby Places",
+    "transportation": "Transportation"
+  },
+  "footer": {
+    "company": "Company",
+    "about": "About Us",
+    "careers": "Careers",
+    "contact": "Contact",
+    "support": "Support",
+    "help": "Help Center",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "rights": "All rights reserved",
+    "explore": "Explore",
+    "designFeatures": "Design features",
+    "prototyping": "Prototyping",
+    "designSystems": "Design systems",
+    "pricing": "Pricing",
+    "security": "Security",
+    "resources": "Resources",
+    "bestPractices": "Best practices",
+    "developers": "Developers",
+    "learnDesign": "Learn design",
+    "releases": "Releases",
+    "community": "Community",
+    "discussionForums": "Discussion Forums",
+    "codeOfConduct": "Code of Conduct",
+    "communityResources": "Community Resources",
+    "contributing": "Contributing",
+    "concurrentMode": "Concurrent Mode",
+    "gettingStarted": "Getting started",
+    "installation": "Installation",
+    "releaseNotes": "Release Notes",
+    "upgradeGuide": "Upgrade Guide",
+    "browserSupport": "Browser Support",
+    "editorSupport": "Editor Support"
+  },
+  "pages": {
+    "home": "Home",
+    "about": "About",
+    "properties": "Properties",
+    "contact": "Contact",
+    "blog": "Blog",
+    "account": "Account",
+    "login": "Login",
+    "signup": "Sign Up"
+  },
+  "buttons": {
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "contact": "Contact Us",
+    "schedule": "Schedule Visit",
+    "download": "Download",
+    "share": "Share",
+    "save": "Save",
+    "remove": "Remove",
+    "edit": "Edit",
+    "delete": "Delete",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "close": "Close"
+  },
+  "sections": {
+    "featuredProperties": "Featured Properties",
+    "howItWorks": "How It Works",
+    "testimonials": "What Our Clients Say",
+    "ourServices": "Our Services",
+    "whyChooseUs": "Why Choose Us",
+    "latestNews": "Latest News",
+    "newsletter": "Newsletter",
+    "followUs": "Follow Us"
+  },
+  "developments": {
+    "skyview": "Sky View",
+    "blue": "Blue",
+    "nativ": "Nativ",
+    "ivy": "Ivy",
+    "incanto": "Incanto",
+    "reserva": "Reserva",
+    "life": "Life",
+    "nox": "Nox",
+    "casaAmbar": "Casa Ambar",
+    "cientoOchenta": {
+      "name": "Ciento Ochenta",
+      "luxuryDepartments": "Luxury Apartments",
+      "description": "Ciento Ochenta is an excellent option within the Bosque Real development, standing out for its elegant design and contemporary architecture. This development offers ample social areas, high quality finishes and a variety of amenities including gym, green areas, and more, ensuring a comfortable and modern living experience.",
+      "information": "Information",
+      "amenities": "Amenities",
+      "totalSurface": "Total surface 246.49m²",
+      "deliveryDateValue": "July 2026 + 6 months grace period.",
+      "location": "Location",
+      "viewAllPhotos": "View all photos"
+    },
+    "elEnsueno": "El Ensueño",
+    "islaArbol": "Isla del Árbol",
+    "islaEncino": "Isla del Encino",
+    "torreDesigno": "Torre Designo",
+    "designoHotel": "Designo Hotel",
+    "theResidences": "The Residences"
+  },
+  "metadata": {
+    "title": "NIDDO | Find your dream home in Bosque Real | NIDDIA Virtual Assistant",
+    "description": "NIDDO is the leading real estate broker specializing in luxury properties in Bosque Real, Estado de México. With NIDDIA, our artificial intelligence virtual assistant, find your exclusive home in Bosque Real with personalized advice.",
+    "keywords": "NIDDO real estate broker, NIDDO Bosque Real, NIDDIA virtual real estate assistant, Bosque Real broker, luxury properties Bosque Real, Houses for sale Bosque Real, Apartments in Bosque Real, Exclusive properties in Bosque Real, Living in Bosque Real, real estate Bosque Real, Bosque Real developments, Bosque Real residences, buy house Bosque Real, Bosque Real investment, Bosque Real developments, real estate artificial intelligence, property virtual assistant, Estado de México broker, exclusive properties Estado Mexico, AI real estate consulting, real estate technology, luxury house sales Bosque Real, Buy in Bosque Real, premium properties Bosque Real, NIDDO.ai, Sky View Bosque Real, Reserva Bosque Real, Ambar Bosque Real development",
+    "ogTitle": "NIDDO | Bosque Real Specialist Broker with NIDDIA AI",
+    "ogDescription": "Leading real estate broker specializing in Bosque Real, Estado de México. With NIDDIA, AI virtual assistant, find your exclusive property in Bosque Real.",
+    "twitterTitle": "NIDDO | Bosque Real Broker with NIDDIA AI",
+    "twitterDescription": "Specialist broker in exclusive properties of Bosque Real, Estado de México. NIDDIA virtual assistant with artificial intelligence."
+  },
+  "validation": {
+    "emailInvalid": "Please enter a valid email",
+    "phoneInvalid": "Invalid phone number",
+    "codeInvalid": "Invalid code",
+    "verificationError": "Verification error",
+    "sendingCodeError": "Error sending verification code"
+  },
+  "niddia": {
+    "welcome": "Talk to Niddia, your real estate assistant. Verify your number and start now.",
+    "processing": "Processing...",
+    "loadingMindStudio": "Loading MindStudio...",
+    "sendCode": "Send Verification Code",
+    "verifyCode": "Verify Code",
+    "resendCode": "Resend Code",
+    "resendIn": "Resend code in",
+    "enterSMSCode": "Enter SMS code",
+    "fullName": "Full name",
+    "email": "Email",
+    "phone": "Phone",
+    "verificationCode": "Verification code",
+    "talkWithNiddia": "Talk with Niddia",
+    "description": "I use advanced technology and my deep knowledge about the real estate market to help you find the perfect property."
+  },
+  "propertyCard": {
+    "from": "From",
+    "learnMore": "Learn More",
+    "moreInfo": "More information",
+    "showMore": "Show me more",
+    "learnAboutProperties": "Learn more about our properties in Bosque Real"
+  },
+  "sections": {
+    "featuredProperties": "Find the property of your dreams",
+    "featuredPropertiesSubtitle": "Explore our available properties and with Niddia's help find an ideal property",
+    "howItWorks": "How It Works",
+    "testimonials": "What Our Clients Say",
+    "ourServices": "Our Services",
+    "whyChooseUs": "Why Choose Us",
+    "latestNews": "Latest News",
+    "newsletter": "Newsletter",
+    "followUs": "Follow Us",
+    "videoSectionDescription": "In this section, you will find detailed information about our exclusive developments, featured properties and the latest innovations in the real estate sector. Explore how our passion for technology and cutting-edge design translates into unique experiences for our clients. Immerse yourself in the lifestyle that Niddo offers and let us help you find your ideal home.",
+    "videoSectionSubtitle": "Discover a new world of opportunities with Niddo."
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "developments": "Developments",
+    "services": "Services",
+    "contact": "Contact",
+    "login": "Login",
+    "signup": "Sign Up",
+    "account": "Account",
+    "blog": "Blog",
+    "listings": "Listings",
+    "properties": "Properties",
+    "findIdealHome": "Find your ideal home in Bosque Real",
+    "chat": "Chat",
+    "chatWithNiddia": "Chat with Niddia"
+  },
+  "pages": {
+    "home": {
+      "title": "Home",
+      "description": "Find your dream home in Bosque Real"
+    },
+    "about": {
+      "title": "About Us",
+      "heading": "About Niddo",
+      "description": "We are the leading real estate company in Bosque Real",
+      "mission": "Our mission is to help you find your perfect home",
+      "vision": "To be the #1 real estate platform in Mexico"
+    },
+    "contact": {
+      "title": "Contact",
+      "heading": "Get in Touch",
+      "description": "Contact us to find your ideal property",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "hours": "Business Hours"
+    },
+    "login": {
+      "title": "Login",
+      "heading": "Sign in to your account",
+      "email": "Email address",
+      "password": "Password",
+      "remember": "Remember me",
+      "forgot": "Forgot password?",
+      "signin": "Sign in",
+      "signup": "Don't have an account? Sign up"
+    },
+    "signup": {
+      "title": "Sign Up",
+      "heading": "Create your account",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email address",
+      "password": "Password",
+      "confirmPassword": "Confirm password",
+      "createAccount": "Create account",
+      "haveAccount": "Already have an account? Sign in"
+    },
+    "account": {
+      "title": "My Account",
+      "profile": "Profile",
+      "billing": "Billing",
+      "password": "Password",
+      "savedLists": "Saved Lists",
+      "settings": "Settings",
+      "logout": "Logout",
+      "updateProfile": "Update Profile",
+      "changePassword": "Change Password",
+      "paymentMethods": "Payment Methods",
+      "favorites": "Favorites"
+    },
+    "listing": {
+      "title": "Property Listings",
+      "search": "Search Properties",
+      "filter": "Filter",
+      "sortBy": "Sort by",
+      "results": "results",
+      "noResults": "No properties found",
+      "viewMap": "View on Map",
+      "viewList": "View as List"
+    },
+    "propertyDetail": {
+      "overview": "Overview",
+      "amenities": "Amenities",
+      "location": "Location",
+      "reviews": "Reviews",
+      "contact": "Contact",
+      "schedule": "Schedule Visit",
+      "favorite": "Add to Favorites",
+      "share": "Share",
+      "description": "Description",
+      "features": "Features",
+      "floorPlans": "Floor Plans",
+      "gallery": "Photo Gallery",
+      "virtualTour": "Virtual Tour",
+      "financing": "Financing Options",
+      "nearby": "Nearby Places",
+      "transportation": "Transportation",
+      "schools": "Schools",
+      "shopping": "Shopping",
+      "restaurants": "Restaurants"
+    },
+    "blog": {
+      "title": "Blog",
+      "latest": "Latest Articles",
+      "readMore": "Read More",
+      "categories": "Categories",
+      "tags": "Tags",
+      "relatedPosts": "Related Posts",
+      "comments": "Comments",
+      "leaveComment": "Leave a Comment",
+      "author": "Author",
+      "publishedOn": "Published on"
+    },
+    "checkout": {
+      "title": "Checkout",
+      "summary": "Order Summary",
+      "billing": "Billing Information",
+      "payment": "Payment Method",
+      "review": "Review & Submit",
+      "total": "Total",
+      "subtotal": "Subtotal",
+      "taxes": "Taxes",
+      "fees": "Fees",
+      "placeOrder": "Place Order",
+      "processing": "Processing..."
+    }
+  },
+  "developments": {
+    "common": {
+      "amenities": "Amenities",
+      "developer": "Developer",
+      "information": "Information",
+      "location": "Location",
+      "viewAllPhotos": "View all photos",
+      "visitVirtualTour": "Visit virtual tour",
+      "niddiaHelp": "Niddia will resolve your doubts.",
+      "deliveryDate": "Delivery date",
+      "from": "From",
+      "priceFrom": "Price from",
+      "totalSurface": "Total surface",
+      "construction": "Construction",
+      "lot": "Lot",
+      "delivery": "Delivery",
+      "immediateDelivery": "Immediate Delivery",
+      "residentialLots": "Residential Lots",
+      "highQualityFinishes": "high quality finishes",
+      "contemporaryDesign": "contemporary design",
+      "spaciousAreas": "spacious areas",
+      "restAreas": "rest areas",
+      "greenSpaces": "green spaces",
+      "spa": "SPA",
+      "pool": "Pool",
+      "viewGallery": "View Gallery",
+      "swipeToDiscover": "Swipe to discover",
+      "talkWithNiddia": "Talk with Niddia",
+      "whatsapp": "WhatsApp",
+      "contactNiddia": "Contact Niddia"
+    },
+    "casaAmbar": {
+      "name": "Casa Ambar",
+      "exclusiveResidence": "Exclusive Residence",
+      "luxuryResidence": "Luxury Residence", 
+      "uniqueLifeExperience": "A unique life experience",
+      "architectureThatInspires": "Architecture that inspires. Design that embraces light.",
+      "yourNewHome": "Your new home in the most exclusive reserve.",
+      "conceivedFromVision": "has been conceived from a contemporary design vision that",
+      "schedulePersonalizedVisit": "Schedule a personalized visit and discover why Casa Ambar represents the future of residential luxury",
+      "yourNewHomeAwaits": "Your New Home Awaits You",
+      "projectInformation": "Project Information",
+      "socialServiceArea": "Social and Service Area",
+      "privateRestArea": "Private Rest Area",
+      "wellnessEntertainmentArea": "Wellness and Entertainment Area",
+      "servicesCavaArea": "Services and Wine Cellar Area",
+      "distributionByLevels": "Distribution by Levels",
+      "spacesAndDimensions": "Spaces and Dimensions",
+      "mainFeatures": "Main Features",
+      "designDetails": "Design Details",
+      "photoGallery": "Photo Gallery",
+      "featuredCharacteristics": "Featured Characteristics",
+      "visualGallery": "Visual Gallery",
+      "privilegedLocation": "Privileged Location",
+      "septemberDelivery": "September Delivery",
+      "exclusiveResidenceTag": "Exclusive Residence",
+      "newHomeExclusive": "Your new home in the most exclusive reserve.",
+      "whereDesignMeets": "Where design meets functionality",
+      "contemporaryDesignFeature": "Contemporary Design",
+      "premiumFinishesDesc": "Premium finishes and cutting-edge architecture",
+      "walnutCarpentry": "Walnut Carpentry",
+      "walnutCarpentryDesc": "Noble woods that bring warmth and elegance",
+      "naturalLight": "Natural Light",
+      "naturalLightDesc": "Windows that flood all levels",
+      "ampleSocialAreas": "Ample Social Areas",
+      "ampleSocialAreasDesc": "Spaces designed for gathering and coexistence",
+      "serviceSpaces": "Service Spaces",
+      "serviceSpacesDesc": "Independent areas for maximum functionality",
+      "exclusiveLocation": "Exclusive Location",
+      "exclusiveLocationDesc": "In the heart of the most prestigious reserve",
+      "levelDistribution": "Distribution by Levels",
+      "levelDistributionDesc": "Each level has been carefully designed to offer a unique experience of comfort and elegance",
+      "featuredCharacteristicsDesc": "Every detail has been thought to create an exceptional living experience",
+      "virtualTour360": "360° Virtual Tour",
+      "exploreEveryCorner": "Explore every corner with our interactive 360° tour",
+      "galleryComingSoon": "Photo gallery and virtual tour coming soon",
+      "heartExclusivity": "In the Heart of Exclusivity",
+      "locatedInAmbar": "Located in the Ambar subdivision within the Reserva Bosque Real Development, with 474 m² of construction + terrace on a 300 m² lot.",
+      "naturalEnvironment": "Natural Environment",
+      "naturalEnvironmentDesc": "Surrounded by green areas and preserved nature",
+      "security247": "24/7 Security",
+      "security247Desc": "Controlled access and permanent surveillance",
+      "connectivity": "Connectivity",
+      "connectivityDesc": "Easy access to main communication routes",
+      "talkWithNiddiaBtn": "Talk with Niddia",
+      "whatsappBtn": "WhatsApp",
+      "clickToEnlarge": "Click to enlarge",
+      "escToClose": "ESC to close",
+      "useArrowsToNavigate": "Use arrows or ← → keys to navigate • ESC to close",
+      "developedByExperts": "Developed by luxury construction experts with more than 20 years of experience creating exceptional spaces.",
+      "contactNiddiaBtn": "Contact Niddia",
+      "enlargedView": "Enlarged view",
+      "nivel01": "Level 01",
+      "nivel02": "Level 02",
+      "nivel03": "Level 03", 
+      "sotano": "Basement",
+      "socialServiceArea": "Social and Service Area",
+      "privateRestArea": "Private Rest Area",
+      "wellnessEntertainmentArea": "Wellness and Entertainment Area",
+      "servicesCavaArea": "Services and Wine Cellar Area",
+      "nivel01Spaces": "Study 24m², Bathroom 5m², Living Room 22m², Dining Room 15m², Kitchen 26m², Service 9m², Pantry 5m²",
+      "nivel02Spaces": "Master Bedroom 25m², Bathroom 12m², Walking Closet 9m², Bedroom 1: 21m², Bathroom 4m², Walking Closet 4m², Bedroom 2: 21m², Bathroom 4m², Walking Closet 4m², Family Room 33m²",
+      "nivel03Spaces": "Terrace 64m², Gym 28m², Bathroom 4m², Wellness Lounge 10m², ½ Bathroom 4m², Laundry 8m²",
+      "sotanoSpaces": "Machine room 11m², Cistern 8m², Storage 13m², Wine cellar 9m², Social area 23m²",
+      "conceivedDescription": "has been conceived from a contemporary design vision that stands out for its sober elegance and architectural lines",
+      "nivel01Features": [
+        "Exterior lobby framed by gardens with texture landscaping and color matrices",
+        "Interior lobby as a connecting thread for spectacular double height",
+        "Dining room crowning the space with double height",
+        "Avant-garde kitchen with timeless Black Mirror and White Mirror quartz",
+        "Contemporary design study with built-in furniture and decorative details",
+        "Independent access and full bathroom that allows transformation into private suite"
+      ],
+      "nivel02Features": [
+        "Spacious and bright Family Room as lobby to the three bedrooms",
+        "Each bedroom has private bathroom, walking closet and individual terrace",
+        "Terraces that connect the interiors with the landscape of the area",
+        "Master bedroom with linear design bathroom",
+        "Large format porcelain and spectacular Milky Way granite accent"
+      ],
+      "nivel03Features": [
+        "Designed to enhance wellness and social life",
+        "Gym with southeast views, perfect for receiving morning light",
+        "Wellness lounge with direct access to private bathroom",
+        "Two independent terraces for social atmosphere and private corner",
+        "Can be adapted as additional suite according to lifestyle needs"
+      ],
+      "sotanoFeatures": [
+        "Providing exclusivity, privacy and distinction",
+        "Tasting area and wine cellar creating the ideal atmosphere for delight",
+        "Storage area with versatile space for general storage"
+      ],
+      "architectureInspires": "Architecture that inspires. Design that embraces light.",
+      "newHomeExclusive": "Your new home in the most exclusive reserve.",
+      "yourNewHomeAwaits": "Your New Home Awaits You",
+      "schedulePersonalizedVisit": "Schedule a personalized visit and discover why Casa Ambar represents the future of residential luxury",
+      "levelDistribution": "Distribution by Levels",
+      "levelDistributionDesc": "Each level has been carefully designed to offer a unique experience of comfort and elegance",
+      "featuredCharacteristics": "Featured Characteristics",
+      "featuredCharacteristicsDesc": "Every detail has been thought to create an exceptional living experience",
+      "mainCharacteristics": "Main Characteristics",
+      "designDetails": "Design Details",
+      "virtualTour360": "360° Virtual Tour",
+      "photoGallery": "Photo Gallery",
+      "construction474": "474m² + terrace",
+      "constructionDetails": "474 m² + terrace / 300 m²",
+      "virtualTourTitle": "Virtual Tour",
+      "delivery": "Delivery",
+      "deliveryDate": "September 2025 + 6 months grace period",
+      "developedByExperts": "Developed by luxury construction experts with over 20 years of experience creating exceptional spaces.",
+      "features": {
+        "contemporaryDesign": "Contemporary Design",
+        "contemporaryDesignDesc": "Premium finishes and avant-garde architecture",
+        "walnutCarpentry": "Walnut Carpentry",
+        "walnutCarpentryDesc": "Noble woods that provide warmth and elegance",
+        "naturalLight": "Natural Light",
+        "naturalLightDesc": "Windows that flood all levels",
+        "ampleSocialAreas": "Ample Social Areas",
+        "ampleSocialAreasDesc": "Spaces designed for gathering and coexistence",
+        "serviceSpaces": "Service Spaces",
+        "serviceSpacesDesc": "Independent areas for maximum functionality",
+        "exclusiveLocation": "Exclusive Location",
+        "exclusiveLocationDesc": "In the heart of the most prestigious reserve"
+      },
+      "levelFeatures": {
+        "familyRoom": "Spacious and bright Family Room as lobby to the three bedrooms",
+        "eachBedroom": "Each bedroom has private bathroom, walking closet and individual terrace",
+        "terraces": "Terraces that connect interiors with the landscape of the area", 
+        "masterBedroom": "Master bedroom with linear design bathroom",
+        "porcelain": "Large format porcelain and spectacular Milky Way granite accent",
+        "exclusivity": "Providing exclusivity, privacy and distinction",
+        "tastingArea": "Tasting area and wine cellar creating the ideal atmosphere for delight",
+        "storageArea": "Storage area with versatile space for general storage"
+      },
+      "facadeDescription": "clean lines. Its facade combines noble materials, such as sintered stone and glass, with a contrasting chromatic palette and a modern composition that conveys exclusivity, balance and style.",
+      "levelDescription": "Each level has been conceived to provide spaciousness, comfort and connection with the exterior, integrating natural light as the main element. More than a house, it is a space designed to live with sophistication, privacy and harmony."
+    },
+    "skyview": {
+      "name": "Sky View",
+      "description": "Luxury apartments with panoramic views",
+      "features": ["Sky Terrace", "Panoramic Views", "Premium Finishes", "Smart Home Technology"]
+    },
+    "skyView": {
+      "name": "Sky View",
+      "luxuryDepartments": "Luxury Apartments",
+      "description": "Sky View redefines city living by combining tranquility with modernity. This residential development stands out for its contemporary architecture, designed to offer luxury, security and comfort. The impressive terraces provide extraordinary views to the golf course and a spectacular urban panorama.",
+      "totalSurface": "Total surface 332.96m²",
+      "deliveryDateValue": "May 2026 + 6 months grace period."
+    },
+    "blue": {
+      "name": "Blue",
+      "luxuryDepartments": "Luxury Apartments", 
+      "description": "Discover Blue by Bosque Real, a magnificent 30-level tower comprised of 120 apartments designed under high standards of comfort and security. Surrounded by lush gardens, it offers impressive views towards the golf course and panoramic to Interlomas and Bosques de las Lomas.",
+      "totalSurface": "Total surface 203.50 m²",
+      "deliveryDateValue": "Immediate delivery.",
+      "features": ["Contemporary Design", "Green Spaces", "Amenities", "Security"]
+    },
+    "nativ": {
+      "name": "Nativ",
+      "luxuryDepartments": "Luxury Apartments",
+      "description": "Nativ is a luxury development in Bosque Real, offering a modern and elegant architectural design. The units are equipped with high quality finishes and spacious interior areas that provide an exceptional living experience. Additionally, Nativ features amenities such as an exclusive lobby, rest areas and green spaces, promoting a comfortable and relaxing environment.",
+      "totalSurface": "Total surface 114.65m²",
+      "deliveryDateValue1": "Tower 1: February 2027 + 6 months grace period.",
+      "deliveryDateValue2": "Tower 2: March 2028 + 6 months grace period.",
+      "features": ["Eco-Friendly", "Natural Materials", "Energy Efficient", "Community Gardens"],
+      "highQualityFinishesDesc": "high quality finishes and spacious interior areas that provide",
+      "amenitiesDesc": "amenities such as an exclusive lobby, rest areas and spaces"
+    },
+    "nox": {
+      "name": "Nox",
+      "luxuryDepartments": "Luxury Apartments",
+      "description": "Nox is an exclusive development in Bosque Real, which stands out for its contemporary and sophisticated design. It has spacious and well-lit spaces, ideal for enjoying comfort and modern style. Among its amenities, you will find gym, relaxation areas and green spaces, perfect for a balanced lifestyle.",
+      "totalSurface": "Total surface 152.73m²",
+      "contemporarySophisticated": "contemporary and sophisticated design. It has spacious and",
+      "modernDesc": "modern. Among its amenities, you will find gym, areas of",
+      "relaxationGreenSpaces": "relaxation and green spaces, perfect for a lifestyle"
+    },
+    "ivy": {
+      "name": "Ivy",
+      "luxuryDepartments": "Luxury Apartments",
+      "description": "IVY is an impressive development in Bosque Real, characterized by its modern and aesthetic design. It offers spacious interior areas with high quality finishes, in addition to amenities such as gym, green areas and pool, promoting an active and comfortable lifestyle.",
+      "totalSurface": "Total surface 276.17m²",
+      "deliveryDateValue": "February 2025",
+      "highQualityFinishesAmenities": "high quality finishes, in addition to amenities such as gym, zones"
+    },
+    "reserva": {
+      "name": "La Reserva",
+      "residentialLots": "Residential Lots",
+      "description": "Reserva Bosque Real is a first-class residential development that offers single-family lots in a natural and safe environment, ideal for building the house of your dreams.",
+      "lotSizes": "From 294m² to 497.4m²",
+      "deliveryDateValue": "Reserva Ambar - Immediate Delivery.",
+      "fromTo": "From 294m² to 497.4m²",
+      "reservaAmbarImmediate": "Reserva Ambar - Immediate Delivery."
+    },
+    "life": {
+      "name": "Life",
+      "residentialLots": "Residential Lots",
+      "description": "Life in Bosque Real is much more than an investment opportunity; it is the possibility of living in an exclusive environment that combines luxury, security and harmony with nature.",
+      "lotSizes": "From 341m² to 884m²",
+      "deliveryDateValue": "Available now",
+      "fromTo": "From 341m² to 884m²"
+    },
+    "islaEncino": {
+      "name": "Isla del Encino",
+      "description1": "Isla del Encino is an exclusive residential community located within the prestigious Bosque Real development in Huixquilucan,",
+      "description2": "State of Mexico. This complex offers only 20 residential lots, creating an intimate and safe environment for its residents."
+    },
+    "elEnsueno": {
+      "name": "El Ensueño",
+      "natureHarmony": "nature plays in harmony with each of the residential lots"
+    },
+    "incanto": {
+      "name": "Incanto",
+      "luxuryDepartments": "Luxury Apartments",
+      "description": "Welcome to Incanto Residencial in Bosque Real, your own paradise within the city! Here, modernity and luxury merge with the splendor of nature to offer you a life of harmony, security and a unique experience.",
+      "totalSurface": "Total surface 362.09 m²",
+      "deliveryDateValue": "December 2024",
+      "welcomeMessage": "Welcome to Incanto Residencial in Bosque Real, your own paradise"
+    }
+  },
+  "chat": {
+    "withNiddia": "Chat with Niddia"
+  }
+}

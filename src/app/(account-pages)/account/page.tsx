@@ -1,3 +1,4 @@
+"use client";
 import React, { FC } from "react";
 import Label from "@/components/Label";
 import Avatar from "@/shared/Avatar";
@@ -5,14 +6,17 @@ import ButtonPrimary from "@/shared/ButtonPrimary";
 import Input from "@/shared/Input";
 import Select from "@/shared/Select";
 import Textarea from "@/shared/Textarea";
+import { useTranslation } from "@/hooks/useTranslation";
 
 export interface AccountPageProps {}
 
 const AccountPage = () => {
+  const { t } = useTranslation();
+  
   return (
     <div className="space-y-6 sm:space-y-8">
       {/* HEADING */}
-      <h2 className="text-3xl font-semibold">Account infomation</h2>
+      <h2 className="text-3xl font-semibold">{t("pages.account.title")}</h2>
       <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
       <div className="flex flex-col md:flex-row">
         <div className="flex-shrink-0 flex items-start">
@@ -35,7 +39,7 @@ const AccountPage = () => {
                 />
               </svg>
 
-              <span className="mt-1 text-xs">Change Image</span>
+              <span className="mt-1 text-xs">{t("common.changeImage") || "Change Image"}</span>
             </div>
             <input
               type="file"
@@ -45,7 +49,7 @@ const AccountPage = () => {
         </div>
         <div className="flex-grow mt-10 md:mt-0 md:pl-16 max-w-3xl space-y-6">
           <div>
-            <Label>Name</Label>
+            <Label>{t("form.name")}</Label>
             <Input className="mt-1.5" defaultValue="Eden Tuan" />
           </div>
           {/* ---- */}

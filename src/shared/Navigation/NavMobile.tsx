@@ -11,7 +11,8 @@ import SocialsList from "@/shared/SocialsList";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import SwitchDarkMode from "@/shared/SwitchDarkMode";
 import Link from "next/link";
-
+import LanguageToggle from "@/components/LanguageToggle";
+import { useTranslation } from "@/hooks/useTranslation";
 import Image from "next/image";
 export interface NavMobileProps {
   data?: NavItemType[];
@@ -22,6 +23,7 @@ const NavMobile: React.FC<NavMobileProps> = ({
   data = NAVIGATION_DEMO,
   onClickClose,
 }) => {
+  const { t } = useTranslation();
   const _renderMenuChild = (item: NavItemType) => {
     return (
       <ul className="nav-mobile-sub-menu pl-6 pb-1 text-base">
@@ -88,16 +90,17 @@ const NavMobile: React.FC<NavMobileProps> = ({
         />
         <div className="flex flex-col mt-5 text-neutral-700 dark:text-neutral-300 text-sm">
           <span>
-            Utilizo tecnología avanzada y mi profundo conocimiento sobre el
-            mercado inmobiliario para ayudarte a encontrar la propiedad
-            perfecta.
+            {t("niddia.description")}
           </span>
 
           <div className="flex justify-between items-center mt-4">
             <SocialsList itemClass="w-9 h-9 flex items-center justify-center rounded-full bg-neutral-100 text-xl dark:bg-neutral-800 dark:text-neutral-300" />
-            <span className="block">
-              <SwitchDarkMode className="bg-neutral-100 dark:bg-neutral-800" />
-            </span>
+            <div className="flex items-center gap-3">
+              <LanguageToggle />
+              <span className="block">
+                <SwitchDarkMode className="bg-neutral-100 dark:bg-neutral-800" />
+              </span>
+            </div>
           </div> 
         </div>
         <span className="absolute right-2 top-2 p-1">
@@ -114,7 +117,7 @@ const NavMobile: React.FC<NavMobileProps> = ({
           target="_blank"
           rel="noopener noreferrer"
         >
-          <ButtonPrimary>Platica con Niddia</ButtonPrimary>
+          <ButtonPrimary>{t("niddia.talkWithNiddia")}</ButtonPrimary>
         </a>
       </div>
     </div>

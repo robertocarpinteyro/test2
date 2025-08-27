@@ -4,6 +4,7 @@ import imagePng from "@/images/hero-right-3.png";
 import Image from "next/image";
 import BgStatus from "@/components/BgStatus";
 import HeroFilter from "@/components/HeroFilterNiddo";
+import { useTranslation } from "@/hooks/useTranslation";
 export interface SectionHero2Props {
   className?: string;
   children?: React.ReactNode;
@@ -25,12 +26,66 @@ export type CurrentSlideData = {
 };
 
 const SectionHero2: FC<SectionHero2Props> = ({ className = "", children }) => {
-  const [data, setData] = useState<Data[]>(sliderData.slice(1));
-  const [transitionData, setTransitionData] = useState<Data>(sliderData[0]);
+  const { t } = useTranslation();
+  
+  // Create translated slider data
+  const getTranslatedSliderData = () => [
+    {
+      img: "/img/casaAmbar.jpg",
+      title: t("hero.propertyTypes.houses"),
+      description: t("hero.descriptions.houses"),
+      entrega: "Septiembre 2025 + 6 meses de gracia.",
+      precioMinimo: "$19,5 mpd",
+      precioMaximo: "800",
+      superficieMinima: "474 + terraza",
+    },
+    {
+      img: "/img/skyview.jpg",
+      title: t("hero.propertyTypes.apartments"),
+      description: t("hero.descriptions.apartments"),
+      entrega: "Marzo 2025 + 6 meses de gracia.",
+      precioMinimo: "$7,980,000",
+      precioMaximo: "800",
+      superficieMinima: "114.65",
+    },
+    {
+      img: "/img/torreDesigno.jpg",
+      title: t("hero.propertyTypes.offices"),
+      description: t("hero.descriptions.offices"),
+      entrega: "",
+      precioMinimo: "$5,178,218.34",
+      precioMaximo: "800",
+      superficieMinima: "52.946",
+    },
+    {
+      img: "/img/Reserva.jpeg",
+      title: t("hero.propertyTypes.lots"),
+      description: t("hero.descriptions.lots"),
+      entrega: "",
+      precioMinimo: "$4,823,070",
+      precioMaximo: "800",
+      superficieMinima: "229.67",
+    },
+  ];
+  
+  const translatedSliderData = getTranslatedSliderData();
+  const [data, setData] = useState<Data[]>(translatedSliderData.slice(1));
+  const [transitionData, setTransitionData] = useState<Data>(translatedSliderData[0]);
   const [currentSlideData, setCurrentSlideData] = useState<CurrentSlideData>({
-    data: initData,
+    data: translatedSliderData[0],
     index: 0,
   });
+  
+  // Update slider data when language changes
+  useEffect(() => {
+    const newSliderData = getTranslatedSliderData();
+    setData(newSliderData.slice(1));
+    setTransitionData(newSliderData[0]);
+    setCurrentSlideData({
+      data: newSliderData[0],
+      index: 0,
+    });
+  }, [t]);
   return (
     
     <div id="inicio" className={`nc-SectionHero2 relative ${className}`}>
@@ -66,48 +121,4 @@ const SectionHero2: FC<SectionHero2Props> = ({ className = "", children }) => {
 
 export default SectionHero2;
 
-const sliderData = [
-  {
-    img: "/img/casaAmbar.jpg",
-    title: "Casas",
-    description:
-      "¿Sueñas con tu hogar ideal? Nosotros lo encontramos",
-    entrega: "Septiembre 2025 + 6 meses de gracia.",
-    precioMinimo: "$19,5 mpd",
-    precioMaximo: "800",
-    superficieMinima: "474 + terraza",
-  },
-  {
-    img: "/img/skyview.jpg",
-    title: "Departamentos",
-    description:
-      "¿Sueñas con tu hogar ideal? Nosotros lo encontramos",
-    entrega: "Marzo 2025 + 6 meses de gracia.",
-    precioMinimo: "$7,980,000",
-    precioMaximo: "800",
-    superficieMinima: "114.65",
-  },
-  {
-    img: "/img/torreDesigno.jpg",
-    title: "Oficinas",
-    description:
-      "Descubre nuestras oficinas en Bosque Real, un espacio ideal para el crecimiento de tu empresa.",
-    entrega: "",
-    precioMinimo: "$5,178,218.34",
-    precioMaximo: "800",
-    superficieMinima: "52.946",
-  },
-  {
-    img: "/img/Reserva.jpeg",
-    title: "Lotes",
-    description:
-      "En Niddo, te ofrecemos la oportunidad de construir la casa de tus sueños.",
-    entrega: "",
-    precioMinimo: "$4,823,070",
-    precioMaximo: "800",
-    superficieMinima: "229.67",
-  },
-  
-];
-
-const initData = sliderData[0];
+// Static data moved to component for translation support

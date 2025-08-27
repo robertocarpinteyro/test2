@@ -1,6 +1,7 @@
 "use client";
 import React, { FC } from "react";
 import { Data, CurrentSlideData } from "@/app/(server-components)/SectionHero2";
+import { useTranslation } from "@/hooks/useTranslation";
 
 export interface HeroFilterNiddoProps {
   currentSlideData: CurrentSlideData;
@@ -19,6 +20,8 @@ const HeroFilterNiddo: FC<HeroFilterNiddoProps> = ({
   handleCurrentSlideData,
   sliderData,
 }) => {
+  const { t } = useTranslation();
+  
   const handleSlideChange = (newData: Data, index: number) => {
     handleTransitionData(newData);
     handleCurrentSlideData({ data: newData, index });
@@ -46,16 +49,16 @@ const HeroFilterNiddo: FC<HeroFilterNiddoProps> = ({
       <div className="mt-6 bg-white rounded-lg shadow-md p-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
-            <h4 className="text-sm font-semibold text-gray-600 mb-1">Precio desde</h4>
+            <h4 className="text-sm font-semibold text-gray-600 mb-1">{t("hero.propertyDetails.priceFrom")}</h4>
             <p className="text-lg font-bold text-emerald-600">{currentSlideData.data.precioMinimo}</p>
           </div>
           <div>
-            <h4 className="text-sm font-semibold text-gray-600 mb-1">Superficie mínima</h4>
+            <h4 className="text-sm font-semibold text-gray-600 mb-1">{t("hero.propertyDetails.minSurface")}</h4>
             <p className="text-lg font-bold text-gray-900">{currentSlideData.data.superficieMinima} m²</p>
           </div>
           {currentSlideData.data.entrega && (
             <div>
-              <h4 className="text-sm font-semibold text-gray-600 mb-1">Entrega</h4>
+              <h4 className="text-sm font-semibold text-gray-600 mb-1">{t("hero.propertyDetails.delivery")}</h4>
               <p className="text-lg font-bold text-gray-900">{currentSlideData.data.entrega}</p>
             </div>
           )}

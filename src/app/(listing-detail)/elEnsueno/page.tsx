@@ -22,9 +22,11 @@ import GuestsInput from "./GuestsInput";
 import SectionDateRange from "../SectionDateRange";
 import { Route } from "next";
 import { Niddia } from "@/components/Niddia";
+import { useTranslation } from "@/hooks/useTranslation";
 export interface ListingStayDetailPageProps {}
 
 const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
+  const { t } = useTranslation();
   //
 
   {
@@ -115,13 +117,13 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
       <div className="listingSection__wrap !space-y-6">
         {/* 1 */}
         <div className="flex justify-between items-center">
-          <Badge name="Lotes Residenciales" />
+          <Badge name={t("developments.elEnsueno.residentialLots")} />
           <LikeSaveBtns />
         </div>
 
         {/* 2 */}
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
-          Ensueño
+          {t("developments.elEnsueno.name")}
         </h2>
 
         {/* 3 */}
@@ -129,7 +131,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           {/* <StartRating /> */}
           <span>·</span>
           <span>
-            <span className="ml-1"> Desarrollador</span>
+            <span className="ml-1"> {t("developments.common.developer")}</span>
             <Image
               src="https://res.cloudinary.com/dwrtldhxd/image/upload/v1734498384/BosqueReal_wo13lr.png"
               alt="Logo"
@@ -187,12 +189,11 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
   const renderSection2 = () => {
     return (
       <div className="listingSection__wrap">
-        <h2 className="text-2xl font-semibold">Información</h2>
+        <h2 className="text-2xl font-semibold">{t("developments.elEnsueno.information")}</h2>
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         <div className="text-neutral-6000 dark:text-neutral-300">
           <span>
-            Espectacular privada con hermosas vistas a la cañada, donde la
-            naturaleza juega en armonía con cada uno de los lotes residenciales
+            {t("developments.elEnsueno.description")}
           </span>
         </div>
       </div>
@@ -203,7 +204,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
     return (
       <div className="listingSection__wrap">
         <div>
-          <h2 className="text-2xl font-semibold">Amenidades </h2>
+          <h2 className="text-2xl font-semibold">{t("developments.elEnsueno.amenities")} </h2>
           <span className="block mt-2 text-neutral-500 dark:text-neutral-400">
             {``}
           </span>
@@ -275,7 +276,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
                       className="text-lg font-medium leading-6 text-gray-900"
                       id="headlessui-dialog-title-70"
                     >
-                      Amenidades
+                      {t("developments.elEnsueno.amenities")}
                     </h3>
                     <span className="absolute left-3 top-3">
                       <ButtonClose onClick={closeModalAmenities} />
@@ -490,7 +491,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
       <div className="listingSection__wrap">
         {/* HEADING */}
         <div>
-          <h2 className="text-2xl font-semibold">Úbicación</h2>
+          <h2 className="text-2xl font-semibold">{t("developments.elEnsueno.location")}</h2>
           <span className="block mt-2 text-neutral-500 dark:text-neutral-400">
             Bosque Real, Bosque Real, 52770 Naucalpan de Juárez, Méx.
           </span>
@@ -568,7 +569,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
     return (
       <div className="listingSection__wrap">
         {/* HEADING */}
-        <h2 className="text-2xl font-semibold">LOTIFICACIÓN</h2>
+        <h2 className="text-2xl font-semibold">{t("developments.elEnsueno.lotification")}</h2>
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
   
         {/* CONTENT */}
@@ -644,11 +645,11 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         {/* SUM */}
         <div className="flex flex-col space-y-4">
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-            <span>Superficie total 300.12 m² </span>
+            <span>{t("developments.elEnsueno.totalSurface")} </span>
           </div>
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-            <span>Fecha de entrega</span>
-            <span>Abril 2026 más 6 meses de gracia.</span>
+            <span>{t("developments.common.deliveryDate")}</span>
+            <span>{t("developments.elEnsueno.deliveryDateValue")}</span>
           </div>
           {/* <div className="border-b border-neutral-200 dark:border-neutral-700"></div>*/}
           <div className="flex justify-between font-semibold">
@@ -659,7 +660,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
 
         {/* SUBMIT */}
         <ButtonPrimary>
-          <a href="#niddia">Niddia Resolverá tus dudas.</a>
+          <a href="#niddia">{t("developments.common.niddiaHelp")}</a>
         </ButtonPrimary>
       </div>
     );
@@ -718,7 +719,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           >
             <Squares2X2Icon className="w-5 h-5" />
             <span className="ml-2 text-neutral-800 text-sm font-medium">
-              Ver todas las fotos
+              {t("developments.elEnsueno.viewAllPhotos")}
             </span>
           </button>
 
@@ -730,7 +731,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
             className="flex items-center px-4 py-2 rounded-xl bg-neutral-100 text-neutral-500 hover:bg-neutral-200"
           >
             <span className="text-neutral-800 text-sm font-medium">
-              Visita el recorrido virtual
+              {t("developments.elEnsueno.virtualTour")}
             </span>
           </a>
         </div>
