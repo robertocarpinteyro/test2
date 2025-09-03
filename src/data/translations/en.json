@@ -619,7 +619,24 @@
       "deliveryDate": "Delivery date",
       "from": "From",
       "priceFrom": "Price from",
-      "totalSurface": "Total surface"
+      "totalSurface": "Total surface",
+      "construction": "Construction",
+      "lot": "Lot",
+      "delivery": "Delivery",
+      "immediateDelivery": "Immediate Delivery",
+      "residentialLots": "Residential Lots",
+      "highQualityFinishes": "high quality finishes",
+      "contemporaryDesign": "contemporary design",
+      "spaciousAreas": "spacious areas",
+      "restAreas": "rest areas",
+      "greenSpaces": "green spaces",
+      "spa": "SPA",
+      "pool": "Pool",
+      "viewGallery": "View Gallery",
+      "swipeToDiscover": "Swipe to discover",
+      "talkWithNiddia": "Talk with Niddia",
+      "whatsapp": "WhatsApp",
+      "contactNiddia": "Contact Niddia"
     }
   },
   "metadata": {
