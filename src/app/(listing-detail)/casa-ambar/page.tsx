@@ -417,7 +417,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                         {t("developments.casaAmbar.mainCharacteristics")}
                       </h4>
                       <ul className="space-y-3">
-                        {level.features.slice(0, Math.ceil(level.features.length / 2)).map((feature: string, featureIndex: number) => (
+                        {Array.isArray(level.features) && level.features.slice(0, Math.ceil(level.features.length / 2)).map((feature: string, featureIndex: number) => (
                           <li key={featureIndex} className="flex items-start">
                             <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                             <span className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
@@ -432,7 +432,7 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
                         {t("developments.casaAmbar.designDetails")}
                       </h4>
                       <ul className="space-y-3">
-                        {level.features.slice(Math.ceil(level.features.length / 2)).map((feature: string, featureIndex: number) => (
+                        {Array.isArray(level.features) && level.features.slice(Math.ceil(level.features.length / 2)).map((feature: string, featureIndex: number) => (
                           <li key={featureIndex} className="flex items-start">
                             <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                             <span className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
