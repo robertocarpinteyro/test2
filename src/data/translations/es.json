@@ -375,8 +375,8 @@
       "lots": "Lotes"
     },
     "descriptions": {
-      "houses": "¿Sueñas con tu hogar ideal? Nosotros lo encontramos",
-      "apartments": "¿Sueñas con tu hogar ideal? Nosotros lo encontramos",
+      "houses": "Convertimos espacios de lujo en historias de vida",
+      "apartments": "Convertimos espacios de lujo en historias de vida",
       "offices": "Descubre nuestras oficinas en Bosque Real, un espacio ideal para el crecimiento de tu empresa.",
       "lots": "En Niddo, te ofrecemos la oportunidad de construir la casa de tus sueños."
     },
@@ -488,6 +488,7 @@
     "elEnsueno": "El Ensueño",
     "islaArbol": "Isla del Árbol",
     "islaEncino": "Isla del Encino",
+    "theResidences": "The Residences by Roche Bobois",
     "torreDesigno": {
       "name": "Torre Designo",
       "luxuryDepartments": "Departamentos de lujo",
@@ -502,15 +503,6 @@
       "luxuryDepartments": "Departamentos de lujo",
       "information": "Información",
       "amenities": "Amenidades", 
-      "location": "Ubicación",
-      "viewAllPhotos": "Ver todas las fotos",
-      "virtualTour": "Visita el recorrido virtual"
-    },
-    "theResidences": {
-      "name": "The Residences",
-      "luxuryDepartments": "Departamentos de lujo", 
-      "information": "Información",
-      "amenities": "Amenidades",
       "location": "Ubicación",
       "viewAllPhotos": "Ver todas las fotos",
       "virtualTour": "Visita el recorrido virtual"
@@ -984,6 +976,18 @@
       "deliveryDateValue": "Julio 2026 + 6 meses de gracia.",
       "location": "Ubicación",
       "viewAllPhotos": "Ver todas las fotos"
+    },
+    "theResidences": {
+      "name": "The Residences by Roche Bobois",
+      "luxuryDepartments": "Departamentos de lujo",
+      "information": "Información",
+      "amenities": "Amenidades",
+      "location": "Ubicación",
+      "viewAllPhotos": "Ver todas las fotos",
+      "virtualTour": "Visita el recorrido virtual",
+      "description": "Roche Bobois, la emblemática marca francesa de diseño de interiores con más de seis décadas de distinguida trayectoria, presenta por primera vez en México su concepto residencial de lujo: THE RESIDENCES BY ROCHE BOBOIS.",
+      "totalSurface": "Superficie total 496.61m²",
+      "deliveryDateValue": "Diciembre 2026 + 6 meses de gracia."
     }
   },
   "chat": {
