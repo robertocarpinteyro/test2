@@ -27,10 +27,8 @@ export interface ListingStayDetailPageProps {}
 
 const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
   const { t } = useTranslation();
-  //
 
-  {
-    /*useEffect(() => {
+  /*useEffect(() => {
     if (typeof window !== "undefined") {
       // Limpiar cookies relacionadas
       document.cookie.split(";").forEach((cookie) => {
@@ -77,7 +75,6 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
       };
     }
   }, []); // No necesita dependencia, ya que `window.location` es global*/
-  }
 
   let [isOpenModalAmenities, setIsOpenModalAmenities] = useState(false);
   const pathname = usePathname();
@@ -513,8 +510,8 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
       </div>
     );
   };
-  {
-    /*}  const niddia = () => {
+
+  /*const niddia = () => {
     return (
       <div id="niddia-section" className="listingSection__wrap">
         <iframe
@@ -535,7 +532,6 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
       </div>
     );
   };*/
-  }
 
   const renderSection8 = () => {
     return (
