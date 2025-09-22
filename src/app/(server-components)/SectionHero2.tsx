@@ -34,7 +34,7 @@ const SectionHero2: FC<SectionHero2Props> = ({ className = "", children }) => {
       img: "/img/casaAmbar.jpg",
       title: t("hero.propertyTypes.houses"),
       description: t("hero.descriptions.houses"),
-      entrega: "Septiembre 2025 + 6 meses de gracia.",
+      entrega: "Entrega inmediata.",
       precioMinimo: "$19,5 mpd",
       precioMaximo: "800",
       superficieMinima: "474 + terraza",
