@@ -1,5 +1,5 @@
 "use client";
-import React, { createContext, useState, useContext, ReactNode } from 'react';
+import { createContext, useState, useContext, ReactNode, useEffect } from 'react';
 
 interface TranslationContextType {
   locale: string;
@@ -7,31 +7,55 @@ interface TranslationContextType {
   t: (key: string, options?: { returnObjects?: boolean }) => any;
 }
 
-const TranslationContext = React.createContext<TranslationContextType | undefined>(undefined);
+// Create context with default value to prevent SSR issues
+const TranslationContext = createContext<TranslationContextType>({
+  locale: 'es',
+  setLocale: () => {},
+  t: (key: string) => key,
+});
 
 interface TranslationProviderProps {
   children: ReactNode;
 }
 
 export const TranslationProvider = ({ children }: TranslationProviderProps) => {
-  const [locale, setLocale] = React.useState('es'); // Default to Spanish
+  const [locale, setLocale] = useState('es'); // Default to Spanish
+  const [translations, setTranslations] = useState<any>({});
+  const [mounted, setMounted] = useState(false);
+
+  // Handle client-side mounting to prevent SSR hydration issues
+  useEffect(() => {
+    setMounted(true);
+    loadTranslations();
+  }, []);
+
+  useEffect(() => {
+    if (mounted) {
+      loadTranslations();
+    }
+  }, [locale, mounted]);
 
   // Import translation files dynamically
-  const getTranslations = () => {
+  const loadTranslations = async () => {
     try {
-      if (locale === 'es') {
-        return require('@/data/translations/es.json');
-      } else {
-        return require('@/data/translations/en.json');
+      if (typeof window !== 'undefined') {
+        const translationModule = locale === 'es'
+          ? await import('@/data/translations/es.json')
+          : await import('@/data/translations/en.json');
+        setTranslations(translationModule.default || translationModule);
       }
     } catch (error) {
       console.error('Translation file not found:', error);
-      return {};
+      setTranslations({});
     }
   };
 
   const t = (key: string, options?: { returnObjects?: boolean }) => {
-    const translations = getTranslations();
+    // Return key during SSR or before translations are loaded
+    if (!mounted || !translations || Object.keys(translations).length === 0) {
+      return key;
+    }
+
     const keys = key.split('.');
     let translation: any = translations;
 
@@ -39,7 +63,9 @@ export const TranslationProvider = ({ children }: TranslationProviderProps) => {
       if (translation && translation[k] !== undefined) {
         translation = translation[k];
       } else {
-        console.warn(`Translation key "${key}" not found for locale "${locale}"`);
+        if (mounted) {
+          console.warn(`Translation key "${key}" not found for locale "${locale}"`);
+        }
         translation = null;
       }
     });
@@ -59,9 +85,6 @@ export const TranslationProvider = ({ children }: TranslationProviderProps) => {
 };
 
 export const useTranslation = () => {
-  const context = React.useContext(TranslationContext);
-  if (context === undefined) {
-    throw new Error('useTranslation must be used within a TranslationProvider');
-  }
+  const context = useContext(TranslationContext);
   return context;
 };
