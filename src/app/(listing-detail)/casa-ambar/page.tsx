@@ -551,11 +551,6 @@ const CasaAmbarLandingPage: FC<CasaAmbarLandingPageProps> = ({}) => {
         description: t("developments.casaAmbar.features.contemporaryDesignDesc"),
       },
       {
-        icon: "🌳",
-        title: t("developments.casaAmbar.features.walnutCarpentry"),
-        description: t("developments.casaAmbar.features.walnutCarpentryDesc"),
-      },
-      {
         icon: "☀️",
         title: t("developments.casaAmbar.features.naturalLight"),
         description: t("developments.casaAmbar.features.naturalLightDesc"),
