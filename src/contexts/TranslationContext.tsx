@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useState, useContext, ReactNode } from 'react';
+import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 interface TranslationContextType {
   locale: string;
@@ -7,14 +7,14 @@ interface TranslationContextType {
   t: (key: string, options?: { returnObjects?: boolean }) => any;
 }
 
-const TranslationContext = createContext<TranslationContextType | undefined>(undefined);
+const TranslationContext = React.createContext<TranslationContextType | undefined>(undefined);
 
 interface TranslationProviderProps {
   children: ReactNode;
 }
 
 export const TranslationProvider = ({ children }: TranslationProviderProps) => {
-  const [locale, setLocale] = useState('es'); // Default to Spanish
+  const [locale, setLocale] = React.useState('es'); // Default to Spanish
 
   // Import translation files dynamically
   const getTranslations = () => {
@@ -59,7 +59,7 @@ export const TranslationProvider = ({ children }: TranslationProviderProps) => {
 };
 
 export const useTranslation = () => {
-  const context = useContext(TranslationContext);
+  const context = React.useContext(TranslationContext);
   if (context === undefined) {
     throw new Error('useTranslation must be used within a TranslationProvider');
   }

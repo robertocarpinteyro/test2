@@ -14,7 +14,8 @@
       "Bash(git push:*)",
       "Bash(git restore:*)",
       "Bash(node:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(del /S /Q .next)"
     ],
     "deny": []
   }
