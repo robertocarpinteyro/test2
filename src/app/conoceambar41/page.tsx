@@ -14,6 +14,7 @@ export default function ConoceAmbar41() {
 
     loadCSS('/conoceambar41/vendor/reset.min.css');
     loadCSS('/conoceambar41/style.css');
+    loadCSS('/conoceambar41/fixes.css');
 
     // Load scripts in order
     const loadScript = (src: string): Promise<void> => {
@@ -40,11 +41,13 @@ export default function ConoceAmbar41() {
 
     // Add body class and load scripts
     document.body.classList.add('multiple-scenes');
+    document.body.classList.add('view-control-buttons');
     loadAllScripts();
 
     // Cleanup on unmount
     return () => {
       document.body.classList.remove('multiple-scenes');
+      document.body.classList.remove('view-control-buttons');
     };
   }, []);
 

@@ -1,0 +1,100 @@
+/* Fixes for visibility and opacity issues */
+
+/* Improve scene list visibility */
+#sceneList .scenes {
+  background-color: rgba(58,68,84,0.95) !important;
+  backdrop-filter: blur(5px);
+}
+
+#sceneList .scene .text {
+  color: #ffffff !important;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+#sceneList .scene:hover,
+#sceneList .scene.current {
+  background-color: rgba(103,115,131,0.95) !important;
+}
+
+/* Improve title bar visibility */
+#titleBar .sceneName {
+  background-color: rgba(58,68,84,0.95) !important;
+  color: #ffffff !important;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+  backdrop-filter: blur(5px);
+}
+
+/* Improve control buttons visibility */
+#sceneListToggle,
+#autorotateToggle,
+#fullscreenToggle {
+  background-color: rgba(103,115,131,0.95) !important;
+  backdrop-filter: blur(5px);
+  border-radius: 4px;
+}
+
+/* Hide view control buttons (arrows at bottom) */
+.viewControlButton {
+  display: none !important;
+}
+
+/* Ensure view control buttons stay hidden on all screen sizes */
+body.view-control-buttons .viewControlButton {
+  display: none !important;
+}
+
+@media (max-width: 600px) {
+  .viewControlButton {
+    display: none !important;
+  }
+  body.view-control-buttons .viewControlButton {
+    display: none !important;
+  }
+}
+
+/* Show hotspots - remove previous hiding rules */
+.link-hotspot {
+  display: block !important;
+}
+
+/* Show link.png images */
+img[src*="link.png"] {
+  display: block !important;
+}
+
+/* Show hotspot elements */
+.hotspot {
+  display: block !important;
+}
+
+/* Ensure icons are visible for top controls only */
+.icon {
+  filter: brightness(1.2) contrast(1.1);
+}
+
+/* Fix icon positioning for top controls only */
+#sceneListToggle .icon,
+#autorotateToggle .icon,
+#fullscreenToggle .icon {
+  opacity: 1 !important;
+  display: block !important;
+}
+
+/* Ensure proper z-index for scene list */
+#sceneList {
+  z-index: 1000;
+}
+
+/* Mobile improvements */
+@media (max-width: 500px), (max-height: 500px) {
+  #sceneList .scene .text {
+    font-size: 14px;
+    line-height: 40px;
+  }
+
+  #titleBar .sceneName {
+    font-size: 14px;
+  }
+}
