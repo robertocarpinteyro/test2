@@ -476,7 +476,7 @@ var APP_DATA = {
     },
     {
       "id": "9-zotano",
-      "name": "Zotano",
+      "name": "Sótano",
       "levels": [
         {
           "tileSize": 256,

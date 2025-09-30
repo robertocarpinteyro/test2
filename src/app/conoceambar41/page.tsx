@@ -91,7 +91,7 @@ export default function ConoceAmbar41() {
             <li className="text">Baño Oficina</li>
           </a>
           <a href="#" onClick={handleVoidClick} className="scene" data-id="9-zotano">
-            <li className="text">Zotano</li>
+            <li className="text">Sótano</li>
           </a>
           <a href="#" onClick={handleVoidClick} className="scene" data-id="10-cuartomaquinas">
             <li className="text">CuartoMaquinas</li>
