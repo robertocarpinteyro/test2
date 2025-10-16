@@ -39,7 +39,7 @@ export default function ConoceAmbar41() {
       }
     };
 
-    // Add body class and load scripts
+    // Add body classes and load scripts
     document.body.classList.add('multiple-scenes');
     document.body.classList.add('view-control-buttons');
     loadAllScripts();
@@ -53,6 +53,18 @@ export default function ConoceAmbar41() {
 
   const handleVoidClick = (e: React.MouseEvent) => {
     e.preventDefault();
+  };
+
+  const handleSceneListToggle = (e: React.MouseEvent) => {
+    e.preventDefault();
+    // Let the Marzipano JavaScript handle the toggle
+    const sceneList = document.querySelector('#sceneList');
+    const sceneListToggle = document.querySelector('#sceneListToggle');
+
+    if (sceneList && sceneListToggle) {
+      sceneList.classList.toggle('enabled');
+      sceneListToggle.classList.toggle('enabled');
+    }
   };
 
   return (
@@ -196,7 +208,7 @@ export default function ConoceAmbar41() {
         <img className="icon on" src="/conoceambar41/img/windowed.png" alt="Windowed" />
       </a>
 
-      <a href="#" onClick={handleVoidClick} id="sceneListToggle">
+      <a href="#" onClick={handleSceneListToggle} id="sceneListToggle">
         <img className="icon off" src="/conoceambar41/img/expand.png" alt="Expand" />
         <img className="icon on" src="/conoceambar41/img/collapse.png" alt="Collapse" />
       </a>

@@ -1,0 +1,5 @@
+# Directorio para almacenar archivos PDF
+
+Coloca tus archivos PDF en este directorio para que estén disponibles para descarga.
+
+Ejemplo: `public/Ambar/ejemplo.pdf` estará disponible en `/api/Ambar/ejemplo.pdf`
