@@ -13,40 +13,10 @@ const PDFDownloadButton: React.FC<PDFDownloadButtonProps> = ({
   buttonText = 'Descargar PDF',
   className = '',
 }) => {
-  const handleDownload = async () => {
-    try {
-      // Hacer la petición al API route
-      const response = await fetch(`/api/Ambar/${filename}`);
-
-      if (!response.ok) {
-        throw new Error('Error al descargar el archivo');
-      }
-
-      // Convertir la respuesta a blob
-      const blob = await response.blob();
-
-      // Crear un URL temporal para el blob
-      const url = window.URL.createObjectURL(blob);
-
-      // Crear un elemento <a> temporal para iniciar la descarga
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = filename;
-      document.body.appendChild(link);
-      link.click();
-
-      // Limpiar
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error('Error al descargar el PDF:', error);
-      alert('Error al descargar el archivo. Por favor, intenta nuevamente.');
-    }
-  };
-
   return (
-    <button
-      onClick={handleDownload}
+    <a
+      href={`/Ambar/${filename}`}
+      download
       className={`inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 ${className}`}
     >
       <svg
@@ -64,7 +34,7 @@ const PDFDownloadButton: React.FC<PDFDownloadButtonProps> = ({
         />
       </svg>
       {buttonText}
-    </button>
+    </a>
   );
 };
 
